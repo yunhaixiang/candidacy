@@ -272,7 +272,7 @@
 \subsection{Notations}\label{subsec:notation-style}
 
 
-Motivated by the growing interest in the formalization of mathematics, we adopt notation inspired by type theory throughout this write-up, without committing to type-theoretic foundations (foundational issues are irrelevant to this write-up). The symbols below denote types or categories depending on your preference, where \(X:\mathsf{T}\) denotes that \(X\) is a term of type \(\mathsf{T}\), or an object of the category \(\mathsf{T}\).
+Motivated by the growing interest in the formalization of mathematics within the mathematical community, we adopt a style of notation inspired by type theory throughout this write-up, without committing to type-theoretic foundations (foundational questions lie outside the scope of this write-up). The symbols below denote types and/or categories depending on your philosophical inclination, where \(X:\mathsf{T}\) denotes that \(X\) is a term of type \(\mathsf{T}\), or an object of the category \(\mathsf{T}\).
 \begin{typetable}
   \mathsf{Set} & Sets \\
   \mathsf{Set}^{\mathrm{fin}} & Finite sets \\
@@ -316,9 +316,9 @@ Motivated by the growing interest in the formalization of mathematics, we adopt 
 \end{custom}
 \subsection{Motivations}\label{subsec:motivations}
 
-Monodromy groups are interesting mathematical objects that arise naturally in both geometric and arithmetic contexts. Controlling and understanding monodromy groups has been a central topic in both of these worlds. 
+\textit{Monodromy groups} are interesting mathematical objects that arise naturally in both geometric and arithmetic contexts. Controlling and understanding monodromy groups has been a central theme in both of these worlds, with significant applications.
 
-On the geometric side, 
+On the geometric side, investigation of monodromy goes back to Riemann. 
 
 
 \begin{custom}[]{A Question in Complex Geometry}
@@ -345,12 +345,26 @@ In \cref{sec:middle-convolution}
 
 In \cref{sec:hyperelliptic-monodromy}
 
+In \cref{sec:formalization}
+
 \subsection{Acknowledgements}\label{subsec:acknowledgements}
 
-The author thanks his advisor Prof. Chris Hall for his tremendous help.
+The author thanks his advisor, Prof. Chris Hall, for his guidance and advice.
 
 \begin{custom}[]{Declaration of AI Use}
+The use of generative AI in the preparation of this write-up was limited to the following purposes: 
+polishing wording, phrasing, spelling, grammar, and formatting; 
+offering linguistic advice; 
+answering mathematical questions from the author to help him learn the subject;
+searching and citing appropriate references; 
+translating reading materials in French into English; 
+retypesetting old references with archaic typesetting for the author's sanity;
+providing emotional support for the author;
+providing fitness advice for the author to stay healthy and energetic. 
+\end{custom}
 
+\begin{custom}[]{Typesetting}
+The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
 \end{custom}
 
 \section{Local Systems and Lisse Sheaves}\label{sec:local-systems}
@@ -372,9 +386,10 @@ The author thanks his advisor Prof. Chris Hall for his tremendous help.
 \section{Middle Convolution and Monodromy Groups}\label{sec:middle-convolution}
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
 
-% Add citations with \cite{Katz1996}; entries live in references.bib.
-% Uncomment the bibliography line when you add your first citation.
+\section{Formalization in Lean}\label{sec:formalization}
+
+% Bibliography entries live in references.bib.
 \bibliographystyle{alpha}
-% \bibliography{references}
+\bibliography{references}
 
 \end{document}
