@@ -1,0 +1,253 @@
+{
+  "source_pdf": "book/source/pdf/source.pdf",
+  "page_images": {
+    "directory": "book/source/img",
+    "filename_pattern": "{pdf_page}.png",
+    "pdf_page_equals_image_number": true,
+    "total_pages": 219,
+    "image_size_px": {
+      "width": 1700,
+      "height": 2200
+    }
+  },
+  "navigation_notes": [
+    "This index was made by visual inspection of the rendered page images, not OCR.",
+    "The printed running headers use local page numbers such as Introduction-1 or Chapter 5-...-21.",
+    "For main chapters, local chapter page N corresponds to pdf_page = chapter_start_pdf_page + N - 1.",
+    "References use local headers References-1 through References-5 on pdf pages 215 through 219."
+  ],
+  "front_matter": [
+    {
+      "kind": "table_of_contents",
+      "title": "Contents",
+      "pdf_page_start": 1,
+      "pdf_page_end": 3,
+      "image_start": "book/source/img/1.png",
+      "image_end": "book/source/img/3.png"
+    }
+  ],
+  "main_matter": [
+    {
+      "kind": "introduction",
+      "title": "Introduction",
+      "pdf_page_start": 4,
+      "pdf_page_end": 12,
+      "local_header": "Introduction",
+      "local_page_start": 1,
+      "local_page_end": 9,
+      "image_start": "book/source/img/4.png",
+      "image_end": "book/source/img/12.png"
+    },
+    {
+      "kind": "chapter",
+      "number": 1,
+      "title": "First results on rigid local systems",
+      "pdf_page_start": 13,
+      "pdf_page_end": 34,
+      "local_page_start": 1,
+      "local_page_end": 22,
+      "image_start": "book/source/img/13.png",
+      "image_end": "book/source/img/34.png",
+      "sections_from_toc": [
+        { "number": "1.0", "title": "Generalities concerning rigid local systems over C" },
+        { "number": "1.1", "title": "The case of genus zero" },
+        { "number": "1.2", "title": "The case of higher genus" },
+        { "number": "1.3", "title": "The case of genus one" },
+        { "number": "1.4", "title": "The case of genus one: detailed analysis" }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "number": 2,
+      "title": "The theory of middle convolution",
+      "pdf_page_start": 35,
+      "pdf_page_end": 90,
+      "local_page_start": 1,
+      "local_page_end": 56,
+      "image_start": "book/source/img/35.png",
+      "image_end": "book/source/img/90.png",
+      "sections_from_toc": [
+        { "number": "2.0", "title": "Transition from irreducible local systems on open sets of P^1 to irreducible middle extension sheaves on A^1" },
+        { "number": "2.1", "title": "Transition from irreducible middle extension sheaves on A^1 to irreducible perverse sheaves on A^1" },
+        { "number": "2.2", "title": "Review of D^b_c(X, Qbar_l)" },
+        { "number": "2.3", "title": "Review of perverse sheaves" },
+        { "number": "2.4", "title": "Review of Fourier Transform" },
+        { "number": "2.5", "title": "Review of convolution" },
+        { "number": "2.6", "title": "Convolution operators on the category of perverse sheaves: middle convolution" },
+        { "number": "2.7", "title": "Interlude: middle direct images (relative dimension one)" },
+        { "number": "2.8", "title": "Middle additive convolution via middle direct image" },
+        { "number": "2.9", "title": "Middle additive convolution with Kummer sheaves" },
+        { "number": "2.10", "title": "Interpretation of middle additive convolution via Fourier Transform" },
+        { "number": "2.11", "title": "Invertible objects on A^1 in characteristic zero" },
+        { "number": "2.12", "title": "Musings on *mid-invertible objects in P in the G_m case" },
+        { "number": "2.13", "title": "Interlude: surprising relations between *mid on A^1 and on G_m" },
+        { "number": "2.14", "title": "Interpretive remark: Fourier-Bessel Transform" },
+        { "number": "2.15", "title": "Questions about the situation in several variables" },
+        { "number": "2.16", "title": "Questions about the situation on elliptic curves" },
+        { "number": "2.17", "title": "Appendix 1: the basic lemma on end-exact functors" },
+        { "number": "2.18", "title": "Appendix 2: twisting representations by characters" }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "number": 3,
+      "title": "Fourier Transform and rigidity",
+      "pdf_page_start": 91,
+      "pdf_page_end": 110,
+      "local_page_start": 1,
+      "local_page_end": 20,
+      "image_start": "book/source/img/91.png",
+      "image_end": "book/source/img/110.png",
+      "sections_from_toc": [
+        { "number": "3.0", "title": "Fourier Transform and index of rigidity" },
+        { "number": "3.1", "title": "Lemmas on representations of inertia groups" },
+        { "number": "3.2", "title": "Interlude: the operation tensor_mid" },
+        { "number": "3.3", "title": "Applications to middle additive convolution" },
+        { "number": "3.4", "title": "Some open questions about local Fourier Transform" }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "number": 4,
+      "title": "Middle convolution: dependence on parameters",
+      "pdf_page_start": 111,
+      "pdf_page_end": 119,
+      "local_page_start": 1,
+      "local_page_end": 9,
+      "image_start": "book/source/img/111.png",
+      "image_end": "book/source/img/119.png",
+      "sections_from_toc": [
+        { "number": "4.0", "title": "Good schemes" },
+        { "number": "4.1", "title": "The basic setting" },
+        { "number": "4.2", "title": "Basic results in the basic setting" },
+        { "number": "4.3", "title": "Middle convolution in the basic setting" }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "number": 5,
+      "title": "Structure of rigid local systems",
+      "pdf_page_start": 120,
+      "pdf_page_end": 150,
+      "local_page_start": 1,
+      "local_page_end": 31,
+      "image_start": "book/source/img/120.png",
+      "image_end": "book/source/img/150.png",
+      "sections_from_toc": [
+        { "number": "5.0", "title": "Cohomological rigidity" },
+        { "number": "5.1", "title": "The category T_l, and the functors MC_chi and MT_L" },
+        { "number": "5.2", "title": "The main theorem on the structure of rigid local systems" },
+        { "number": "5.3", "title": "Applications and Interpretations of the main theorem" },
+        { "number": "5.4", "title": "Some open questions" },
+        { "number": "5.5", "title": "Existence of universal families of rigids with given local monodromy" },
+        { "number": "5.6", "title": "Remark on braid groups" },
+        { "number": "5.7", "title": "Universal families without quasiunipotence" },
+        { "number": "5.8", "title": "The complex analytic situation" },
+        { "number": "5.9", "title": "Return to the original question" }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "number": 6,
+      "title": "Existence algorithm for rigids",
+      "pdf_page_start": 151,
+      "pdf_page_end": 166,
+      "local_page_start": 1,
+      "local_page_end": 16,
+      "image_start": "book/source/img/151.png",
+      "image_end": "book/source/img/166.png",
+      "sections_from_toc": [
+        { "number": "6.0", "title": "Numerical invariants" },
+        { "number": "6.1", "title": "Numerical incarnation: the group NumData" },
+        { "number": "6.2", "title": "A compatibility theorem" },
+        { "number": "6.3", "title": "Realizable and plausible elements" },
+        { "number": "6.4", "title": "Existence algorithm for rigids" },
+        { "number": "6.5", "title": "An example" },
+        { "number": "6.6", "title": "Open questions" },
+        { "number": "6.7", "title": "Action of automorphisms" },
+        { "number": "6.8", "title": "A remark and a question" }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "number": 7,
+      "title": "Diophantine aspects of rigidity",
+      "pdf_page_start": 167,
+      "pdf_page_end": 179,
+      "local_page_start": 1,
+      "local_page_end": 13,
+      "image_start": "book/source/img/167.png",
+      "image_end": "book/source/img/179.png",
+      "sections_from_toc": [
+        { "number": "7.0", "title": "Diophantine criterion for irreducibility" },
+        { "number": "7.1", "title": "Diophantine criterion for rigidity" },
+        { "number": "7.2", "title": "Appendix: a counterexample" }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "number": 8,
+      "title": "Motivic description of rigids",
+      "pdf_page_start": 180,
+      "pdf_page_end": 193,
+      "local_page_start": 1,
+      "local_page_end": 14,
+      "image_start": "book/source/img/180.png",
+      "image_end": "book/source/img/193.png",
+      "sections_from_toc": [
+        { "number": "8.0", "title": "The basic setting" },
+        { "number": "8.1", "title": "Interlude: Kummer sheaves" },
+        { "number": "8.2", "title": "Naive convolution on (A^1 - {T_1, ..., T_n})_{S_{N,n,l}}" },
+        { "number": "8.3", "title": "Middle convolution on (A^1 - {T_1, ..., T_n})_{S_{N,n,l}}" },
+        { "number": "8.4", "title": "Geometric description of all tame rigids with quasi-unipotent local monodromy" },
+        { "number": "8.5", "title": "A remark and a question" }
+      ]
+    },
+    {
+      "kind": "chapter",
+      "number": 9,
+      "title": "Grothendieck's p-curvature conjecture for rigids",
+      "pdf_page_start": 194,
+      "pdf_page_end": 214,
+      "local_page_start": 1,
+      "local_page_end": 21,
+      "image_start": "book/source/img/194.png",
+      "image_end": "book/source/img/214.png",
+      "sections_from_toc": [
+        { "number": "9.0", "title": "Introduction" },
+        { "number": "9.1", "title": "Review of Grothendieck's p-curvature conjecture" },
+        { "number": "9.2", "title": "Interlude: Picard-Fuchs equations and some variants" },
+        { "number": "9.3", "title": "The main result of [Ka-ASDE] and a generalization" },
+        { "number": "9.4", "title": "Application to rigid local systems" },
+        { "number": "9.5", "title": "Comments and questions" }
+      ]
+    }
+  ],
+  "back_matter": [
+    {
+      "kind": "bibliography",
+      "title": "References",
+      "pdf_page_start": 215,
+      "pdf_page_end": 219,
+      "local_header": "References",
+      "local_page_start": 1,
+      "local_page_end": 5,
+      "image_start": "book/source/img/215.png",
+      "image_end": "book/source/img/219.png"
+    }
+  ],
+  "quick_lookup": {
+    "toc": [1, 3],
+    "introduction": [4, 12],
+    "chapter_1": [13, 34],
+    "chapter_2": [35, 90],
+    "chapter_3": [91, 110],
+    "chapter_4": [111, 119],
+    "chapter_5": [120, 150],
+    "chapter_6": [151, 166],
+    "chapter_7": [167, 179],
+    "chapter_8": [180, 193],
+    "chapter_9": [194, 214],
+    "references": [215, 219]
+  }
+}

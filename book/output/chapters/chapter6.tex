@@ -1,0 +1,697 @@
+\chapter{Existence algorithm for rigids}
+\label{chap:6}
+\setcounter{section}{-1}
+
+\section{Numerical invariants}
+\label{sec:6.0}
+
+\sourcepara{6.0.1}
+To motivate this section, let us fix an algebraically closed field \(k\), and a prime number \(\ell\ne\operatorname{char}(k)\). Let us fix also a finite subset \(D\) of \(\mathbb{A}^1(k)\) with \(\operatorname{Card}(D)\geq 2\). Suppose we are given an object \(\mathcal{F}\) in \(\mathcal{T}_\ell\) which is lisse on \(\mathbb{A}^1-D\), of rank \(r(\mathcal{F})\). Then for any point \(s\) in \(D\amalg\{\infty\}\), \(\mathcal{F}\) gives rise to a representation \(\mathcal{F}(s)\) of \(I(s)^{\mathrm{tame}}\), which we write as a direct sum, over characters \(\chi\) of \(\pi_1(\mathbb{G}_m)^{\mathrm{tame}}\), of representations of \(I(s)^{\mathrm{tame}}\) of the following form:
+\[
+\begin{aligned}
+\text{for }s\in D:\quad
+\mathcal{F}(s)&=\bigoplus_\chi \mathcal{L}_{\chi(x-s)}\otimes\operatorname{Unip}(s,\chi,\mathcal{F}),\\
+\text{for }s=\infty:\quad
+\mathcal{F}(\infty)&=\bigoplus_\chi \mathcal{L}_{\chi(x)}\otimes\operatorname{Unip}(\infty,\chi,\mathcal{F}).
+\end{aligned}
+\]
+(With this naming convention for the characters, if we start with a rank one object \(\mathcal{F}\), and denote by \(\chi_s\) the unique character \(\rho\) of \(\pi_1(\mathbb{G}_m)^{\mathrm{tame}}\) for which \(e_1(s,\rho,\mathcal{F})=1\), the characters \(\chi_s\) are related by the formula \(\chi_\infty=\prod_{s\in D}\chi_s\).)
+
+\sourcepara{6.0.2}
+For each of the unipotent representations \(\operatorname{Unip}(s,\chi,\mathcal{F})\), we denote by
+\[
+e_1(\alpha,\chi,\mathcal{F})\geq e_2(\alpha,\chi,\mathcal{F})\geq\cdots\geq e_k(\alpha,\chi,\mathcal{F})=0\quad\text{for }k\gg 0
+\]
+the sequence of integers defined by
+\[
+e_j(\alpha,\chi,\mathcal{F}) := \text{the number of Jordan blocks in }\operatorname{Unip}(\alpha,\chi,\mathcal{F})\text{ whose dimension is }\geq j.
+\]
+
+\sourcepara{6.0.3}
+The fact that each \(\mathcal{F}(s)\) is an \(r(\mathcal{F})\)-dimensional representation gives the relations:
+\[
+\text{for each }s\in D\amalg\{\infty\},\quad \sum_{i,\chi} e_i(s,\chi,\mathcal{F})=r(\mathcal{F}).
+\]
+
+\sourcepara{6.0.4}
+Recall (\hyperref[cor:3.3.6]{Corollary~3.3.6} and \hyperref[cor:3.3.7]{Corollary~3.3.7}) that there exists an \(I(\infty)^{\mathrm{tame}}\)-representation \(M(\infty,\mathcal{F})\) attached to this situation, with the two properties:
+\[
+\begin{aligned}
+M(\infty,\mathcal{F})/M(\infty,\mathcal{F})^{I(\infty)}&\cong \mathcal{F}(\infty),\\
+\operatorname{rank}(M(\infty,\mathcal{F}))&=\sum_{s\in D}\bigl(r(\mathcal{F})-e_1(s,\mathbf{1},\mathcal{F})\bigr).
+\end{aligned}
+\]
+
+\sourcepara{6.0.5}
+These two properties allow us to calculate the invariants attached to \(M(\infty,\mathcal{F})\), which we will denote as \(E_i(\infty,\chi,\mathcal{F})\). The recipe is
+\[
+\begin{aligned}
+E_i(\infty,\chi,\mathcal{F})&=e_i(\infty,\chi,\mathcal{F})\quad\text{if }\chi\ne\mathbf{1},\\
+E_{i+1}(\infty,\mathbf{1},\mathcal{F})&=e_i(\infty,\mathbf{1},\mathcal{F})\quad\text{for }i\geq 1,\\
+E_1(\infty,\mathbf{1},\mathcal{F})&=\operatorname{rank}(M(\infty,\mathcal{F}))-r(\mathcal{F}).
+\end{aligned}
+\]
+
+\sourcepara{6.0.6}
+We introduce the notation
+\[
+m(\mathcal{F}) := \sum_{s\in D}\bigl(r(\mathcal{F})-e_1(s,\mathbf{1},\mathcal{F})\bigr).
+\]
+Thus \(m(\mathcal{F})\) is simply the rank of \(M(\infty,\mathcal{F})\), and we have the relations,
+\[
+\begin{aligned}
+\sum_{i,\chi} E_i(\infty,\chi,\mathcal{F})&=m(\mathcal{F}),\\
+E_1(\infty,\mathbf{1},\mathcal{F})&=m(\mathcal{F})-r(\mathcal{F}).
+\end{aligned}
+\]
+
+\sourcepara{6.0.7}
+Let us remark in passing that the inequality
+\[
+E_1(\infty,\mathbf{1},\mathcal{F})\geq E_2(\infty,\mathbf{1},\mathcal{F})
+\]
+may be rewritten as
+\[
+m(\mathcal{F})-r(\mathcal{F})\geq e_1(\infty,\mathbf{1},\mathcal{F}).
+\]
+
+\sourcepara{6.0.8}
+There are a priori linear dependences among these data. If we are given the integer \(r(\mathcal{F})\) and all the integers \(e_i(s,\chi,\mathcal{F})\) for all \(s\) in \(D\amalg\{\infty\}\), we may compute \(m(\mathcal{F})\) and all the integers \(E_i(\infty,\chi,\mathcal{F})\). Conversely, if we are given the integers \(E_i(\infty,\chi,\mathcal{F})\) and all the integers \(e_i(s,\chi,\mathcal{F})\) for \(s\) in \(D\), we may compute both \(m(\mathcal{F})\) (namely \(\sum_{i,\chi}E_i(\infty,\chi,\mathcal{F})\)), \(r(\mathcal{F})\) (namely \(m(\mathcal{F})-E_1(\infty,\mathbf{1},\mathcal{F})\)), and the \(e_i(\infty,\chi,\mathcal{F})\).
+
+\sourcepara{6.0.9}
+The reason for presenting the data in both
+\[
+(r,\text{ all }e_i)\quad\text{and}\quad(m,E_i\text{ at }\infty,r,e_i\text{ at points of }D)
+\]
+formats will become clear when we analyze the effects of the operations \(\mathcal{F}\mapsto \operatorname{MT}_{\mathcal{L}}(\mathcal{F})\) and \(\mathcal{F}\mapsto \operatorname{MC}_\chi(\mathcal{F})\) on this numerical data.
+
+\sourcepara{6.0.10}
+We begin with the more straightforward of the two, \(\mathcal{F}\mapsto \operatorname{MT}_{\mathcal{L}}(\mathcal{F})\). For each \(s\) in \(D\amalg\{\infty\}\), we denote by \(\chi_{s,\mathcal{L}}\) the unique character \(\rho\) with \(e_1(s,\rho,\mathcal{L})=1\). Then we have
+\[
+\begin{aligned}
+r(\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))&=r(\mathcal{F}),\\
+e_i(s,\rho\chi_{s,\mathcal{L}},\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))&=e_i(s,\rho,\mathcal{F})\quad\text{for all }s\in D\amalg\{\infty\},\ i,\ \rho.
+\end{aligned}
+\]
+
+\sourcepara{6.0.11}
+We now turn to the case of \(\mathcal{F}\mapsto \operatorname{MC}_\chi(\mathcal{F})\). According to \hyperref[cor:3.3.6]{Corollary~3.3.6} and \hyperref[cor:3.3.7]{Corollary~3.3.7}, we have \(M(\infty,\operatorname{MC}_\chi(\mathcal{F}))\cong M(\infty,\mathcal{F})\otimes\mathcal{L}_\chi\). This gives the relations
+\[
+\begin{aligned}
+m(\operatorname{MC}_\chi(\mathcal{F}))&=m(\mathcal{F}),\\
+E_i(\infty,\rho\chi,\operatorname{MC}_\chi(\mathcal{F}))&=E_i(\infty,\rho,\mathcal{F})\quad\text{for all }i\text{ and }\rho.
+\end{aligned}
+\]
+It allows us to compute all the integers \(E_i(\infty,\rho,\operatorname{MC}_\chi(\mathcal{F}))\), so in particular to compute
+\[
+r(\operatorname{MC}_\chi(\mathcal{F}))=m(\operatorname{MC}_\chi(\mathcal{F}))-E_1(\infty,\mathbf{1},\operatorname{MC}_\chi(\mathcal{F})).
+\]
+
+\sourcepara{6.0.12}
+We know that for \(s\) in \(D\), the local monodromies of \(\mathcal{F}\) and of \(\operatorname{MC}_\chi(\mathcal{F})\) are related by
+\[
+\operatorname{MC}_\chi(\mathcal{F})(s)/\operatorname{MC}_\chi(\mathcal{F})(s)^{I(s)}
+\cong \bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr)\otimes\mathcal{L}_{\chi(x-s)}.
+\]
+
+\sourcepara{6.0.13}
+Thus we may compute most of the invariants of \(\operatorname{MC}_\chi(\mathcal{F})(s)\):
+\[
+\begin{aligned}
+e_i(s,\rho\chi,\operatorname{MC}_\chi(\mathcal{F}))&=e_i(s,\rho,\mathcal{F})\quad\text{if }\rho\ne\mathbf{1}\text{ and }\rho\chi\ne\mathbf{1},\\
+e_{i+1}(s,\mathbf{1},\operatorname{MC}_\chi(\mathcal{F}))&=e_i(s,\chi^{-1},\mathcal{F}),\\
+e_1(s,\chi,\operatorname{MC}_\chi(\mathcal{F}))&=e_{i+1}(s,\mathbf{1},\mathcal{F}).
+\end{aligned}
+\]
+
+\sourcepara{6.0.14}
+Only \(e_1(s,\mathbf{1},\operatorname{MC}_\chi(\mathcal{F}))\) now remains uncomputed, and it is given by equating ranks in the above isomorphism \hyperref[par:6.0.12]{(6.0.12)} of \(I(s)^{\mathrm{tame}}\)-representations:
+\[
+r(\operatorname{MC}_\chi(\mathcal{F}))-e_1(s,\mathbf{1},\operatorname{MC}_\chi(\mathcal{F}))
+=r(\mathcal{F})-e_1(s,\mathbf{1},\mathcal{F}).
+\]
+
+\sourcepara{6.0.15}
+It will also be convenient to give two expressions for the index of rigidity
+\[
+\chi(\mathbb{P}^1,j_*\mathcal{E}nd(\mathcal{F}\vert\mathbb{A}^1-D))
+\]
+in terms of the numerical data. The first expression is
+\[
+\begin{aligned}
+\chi(\mathbb{P}^1,j_*\mathcal{E}nd(\mathcal{F}\vert\mathbb{A}^1-D))
+&=\chi(\mathbb{A}^1-D,\mathcal{E}nd(\mathcal{F}))
+ +\sum_{s\in D\amalg\{\infty\}}\dim\bigl(\operatorname{End}_{I(s)}(\mathcal{F}(s))\bigr)\\
+&=\chi(\mathbb{A}^1-D,\mathcal{E}nd(\mathcal{F}))
+ +\sum_{s\in D\amalg\{\infty\}}\sum_{i,\chi} e_i(s,\chi,\mathcal{F})^2\\
+&=(1-\operatorname{Card}(D))r(\mathcal{F})^2
+ +\sum_{s\in D\amalg\{\infty\}}\sum_{i,\chi} e_i(s,\chi,\mathcal{F})^2.
+\end{aligned}
+\]
+This expression makes it numerically obvious (it is already conceptually obvious!) that \(\operatorname{MT}_{\mathcal{L}}(\mathcal{F})\) has the same index of rigidity as does \(\mathcal{F}\).
+
+\sourcepara{6.0.16}
+The second expression for the index of rigidity is more complicated-looking, but it has the merit that is a sum of terms, indexed by the points of \(D\amalg\{\infty\}\), each of which is visibly the same for \(\mathcal{F}\) and for \(\operatorname{MC}_\chi(\mathcal{F})\). So this formula has the merit of making numerically obvious the fact that \(\mathcal{F}\) and \(\operatorname{MC}_\chi(\mathcal{F})\) have the same index of rigidity.
+
+\sourceheading[lem:6.0.17]{Lemma 6.0.17}
+In the situation \hyperref[par:6.0.1]{(6.0.1)}, for \(\mathcal{F}\) in \(\mathcal{T}_\ell\) lisse on \(\mathbb{A}^1-D\), its index of rigidity is given by
+\[
+\begin{aligned}
+\chi(\mathbb{P}^1,j_*\mathcal{E}nd(\mathcal{F}\vert\mathbb{A}^1-D))
+&=\{-m(\mathcal{F})^2+\sum_{i,\chi}E_i(\infty,\chi,\mathcal{F})^2\}\\
+&\quad+\sum_{s\in D}\left\{(r(\mathcal{F})-e_1(s,\mathbf{1},\mathcal{F}))^2
++\sum_{(i,\chi)\ne(1,\mathbf{1})}e_i(s,\chi,\mathcal{F})^2\right\}.
+\end{aligned}
+\]
+\begin{proof}
+We begin with the first expression for the index:
+\[
+\begin{aligned}
+\chi(\mathbb{P}^1,j_*\mathcal{E}nd(\mathcal{F}\vert\mathbb{A}^1-D))
+&=(1-\operatorname{Card}(D))r(\mathcal{F})^2+\sum_{s\in D\amalg\{\infty\}}\sum_{i,\chi}e_i(s,\chi,\mathcal{F})^2\\
+&=(1-\operatorname{Card}(D))r(\mathcal{F})^2+\sum_{i,\chi}e_i(\infty,\chi,\mathcal{F})^2
+ +\sum_{s\in D}\sum_{i,\chi}e_i(s,\chi,\mathcal{F})^2\\
+&=(1-\operatorname{Card}(D))r(\mathcal{F})^2-E_1(\infty,\mathbf{1},\mathcal{F})^2+\sum_{i,\chi}E_i(\infty,\chi,\mathcal{F})^2\\
+&\quad+\sum_{s\in D}\left\{e_1(s,\mathbf{1},\mathcal{F})^2
+ +\sum_{(i,\chi)\ne(1,\mathbf{1})}e_i(s,\chi,\mathcal{F})^2\right\}.
+\end{aligned}
+\]
+Comparing this with the asserted value, namely
+\[
+\begin{aligned}
+\{-m(\mathcal{F})^2+\sum_{i,\chi}E_i(\infty,\chi,\mathcal{F})^2\}
++\sum_{s\in D}\left\{(r(\mathcal{F})-e_1(s,\mathbf{1},\mathcal{F}))^2
++\sum_{(i,\chi)\ne(1,\mathbf{1})}e_i(s,\chi,\mathcal{F})^2\right\},
+\end{aligned}
+\]
+it remains to prove
+\[
+\begin{aligned}
+(1-\operatorname{Card}(D))r(\mathcal{F})^2-E_1(\infty,\mathbf{1},\mathcal{F})^2+\sum_{s\in D}e_1(s,\mathbf{1},\mathcal{F})^2
+=-m(\mathcal{F})^2+\sum_{s\in D}(r(\mathcal{F})-e_1(s,\mathbf{1},\mathcal{F}))^2.
+\end{aligned}
+\]
+We rewrite this as
+\[
+\begin{aligned}
+r(\mathcal{F})^2-E_1(\infty,\mathbf{1},\mathcal{F})^2+m(\mathcal{F})^2
+=\sum_{s\in D}\{(r(\mathcal{F})-e_1(s,\mathbf{1},\mathcal{F}))^2+r(\mathcal{F})^2-e_1(s,\mathbf{1},\mathcal{F})^2\}.
+\end{aligned}
+\]
+Using the identity
+\[
+m(\mathcal{F})-r(\mathcal{F})=E_1(\infty,\mathbf{1},\mathcal{F}),
+\]
+this reduces to
+\[
+\begin{aligned}
+r(\mathcal{F})^2-(m(\mathcal{F})-r(\mathcal{F}))^2+m(\mathcal{F})^2
+=\sum_{s\in D}\{(r(\mathcal{F})-e_1(s,\mathbf{1},\mathcal{F}))^2+r(\mathcal{F})^2-e_1(s,\mathbf{1},\mathcal{F})^2\},
+\end{aligned}
+\]
+which we rewrite
+\[
+2r(\mathcal{F})m(\mathcal{F})=\sum_{s\in D}\{2r(\mathcal{F})^2-2r(\mathcal{F})e_1(s,\mathbf{1},\mathcal{F})\}.
+\]
+Factoring out \(2r(\mathcal{F})\) from both sides, we find the definition of \(m(\mathcal{F})\),
+\[
+m(\mathcal{F})=\sum_{s\in D}\{r(\mathcal{F})-e_1(s,\mathbf{1},\mathcal{F})\}.
+\]
+\end{proof}
+
+\section{Numerical incarnation: the group
+\texorpdfstring{\(\operatorname{NumData}\)}{NumData}}
+\label{sec:6.1}
+
+\sourcepara{6.1.1}
+We now abstract the numerical data attached to an object \(\mathcal{F}\) in \(\mathcal{T}_\ell\) which is lisse on \(\mathbb{A}^1-D\), and for which all characters occurring in all local monodromies of \(\mathcal{F}\) lie in a fixed subgroup \(\Gamma\) of the group of all characters of \(\pi_1(\mathbb{G}_m)\).
+
+\sourcepara{6.1.2}
+Thus we fix:
+\begin{enumerate}[label=(\roman*)]
+\item a finite set \(D\) with \(\operatorname{Card}(D)\geq 2\),
+\item a set \(\{\infty\}\) with one element,
+\item an abelian group \(\Gamma\), with identity element denoted \(\mathbf{1}\).
+\end{enumerate}
+We define the abelian group \(\operatorname{NumData}(D,\Gamma)\) as follows: an element \(\mathfrak{N}\) of \(\operatorname{NumData}(D,\Gamma)\) is a quadruple \((r,m,e,E)\) consisting of
+\begin{enumerate}[label=(\arabic*)]
+\item an integer \(r(\mathfrak{N})\),
+\item an integer \(m(\mathfrak{N})\),
+\item a \(\mathbb{Z}\)-valued function \(e\) on the product set \((\mathbb{Z}_{\geq 1})\times(D\amalg\{\infty\})\times\Gamma\), which we also view as a collection of integers \(e_i(s,\chi,\mathfrak{N})\), one for every integer \(i\geq 1\), every \(\chi\) in \(\Gamma\), and every \(s\) in \(D\amalg\{\infty\}\),
+\item a \(\mathbb{Z}\)-valued function \(E\) on the product set \((\mathbb{Z}_{\geq 1})\times(\{\infty\})\times\Gamma\), which we also view as a collection of integers \(E_i(\infty,\chi,\mathfrak{N})\) for every \(i\geq 1\) and every \(\chi\) in \(\Gamma\),
+\end{enumerate}
+and which satisfies the following conditions:
+\begin{enumerate}[label=(\arabic*)]
+\item the function \(e\) has finite support, and for each \(s\) in \(D\amalg\{\infty\}\), we have \(\sum_{i,\chi}e_i(s,\chi,\mathfrak{N})=r(\mathfrak{N})\),
+\item \(m(\mathfrak{N})=\sum_{s\in D}\{r(\mathfrak{N})-e_1(s,\mathbf{1},\mathfrak{N})\}\),
+\item \(E_1(\infty,\mathbf{1},\mathfrak{N})=m(\mathfrak{N})-r(\mathfrak{N})\),
+\item the integers \(E_i(\infty,\chi,\mathfrak{N})\) and \(e_i(\infty,\chi,\mathfrak{N})\) are related by
+\[
+\begin{aligned}
+E_i(\infty,\chi,\mathfrak{N})&=e_i(\infty,\chi,\mathfrak{N})\quad\text{if }\chi\ne\mathbf{1},\\
+E_{i+1}(\infty,\mathbf{1},\mathfrak{N})&=e_i(\infty,\mathbf{1},\mathfrak{N})\quad\text{for all }i\geq 1,
+\end{aligned}
+\]
+\item the function \(E\) has finite support, and \(\sum_{i,\chi}E_i(\infty,\chi,\mathfrak{N})=m(\mathfrak{N})\).
+\end{enumerate}
+
+\sourcepara{6.1.3}
+Addition in \(\operatorname{NumData}(D,\Gamma)\) is defined componentwise.
+
+\sourcepara{6.1.4}
+There is a great deal of redundancy in this presentation of an element \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\). An element \(\mathfrak{N}\) is determined by the data \((r(\mathfrak{N}),e)\), which is subject only to condition (i). (Then use (ii) to find \(m(\mathfrak{N})\), then (iii) to find \(E_1(\infty,\mathbf{1},\mathfrak{N})\), then (iv) to define all \(E_i(\infty,\chi,\mathfrak{N})\); (v) will be automatic, as it is implied by (ii), (iii) and (iv).)
+
+\sourcepara{6.1.5}
+Alternatively, an element \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) is determined by the data
+\[
+(r(\mathfrak{N}),m(\mathfrak{N}),e\text{ restricted to }(\mathbb{Z}_{\geq 1})\times D\times\Gamma,E),
+\]
+which is subject only to (ii), (iii), (v) and to
+\begin{enumerate}[label={(\roman* not \(\infty\))}, widest={(i not \(\infty\))}, leftmargin=*]
+\item the function \(e\) on \((\mathbb{Z}_{\geq 1})\times D\times\Gamma\) has finite support, and for each \(s\) in \(D\), we have \(\sum_{i,\chi}e_i(s,\chi,\mathfrak{N})=r(\mathfrak{N})\).
+\end{enumerate}
+
+\sourcepara{6.1.6}
+We define an even \(\mathbb{Z}\)-valued quadratic form, called the index of rigidity, denoted ``rig'', on \(\operatorname{NumData}(D,\Gamma)\) by either of the following equivalent (\(\mathrm{cf.}\) the proof of \hyperref[lem:6.0.17]{Lemma~6.0.17}) formulas:
+\[
+\begin{aligned}
+\operatorname{rig}(\mathfrak{N})&:=(1-\operatorname{Card}(D))r(\mathfrak{N})^2
++\sum_{s\in D\amalg\{\infty\}}\sum_{i,\chi}e_i(s,\chi,\mathfrak{N})^2,\\
+\operatorname{rig}(\mathfrak{N})&:=\{-m(\mathfrak{N})^2+\sum_{i,\chi}E_i(\infty,\chi,\mathfrak{N})^2\}\\
+&\quad+\sum_{s\in D}\left\{(r(\mathfrak{N})-e_1(s,\mathbf{1},\mathfrak{N}))^2
++\sum_{(i,\chi)\ne(1,\mathbf{1})}e_i(s,\chi,\mathfrak{N})^2\right\}.
+\end{aligned}
+\]
+
+\sourcepara{6.1.7}
+Given an element \(\chi\ne\mathbf{1}\) in \(\Gamma\), we define an endomorphism \(\operatorname{MC}_\chi\) of \(\operatorname{NumData}(D,\Gamma)\) as follows: given \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\), \(\operatorname{MC}_\chi(\mathfrak{N})\) is given as follows:
+\begin{enumerate}[label=(\arabic*)]
+\item \(m(\operatorname{MC}_\chi(\mathfrak{N})):=m(\mathfrak{N})\),
+\item \(E_i(\infty,\rho\chi,\operatorname{MC}_\chi(\mathfrak{N})):=E_i(\infty,\rho,\mathfrak{N})\) for all \(i\) and \(\rho\),
+\item \(r(\operatorname{MC}_\chi(\mathfrak{N})):=m(\operatorname{MC}_\chi(\mathfrak{N}))-E_1(\infty,\mathbf{1},\operatorname{MC}_\chi(\mathfrak{N}))\),
+\item for \(s\) in \(D\),
+\[
+\begin{aligned}
+e_i(s,\rho\chi,\operatorname{MC}_\chi(\mathfrak{N}))&:=e_i(s,\rho,\mathfrak{N})\quad\text{if }\rho\ne\mathbf{1}\text{ and }\rho\chi\ne\mathbf{1},\\
+e_1(s,\chi,\operatorname{MC}_\chi(\mathfrak{N}))&:=e_{i+1}(s,\mathbf{1},\mathfrak{N}),\\
+e_{i+1}(s,\mathbf{1},\operatorname{MC}_\chi(\mathfrak{N}))&:=e_i(s,\chi^{-1},\mathfrak{N}),\\
+e_1(s,\mathbf{1},\operatorname{MC}_\chi(\mathfrak{N}))&:=r(\operatorname{MC}_\chi(\mathfrak{N}))-r(\mathfrak{N})+e_1(s,\mathbf{1},\mathfrak{N}).
+\end{aligned}
+\]
+\end{enumerate}
+It is useful to rewrite the fourth formula in (4) in the more symmetric form
+\[
+r(\operatorname{MC}_\chi(\mathfrak{N}))-e_1(s,\mathbf{1},\operatorname{MC}_\chi(\mathfrak{N}))
+=r(\mathfrak{N})-e_1(s,\mathbf{1},\mathfrak{N}),
+\]
+and to rewrite (3) as well:
+\[
+r(\operatorname{MC}_\chi(\mathfrak{N}))+E_1(\infty,\chi^{-1},\mathfrak{N})=m(\mathfrak{N}).
+\]
+
+\sourceheading[lem:6.1.8]{Lemma 6.1.8}
+For each \(\chi\ne\mathbf{1}\) in \(\Gamma\), the operator \(\mathfrak{N}\mapsto\operatorname{MC}_\chi(\mathfrak{N})\) is an orthogonal automorphism of \(\operatorname{NumData}(D,\Gamma)\), with inverse \(\operatorname{MC}_{\chi^{-1}}\). Moreover, if also \(\rho\ne\mathbf{1}\) in \(\Gamma\), then
+\[
+\operatorname{MC}_\rho\circ\operatorname{MC}_\chi=\operatorname{MC}_{\rho\chi},\quad\text{if }\rho\chi\ne\mathbf{1}.
+\]
+\begin{proof}
+Given \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\), the above formulas define all of the quantities
+\[
+(r,m,e\text{ restricted to }(\mathbb{Z}_{\geq 1})\times D\times\Gamma,E)
+\]
+needed to define \(\operatorname{MC}_\chi(\mathfrak{N})\), but we must show that \(\operatorname{MC}_\chi(\mathfrak{N})\) satisfies the relations which characterize elements of \(\operatorname{NumData}(D,\Gamma)\). That \(e\) and \(E\) have finite support is obvious from the definitions (and the fact that \(\mathfrak{N}\) was in \(\operatorname{NumData}(D,\Gamma)\)). Relation (ii) holds, thanks to (1) and the symmetric form of the fourth formula in (4). Relation (iii) holds by definition, and relation (v) holds by (1) and (2). To verify the rank formulas in ``(i) not \(\infty\)'', rewrite
+\[
+r(\operatorname{MC}_\chi(\mathfrak{N}))=\sum_{i,\rho}e_i(s,\rho,\operatorname{MC}_\chi(\mathfrak{N}))
+\]
+as
+\[
+r(\operatorname{MC}_\chi(\mathfrak{N}))-e_1(s,\mathbf{1},\operatorname{MC}_\chi(\mathfrak{N}))
+=\sum_{(i,\rho)\ne(1,\mathbf{1})}e_i(s,\rho,\operatorname{MC}_\chi(\mathfrak{N})).
+\]
+By the first three formulas in (4), the right hand side is
+\[
+\begin{aligned}
+\sum_{(i,\rho)\ne(1,\mathbf{1})}e_i(s,\rho,\operatorname{MC}_\chi(\mathfrak{N}))
+&=\sum_{i\geq2}e_i(s,\mathbf{1},\operatorname{MC}_\chi(\mathfrak{N}))
+ +\sum_{i\geq1}e_i(s,\chi,\operatorname{MC}_\chi(\mathfrak{N}))\\
+&\quad+\sum_{i,\rho\ne\mathbf{1},\chi}e_i(s,\rho,\operatorname{MC}_\chi(\mathfrak{N}))\\
+&=\sum_{i\geq1}e_i(s,\chi^{-1},\mathfrak{N})
+ +\sum_{i\geq2}e_i(s,\mathbf{1},\mathfrak{N})
+ +\sum_{i,\rho\ne\mathbf{1},\chi^{-1}}e_i(s,\rho,\mathfrak{N})\\
+&=\sum_{i,\rho}e_i(s,\rho,\mathfrak{N})-e_1(s,\mathbf{1},\mathfrak{N})\\
+&=r(\mathfrak{N})-e_1(s,\mathbf{1},\mathfrak{N})\\
+&=r(\operatorname{MC}_\chi(\mathfrak{N}))-e_1(s,\mathbf{1},\operatorname{MC}_\chi(\mathfrak{N})),
+\end{aligned}
+\]
+this last equality by the symmetric form of the fourth formula in (4). This shows that \(\operatorname{MC}_\chi\) does in fact map \(\operatorname{NumData}(D,\Gamma)\) to itself.
+
+That \(\operatorname{MC}_\chi\) is orthogonal is obvious from the second formula for the quadratic form,
+\[
+\begin{aligned}
+\operatorname{rig}(\mathfrak{N})
+&:=\{-m(\mathfrak{N})^2+\sum_{i,\chi}E_i(\infty,\chi,\mathfrak{N})^2\}\\
+&\quad+\sum_{s\in D}\left\{(r(\mathfrak{N})-e_1(s,\mathbf{1},\mathfrak{N}))^2
++\sum_{(i,\chi)\ne(1,\mathbf{1})}e_i(s,\chi,\mathfrak{N})^2\right\},
+\end{aligned}
+\]
+which writes it as a sum of terms each invariant by \(\mathfrak{N}\mapsto\operatorname{MC}_\chi(\mathfrak{N})\).
+
+To show that \((\operatorname{MC}_{\chi^{-1}})\circ\operatorname{MC}_\chi=\operatorname{id}\), we argue as follows. That this is true for \(m\) and \(E\) is obvious from the definitions. That it is true for \(r\) follows from (3),
+\[
+r(\operatorname{MC}_\chi(\mathfrak{N}))=m(\mathfrak{N})-E_1(\infty,\chi^{-1},\mathfrak{N}),
+\]
+which applied to \(\operatorname{MC}_{\chi^{-1}}(\operatorname{MC}_\chi(\mathfrak{N}))\) gives
+\[
+\begin{aligned}
+r(\operatorname{MC}_{\chi^{-1}}(\operatorname{MC}_\chi(\mathfrak{N})))
+&=m(\operatorname{MC}_\chi(\mathfrak{N}))-E_1(\infty,\chi,\operatorname{MC}_\chi(\mathfrak{N}))\\
+&=m(\mathfrak{N})-E_1(\infty,\mathbf{1},\mathfrak{N}),\quad\text{using (1) and (2),}\\
+&=r(\mathfrak{N}),\quad\text{by (3).}
+\end{aligned}
+\]
+Once we know this, then
+\[
+e_1(s,\mathbf{1},\operatorname{MC}_{\chi^{-1}}(\operatorname{MC}_\chi(\mathfrak{N})))=e_1(s,\mathbf{1},\mathfrak{N})
+\]
+follows from a double application of the symmetric form of the fourth formula in (4). Similarly, from the third and second formulas in (4), we get
+\[
+\begin{aligned}
+e_{i+1}(s,\mathbf{1},\operatorname{MC}_{\chi^{-1}}(\operatorname{MC}_\chi(\mathfrak{N})))&=e_i(s,\chi,\operatorname{MC}_\chi(\mathfrak{N}))=e_{i+1}(s,\mathbf{1},\mathfrak{N}),\\
+e_i(s,\chi^{-1},\operatorname{MC}_{\chi^{-1}}(\operatorname{MC}_\chi(\mathfrak{N})))&=e_{i+1}(s,\mathbf{1},\operatorname{MC}_\chi(\mathfrak{N}))=e_i(s,\chi^{-1},\mathfrak{N}).
+\end{aligned}
+\]
+For \(\rho\ne\mathbf{1}\) and \(\rho\chi^{-1}\ne\mathbf{1}\), the first formula in (4) gives
+\[
+e_i(s,\rho\chi^{-1},\operatorname{MC}_{\chi^{-1}}(\operatorname{MC}_\chi(\mathfrak{N})))=e_i(s,\rho,\operatorname{MC}_\chi(\mathfrak{N}))=e_i(s,\rho\chi^{-1},\mathfrak{N}).
+\]
+This concludes the proof that \(\operatorname{MC}_{\chi^{-1}}\circ\operatorname{MC}_\chi=\operatorname{id}\).
+
+That \(\operatorname{MC}_\rho\circ\operatorname{MC}_\chi=\operatorname{MC}_{\rho\chi}\) if \(\rho\chi\ne\mathbf{1}\) is shown in an altogether similar way: one first checks on \(m\), then on \(E\), then on \(r\), then on \(e_1(s,\mathbf{1},\operatorname{MC}_\rho(\operatorname{MC}_\chi(\mathfrak{N})))\), then on \(e_{i+1}(s,\mathbf{1},\operatorname{MC}_\rho(\operatorname{MC}_\chi(\mathfrak{N})))\), then on \(e_i(s,\rho,\operatorname{MC}_\rho(\operatorname{MC}_\chi(\mathfrak{N})))\), and finally on \(e_i(s,\Lambda,\operatorname{MC}_\rho(\operatorname{MC}_\chi(\mathfrak{N})))\) for any \(\Lambda\) other than \(\mathbf{1}\) or \(\rho\).
+\end{proof}
+
+\sourcepara{6.1.9}
+Suppose now we are given an element \(\mathcal{L}\) in the group \(\operatorname{Maps}(D,\Gamma)\) of all maps of sets from \(D\) to \(\Gamma\) (the group structure by pointwise multiplication of values). We write
+\[
+s\mapsto \chi_{s,\mathcal{L}}
+\]
+for the map given by \(\mathcal{L}\), and we define
+\[
+\chi_{\infty,\mathcal{L}}:=\prod_{s\in D}\chi_{s,\mathcal{L}}.
+\]
+We write the multiplication in \(\operatorname{Maps}(D,\Gamma)\) as \(\mathcal{L}_1\otimes\mathcal{L}_2\).
+
+\sourcepara{6.1.10}
+Given an element \(\mathcal{L}\) in \(\operatorname{Maps}(D,\Gamma)\), we define an endomorphism \(\operatorname{MT}_{\mathcal{L}}\) of \(\operatorname{NumData}(D,\Gamma)\) as follows. We work in the \((r,e)\) presentation of elements of \(\operatorname{NumData}(D,\Gamma)\). Given \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\), we define
+\[
+\begin{aligned}
+r(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))&:=r(\mathfrak{N}),\\
+e_i(s,\rho\chi_{s,\mathcal{L}},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))&:=e_i(s,\rho,\mathfrak{N})
+\end{aligned}
+\]
+for any \((i,s,\rho)\) in \((\mathbb{Z}_{\geq 1})\times(D\amalg\{\infty\})\times\Gamma\).
+
+\sourceheading[lem:6.1.11]{Lemma 6.1.11}
+Given \(\mathcal{L}\) in \(\operatorname{Maps}(D,\Gamma)\), the operator \(\mathfrak{N}\mapsto\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})\) is an orthogonal automorphism of \(\operatorname{NumData}(D,\Gamma)\), with inverse \(\operatorname{MT}_{\mathcal{L}^{-1}}\). Moreover, given \(\mathcal{L}_1\) and \(\mathcal{L}_2\) in \(\operatorname{Maps}(D,\Gamma)\), we have
+\[
+\operatorname{MT}_{\mathcal{L}_2}\circ\operatorname{MT}_{\mathcal{L}_1}=\operatorname{MT}_{\mathcal{L}_1\otimes\mathcal{L}_2}.
+\]
+\begin{proof}
+Clear, using the first formula of \hyperref[par:6.1.6]{(6.1.6)} for the quadratic form.
+\end{proof}
+
+\sourcepara{6.1.12}
+We can construct a graph whose vertices are the elements of \(\operatorname{NumData}(D,\Gamma)\), and in which there is an edge joining two elements \(\mathfrak{M}\) and \(\mathfrak{N}\), if either of the following conditions (1) or (2) holds:
+\begin{enumerate}[label=(\arabic*)]
+\item \(\mathfrak{M}\) and \(\mathfrak{N}\) each have \(r\geq 2\), and there is an \(\mathcal{L}\) in \(\operatorname{Maps}(D,\Gamma)\) such that \(\mathfrak{M}=\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})\), or equivalently \(\mathfrak{N}=\operatorname{MT}_{\mathcal{L}^{-1}}(\mathfrak{M})\),
+\item for some \(\chi\ne\mathbf{1}\) in \(\Gamma\), \(\mathfrak{M}=\operatorname{MC}_\chi(\mathfrak{N})\), or equivalently \(\mathfrak{N}=\operatorname{MC}_{\chi^{-1}}(\mathfrak{M})\).
+\end{enumerate}
+
+\section{A compatibility theorem}
+\label{sec:6.2}
+
+\sourcepara{6.2.1}
+Let \(k\) be an algebraically closed field, \(\ell\ne\operatorname{char}(k)\) a prime number, \(D\) a finite subset of \(\mathbb{A}^1(k)\) with \(\operatorname{Card}(D)\geq 2\), and \(\Gamma\) a subgroup of the group of all continuous \(\overline{\mathbb{Q}}_\ell\)-valued characters of \(\pi_1(\mathbb{G}_m)^{\mathrm{tame}}\). Given an object \(\mathcal{F}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\), denote by \(\operatorname{ND}(\mathcal{F})\) its numerical data, i.e., the element of \(\operatorname{NumData}(D,\Gamma)\) given by
+\[
+(r(\mathcal{F}),m(\mathcal{F}),E_i(\infty,\chi,\mathcal{F})\text{ for all }(i,\chi),\ e_i(s,\chi,\mathcal{F})\text{ for all }(i,s,\chi)).
+\]
+To give a lisse, tame, rank one \(\mathcal{L}\) on \(\mathbb{A}^1-D\) with all its local monodromies \(\chi_{s,\mathcal{L}}\) in \(\Gamma\), is the same as to give the element in \(\operatorname{Maps}(D,\Gamma)\), still denoted \(\mathcal{L}\), which is \(s\mapsto\chi_{s,\mathcal{L}}\). We may summarize the previous discussion in the following
+
+\sourceheading[thm:6.2.2]{Compatibility Theorem 6.2.2}
+In the situation \hyperref[par:6.2.1]{(6.2.1)}, we have:
+\begin{enumerate}[label=(\arabic*)]
+\item For \(\mathcal{F}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\), \(\operatorname{rig}(\mathcal{F})=\operatorname{rig}(\operatorname{ND}(\mathcal{F}))\).
+\item For \(\mathcal{F}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) and \(\chi\) in \(\Gamma\), \(\operatorname{MC}_\chi(\operatorname{ND}(\mathcal{F}))=\operatorname{ND}(\operatorname{MC}_\chi(\mathcal{F}))\).
+\item For \(\mathcal{F}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) of rank \(r\geq 2\), and \(\mathcal{L}\) lisse, tame, rank one on \(\mathbb{A}^1-D\) with all local monodromies in \(\Gamma\), \(\operatorname{MT}_{\mathcal{L}}(\operatorname{ND}(\mathcal{F}))=\operatorname{ND}(\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))\).
+\item Given two objects \(\mathcal{F}\) and \(\mathcal{G}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\), \(\mathcal{F}\) and \(\mathcal{G}\) are connected (as vertices in the graph built on \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\)) if and only if their numerical data \(\operatorname{ND}(\mathcal{F})\) and \(\operatorname{ND}(\mathcal{G})\) are connected (as vertices in the graph built on \(\operatorname{NumData}(D,\Gamma)\)).
+\end{enumerate}
+
+\sourceheading[thm:6.2.3]{Compatibility Theorem 6.2.3 (Complex analytic variant)}
+If \(k\) is \(\mathbb{C}\), the above \hyperref[thm:6.2.2]{Theorem~6.2.2} remains valid with \(\Gamma\) any subgroup of
+\[
+\operatorname{Hom}(\pi_1((\mathbb{G}_{m,\mathbb{C}})^{\mathrm{an}}),\mathbb{C}^{\times})\cong\operatorname{Hom}(\mathbb{Z},\mathbb{C}^{\times})=\mathbb{C}^{\times},
+\]
+and with \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) replaced by \(\mathcal{T}_{\mathrm{an}}(\mathbb{A}^1-D,\Gamma)\).
+
+\section{Realizable and plausible elements}
+\label{sec:6.3}
+
+\sourcepara{6.3.1}
+We continue to work over an algebraically closed field \(k\) of characteristic \(\ne\ell\). As in \hyperref[par:6.0.1]{(6.0.1)}, we fix a finite subset \(D\) of \(\mathbb{A}^1(k)\) with \(\operatorname{Card}(D)\geq 2\). We now consider the question of recognizing those elements \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) which are of the form \(\operatorname{ND}(\mathcal{F})\) for some \(\mathcal{F}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) (or for some \(\mathcal{F}\) in \(\mathcal{T}_{\mathrm{an}}(\mathbb{A}^1-D,\Gamma)\), if \(k=\mathbb{C}\), and if \(\Gamma\) is a subgroup of \(\mathbb{C}^{\times}\)). We call such elements of \(\operatorname{NumData}(D,\Gamma)\) realizable.
+
+\sourceheading[lem:6.3.2]{Lemma 6.3.2}
+In the situation \hyperref[par:6.3.1]{(6.3.1)}, any realizable element \(\mathfrak{N}\) satisfies the following ten conditions:
+\begin{enumerate}[label=(\arabic*)]
+\item \(r(\mathfrak{N})\geq 1\),
+\item \(m(\mathfrak{N})\geq r(\mathfrak{N})\),
+\item for all \(\chi\) in \(\Gamma\) and all \(i\geq 1\),
+\[
+E_i(\infty,\chi,\mathfrak{N})\geq 0,\quad\text{and}\quad E_i(\infty,\chi,\mathfrak{N})\geq E_{i+1}(\infty,\chi,\mathfrak{N}),
+\]
+\item for all \(s\) in \(D\amalg\{\infty\}\), all \(\chi\) in \(\Gamma\) and all \(i\geq 1\),
+\[
+e_i(s,\chi,\mathfrak{N})\geq 0,\quad\text{and}\quad e_i(s,\chi,\mathfrak{N})\geq e_{i+1}(s,\chi,\mathfrak{N}),
+\]
+\item there exist at least two distinct \(s\) in \(D\) for which \(r(\mathfrak{N})>e_1(s,\mathbf{1},\mathfrak{N})\),
+\item \((1-\operatorname{Card}(D))r(\mathfrak{N})+\sum_{s\in D\amalg\{\infty\}}e_1(s,\mathbf{1},\mathfrak{N})\leq 0\),
+\item if \(r(\mathfrak{N})\geq 2\), then for any \(s_0\) in \(D\amalg\{\infty\}\),
+\[
+(1-\operatorname{Card}(D))r(\mathfrak{N})
++\sum_{s\ne s_0\text{ in }D\amalg\{\infty\}}\operatorname{Max}_{\chi}\{e_1(s,\chi,\mathfrak{N})\}\leq 0,
+\]
+\item \(\operatorname{rig}(\mathfrak{N})\leq 2\),
+\item \(\operatorname{rig}(\mathfrak{N})/r(\mathfrak{N})\leq (1-\operatorname{Card}(D))r(\mathfrak{N})+\sum_{s\in D\amalg\{\infty\}}\operatorname{Max}_{\chi}\{e_1(s,\chi,\mathfrak{N})\}\),
+\item in the group \(\Gamma\) written additively, we have
+\[
+\sum_\chi\left(\sum_i e_i(\infty,\chi,\mathfrak{N})\right)\chi
+=\sum_\chi\left(\sum_{s\in D}\sum_i e_i(s,\chi,\mathfrak{N})\right)\chi.
+\]
+\end{enumerate}
+\begin{proof}
+If \(\mathfrak{N}\) is \(\operatorname{ND}(\mathcal{F})\) for \(\mathcal{F}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) (respectively \(\mathcal{T}_{\mathrm{an}}(\mathbb{A}^1-D,\Gamma)\) if \(k=\mathbb{C}\)), then (5) and (1) hold because \(\mathcal{F}\) fails to be lisse at two or more points of \(D\), and so in particular is nonzero. Since \(\mathcal{F}(\infty)\) is a quotient of \(M(\infty,\mathcal{F})\), we get (2). Since the \(E_i\) and the \(e_i\) are the numerical invariants of actual representations \(M(\infty,\mathcal{F})\) and \(\mathcal{F}(s)\) respectively, we get (3) and (4). Since \(\mathcal{F}\) is irreducible nontrivial, \(\chi(\mathbb{P}^1,j_*\mathcal{F})\leq 0\), and \(\chi(\mathbb{P}^1,j_*\mathcal{E}nd(\mathcal{F}))\leq 2\), which give (6) and (8). If \(\mathcal{F}\) has rank 2 or more, we choose a rank one \(\mathcal{L}\) so that \(\operatorname{MT}_{\mathcal{L}}(\mathcal{F})\) satisfies
+\[
+\operatorname{Max}_{\chi}\{e_1(s,\chi,\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))\}=e_1(s,\mathbf{1},\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))
+\]
+for each \(s\ne s_0\) in \(D\amalg\{\infty\}\). Then we get (7) by writing out
+\[
+\chi(\mathbb{P}^1,j_*\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))\leq 0
+\]
+and dropping the term \(e_1(s_0,\mathbf{1},\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))\). The \hyperref[ineq:5.2.4.7]{Basic Inequality~5.2.4.7} gives (9). Because \(\det(\mathcal{F})\) is lisse on \(\mathbb{A}^1-D\), tame of rank one, we get (10).
+\end{proof}
+
+\sourceheading[def:6.3.3]{Definition 6.3.3}
+An element \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) is called plausible if it satisfies the ten conditions of \hyperref[lem:6.3.2]{Lemma~6.3.2}.
+
+\sourcepara{6.3.4}
+The above \hyperref[lem:6.3.2]{Lemma~6.3.2} states that every realizable element is plausible. It is not true that every plausible element is realizable. We will give an example, due to Deligne, in \hyperref[sec:6.4]{\S6.4} below.
+
+\sourceheading[lem:6.3.5]{Lemma 6.3.5}
+In the situation \hyperref[par:6.3.1]{(6.3.1)}, if \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) is realizable, then every element \(\mathfrak{M}\) of \(\operatorname{NumData}(D,\Gamma)\) to which \(\mathfrak{N}\) is connected (as vertex of the graph) is also realizable.
+\begin{proof}
+By induction on the length of a path from \(\mathfrak{M}\) to \(\mathfrak{N}\), it suffices to show that each nearest neighbor of \(\mathfrak{N}\) is realizable. But such a nearest neighbor is either \(\operatorname{MC}_\chi(\mathfrak{N})\), for some \(\chi\ne\mathbf{1}\) in \(\Gamma\), or, in case \(r(\mathfrak{N})\geq 2\), is possibly \(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})\), for some \(\mathcal{L}\) in \(\operatorname{Maps}(D,\Gamma)\). If \(\mathfrak{N}\) is \(\operatorname{ND}(\mathcal{F})\), these neighbors are \(\operatorname{ND}(\operatorname{MC}_\chi(\mathcal{F}))\) and \(\operatorname{ND}(\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))\) respectively.
+\end{proof}
+
+\sourceheading[lem:6.3.6]{Lemma 6.3.6}
+In the situation \hyperref[par:6.3.1]{(6.3.1)}, if \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) is plausible and if \(r(\mathfrak{N})=1\), then \(\mathfrak{N}\) is realizable.
+\begin{proof}
+\(\mathfrak{N}\) is \(\operatorname{ND}(\mathcal{L})\) for the unique rank one \(\mathcal{L}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) (respectively in \(\mathcal{T}_{\mathrm{an}}(\mathbb{A}^1-D,\Gamma)\)) whose local monodromy at \(s\) in \(D\amalg\{\infty\}\) is the unique character \(\chi_s\) for which \(e_1(s,\chi,\mathfrak{N})\ne 0\). (This \(\mathcal{L}\) exists by condition (10) in the definition of plausibility.)
+\end{proof}
+
+\sourceheading[lem:6.3.7]{Lemma 6.3.7}
+In the situation \hyperref[par:6.3.1]{(6.3.1)}, suppose that \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) is plausible, has \(r(\mathfrak{N})\geq 2\), and has \(\operatorname{rig}(\mathfrak{N})=2\). For each \(s\) in \(D\), denote by \(\chi_s\) any character such that
+\[
+e_1(s,\chi_s,\mathfrak{N})=\operatorname{Max}_\chi\{e_1(s,\chi,\mathfrak{N})\},
+\]
+and denote by \(\mathcal{L}\) the unique rank one \(\mathcal{L}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) (respectively in \(\mathcal{T}_{\mathrm{an}}(\mathbb{A}^1-D,\Gamma)\)) whose local monodromy at \(s\) in \(D\) is \((\chi_s)^{-1}\). Consider the element \(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})\) of \(\operatorname{NumData}(D,\Gamma)\). Then either \(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})\) is not plausible, or we are in the following situation:
+\begin{enumerate}[label=(\arabic*)]
+\item \(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})\) is plausible,
+\item \(e_1(\infty,\mathbf{1},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))<\operatorname{Max}_\chi\{e_1(\infty,\chi,\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))\}\),
+\item for any character \(\chi\ne\mathbf{1}\) such that
+\[
+e_1(\infty,\chi^{-1},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))=\operatorname{Max}_\chi\{e_1(\infty,\chi,\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))\},
+\]
+the element \(\operatorname{MC}_\chi(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))\) has \(r(\operatorname{MC}_\chi(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})))<r(\mathfrak{N})\).
+\end{enumerate}
+\begin{proof}
+If \(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})\) is not plausible, we are done. If \(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})\) is plausible, we know \(\operatorname{rig}(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))=2\), and by construction we have
+\[
+e_1(s,\mathbf{1},\mathfrak{N})=\operatorname{Max}_\chi\{e_1(s,\chi,\mathfrak{N})\}\quad\text{for each }s\in D,
+\]
+so (2) results from the plausibility relations (6) and (8). To prove (3), notice that
+\[
+\begin{aligned}
+r(\operatorname{MC}_\chi(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})))
+&=m(\operatorname{MC}_\chi(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})))
+-E_1(\infty,\mathbf{1},\operatorname{MC}_\chi(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})))\\
+&=m(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))
+-e_1(\infty,\chi^{-1},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))\\
+&=-e_1(\infty,\chi^{-1},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))
+ +\sum_{s\in D}\{r(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))-e_1(s,\mathbf{1},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))\}\\
+&=-e_1(\infty,\chi^{-1},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))
+ +\sum_{s\in D}\{r(\mathfrak{N})-e_1(s,\mathbf{1},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))\}\\
+&=-e_1(\infty,\chi^{-1},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))
+ +\operatorname{Card}(D)r(\mathfrak{N})-\sum_{s\in D}e_1(s,\mathbf{1},\operatorname{MT}_{\mathcal{L}}(\mathfrak{N}))\\
+&=\operatorname{Card}(D)r(\mathfrak{N})-\sum_{s\in D\amalg\{\infty\}}\operatorname{Max}_\chi\{e_1(s,\chi,\mathfrak{N})\}.
+\end{aligned}
+\]
+Thus
+\[
+\begin{aligned}
+r(\mathfrak{N})-r(\operatorname{MC}_\chi(\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})))
+&=(1-\operatorname{Card}(D))r(\mathfrak{N})
+ +\sum_{s\in D\amalg\{\infty\}}\operatorname{Max}_\chi\{e_1(s,\chi,\mathfrak{N})\}\\
+&\geq \operatorname{rig}(\mathfrak{N})/r(\mathfrak{N})=2/r(\mathfrak{N})>0,
+\end{aligned}
+\]
+the penultimate inequality from plausibility condition (8).
+\end{proof}
+
+\section{Existence algorithm for rigids}
+\label{sec:6.4}
+
+\sourcepara{6.4.1}
+In the situation \hyperref[par:6.3.1]{(6.3.1)}, suppose that \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) has \(\operatorname{rig}(\mathfrak{N})=2\). Here is an algorithm to determine if \(\mathfrak{N}\) is realizable.
+\begin{description}
+\item[Step I] \(X:=\mathfrak{N}\).
+\item[Step II] Is \(X\) plausible? If not, \(\mathfrak{N}\) is not realizable. Stop.
+\item[Step III] Is \(r(X)=1\)? If so, \(\mathfrak{N}\) is realizable. Stop.
+\item[Step IV] For each \(s\) in \(D\), choose a character \(\chi_s\) such that
+\[
+e_1(s,\chi_s,X)=\operatorname{Max}_\chi\{e_1(s,\chi,X)\}.
+\]
+Denote by \(\mathcal{L}\) the unique rank one \(\mathcal{L}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) (respectively \(\mathcal{T}_{\mathrm{an}}(\mathbb{A}^1-D,\Gamma)\)) whose local monodromy at \(s\) in \(D\) is \((\chi_s)^{-1}\). \(X:=\operatorname{MT}_{\mathcal{L}}(X)\).
+\item[Step V] Is \(X\) plausible? If not, \(\mathfrak{N}\) is not realizable. Stop.
+\item[Step VI] Choose a character \(\chi\ne\mathbf{1}\) such that
+\[
+e_1(\infty,\chi^{-1},X)=\operatorname{Max}_\chi\{e_1(\infty,\chi,X)\}
+\]
+(such \(\chi\) exist, by \hyperref[lem:6.3.7]{Lemma~6.3.7} (2) above). \(X:=\operatorname{MC}_\chi(X)\). Go to Step II.
+\end{description}
+
+\sourcepara{6.4.2}
+Since Step VI lowers the rank by at least one, we only need iterate the algorithm at most \(r(\mathfrak{N})-1\) times to determine whether or not \(\mathfrak{N}\) is realizable.
+
+\sourcepara{6.4.3}
+To see that the algorithm gives the correct answer, assume first that \(\mathfrak{N}\) is realizable. Then by \hyperref[thm:5.2.1]{Theorem~5.2.1} the algorithm will correctly tell us that \(\mathfrak{N}\) is realizable. Suppose that we start with an \(\mathfrak{N}\) which the algorithm tells us is realizable. Then the algorithm provides us with a path which connects \(\mathfrak{N}\) to a plausible object of rank one. But any such object is realizable (by \hyperref[lem:6.3.6]{Lemma~6.3.6}), and so our \(\mathfrak{N}\) is connected to a realizable object, so is itself realizable (by \hyperref[lem:6.3.5]{Lemma~6.3.5}).
+
+\section{An example}
+\label{sec:6.5}
+
+\sourcepara{6.5.1}
+Here is an example, due to Deligne, of an element \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) which has \(\operatorname{rig}(\mathfrak{N})=2\), and which is plausible, but which is not realizable, because it has a nearest neighbor which is not plausible. Suppose first that we are not in characteristic 2, and suppose that \(\Gamma\) contains the unique nontrivial character \(\chi_2\) of \(\pi_1(\mathbb{G}_m)\) of order 2. We take \(D=\{0,1\}\),
+\[
+\begin{aligned}
+r(\mathfrak{N})&=7,\\
+e_1(\infty,\chi_2,\mathfrak{N})&=3,\quad e_2(\infty,\chi_2,\mathfrak{N})=1,\quad e_i(\infty,\mathbf{1},\mathfrak{N})=1\text{ for }1\leq i\leq 3,\\
+e_1(0,\mathbf{1},\mathfrak{N})&=e_2(0,\mathbf{1},\mathfrak{N})=3,\quad e_3(0,\mathbf{1},\mathfrak{N})=1,\\
+e_1(1,\mathbf{1},\mathfrak{N})&=e_2(1,\mathbf{1},\mathfrak{N})=3,\quad e_3(1,\mathbf{1},\mathfrak{N})=1,
+\end{aligned}
+\]
+and all other \(e_i(s,\chi,\mathfrak{N})=0\). One checks easily that \(\operatorname{rig}(\mathfrak{N})=2\), and that \(\mathfrak{N}\) is plausible. However, \(\mathfrak{M}:=\operatorname{MC}_{\chi_2}(\mathfrak{N})\) is readily computed. It turns out to have
+\[
+\begin{aligned}
+r(\mathfrak{M})&=5,\\
+e_1(\infty,\mathbf{1},\mathfrak{M})&=1,\quad e_i(\infty,\chi_2,\mathfrak{M})=1\text{ for }1\leq i\leq 4,\\
+e_1(0,\mathbf{1},\mathfrak{M})&=1,\quad e_1(0,\chi_2,\mathfrak{M})=3,\quad e_2(0,\chi_2,\mathfrak{M})=1,\\
+e_1(1,\mathbf{1},\mathfrak{M})&=1,\quad e_1(1,\chi_2,\mathfrak{M})=3,\quad e_2(1,\chi_2,\mathfrak{M})=1,
+\end{aligned}
+\]
+but this \(\mathfrak{M}\) is not plausible, since it fails plausibility test (7) with \(s_0\) taken as \(\infty\).
+
+\sourcepara{6.5.2}
+If we are in characteristic 2, or indeed in any characteristic not 3, suppose that \(\Gamma\) contains a nontrivial element \(\chi_3\) of order 3. We take \(D=\{0,1\}\),
+\[
+\begin{aligned}
+r(\mathfrak{N})&=7,\\
+e_1(\infty,\chi_3,\mathfrak{N})&=3,\quad e_i(\infty,\mathbf{1},\mathfrak{N})=1\text{ for }1\leq i\leq 4,\\
+e_1(0,\mathbf{1},\mathfrak{N})&=e_2(0,\mathbf{1},\mathfrak{N})=3,\quad e_3(0,\mathbf{1},\mathfrak{N})=1,\\
+e_1(1,\mathbf{1},\mathfrak{N})&=e_2(1,\mathbf{1},\mathfrak{N})=3,\quad e_3(1,\mathbf{1},\mathfrak{N})=1,
+\end{aligned}
+\]
+and all other \(e_i(s,\chi,\mathfrak{N})=0\). In this case, \(\mathfrak{M}:=\operatorname{MC}_{\overline{\chi}_3}(\mathfrak{N})\) has
+\[
+\begin{aligned}
+r(\mathfrak{M})&=5,\\
+e_i(\infty,\overline{\chi}_3,\mathfrak{M})&=1\text{ for }1\leq i\leq 5,\\
+e_1(0,\mathbf{1},\mathfrak{M})&=1,\quad e_1(0,\overline{\chi}_3,\mathfrak{M})=3,\quad e_2(0,\overline{\chi}_3,\mathfrak{M})=1,\\
+e_1(1,\mathbf{1},\mathfrak{M})&=1,\quad e_1(1,\overline{\chi}_3,\mathfrak{M})=3,\quad e_2(1,\overline{\chi}_3,\mathfrak{M})=1,
+\end{aligned}
+\]
+and again fails to be plausible, for exactly the same reason.
+
+\section{Open questions}
+\label{sec:6.6}
+How can one determine the realizability of elements \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) whose index of rigidity is some integer other than 2? A necessary condition for \(\mathfrak{N}\) to be realizable is that every \(\mathfrak{M}\) to which \(\mathfrak{N}\) is connected (in the graph on \(\operatorname{NumData}(D,\Gamma)\)) is itself plausible. Can this condition be decided by an algorithm with finite running time? Is this condition sufficient? (It is sufficient for elements \(\mathfrak{N}\) with \(\operatorname{rig}(\mathfrak{N})=2\), as is clear from the algorithm.) Much remains to be done.
+
+\section{Action of automorphisms}
+\label{sec:6.7}
+
+\sourcepara{6.7.1}
+Let \(\sigma:\chi\mapsto\chi^{(\sigma)}\) be an automorphism of \(\Gamma\) as abstract group. Given \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\), define \(\mathfrak{N}^{(\sigma)}\) in \(\operatorname{NumData}(D,\Gamma)\) by
+\[
+\begin{aligned}
+r(\mathfrak{N}^{(\sigma)})&:=r(\mathfrak{N}),\\
+m(\mathfrak{N}^{(\sigma)})&:=m(\mathfrak{N}),\\
+E_i(\infty,\chi^{(\sigma)},\mathfrak{N}^{(\sigma)})&:=E_i(\infty,\chi,\mathfrak{N}),\quad\text{for all }i\geq1,\text{ all }\chi,\\
+e_i(s,\chi^{(\sigma)},\mathfrak{N}^{(\sigma)})&:=e_i(s,\chi,\mathfrak{N}),\quad\text{for all }i\geq1,\text{ all }s\in D\amalg\{\infty\},\text{ all }\chi.
+\end{aligned}
+\]
+This defines an orthogonal left action of the group \(\operatorname{Aut}(\Gamma)\) on \(\operatorname{NumData}(D,\Gamma)\).
+
+\sourceheading[lem:6.7.2]{Lemma 6.7.2}
+In the situation \hyperref[par:6.3.1]{(6.3.1)}, we have
+\begin{enumerate}[label=(\arabic*)]
+\item If \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) is plausible, then \(\mathfrak{N}^{(\sigma)}\) is plausible for every \(\sigma\) in \(\operatorname{Aut}(\Gamma)\).
+\item If \(\mathfrak{N}\) and \(\mathfrak{M}\) in \(\operatorname{NumData}(D,\Gamma)\) are adjacent in the graph, then \(\mathfrak{N}^{(\sigma)}\) and \(\mathfrak{M}^{(\sigma)}\) are adjacent for every \(\sigma\) in \(\operatorname{Aut}(\Gamma)\).
+\end{enumerate}
+\begin{proof}
+(1) is obvious from the definitions. For (2), suppose first that \(\mathfrak{M}=\operatorname{MC}_\chi(\mathfrak{N})\). Then \(\mathfrak{M}^{(\sigma)}=\operatorname{MC}_{\chi^{(\sigma)}}(\mathfrak{N}^{(\sigma)})\). If \(\mathfrak{M}\) and \(\mathfrak{N}\) have common rank \(\geq 2\) and \(\mathfrak{M}=\operatorname{MT}_{\mathcal{L}}(\mathfrak{N})\), then \(\mathfrak{M}^{(\sigma)}=\operatorname{MT}_{\mathcal{L}^{(\sigma)}}(\mathfrak{N}^{(\sigma)})\), where \(\mathcal{L}^{(\sigma)}\) is the element \(\sigma\circ\mathcal{L}\) of \(\operatorname{Maps}(D,\Gamma)\).
+\end{proof}
+
+\sourceheading[thm:6.7.3]{Theorem 6.7.3 (invariance by automorphisms)}
+In the situation \hyperref[par:6.3.1]{(6.3.1)}, if \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) is realizable, and has \(\operatorname{rig}(\mathfrak{N})=2\), then for any \(\sigma\) in \(\operatorname{Aut}(\Gamma)\), \(\mathfrak{N}^{(\sigma)}\) is realizable.
+\begin{proof}
+If \(r(\mathfrak{N})=1\), then ``realizable'' is the same as ``plausible'', so the result follows from part (1) of \hyperref[lem:6.7.2]{Lemma~6.7.2}. If \(r(\mathfrak{N})\geq2\), \(\mathfrak{N}\) is realizable if and only if \(\mathfrak{N}\) is connected, in the graph, to a plausible element of rank one. Take a connecting sequence and apply \(\sigma\). By parts (1) and (2) of \hyperref[lem:6.7.2]{Lemma~6.7.2}, this is a sequence which connects \(\mathfrak{N}^{(\sigma)}\) to a plausible element of rank one.
+\end{proof}
+
+\section{A remark and a question}
+\label{sec:6.8}
+
+\sourcepara{6.8.1}
+Notice that if an \(\mathfrak{N}\) in \(\operatorname{NumData}(D,\Gamma)\) with \(\operatorname{rig}(\mathfrak{N})=2\) is realizable, then the object \(\mathcal{F}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) with \(\operatorname{ND}(\mathcal{F})=\mathfrak{N}\) is already determined up to isomorphism by \(\mathfrak{N}\); this is precisely the meaning of rigidity. So given \(\mathcal{F}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) which is rigid, we may speak of the rigid object \(\mathcal{F}^{(\sigma)}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) for every \(\sigma\) in \(\operatorname{Aut}(\Gamma)\). If \(\sigma\) is the automorphism \(-1\) of \(\Gamma\), then \(\mathcal{F}^{(-1)}\) is the dual of \(\mathcal{F}\). This description of \(\mathcal{F}^{(-1)}\) as the dual of \(\mathcal{F}\) makes sense for any \(\mathcal{F}\), not just rigid ones, and so \(-1\) preserves the set of realizable elements in \(\operatorname{NumData}(D,\Gamma)\).
+
+\sourcepara{6.8.2}
+In the complex analytic case, with \(\Gamma\) a subgroup of \(\mathbb{C}^{\times}\), if \(\sigma\) in \(\operatorname{Aut}(\Gamma)\) is induced by an automorphism \(\widetilde{\sigma}\) of the field \(\mathbb{C}\), then \(\mathcal{F}^{(\sigma)}\) has a down to earth interpretation: view \(\mathcal{F}\) in \(\mathcal{T}_{\mathrm{an}}(\mathbb{A}^1-D,\Gamma)\) as a homomorphism
+\[
+\Lambda:\pi_1((\mathbb{A}^1-D)^{\mathrm{an}})\to\operatorname{GL}(r,\mathbb{C}),
+\]
+then \(\mathcal{F}^{(\sigma)}\) is the composite homomorphism \(\widetilde{\sigma}\circ\Lambda\), where \(\widetilde{\sigma}\) acts on \(\operatorname{GL}(r,\mathbb{C})\) by conjugating every entry. This description of \(\mathcal{F}^{(\sigma)}\) makes sense for any \(\mathcal{F}\), not just rigid ones, and shows that \(\operatorname{Aut}(\mathbb{C})\) preserves the set of realizable elements of \(\operatorname{NumData}(D,\Gamma)\). (If \(\sigma\) is complex conjugation, and if \(\Gamma\subset\mathbb{C}^{\times}\) lies in the circle \(S^1\), then \(\sigma\) induces \(-1\) on \(\Gamma\), and \(\mathcal{F}^{(\sigma)}\) is the dual of \(\mathcal{F}\).)
+
+\sourcepara{6.8.3}
+However, there are many subgroups \(\Gamma\) of \(\mathbb{C}^{\times}\) on which \(\operatorname{Aut}(\mathbb{C})\) acts trivially, but for which \(\operatorname{Aut}(\Gamma)\) is nontrivial. A typical example of such a \(\Gamma\) is the multiplicative subgroup generated by 2 and 3, which as abstract group is free abelian on the elements 2 and 3. Thus \(\operatorname{Aut}(\Gamma)\) is \(\operatorname{GL}(2,\mathbb{Z})\), with the standard upper unipotent element \(T\) acting as \((2\mapsto 6,3\mapsto 3)\), the standard involution \(S\) acting as \((2\mapsto 3,3\mapsto 1/2)\), and \(-\operatorname{id}\) acting as \((2\mapsto 1/2,3\mapsto 1/3)\). It is far from clear whether or not, for this \(\Gamma\), \(\operatorname{Aut}(\Gamma)\) preserves the set of realizable elements in \(\operatorname{NumData}(D,\Gamma)\). It seems almost miraculous that \(\operatorname{Aut}(\Gamma)\) preserves the set of realizable elements which are rigid.
+
+\sourcepara{6.8.4}
+In the \(\ell\)-adic case, over any algebraically closed field of characteristic zero, once we fix a topological generator \(\gamma\) of \(\pi_1(\mathbb{G}_m)^{\mathrm{tame}}\), we may identify, via evaluation at \(\gamma\), the groups
+\[
+\operatorname{Hom}_{\mathrm{contin}}(\pi_1(\mathbb{G}_m)^{\mathrm{tame}},\overline{\mathbb{Q}}_\ell^{\times})\cong(\overline{\mathbb{Q}}_\ell)^{\times}.
+\]
+We may take for \(\Gamma\) the multiplicative group of \(\mathbb{Z}_\ell^{\times}\subset(\overline{\mathbb{Q}}_\ell)^{\times}\) generated by any two distinct primes both different from \(\ell\), e.g. by 2 and 3 if \(\ell\geq 5\), and repeat the same question. (If we are over an algebraically closed field of positive characteristic \(p\ne\ell\), we must replace \((\overline{\mathbb{Q}}_\ell)^{\times}\) by its subgroup \((\overline{\mathbb{Q}}_\ell)^{\times}(\text{not }p)\) consisting of those elements whose image in \(\mathbb{F}_\ell^{\times}\) has order prime to \(p\), and we may take for \(\Gamma\) the multiplicative group of \((\overline{\mathbb{Q}}_\ell)^{\times}(\text{not }p)\) generated by any two distinct primes \(q_1\) and \(q_2\) which both have order prime to \(p\) in \(\mathbb{F}_\ell^{\times}\) (e.g., take both \(q_i\equiv 1\pmod{\ell}\)).

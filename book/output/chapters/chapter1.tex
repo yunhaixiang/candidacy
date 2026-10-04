@@ -1,0 +1,1336 @@
+\chapter{First results on rigid local systems}
+\label{chap:1}
+\setcounter{section}{-1}
+
+\section{Generalities concerning rigid local systems over \texorpdfstring{\(\mathbb{C}\)}{C}}
+\label{sec:1.0}
+
+\sourcepara{1.0.1}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g\), \(S\) a nonempty finite subset of \(X(\mathbb{C})\), and
+\(U:=X-S\) the open complement. Suppose we are given on the complex manifold
+\(U^{\mathrm{an}}\) a local system \(\mathcal{F}\), i.e., a locally constant
+sheaf of finite-dimensional \(\mathbb{C}\)-vector spaces. As on any connected
+complex manifold, if we fix a base point \(u\) in \(U^{\mathrm{an}}\), the
+functor ``fibre at \(u\)'', \(\mathcal{F}\mapsto\mathcal{F}_u\), defines an
+equivalence of categories
+\[
+  \text{local systems on }U^{\mathrm{an}}
+  \cong
+  \text{fin.-dim'l. }\mathbb{C}\text{-rep.'s of }\pi_1(U^{\mathrm{an}},u).
+\]
+We say that the local system \(\mathcal{F}\) is irreducible if the
+corresponding representation \(\Lambda_{\mathcal{F}}\) of
+\(\pi_1(U^{\mathrm{an}},u)\) is irreducible.
+
+\sourcepara{1.0.2}
+For every ``point at \(\infty\)'' \(s\) in \(S:=X-U\), the punctured
+neighborhood
+\[
+  D^*(s):=U^{\mathrm{an}}\cap
+  (\text{a small disc around }s\text{ in }X^{\mathrm{an}})
+\]
+is a punctured disc, whose fundamental group
+\[
+  I(s):=\pi_1(D^*(s),\text{ any base point})
+\]
+is canonically \(\mathbb{Z}\), with generator
+\(\gamma_s:=\) ``turning once around \(s\) in the counterclockwise direction'',
+the ``local monodromy transformation at \(s\)''. We say that two local systems
+\(\mathcal{F}\) and \(\mathcal{G}\) on \(U^{\mathrm{an}}\) have isomorphic
+local monodromy if for every ``point at \(\infty\)'' \(s\) in \(S:=X-U\),
+there exists an isomorphism of local systems on \(D^*(s)\)
+\[
+  \mathcal{F}\vert D^*(s)\cong \mathcal{G}\vert D^*(s).
+\]
+
+\sourcepara{1.0.3}
+We say that a local system \(\mathcal{F}\) on \(U^{\mathrm{an}}\) is
+physically rigid if for every local system \(\mathcal{G}\) on
+\(U^{\mathrm{an}}\) such that \(\mathcal{F}\) and \(\mathcal{G}\) have
+isomorphic local monodromy, there exists an isomorphism
+\(\mathcal{F}\cong\mathcal{G}\) of local systems on \(U^{\mathrm{an}}\).
+Because we have assumed that \(S\) is nonempty, if \(\mathcal{F}\) and
+\(\mathcal{G}\) have isomorphic local monodromy, they necessarily have the same
+rank.
+
+\sourcepara{1.0.4}
+This notion of physical rigidity is reasonable only for genus zero. Indeed, if
+\(X\) has genus \(g\geq 1\), there exist local systems \(\mathcal{L}\) of rank
+one on \(X^{\mathrm{an}}\) no tensor power of which is trivial. (A rank one
+local system on \(X^{\mathrm{an}}\) is a homomorphism from
+\(\pi_1(X^{\mathrm{an}})^{\mathrm{ab}}\cong \mathbb{Z}^{2g}\) to
+\(\mathbb{C}^{\times}\).) Denote by \(j:U^{\mathrm{an}}\to X^{\mathrm{an}}\)
+the inclusion. Because the map
+\[
+  j_*:\pi_1(U^{\mathrm{an}},u)\to\pi_1(X^{\mathrm{an}},u)
+\]
+is surjective, no tensor power of \(j^*\mathcal{L}\) is trivial. But
+\(j^*\mathcal{L}\) has trivial local monodromy, so for any local system
+\(\mathcal{F}\) on \(U^{\mathrm{an}}\), \(\mathcal{F}\) and
+\(\mathcal{F}\otimes j^*\mathcal{L}\) have isomorphic local monodromy. But
+\(\mathcal{F}\) and \(\mathcal{F}\otimes j^*\mathcal{L}\) are not isomorphic
+unless \(\mathcal{F}=0\), since already their determinants,
+\(\det(\mathcal{F})\) and
+\(\det(\mathcal{F})\otimes(j^*\mathcal{L})^{\otimes\operatorname{rank}(\mathcal{F})}\),
+have a ratio which is nontrivial, indeed of infinite order. Thus no non-zero
+local system \(\mathcal{F}\) on \(U^{\mathrm{an}}\) is physically rigid when
+\(X\) has genus \(g\geq 1\).
+
+\section{The case of genus zero}
+\label{sec:1.1}
+
+\sourcepara{1.1.1}
+Let us now explore in greater detail the situation when \(X\) is
+\(\mathbb{P}^1\). Even here, the situation is only understood for local systems
+\(\mathcal{F}\) on \(U^{\mathrm{an}}\) which are irreducible. In this case,
+there is a numerical criterion for physical rigidity.
+
+\setcounter{theorem}{1}
+\begin{theorem}
+\label{thm:1.1.2}
+Let \(S\) be a nonempty finite subset of \(\mathbb{P}^1(\mathbb{C})\), and
+\(U:=\mathbb{P}^1-S\) the open complement,
+\(j:U^{\mathrm{an}}\to(\mathbb{P}^1)^{\mathrm{an}}\) the inclusion,
+\(\mathcal{F}\) an irreducible local system on \(U^{\mathrm{an}}\) of rank
+\(n\geq 1\). Then \(\mathcal{F}\) is physically rigid if and only if
+\[
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},
+  j_*\operatorname{End}(\mathcal{F})\bigr)=2.
+\]
+\end{theorem}
+
+\begin{proof}
+Suppose first that
+\(\chi((\mathbb{P}^1)^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))=2\),
+and let \(\mathcal{G}\) be a local system on \(U^{\mathrm{an}}\) such that
+\(\mathcal{F}\) and \(\mathcal{G}\) have isomorphic local monodromy. We will
+show the existence of an isomorphism from \(\mathcal{F}\) to \(\mathcal{G}\).
+
+For any local system \(\mathcal{H}\) on \(U^{\mathrm{an}}\), the
+Euler--Poincaré formula states
+\[
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},j_*\mathcal{H}\bigr)
+  =
+  \chi(U^{\mathrm{an}},\mathbb{C})\operatorname{rank}(\mathcal{H})
+  +\sum_{s\in S}\dim_{\mathbb{C}}\mathcal{H}^{I(s)}.
+\]
+Therefore if \(\mathcal{H}_1\) and \(\mathcal{H}_2\) are two local systems on
+\(U^{\mathrm{an}}\) with isomorphic local monodromy, we have
+\[
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},j_*\mathcal{H}_1\bigr)
+  =
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},j_*\mathcal{H}_2\bigr).
+\]
+We apply this to
+\(\mathcal{H}_1=\operatorname{End}(\mathcal{F})\) and to
+\(\mathcal{H}_2=\operatorname{Hom}(\mathcal{F},\mathcal{G})\), which have
+isomorphic local monodromy. Thus we find
+\[
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},
+    j_*\operatorname{Hom}(\mathcal{F},\mathcal{G})\bigr)
+  =
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},
+    j_*\operatorname{End}(\mathcal{F})\bigr)=2.
+\]
+But on a curve, \(\chi\) is \(h^0-h^1+h^2\leq h^0+h^2\), so we find
+\[
+  h^0\bigl((\mathbb{P}^1)^{\mathrm{an}},
+    j_*\operatorname{Hom}(\mathcal{F},\mathcal{G})\bigr)
+  +
+  h^2\bigl((\mathbb{P}^1)^{\mathrm{an}},
+    j_*\operatorname{Hom}(\mathcal{F},\mathcal{G})\bigr)
+  \geq 2.
+\]
+We rewrite this in terms of ordinary and compact cohomology on
+\(U^{\mathrm{an}}\) as
+\[
+  h^0\bigl(U^{\mathrm{an}},\operatorname{Hom}(\mathcal{F},\mathcal{G})\bigr)
+  +
+  h^2_c\bigl(U^{\mathrm{an}},\operatorname{Hom}(\mathcal{F},\mathcal{G})\bigr)
+  \geq 2.
+\]
+The Poincaré dual of
+\(\mathrm{H}^2_c(U^{\mathrm{an}},\operatorname{Hom}(\mathcal{F},\mathcal{G}))\)
+is
+\(\mathrm{H}^0(U^{\mathrm{an}},\operatorname{Hom}(\mathcal{G},\mathcal{F}))\),
+so we obtain
+\[
+  h^0\bigl(U^{\mathrm{an}},\operatorname{Hom}(\mathcal{F},\mathcal{G})\bigr)
+  +
+  h^0\bigl(U^{\mathrm{an}},\operatorname{Hom}(\mathcal{G},\mathcal{F})\bigr)
+  \geq 2.
+\]
+So at least one of the two groups
+\[
+  \mathrm{H}^0(U^{\mathrm{an}},\operatorname{Hom}(\mathcal{F},\mathcal{G}))
+  =
+  \operatorname{Hom}(\mathcal{F},\mathcal{G})
+\]
+or
+\[
+  \mathrm{H}^0(U^{\mathrm{an}},\operatorname{Hom}(\mathcal{G},\mathcal{F}))
+  =
+  \operatorname{Hom}(\mathcal{G},\mathcal{F})
+\]
+is nonzero. Since \(\mathcal{F}\) is irreducible and both
+\(\mathcal{F}\) and \(\mathcal{G}\) have the same rank, any nonzero element of
+either \(\operatorname{Hom}(\mathcal{F},\mathcal{G})\) or
+\(\operatorname{Hom}(\mathcal{G},\mathcal{F})\) is necessarily an isomorphism.
+
+Now suppose that \(\mathcal{F}\) is an irreducible local system of rank
+\(n\geq 1\), which is physically rigid. We will show that
+\[
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},
+    j_*\operatorname{End}(\mathcal{F})\bigr)=2.
+\]
+It suffices to show that for any local system \(\mathcal{F}\) of rank
+\(n\geq 1\) which is physically rigid, we have
+\[
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},
+    j_*\operatorname{End}(\mathcal{F})\bigr)\geq 2.
+\]
+(If \(\mathcal{F}\) is irreducible, both
+\(\mathrm{H}^0((\mathbb{P}^1)^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))\)
+and its dual
+\(\mathrm{H}^2((\mathbb{P}^1)^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))\)
+are one-dimensional, so for any nonzero irreducible \(\mathcal{F}\), we have
+\(\chi((\mathbb{P}^1)^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))\leq 2\).)
+
+We will resort to a transcendental argument. For a suitable choice of base point
+\(u\) in \(U^{\mathrm{an}}\), a suitable numbering \(s_1,\ldots,s_k\) of the
+\(k:=\operatorname{Card}(S)\) points at \(\infty\), and suitably chosen loops
+\(\gamma_i\) which run from \(u\) to \(D^*(s_i)\), turn once counterclockwise
+around \(s_i\), and then return to \(u\) the same way they came, the fundamental
+group \(\pi_1(U^{\mathrm{an}},u)\) may be described in terms of generators and
+relations as the abstract group \(\Gamma_k\) with \(k\) generators \(C_i\)
+subject to the one relation
+\[
+  \prod_i C_i := C_1C_2\cdots C_k=1,
+\]
+via the isomorphism \(C_i\mapsto\gamma_i\). Notice that the conjugacy class of
+\(C_i\) in \(\Gamma_k\) is that of local monodromy \(\gamma(s_i)\) around
+\(s_i\).
+
+From this point of view, a rank \(n\) local system \(\mathcal{F}\) on
+\(U^{\mathrm{an}}\) is a collection of \(k\) elements \(A_i\) in
+\(\operatorname{GL}(n,\mathbb{C})\) which satisfy \(\prod_i A_i=1\). Given a
+second rank \(n\) local system \(\mathcal{G}\) on \(U^{\mathrm{an}}\),
+corresponding to a collection of \(k\) elements \(D_i\) in
+\(\operatorname{GL}(n,\mathbb{C})\) which satisfy \(\prod_i D_i=1\),
+\(\mathcal{F}\) and \(\mathcal{G}\) have isomorphic local monodromy if and only
+if for each \(i\), \(A_i\) and \(D_i\) are conjugate in
+\(\operatorname{GL}(n,\mathbb{C})\), i.e., if and only if for each \(i\) there
+exists an element \(B_i\) in \(\operatorname{GL}(n,\mathbb{C})\) such that
+\[
+  D_i=B_iA_iB_i^{-1}.
+\]
+\(\mathcal{F}\) and \(\mathcal{G}\) are isomorphic if and only if there exists a
+single element \(C\) in \(\operatorname{GL}(n,\mathbb{C})\), or equivalently in
+\(\operatorname{SL}(n,\mathbb{C})\), such that
+\[
+  CA_iC^{-1}=D_i\quad\text{for all }i.
+\]
+
+So suppose that \(\mathcal{F}\) is a rank \(n\) local system, corresponding to
+a system of \(k\) elements \(A_i\) in \(\operatorname{GL}(n,\mathbb{C})\) which
+satisfy \(\prod_i A_i=1\). Then \(\mathcal{F}\) is physically rigid if and only
+if given any system of \(k\) elements \(B_i\) in
+\(\operatorname{GL}(n,\mathbb{C})\) such that
+\[
+  \prod_i (B_iA_iB_i^{-1})=1,
+\]
+there exists a single element \(C\) in \(\operatorname{SL}(n,\mathbb{C})\) such
+that
+\[
+  CA_iC^{-1}=B_iA_iB_i^{-1}\quad\text{for all }i.
+\]
+
+Fix such an \(\mathcal{F}\). By the Euler--Poincaré formula, we have
+\[
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F})\bigr)
+  =
+  (2-k)n^2+\sum_i\dim(\mathfrak{z}(A_i)),
+\]
+where \(\mathfrak{z}(A_i)\) denotes the commuting algebra of \(A_i\) in
+\(\operatorname{M}(n,\mathbb{C})\). Let us denote by \(Z(A_i)\) the subgroup of
+\(\operatorname{GL}(n,\mathbb{C})\) consisting of all elements which commute
+with \(A_i\). Then \(Z(A_i)\) is a nonempty, and hence dense, open set of the
+linear space \(\mathfrak{z}(A_i)\), namely it is the open set where the
+determinant is invertible. Therefore \(Z(A_i)\) is irreducible, of
+\(\dim(Z(A_i))=\dim(\mathfrak{z}(A_i))\). Thus we may rewrite the above formula
+as
+\[
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F})\bigr)
+  =
+  (2-k)n^2+\sum_i\dim(Z(A_i)).
+\]
+
+Consider the \(k\)-fold self product of \(\operatorname{GL}(n,\mathbb{C})\) with
+itself,
+\[
+  X:=(\operatorname{GL}(n,\mathbb{C}))^k,
+\]
+and the map
+\[
+  \pi:X\to\operatorname{SL}(n,\mathbb{C})
+\]
+defined by
+\[
+  (B_1,\ldots,B_k)\mapsto\prod_i(B_iA_iB_i^{-1}).
+\]
+(Since \(\prod_i A_i=1\), this map \(\pi\) does indeed land in
+\(\operatorname{SL}(n,\mathbb{C})\).) Consider the group
+\[
+  G:=\operatorname{SL}(n,\mathbb{C})\times\prod_i Z(A_i),
+\]
+which acts on \(X\) by having an element \((C,Z_1,\ldots,Z_k)\) in \(G\) act on
+\(X\) as
+\[
+  (B_1,\ldots,B_k)\mapsto(CB_1Z_1^{-1},\ldots,CB_kZ_k^{-1}).
+\]
+The same group \(G\) acts on \(\operatorname{SL}(n,\mathbb{C})\), by having
+\((C,Z_1,\ldots,Z_k)\) in \(G\) act on \(\operatorname{SL}(n,\mathbb{C})\) as
+\[
+  A\mapsto CAC^{-1}.
+\]
+With respect to these actions of \(G\), the map
+\(\pi:X\to\operatorname{SL}(n,\mathbb{C})\) is easily checked to be
+\(G\)-equivariant.
+
+Since the point \(1\) in \(\operatorname{SL}(n,\mathbb{C})\) is a fixed point
+of the \(G\)-action, the group \(G\) acts on the fibre \(\pi^{-1}(1)\). The key
+tautology is that \(\mathcal{F}\) is physically rigid if and only if the group
+\(G\) acts transitively on \(\pi^{-1}(1)\). Suppose now that \(\mathcal{F}\) is
+physically rigid. Then \(G\) acts transitively on \(\pi^{-1}(1)\), so we must
+have the inequality
+\[
+  \dim(G)\geq \dim(\pi^{-1}(1)).
+\]
+Since the point \(1\) in \(\operatorname{SL}(n,\mathbb{C})\) is defined in
+\(\operatorname{SL}(n,\mathbb{C})\) by \(n^2-1\) equations,
+\(\pi^{-1}(1)\) is defined in \(X\) by \(n^2-1\) equations. Therefore every
+irreducible component \(W\) of \(\pi^{-1}(1)\) has
+\[
+  \dim(W)\geq\dim(X)-(n^2-1).
+\]
+Since the fibre \(\pi^{-1}(1)\) is nonempty, we have
+\[
+  \dim(G)\geq\dim(\pi^{-1}(1))
+  =
+  \sup_{\mathrm{irred\ comp's}\ W}\dim(W)
+  \geq
+  \dim(X)-(n^2-1)
+\]
+for \(\mathcal{F}\) physically rigid. Recalling the definitions of \(G\) and
+\(X\), the above inequality says
+\[
+  (n^2-1)+\sum_i\dim(Z(A_i))\geq kn^2-(n^2-1),
+\]
+i.e.,
+\[
+  (2-k)n^2+\sum_i\dim(Z(A_i))\geq 2,
+\]
+i.e.,
+\[
+  \chi\bigl((\mathbb{P}^1)^{\mathrm{an}},
+    j_*\operatorname{End}(\mathcal{F})\bigr)\geq 2.
+\]
+This completes the proof.
+\end{proof}
+
+\setcounter{theorem}{2}
+\begin{corollary}
+\label{cor:1.1.3}
+Notations as in \hyperref[thm:1.1.2]{Theorem~1.1.2} above, let \(\mathcal{F}\) be an irreducible
+local system on \(U^{\mathrm{an}}\) of rank \(n\geq 1\), and let
+\(\mathcal{L}\) be a rank one local system on \(U^{\mathrm{an}}\). Then the
+following conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item \(\mathcal{F}\) is physically rigid.
+\item \(\mathcal{F}\otimes\mathcal{L}\) is physically rigid.
+\item The dual local system
+\(\mathcal{F}^{\vee}:=\operatorname{Hom}(\mathcal{F},\mathbb{C}_{U^{\mathrm{an}}})\)
+is physically rigid.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Indeed, all three local systems \(\mathcal{F}\),
+\(\mathcal{F}\otimes\mathcal{L}\) and \(\mathcal{F}^{\vee}\) are irreducible,
+and all have the same \(\operatorname{End}\) sheaf on \(U^{\mathrm{an}}\), and
+hence the same \(j_*\operatorname{End}\) sheaf on \(\mathbb{P}^1\).
+\end{proof}
+
+\section{The case of higher genus}
+\label{sec:1.2}
+
+\sourcepara{1.2.1}
+Using the same technique, we can analyse the situation in higher genus. We
+return to the situation \(X\) a projective smooth connected curve over
+\(\mathbb{C}\), of genus \(g\), \(S\) a nonempty finite subset of
+\(X(\mathbb{C})\), \(U:=X-S\) the open complement, \(j:U\to X\) the inclusion.
+We have already seen that as soon as \(g\geq 1\), no nonzero local system on
+\(U^{\mathrm{an}}\) can be physically rigid, due to the possibility of
+tensoring with rank one local systems \(\mathcal{L}\) on \(X\). So we introduce
+two weaker notions. We say that a local system \(\mathcal{F}\) on
+\(U^{\mathrm{an}}\) is weakly physically semi-rigid if there exists a finite
+collection of local systems \(\mathcal{F}_1,\mathcal{F}_2,\ldots,\mathcal{F}_d\)
+on \(U^{\mathrm{an}}\) with the following property: for any local system
+\(\mathcal{G}\) on \(U^{\mathrm{an}}\) such that \(\mathcal{F}\) and
+\(\mathcal{G}\) have isomorphic local monodromy, there exists a rank one local
+system \(\mathcal{L}\) on \(X\), an index \(1\leq i\leq d\), and an isomorphism
+\[
+  \mathcal{G}\cong \mathcal{F}_i\otimes j^*\mathcal{L}
+\]
+of local systems on \(U^{\mathrm{an}}\). We say that a local system
+\(\mathcal{F}\) on \(U^{\mathrm{an}}\) is weakly physically rigid if it is
+weakly physically semi-rigid and we may take \(d=1\), i.e., if for any local
+system \(\mathcal{G}\) on \(U^{\mathrm{an}}\) such that \(\mathcal{F}\) and
+\(\mathcal{G}\) have isomorphic local monodromy, there exists a rank one local
+system \(\mathcal{L}\) on \(X\) and an isomorphism
+\[
+  \mathcal{G}\cong\mathcal{F}\otimes j^*\mathcal{L}.
+\]
+
+\setcounter{theorem}{1}
+\begin{lemma}
+\label{lem:1.2.2}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g\), \(S\) a nonempty finite subset of \(X(\mathbb{C})\), \(U:=X-S\) the open
+complement.
+\leavevmode\par
+\begin{enumerate}[label=(\arabic*)]
+\item Any local system \(\mathcal{F}\) on \(U^{\mathrm{an}}\) of rank one is
+weakly physically rigid.
+\item If \(\mathcal{F}_1\) is a rank one local system on \(U^{\mathrm{an}}\),
+then for any nonzero local system \(\mathcal{G}\) on \(U^{\mathrm{an}}\),
+\(\mathcal{G}\) is weakly physically rigid if and only if
+\(\mathcal{G}\otimes\mathcal{F}_1\) is weakly physically rigid.
+\item If \(\mathcal{F}\) is a nonzero local system on \(U^{\mathrm{an}}\),
+\(T\) any finite subset of \(U^{\mathrm{an}}(\mathbb{C})\), and
+\(k:U^{\mathrm{an}}-T\to U^{\mathrm{an}}\) the inclusion, then
+\(\mathcal{F}\) is weakly physically rigid on \(U^{\mathrm{an}}\) if and only
+if \(k^*\mathcal{F}\) is weakly physically rigid on \(U^{\mathrm{an}}-T\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) If \(\mathcal{F}\) and \(\mathcal{G}\) are any two local systems of rank
+one with isomorphic local monodromy, then
+\(\operatorname{Hom}(\mathcal{G},\mathcal{F})\) is a rank one local system on
+\(U^{\mathrm{an}}\) with trivial local monodromy, so of the form \(j^*\mathcal{L}\)
+for a unique rank one local system \(\mathcal{L}\), namely
+\(j_*\operatorname{Hom}(\mathcal{G},\mathcal{F})\), on \(X^{\mathrm{an}}\),
+whence \(\mathcal{F}\cong\mathcal{G}\otimes j^*\mathcal{L}\).
+
+(2) It suffices to show that if \(\mathcal{G}\) is weakly physically rigid then
+\(\mathcal{G}\otimes\mathcal{F}_1\) is weakly physically rigid. If
+\(\mathcal{H}\) and \(\mathcal{G}\otimes\mathcal{F}_1\) have isomorphic local
+monodromy, then \(\mathcal{H}\otimes(\mathcal{F}_1)^{\otimes -1}\) and
+\(\mathcal{G}\) have isomorphic local monodromy, so by the weak physical
+rigidity of \(\mathcal{G}\), there exists a rank one \(\mathcal{L}\) on
+\(X^{\mathrm{an}}\) and an isomorphism
+\[
+  \mathcal{G}\cong
+  (j^*\mathcal{L})\otimes\mathcal{H}\otimes(\mathcal{F}_1)^{\otimes -1}
+\]
+on \(U^{\mathrm{an}}\). Tensoring with \(\mathcal{F}_1\) gives the required
+isomorphism
+\[
+  \mathcal{G}\otimes\mathcal{F}_1\cong (j^*\mathcal{L})\otimes\mathcal{H}.
+\]
+
+(3) Suppose first that \(\mathcal{F}\) is weakly physically rigid on
+\(U^{\mathrm{an}}\), and that \(\mathcal{G}\) is a local system on
+\(U^{\mathrm{an}}-T\) such that \(k^*\mathcal{F}\) and \(\mathcal{G}\) have
+isomorphic local monodromy on \(U^{\mathrm{an}}-T\). Because \(k^*\mathcal{F}\)
+has trivial local monodromy at each point of \(T\), so also does
+\(\mathcal{G}\), and therefore \(\mathcal{F}(=k_*k^*\mathcal{F})\) and
+\(k_*\mathcal{G}\) are two local systems on \(U^{\mathrm{an}}\) with
+isomorphic local monodromy. Since \(\mathcal{F}\) is weakly physically rigid on
+\(U^{\mathrm{an}}\), there exists a rank one local system \(\mathcal{L}\) on
+\(X^{\mathrm{an}}\) and an isomorphism
+\[
+  \mathcal{F}\cong k_*\mathcal{G}\otimes j^*\mathcal{L}
+\]
+on \(U^{\mathrm{an}}\). Restricting this isomorphism to \(U^{\mathrm{an}}-T\)
+gives
+\[
+  k^*\mathcal{F}\cong\mathcal{G}\otimes k^*j^*\mathcal{L},
+\]
+as required.
+
+Conversely, suppose \(\mathcal{F}\) is a nonzero local system on
+\(U^{\mathrm{an}}\), such that \(k^*\mathcal{F}\) is weakly physically rigid on
+\(U^{\mathrm{an}}-T\). Let \(\mathcal{G}\) be a local system on
+\(U^{\mathrm{an}}\) such that \(\mathcal{F}\) and \(\mathcal{G}\) have
+isomorphic local monodromy. Then \(k^*\mathcal{F}\) and \(k^*\mathcal{G}\) have
+isomorphic local monodromy on \(U^{\mathrm{an}}-T\), so there exists a rank one
+local system \(\mathcal{L}\) on \(X^{\mathrm{an}}\) and an isomorphism
+\[
+  k^*\mathcal{F}\cong k^*\mathcal{G}\otimes k^*j^*\mathcal{L}
+  =k^*(\mathcal{G}\otimes j^*\mathcal{L}).
+\]
+Applying \(k_*\) gives the required isomorphism
+\[
+  \mathcal{F}=k_*k^*\mathcal{F}
+  \cong k_*(k^*(\mathcal{G}\otimes j^*\mathcal{L}))
+  =
+  \mathcal{G}\otimes j^*\mathcal{L}.
+\]
+\end{proof}
+
+In a more serious vein, we have:
+
+\setcounter{theorem}{2}
+\begin{proposition}
+\label{prop:1.2.3}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g\), \(S\) a nonempty finite subset of \(X(\mathbb{C})\),
+\(U:=X-S\) the open complement, \(j:U\to X\) the inclusion. If a nonzero local
+system \(\mathcal{F}\) on \(U^{\mathrm{an}}\) is weakly physically semi-rigid,
+then
+\[
+  \chi(X^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))\geq 2-2g.
+\]
+\end{proposition}
+
+\begin{proof}
+Once again we resort to a transcendental proof. With suitable base point \(u\)
+in \(U^{\mathrm{an}}\), suitable numbering \(s_1,\ldots,s_k\) of the
+\(k:=\operatorname{Card}(S)\) points at \(\infty\), and suitable numbering of
+the \(g\) ``handles'', the fundamental group \(\pi_1(U^{\mathrm{an}},u)\) may
+be described in terms of generators and relations as the abstract group
+\(\Gamma_{g,k}\) with \(2g+k\) generators
+\[
+  E_1,F_1,\ldots,E_g,F_g,C_1,\ldots,C_k
+\]
+subject to the single relation
+\[
+  \left(\prod_{j=1,\ldots,g}\{E_j,F_j\}\right)
+  \left(\prod_{i=1,\ldots,k} C_i\right)=1,
+\]
+where we write \(\{a,b\}\) for the commutator \(aba^{-1}b^{-1}\). In this
+presentation, the elements \(C_i\) are the local monodromies around the points
+\(s_i\) at \(\infty\), and \(\pi_1(X^{\mathrm{an}},u)\) is the quotient of
+\(\Gamma_{g,k}\) by the normal subgroup generated by the elements
+\(C_1,\ldots,C_k\).
+
+In terms of this presentation of \(\pi_1(U^{\mathrm{an}},u)\), a local system
+\(\mathcal{F}\) on \(U^{\mathrm{an}}\) of rank \(n\geq 1\) is a collection
+\[
+  M_1,N_1,\ldots,M_g,N_g,A_1,\ldots,A_k
+\]
+which satisfy
+\[
+  \left(\prod_{j=1,\ldots,g}\{M_j,N_j\}\right)
+  \left(\prod_{i=1,\ldots,k} A_i\right)=1.
+\]
+Fix such an \(\mathcal{F}\). By the Euler--Poincaré formula, we have
+\[
+  \chi(X^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))
+  =
+  (2-2g-k)n^2+\sum_i\dim(Z(A_i)).
+\]
+We now repeat the dimension argument of
+\hyperref[thm:1.1.2]{Theorem~1.1.2} with
+\[
+  X=(\operatorname{GL}(n,\mathbb{C}))^{2g+k}
+\]
+and
+\[
+  G=\operatorname{SL}(n,\mathbb{C})\times(\mathbb{C}^{\times})^{2g}
+    \times\prod_i Z(A_i).
+\]
+The same equivariance and fibre argument shows that weak physical semi-rigidity
+implies
+\[
+  \dim(G)\geq \dim(\pi^{-1}(1))\geq \dim(X)-(n^2-1).
+\]
+This says
+\[
+  (n^2-1)+2g+\sum_i\dim(Z(A_i))\geq (2g+k)n^2-(n^2-1),
+\]
+i.e.,
+\[
+  (2-2g-k)n^2+\sum_i\dim(Z(A_i))\geq 2-2g,
+\]
+i.e.,
+\[
+  \chi(X^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))\geq 2-2g.
+\]
+\end{proof}
+
+\setcounter{theorem}{3}
+\begin{corollary}
+\label{cor:1.2.4}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g\), \(S\) a nonempty finite subset of \(X(\mathbb{C})\), \(k:=\operatorname{Card}(S)\),
+\(U:=X-S\) the open complement, \(j:U\to X\) the inclusion. If \(g\geq 2\), and
+\(\mathcal{F}\) is a local system on \(U^{\mathrm{an}}\) of rank \(n\geq 2\),
+then \(\mathcal{F}\) is not weakly physically semi-rigid.
+\end{corollary}
+
+\begin{proof}
+For \(\mathcal{F}\) of rank \(n\geq 1\) on \(U^{\mathrm{an}}\), the
+Euler--Poincaré formula gives
+\begin{align*}
+  &\chi(X^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))-(2-2g)\\
+  &\quad =
+  (2-2g-k)n^2+\sum_i\dim(Z(A_i))-(2-2g)\\
+  &\quad =
+  (2-2g)(n^2-1)+\sum_i(\dim(Z(A_i))-n^2).
+\end{align*}
+Each term \(\dim(Z(A_i))-n^2\) is \(\leq 0\), with equality if and only if
+\(A_i\) is scalar. If \(g\geq 2\) and \(n\geq 2\), then
+\((2-2g)(n^2-1)<0\), so
+\[
+  \chi(X^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))<2-2g.
+\]
+Therefore \(\mathcal{F}\) is not weakly physically semi-rigid.
+\end{proof}
+
+\setcounter{theorem}{4}
+\begin{corollary}
+\label{cor:1.2.5}
+(mise pour memoire) Let \(S\) be a nonempty finite subset of
+\(\mathbb{P}^1(\mathbb{C})\), \(U:=\mathbb{P}^1-S\) the open complement,
+\(j:U\to\mathbb{P}^1\) the inclusion. Let \(\mathcal{F}\) be an irreducible
+local system on \(U^{\mathrm{an}}\) of rank \(n\geq 1\). The following
+conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item \(\mathcal{F}\) is physically rigid.
+\item \(\mathcal{F}\) is weakly physically rigid.
+\item \(\mathcal{F}\) is weakly physically semi-rigid.
+\item
+\(\chi((\mathbb{P}^1)^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))\geq 2\).
+\item
+\(\chi((\mathbb{P}^1)^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))=2\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The implications \((1)\Rightarrow(2)\Rightarrow(3)\) are trivial, and we have
+proven \((3)\Rightarrow(4)\) in
+\hyperref[prop:1.2.3]{Proposition~1.2.3} above. For \(\mathcal{F}\) irreducible,
+we have already proven \((4)\Rightarrow(5)\) and \((5)\Rightarrow(1)\) in the
+proof of \hyperref[thm:1.1.2]{Theorem~1.1.2}.
+\end{proof}
+
+\section{The case of genus one}
+\label{sec:1.3}
+
+\setcounter{theorem}{0}
+\begin{corollary}
+\label{cor:1.3.1}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(S\) a nonempty finite subset of \(X(\mathbb{C})\),
+\(U:=X-S\) the open complement, \(j:U\to X\) the inclusion. Let
+\(\mathcal{F}\) be a local system on \(U^{\mathrm{an}}\) of rank \(n\geq 1\).
+Consider the following conditions:
+\leavevmode\par
+\begin{enumerate}[label=(\arabic*)]
+\item \(\mathcal{F}\) is weakly physically rigid.
+\item \(\mathcal{F}\) is weakly physically semi-rigid.
+\item \(\chi(X^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))\geq 0=(2-2g)\).
+\item \(\chi(X^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))=0=(2-2g)\).
+\item \(\mathcal{F}\) has all its local monodromies scalar.
+\item \(j_*\operatorname{End}(\mathcal{F})\) is a local system on \(X^{\mathrm{an}}\).
+\end{enumerate}
+We have the implications
+\[
+  (1)\Rightarrow(2)\Rightarrow(3)\Rightarrow(4)\Rightarrow(5)\Rightarrow(6).
+\]
+If in addition \(\mathcal{F}\) is irreducible, these conditions are all
+equivalent.
+\end{corollary}
+
+\begin{proof}
+The implication \((1)\Rightarrow(2)\) is trivial, and \((2)\Rightarrow(3)\) is
+the content of \hyperref[prop:1.2.3]{Proposition~1.2.3} above. If \(g=1\), the Euler--Poincaré formula
+gives
+\begin{align*}
+  &\chi(X^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))-(2-2g)\\
+  &\quad =
+  (2-2g-k)n^2+\sum_i\dim(Z(A_i))-(2-2g)\\
+  &\quad =
+  \sum_i(\dim(Z(A_i))-n^2).
+\end{align*}
+Thus
+\(\chi(X^{\mathrm{an}},j_*\operatorname{End}(\mathcal{F}))\leq 2-2g=0\),
+with strict inequality unless all the local monodromies \(A_i\) are scalar. Thus
+\((3)\Rightarrow(4)\) and \((4)\Rightarrow(5)\). If (5) holds, then
+\(\operatorname{End}(\mathcal{F})\) has trivial local monodromy, so
+\(j_*\operatorname{End}(\mathcal{F})\) is a local system on the elliptic curve
+\(X^{\mathrm{an}}\). Thus \((5)\Rightarrow(6)\).
+
+Suppose now that \(\mathcal{F}\) is irreducible, and that (6) holds, i.e.,
+\(j_*\operatorname{End}(\mathcal{F})\) is a local system on \(X^{\mathrm{an}}\).
+Let \(\mathcal{G}\) be another local system on \(U^{\mathrm{an}}\) such that
+\(\mathcal{F}\) and \(\mathcal{G}\) have isomorphic local monodromy. Then
+\(\operatorname{Hom}(\mathcal{F},\mathcal{G})\) and
+\(\operatorname{End}(\mathcal{F})\) have isomorphic local monodromy. Since
+\(j_*\operatorname{End}(\mathcal{F})\) is a local system on \(X^{\mathrm{an}}\),
+\(\operatorname{End}(\mathcal{F})\) has trivial local monodromy. Hence
+\(\operatorname{Hom}(\mathcal{F},\mathcal{G})\) has trivial local monodromy,
+and therefore \(j_*\operatorname{Hom}(\mathcal{F},\mathcal{G})\) is a local
+system on \(X^{\mathrm{an}}\). Because the \(\pi_1\) of \(X^{\mathrm{an}}\) is
+abelian, any local system on \(X^{\mathrm{an}}\) is a successive extension of
+rank one local systems \(\mathcal{L}_k\) on \(X^{\mathrm{an}}\). So there exists
+a rank one local system \(\mathcal{L}\) on \(X^{\mathrm{an}}\) and a non-zero
+map of local systems on \(X^{\mathrm{an}}\)
+\[
+  \mathcal{L}\to j_*\operatorname{Hom}(\mathcal{F},\mathcal{G}).
+\]
+Tensoring this map with \(\mathcal{L}^{\otimes -1}\) gives a nonzero map
+\[
+  \mathbb{C}\to
+  j_*\operatorname{Hom}(\mathcal{F},\mathcal{G})\otimes\mathcal{L}^{\otimes -1}
+  =
+  j_*\operatorname{Hom}(\mathcal{F}\otimes j^*\mathcal{L},\mathcal{G}),
+\]
+i.e., a nonzero element in
+\[
+  \mathrm{H}^0\bigl(X^{\mathrm{an}},
+    j_*\operatorname{Hom}(\mathcal{F}\otimes j^*\mathcal{L},\mathcal{G})\bigr)
+  =
+  \mathrm{H}^0\bigl(U^{\mathrm{an}},
+    \operatorname{Hom}(\mathcal{F}\otimes j^*\mathcal{L},\mathcal{G})\bigr)
+  =
+  \operatorname{Hom}(\mathcal{F}\otimes j^*\mathcal{L},\mathcal{G}).
+\]
+Because \(\mathcal{F}\), and hence \(\mathcal{F}\otimes j^*\mathcal{L}\), is
+irreducible and of the same rank as \(\mathcal{G}\), any such non-zero map of
+local systems is an isomorphism. Therefore
+\(\mathcal{F}\otimes j^*\mathcal{L}\cong \mathcal{G}\). Thus
+\(\mathcal{F}\) is weakly physically rigid, and so \((6)\Rightarrow(1)\) for
+\(\mathcal{F}\) irreducible.
+\end{proof}
+
+\section{The case of genus one: detailed analysis}
+\label{sec:1.4}
+
+\sourcepara{1.4.1}
+We now analyze the case of genus one in greater detail. The first step is to
+show that up to tensoring with rank one objects, we may reduce to the case when
+there is only a single point at \(\infty\).
+
+\setcounter{theorem}{1}
+\begin{lemma}
+\label{lem:1.4.2}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(S=\{s_1,s_2,\ldots,s_k\}\) a finite subset of \(X(\mathbb{C})\) with
+\(k\geq 2\) points, \(U:=X-S\) the open complement,
+\[
+  j:U\to X,\qquad j_1:X-S\to X-\{s_1\}
+\]
+the inclusions. Let \(\mathcal{F}\) be a local system on \(U^{\mathrm{an}}\) of
+rank \(n\geq 1\) which is weakly physically rigid. There exists a rank one local
+system \(\mathcal{L}\) on \(U^{\mathrm{an}}\), and a weakly physically rigid
+local system \(\mathcal{F}_1\) on \((X-\{s_1\})^{\mathrm{an}}\), such that
+\[
+  \mathcal{F}\cong \mathcal{L}\otimes j_1^*\mathcal{F}_1.
+\]
+\end{lemma}
+
+\begin{proof}
+If \(\mathcal{F}\) on \(U^{\mathrm{an}}\) of rank \(n\geq 1\) is weakly
+physically rigid, its local monodromy at each point \(s_i\) in \(S\) is a
+scalar, say \(\alpha_i\). Think of \(\pi_1(U^{\mathrm{an}},u)\) as the abstract
+group \(\Gamma_{1,k}\) with \(2+k\) generators
+\[
+  E,F,C_1,\ldots,C_k
+\]
+subject to the single relation
+\[
+  \{E,F\}\left(\prod_{i=1,\ldots,k}C_i\right)=1.
+\]
+The required \(\mathcal{L}\) is any character \(\chi\) of this group which takes
+the value \(\alpha_i\) at \(C_i\) for \(i>1\), e.g., one might take
+\(\chi(E)=\chi(F)=1\), and
+\[
+  \chi(C_1):=\left(\prod_{i=2,\ldots,k}\alpha_i\right)^{-1}.
+\]
+Then \(\mathcal{F}\otimes\mathcal{L}^{\otimes -1}\) has trivial local monodromy
+at each of \(s_2,\ldots,s_k\), so it is of the form \(j_1^*\mathcal{F}_1\) for
+some local system \(\mathcal{F}_1\) on \((X-\{s_1\})^{\mathrm{an}}\). By
+\hyperref[lem:1.2.2]{Lemma~1.2.2(2)}, \(\mathcal{F}\otimes\mathcal{L}^{\otimes -1}\) on \(U^{\mathrm{an}}\)
+is weakly physically rigid, and, by \hyperref[lem:1.2.2]{Lemma~1.2.2(3)}, \(\mathcal{F}_1\) is weakly
+physically rigid on \((X-\{s_1\})^{\mathrm{an}}\).
+\end{proof}
+
+\sourcepara{1.4.3}
+We next analyze the irreducible local systems in genus one when there is a
+single point at infinity.
+
+\setcounter{theorem}{3}
+\begin{lemma}
+\label{lem:1.4.4}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(x_0\) in \(X(\mathbb{C})\) a point, \(U:=X-\{x_0\}\) the open
+complement, \(j:U\to X\) the inclusion. Let \(\mathcal{F}\) be a local system
+on \(U^{\mathrm{an}}\) of rank \(n\geq 1\). Then the following conditions are
+equivalent:
+\leavevmode\par
+\begin{enumerate}[label=(\arabic*)]
+\item \(\mathcal{F}\) is both irreducible and weakly physically rigid.
+\item The local monodromy of \(\mathcal{F}\) around \(x_0\) is a scalar
+\(\xi\) which is a primitive \(n\)'th root of unity.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Suppose first that (1) holds. By the weak physical rigidity of
+\(\mathcal{F}\), and \hyperref[cor:1.3.1]{Corollary~1.3.1}, \((1)\Rightarrow(5)\), we know that the local
+monodromy of \(\mathcal{F}\) around \(x_0\) is a scalar \(\xi\). We first show
+that \(\xi\) is necessarily an \(n\)'th root of unity.
+
+Think of \(\pi_1(U^{\mathrm{an}},u)\) as the abstract group \(\Gamma_{1,1}\)
+with \(2+1\) generators \(E,F,C\) subject to the single relation
+\[
+  \{E,F\}C=1,\quad\text{or }C=\{F,E\},
+\]
+\(C\) being the local monodromy around \(x_0\). Then \(\mathcal{F}\) ``is'' an
+\(n\)-dimensional \(\mathbb{C}\)-representation of this group. So its local
+monodromy around \(x_0\) lies in \(\operatorname{SL}(n,\mathbb{C})\), because
+it is the commutator of two elements of \(\operatorname{GL}(n,\mathbb{C})\).
+Being a scalar, \(\xi\) is necessarily an \(n\)'th root of unity.
+
+Given an \(n\)'th root of unity \(\xi\), we construct an explicit
+\(n\)-dimensional \(\mathbb{C}\)-representation \(\rho_{n,\xi}\) on
+\(V_{n,\xi}\) of \(\pi_1(U^{\mathrm{an}},u)\), which we now think of as the
+free group on \(E\) and \(F\), as follows:
+\[
+  \begin{aligned}
+  V_{n,\xi}&=\mathbb{C}[T]/(T^n-1),\\
+  \rho_{n,\xi}(E)&\text{ is the automorphism }A:f(T)\mapsto Tf(T),\\
+  \rho_{n,\xi}(F)&\text{ is the automorphism }B:f(T)\mapsto f(\xi T).
+  \end{aligned}
+\]
+Clearly \(AB(f)(T)=Tf(\xi T)\), \(BA(f)(T)=\xi Tf(\xi T)\), so
+\(BA=\xi AB\), which is to say \(\{B,A\}=\xi\), or equivalently
+\(\{A,B\}\xi=1\). Interpret the representation \(\rho_{n,\xi}\) as a local
+system \(\mathcal{F}_{n,\xi}\) on \(U^{\mathrm{an}}\). Then its local monodromy
+around \(x_0\) is the scalar \(\xi\).
+
+We must show that if \(\mathcal{F}\) is both irreducible and weakly physically
+rigid, then \(\xi\) is a primitive \(n\)'th root of unity. We argue by
+contradiction. Suppose that for some factorization \(n=dm\), with both \(m\) and
+\(d\) integers \(\geq 2\), \(\xi\) were a \(d\)'th root of unity. Then
+\(\mathcal{F}\) and \(\bigoplus_m \mathcal{F}_{d,\xi}\) are two local systems on
+\(U^{\mathrm{an}}\) with isomorphic local monodromy (namely \(\xi\)). By the
+weak physical rigidity of \(\mathcal{F}\), there exists a rank one
+\(\mathcal{L}\) on \(X^{\mathrm{an}}\) and an isomorphism
+\[
+  \mathcal{F}\cong \left(\bigoplus_m\mathcal{F}_{d,\xi}\right)\otimes j^*\mathcal{L}.
+\]
+But this shows that \(\mathcal{F}\) is in fact reducible. Thus (1) implies (2).
+
+Suppose now that (2) holds. By \hyperref[cor:1.3.1]{Corollary~1.3.1}, it suffices to prove that
+\(\mathcal{F}\) is irreducible. Interpreting \(\mathcal{F}\) as a
+representation, this results from the following general lemma.
+\end{proof}
+
+\setcounter{theorem}{4}
+\begin{lemma}
+\label{lem:1.4.5}
+Let \(K\) be an algebraically closed field, \(n\geq 2\) an integer, \(V\) an
+\(n\)-dimensional \(K\)-vector space, \(A\) and \(B\) two elements of
+\(\operatorname{GL}(V)\), \(C\) the commutator \(\{B,A\}\). Let
+\(\xi_1,\xi_2,\ldots,\xi_n\) be the \(n\) not necessarily distinct eigenvalues
+of \(C\). Suppose that for any proper nonempty subset \(S\) of
+\(\{1,2,\ldots,n\}\), the product \(\prod_{i\in S}\xi_i\neq 1\). Then the
+subgroup of \(\operatorname{GL}(V)\) generated by \(A\) and \(B\) acts
+irreducibly on \(V\). In particular, if \(C\) is scalar, equal to a primitive
+\(n\)'th root of unity, then the subgroup of \(\operatorname{GL}(V)\) generated
+by \(A\) and \(B\) acts irreducibly on \(V\).
+\end{lemma}
+
+\begin{proof}
+We restate the hypothesis in the following form: for any monic polynomial
+\(f(T)\) of degree \(1\leq d<n\) which divides \(\det_V(T-C)\), we have
+\[
+  \prod_{\text{all roots }\xi\text{ of }f}\xi\neq 1.
+\]
+We argue by contradiction. If \(W\) is a nontrivial proper subspace of \(V\)
+which is mapped to itself by both \(A\) and \(B\), then \(W\) is also mapped to
+itself by their inverses, and so \(W\) is mapped to itself by
+\(C=\{B,A\}\). But
+\[
+  C\vert W=\{B\vert W,A\vert W\}
+\]
+lies in \(\operatorname{SL}(W)\), being a commutator of two elements in
+\(\operatorname{GL}(W)\). Taking \(f(T):=\det_W(T-C\vert W)\), we get a
+contradiction.
+\end{proof}
+
+Using the local systems \(\mathcal{F}_{n,\xi}\) on \((X-\{x_0\})^{\mathrm{an}}\)
+constructed in the proof of \hyperref[lem:1.4.4]{Lemma~1.4.4} above, we get a complete description:
+
+\setcounter{theorem}{5}
+\begin{proposition}
+\label{prop:1.4.6}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(x_0\) in \(X(\mathbb{C})\) a point, \(U:=X-\{x_0\}\) the open
+complement, \(j:U\to X\) the inclusion, \(n\geq 1\) an integer. The local
+systems \(\mathcal{F}\) on \(U^{\mathrm{an}}\) of rank \(n\) which are both
+irreducible and weakly physically rigid are precisely those of the form
+\(\mathcal{F}_{n,\xi}\otimes j^*\mathcal{L}\), with \(\mathcal{L}\) of rank one
+on \(X^{\mathrm{an}}\), and with \(\xi\) a primitive \(n\)'th root of unity.
+\end{proposition}
+
+\begin{proof}
+By \hyperref[lem:1.4.4]{Lemma~1.4.4}, we know if \(\xi\) is a primitive \(n\)'th root of unity, then
+\(\mathcal{F}_{n,\xi}\), and hence also
+\(\mathcal{F}_{n,\xi}\otimes j^*\mathcal{L}\), is irreducible. Because
+\(\mathcal{F}_{n,\xi}\), and hence also
+\(\mathcal{F}_{n,\xi}\otimes j^*\mathcal{L}\), have scalar local monodromy,
+\hyperref[cor:1.3.1]{Corollary~1.3.1}, \((5)\Rightarrow(1)\), shows that
+\(\mathcal{F}_{n,\xi}\otimes j^*\mathcal{L}\) is weakly physically rigid.
+Conversely, given a rank \(n\) \(\mathcal{F}\) which is irreducible and weakly
+physically rigid, by \hyperref[lem:1.4.4]{Lemma~1.4.4} its local monodromy at \(x_0\) is a scalar \(\xi\)
+which is a primitive \(n\)'th root of unity. So \(\mathcal{F}\) and
+\(\mathcal{F}_{n,\xi}\) have isomorphic local monodromy. By the weak physical
+rigidity of \(\mathcal{F}\), there exists an \(\mathcal{L}\) of rank one on
+\(X^{\mathrm{an}}\), and an isomorphism
+\[
+  \mathcal{F}\cong \mathcal{F}_{n,\xi}\otimes j^*\mathcal{L}.
+\]
+\end{proof}
+
+\sourcepara{1.4.7}
+We next compute the determinant of \(\mathcal{F}_{n,\xi}\). To state the
+result, we denote by \(\mathcal{L}_{1/2}\) the rank one local system on
+\((X-\{x_0\})^{\mathrm{an}}\) corresponding to the character
+\(E\mapsto -1\), \(F\mapsto -1\), and by \(\mathcal{L}_0\) the trivial rank one
+local system on \((X-\{x_0\})^{\mathrm{an}}\). (Of course, both of these, like
+any rank one local system with only one point at \(\infty\), extend uniquely to
+local systems on the complete curve \(X^{\mathrm{an}}\).)
+
+\setcounter{theorem}{7}
+\begin{lemma}
+\label{lem:1.4.8}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(x_0\) in \(X(\mathbb{C})\) a point, \(U:=X-\{x_0\}\) the open
+complement, \(j:U\to X\) the inclusion, \(n\geq 1\) an integer, \(\xi\) a
+primitive \(n\)'th root of unity. Then
+\[
+  \begin{aligned}
+  \det(\mathcal{F}_{n,\xi})&=\mathcal{L}_{1/2}\quad\text{if }n\text{ is even},\\
+  \det(\mathcal{F}_{n,\xi})&=\mathcal{L}_0\quad\text{if }n\text{ is odd}.
+  \end{aligned}
+\]
+\end{lemma}
+
+\begin{proof}
+As representation, \(\mathcal{F}_{n,\xi}\) is
+\[
+  \begin{aligned}
+  V_{n,\xi}&\text{ is the }n\text{-dimensional }\mathbb{C}\text{-algebra }
+  \mathbb{C}[T]/(T^n-1),\\
+  \rho_{n,\xi}(E)&\text{ is the automorphism }A:f(T)\mapsto Tf(T),\\
+  \rho_{n,\xi}(F)&\text{ is the automorphism }B:f(T)\mapsto f(\xi T).
+  \end{aligned}
+\]
+The assertion is that
+\[
+  \det(A)=\det(B)=\xi^{n(n+1)/2}\;(=(-1)^{n+1}).
+\]
+To see this for \(A\), notice that the vectors
+\[
+  f_i(T):=\sum_{j\bmod n}\xi^{-ij}T^j,\qquad 1\leq i\leq n,
+\]
+are an eigenbasis for \(A\), with eigenvalues \(\xi^i\). To see it for \(B\),
+notice that vectors \(T^i\), \(1\leq i\leq n\), are an eigenbasis for \(B\),
+with eigenvalues \(\xi^i\).
+\end{proof}
+
+In fact, the local systems \(\mathcal{F}_{n,\xi}\) have a stronger rigidity
+property.
+
+\setcounter{theorem}{8}
+\begin{proposition}
+\label{prop:1.4.9}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(x_0\) in \(X(\mathbb{C})\) a point, \(U:=X-\{x_0\}\) the open
+complement, \(n\geq 1\) an integer. Let \(\mathcal{F}\) be a local system on
+\(U^{\mathrm{an}}\) of rank \(n\) which is both irreducible and weakly
+physically rigid. Denote by \(\xi\) the primitive \(n\)'th root of unity which
+is the local monodromy of \(\mathcal{F}\) around \(x_0\). If
+\(\det(\mathcal{F})\cong\det(\mathcal{F}_{n,\xi})\), then
+\(\mathcal{F}\cong\mathcal{F}_{n,\xi}\).
+\end{proposition}
+
+\begin{proof}
+As representation, \(\mathcal{F}_{n,\xi}\) is
+\[
+  \begin{aligned}
+  V_{n,\xi}&\text{ is the }n\text{-dimensional }\mathbb{C}\text{-algebra }
+  \mathbb{C}[T]/(T^n-1),\\
+  \rho_{n,\xi}(E)&\text{ is the automorphism }A:f(T)\mapsto Tf(T),\\
+  \rho_{n,\xi}(F)&\text{ is the automorphism }B:f(T)\mapsto f(\xi T).
+  \end{aligned}
+\]
+By \hyperref[prop:1.4.6]{Proposition~1.4.6}, there exist nonzero scalars
+\(\lambda,\mu\) in \(\mathbb{C}^{\times}\)
+such that the representation \(\Lambda_{\mathcal{F}}\) corresponding to
+\(\mathcal{F}\) is realized on the same space \(V_{n,\xi}\), but with
+\[
+  \Lambda_{\mathcal{F}}(E):=\lambda A,\qquad
+  \Lambda_{\mathcal{F}}(F):=\mu B.
+\]
+Because \(\det(\mathcal{F})\cong\det(\mathcal{F}_{n,\xi})\), the scalars
+\(\lambda\) and \(\mu\) are \(n\)'th roots of unity. Thus we must show that the
+automorphisms \(A\) and \(B\) of \(V_{n,\xi}\) have the following property (*):
+
+\par\addvspace{\sourceblockpreskip}%
+\noindent(*) for any \(n\)'th roots of unity \(\lambda,\mu\), there exists an
+automorphism \(X\) of \(V_{n,\xi}\) such that
+\[
+  \lambda A=XAX^{-1}\quad\text{and}\quad \mu B=XBX^{-1}.
+\]
+
+To prove (*), recall that \(BA=\xi AB\). Thus
+\[
+  BAB^{-1}=\xi A,\qquad ABA^{-1}=\xi B.
+\]
+So if we write \(\lambda=\xi^i\) and \(\mu=\xi^j\), we may take
+\[
+  X=A^jB^i.
+\]
+\end{proof}
+
+\setcounter{theorem}{9}
+\begin{corollary}
+\label{cor:1.4.10}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(x_0\) in \(X(\mathbb{C})\) a point, \(U:=X-\{x_0\}\) the open
+complement, \(n\geq 1\) an integer. Let \(\mathcal{F}\) be a local system on
+\(U^{\mathrm{an}}\) of rank \(n\) which is both irreducible and weakly
+physically rigid. Denote by \(\xi\) the primitive \(n\)'th root of unity which
+is the local monodromy of \(\mathcal{F}\) around \(x_0\). The isomorphism class
+of \(\mathcal{F}\) is determined by the isomorphism class of the data
+\((n,\xi,\det(\mathcal{F}))\).
+\end{corollary}
+
+\begin{proof}
+The group (under \(\otimes\)) of isomorphism classes of rank one local systems
+on \(U^{\mathrm{an}}\) is divisible (being \(\mathbb{C}^{\times}\times
+\mathbb{C}^{\times}\)), so tensoring \(\mathcal{F}\) with an \(n\)'th root of
+\(\det(\mathcal{F}_{n,\xi})\otimes\det(\mathcal{F})^{-1}\), we reduce to the
+proposition above.
+\end{proof}
+
+\sourcepara{1.4.11}
+We now investigate the situation in genus one when there are \(k\geq 2\) points
+at \(\infty\).
+
+\setcounter{theorem}{11}
+\begin{proposition}
+\label{prop:1.4.12}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(S=\{s_1,s_2,\ldots,s_k\}\) a finite subset of \(X(\mathbb{C})\) with
+\(k\geq 2\) points, \(U:=X-S\) the open complement,
+\[
+  j:U\to X,\qquad j_1:X-S\to X-\{s_1\}
+\]
+the inclusions. Fix an integer \(n\geq 1\). The local systems \(\mathcal{F}\) on
+\(U^{\mathrm{an}}\) of rank \(n\) which are both irreducible and weakly
+physically rigid are precisely those of the form
+\[
+  (j_1)^*(\mathcal{F}_{n,\xi}\text{ on }(X-\{s_1\})^{\mathrm{an}})\otimes
+  \mathcal{L},
+\]
+with \(\mathcal{L}\) of rank one on \(U^{\mathrm{an}}\), and with \(\xi\) a
+primitive \(n\)'th root of unity.
+\end{proposition}
+
+\begin{proof}
+Simply combine \hyperref[lem:1.4.2]{Lemma~1.4.2} and
+\hyperref[prop:1.4.6]{Proposition~1.4.6}.
+\end{proof}
+
+Here is an intrinsic characterization.
+
+\setcounter{theorem}{12}
+\begin{lemma}
+\label{lem:1.4.13}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(S=\{s_1,\ldots,s_k\}\) a finite subset of \(X(\mathbb{C})\) with
+\(k\geq 1\) points, \(U:=X-S\) the open complement, \(j:U\to X\) the inclusion.
+Let \(\mathcal{F}\) be a local system on \(U^{\mathrm{an}}\) of rank \(n\geq 1\).
+Then \(\mathcal{F}\) is both irreducible and weakly physically rigid if and
+only if the following two conditions hold:
+\leavevmode\par
+\begin{enumerate}[label=(\arabic*)]
+\item \(\mathcal{F}\) has scalar monodromy \(\xi_i\) around each point \(s_i\)
+in \(S\).
+\item \(\prod_{i\in S}\xi_i\) is a primitive \(n\)'th root of unity.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The assertion is invariant under tensoring with an \(\mathcal{L}\) of rank one
+on \(U^{\mathrm{an}}\), so we are reduced, as in the proof of
+\hyperref[lem:1.4.2]{Lemma~1.4.2}, to the case when \(k=1\), where it is
+\hyperref[lem:1.4.4]{Lemma~1.4.4}.
+\end{proof}
+
+\setcounter{theorem}{13}
+\begin{proposition}
+\label{prop:1.4.14}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(S=\{s_1,s_2,\ldots,s_k\}\) a finite subset of \(X(\mathbb{C})\) with
+\(k\geq 1\) points, \(U:=X-S\) the open complement,
+\[
+  j:U\to X,\qquad j_1:X-S\to X-\{s_1\}
+\]
+the inclusions. Let \(\mathcal{F}\) be a local system on \(U^{\mathrm{an}}\) of
+rank \(n\geq 1\) which is both irreducible and weakly physically rigid. Denote
+by \(\xi_i\) the scalar which is the local monodromy of \(\mathcal{F}\) around
+\(s_i\). The isomorphism class of \(\mathcal{F}\) is determined by the
+isomorphism class of the data
+\[
+  (n,\{\xi_i\}_i,\det(\mathcal{F})).
+\]
+\end{proposition}
+
+\begin{proof}
+Given this data, first construct the rank one local system
+\(\mathcal{L}(\{\xi_i\}_i)\) on \((X-\{s_1,\ldots,s_k\})^{\mathrm{an}}\) given
+as character of \(\pi_1\) by
+\[
+  E\mapsto 1,\quad F\mapsto 1,\quad
+  C_1\mapsto\prod_{i\geq 2}\xi_i,\quad
+  C_i\mapsto(\xi_i)^{-1}\quad\text{for }i\geq 2.
+\]
+Tensoring with \(\mathcal{L}(\{\xi_i\}_i)\), we reduce to the fact
+\hyperref[cor:1.4.10]{Corollary~1.4.10} that
+\[
+  (j_1)_*(\mathcal{F}\otimes\mathcal{L}(\{\xi_i\}_i))
+\]
+on \((X-\{s_1\})^{\mathrm{an}}\) is determined up to isomorphism by the data
+\[
+  (n,\prod_i\xi_i,\det((j_1)_*(\mathcal{F}\otimes\mathcal{L}(\{\xi_i\}_i)))).
+\]
+\end{proof}
+
+\sourcepara{1.4.15}
+We now return to the case of a single point at \(\infty\), and give a structure
+theorem for irreducible, weakly physically rigid local systems of rank
+\(n\geq 1\), which says they are all induced from rank one local systems.
+
+\setcounter{theorem}{15}
+\begin{theorem}
+\label{thm:1.4.16}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(x_0\) in \(X(\mathbb{C})\) a point, \(U:=X-\{x_0\}\) the open
+complement, \(j:U\to X\) the inclusion, \(n\geq 1\) an integer. Let
+\(\mathcal{F}\) be a local system on \(U^{\mathrm{an}}\) of rank \(n\) which is
+both irreducible and weakly physically rigid. Denote by \(\xi\) the primitive
+\(n\)'th root of unity which is the local monodromy of \(\mathcal{F}\) around
+\(x_0\). Let \(\pi:Y\to X\) be any connected finite étale covering of degree
+\(n\). Denote by \(S\subset Y(\mathbb{C})\) the set \(\pi^{-1}(x_0)\), which
+has \(\operatorname{Card}(S)=n\). Then there exists a rank one local system
+\(\mathcal{L}\) on \((Y-S)^{\mathrm{an}}\) for which the local monodromy around
+each of the \(n\) points in \(S\) is \(\xi\), and for which
+\[
+  \pi_*\mathcal{L}\cong\mathcal{F}
+\]
+on \(U^{\mathrm{an}}\).
+\end{theorem}
+
+\begin{proof}
+Because \(X\) has genus one, \(\pi_1(X^{\mathrm{an}})\) is abelian,
+\(\cong(\mathbb{Z})^2\). So connected finite étale coverings \(Y\) of \(X\)
+are in bijective correspondence with the subgroups \(\Gamma\) of
+\((\mathbb{Z})^2\) of index \(n\), and such \(\Gamma\) clearly exist. By the
+Hurwitz formula, \(Y\) has genus one.
+
+Consider the pullback \(\pi^*\mathcal{F}\) on \((Y-S)^{\mathrm{an}}\). Because
+\(\pi\) is finite étale over all of \(X\), the local monodromy of
+\(\pi^*\mathcal{F}\) around each point of \(S\) is still the same scalar
+\(\xi\). Since \(S\) contains \(n\) points, and \(\xi\) is an \(n\)'th root of
+unity, there exist rank one local systems \(\mathcal{L}\) on
+\((Y-S)^{\mathrm{an}}\) for which the local monodromy around each of the \(n\)
+points in \(S\) is \(\xi\). Pick any such \(\mathcal{L}\). (We will ``correct''
+it later.)
+
+The local system \(\operatorname{Hom}(\mathcal{L},\pi^*\mathcal{F})\) on
+\((Y-S)^{\mathrm{an}}\) has trivial local monodromy at each point of \(S\). So
+denoting by \(k:Y-S\to Y\) the inclusion,
+\(k_*\operatorname{Hom}(\mathcal{L},\pi^*\mathcal{F})\) is a local system on
+\(Y^{\mathrm{an}}\), which is necessarily a successive extension of rank one
+local systems on \(Y^{\mathrm{an}}\). So there exists a rank one
+\(\mathcal{L}_0\) on \(Y^{\mathrm{an}}\), and a nonzero element of
+\[
+  \operatorname{Hom}_{Y^{\mathrm{an}}}
+  \bigl(\mathcal{L}_0,k_*\operatorname{Hom}(\mathcal{L},\pi^*\mathcal{F})\bigr)
+  =
+  \operatorname{Hom}_{(Y-S)^{\mathrm{an}}}
+  \bigl(\mathcal{L}\otimes k^*\mathcal{L}_0,\pi^*\mathcal{F}\bigr).
+\]
+Because \(\mathcal{F}\) is irreducible, and \(\pi\) corresponds to a normal
+subgroup of finite index, \(\pi^*\mathcal{F}\) is semisimple. Therefore the
+group
+\[
+  \operatorname{Hom}_{(Y-S)^{\mathrm{an}}}
+  \bigl(\pi^*\mathcal{F},\mathcal{L}\otimes k^*\mathcal{L}_0\bigr)
+  =
+  \operatorname{Hom}_{U^{\mathrm{an}}}
+  \bigl(\mathcal{F},\pi_*(\mathcal{L}\otimes k^*\mathcal{L}_0)\bigr)
+\]
+is nonzero. Since \(\mathcal{F}\) is irreducible, and has the same rank \(n\) as
+\(\pi_*(\mathcal{L}\otimes k^*\mathcal{L}_0)\), any nonzero map between them is
+an isomorphism. Thus
+\[
+  \mathcal{F}\cong\pi_*(\mathcal{L}\otimes k^*\mathcal{L}_0).
+\]
+Since \(\mathcal{L}_0\) was a rank one local system on all of \(Y^{\mathrm{an}}\),
+\(\mathcal{L}\) and \(\mathcal{L}\otimes k^*\mathcal{L}_0\) have the same local
+monodromy at each point of \(S\). So \(\mathcal{L}\otimes k^*\mathcal{L}_0\)
+works as the required ``\(\mathcal{L}\)''.
+\end{proof}
+
+\setcounter{theorem}{16}
+\begin{remark}
+\label{rem:1.4.17}
+Here is a variant proof. Consider on \((Y-S)^{\mathrm{an}}\) any
+\(\mathcal{L}\) for which the local monodromy around each of the \(n\) points
+in \(S\) is \(\xi\). Because \(\pi\) is finite étale over all of \(X\),
+\(\pi_*\mathcal{L}\) on \(U^{\mathrm{an}}\) is a rank \(n\) local system which
+has its local monodromy around \(x_0\) given by the primitive \(n\)'th root of
+unity \(\xi\). By \hyperref[lem:1.4.4]{Lemma~1.4.4}, \(\pi_*\mathcal{L}\) is irreducible and weakly
+physically rigid. So by \hyperref[prop:1.4.6]{Proposition~1.4.6}, \(\pi_*\mathcal{L}\) is
+\(\mathcal{F}\otimes j^*(\mathcal{L}_1)^{\otimes -1}\) for some local system
+\(\mathcal{L}_1\) on \(X^{\mathrm{an}}\), and so
+\[
+  \mathcal{F}
+  \cong
+  (\pi_*\mathcal{L})\otimes(j^*\mathcal{L}_1)
+  =
+  \pi_*(\mathcal{L}\otimes \pi^*j^*\mathcal{L}_1)
+  =
+  \pi_*(\mathcal{L}\otimes k^*\pi^*\mathcal{L}_1),
+\]
+and \(\mathcal{L}\otimes k^*\pi^*\mathcal{L}_1\) works as the
+``\(\mathcal{L}\)''.
+\end{remark}
+
+\sourcepara{1.4.18}
+What about reducible local systems which are weakly physically rigid (or even
+semi-rigid)?
+
+\setcounter{theorem}{18}
+\begin{lemma}
+\label{lem:1.4.19}
+Let \(X\) be a projective smooth connected curve over \(\mathbb{C}\), of genus
+\(g=1\), \(S=\{s_1,s_2,\ldots,s_k\}\) a finite subset of \(X(\mathbb{C})\) with
+\(k\geq 1\) points, \(U:=X-S\) the open complement,
+\[
+  j:U\to X,\qquad j_1:X-S\to X-\{s_1\}
+\]
+the inclusions. Let \(\mathcal{F}\) be a local system on \(U^{\mathrm{an}}\) of
+rank \(n\geq 1\) which is weakly physically semi-rigid. Then \(\mathcal{F}\) is
+irreducible (and hence weakly physically rigid, by
+\hyperref[cor:1.3.1]{Corollary~1.3.1}).
+\end{lemma}
+
+\begin{proof}
+We first reduce to the case of a single point at \(\infty\). If \(k\geq 2\),
+denote by \(\xi_i\) the scalar which is the local monodromy of \(\mathcal{F}\)
+around \(s_i\), and by \(\mathcal{L}(\{\xi_i\}_i)\) the rank one local system
+on \((X-\{s_1,\ldots,s_k\})^{\mathrm{an}}\) constructed in the proof of
+\hyperref[prop:1.4.14]{Proposition~1.4.14}
+above. Then \(\mathcal{F}\otimes\mathcal{L}(\{\xi_i\}_i)\) extends to a local
+system on \((X-\{s_1\})^{\mathrm{an}}\) which is still weakly physically
+semi-rigid, and it suffices to show that this local system is irreducible on
+\((X-\{s_1\})^{\mathrm{an}}\).
+
+We now assume that \(k=1\), \(S=\{s_1\}\), and show that any weakly physically
+semi-rigid local system \(\mathcal{F}\) on \((X-\{s_1\})^{\mathrm{an}}\) is
+irreducible. Let \(\mathcal{F}\) have rank \(n\geq 1\), and denote by \(\xi\)
+its local monodromy around the unique point \(s_1\) at \(\infty\). Then \(\xi\)
+is an \(n\)'th root of unity, and we know by
+\hyperref[lem:1.4.4]{Lemma~1.4.4} that \(\mathcal{F}\) is
+irreducible if and only if \(\xi\) is a primitive \(n\)'th root of unity. So if
+\(\xi\) has exact order \(n\), we are done.
+
+So suppose that \(\xi\) has exact order \(d<n\), and define \(m:=n/d\), an
+integer \(>1\). Let \(\mathcal{H}\) be any local system on \(X^{\mathrm{an}}\)
+of rank \(m\). Then \(\mathcal{F}\) and
+\(\mathcal{F}_{d,\xi}\otimes j^*\mathcal{H}\) are two local systems on
+\((X-\{s_1\})^{\mathrm{an}}\) with isomorphic local monodromy (namely \(\xi\)).
+By the weak physical semi-rigidity of \(\mathcal{F}\), there exists a finite
+collection of local systems \(\mathcal{F}_1,\mathcal{F}_2,\ldots,\mathcal{F}_r\)
+on \((X-\{s_1\})^{\mathrm{an}}\) with the following property: for any local
+system \(\mathcal{G}\) on \(U^{\mathrm{an}}\) such that \(\mathcal{F}\) and
+\(\mathcal{G}\) have isomorphic local monodromy, there exists a rank one local
+system \(\mathcal{L}\) on \(X\), an index \(1\leq i\leq r\), and an isomorphism
+\[
+  \mathcal{G}\cong \mathcal{F}_i\otimes j^*\mathcal{L}.
+\]
+Applying this to
+\(\mathcal{G}:=\mathcal{F}_{d,\xi}\otimes j^*\mathcal{H}\), as
+\(\mathcal{H}\) runs over all rank \(m\) local systems on \(X^{\mathrm{an}}\),
+we see that up to tensoring with a rank one local system on \(X^{\mathrm{an}}\),
+we obtain only finitely many isomorphism classes.
+
+We will show this is impossible if \(m>1\). Pick a rank one \(\mathcal{L}_1\) on
+\(X^{\mathrm{an}}\) of infinite order. For each integer \(k\geq 1\), define a
+rank \(m\) local system \(\mathcal{H}(k)\) on \(X^{\mathrm{an}}\),
+\[
+  \mathcal{H}(k):=\bigoplus_{1\leq i\leq m}(\mathcal{L}_1)^{\otimes ki}.
+\]
+Then
+\[
+  \mathcal{F}_{d,\xi}\otimes j^*\mathcal{H}(k)
+  =
+  \bigoplus_{1\leq i\leq m}
+  \mathcal{F}_{d,\xi}\otimes(j^*\mathcal{L}_1)^{\otimes ki}.
+\]
+We claim that even modulo tensoring with a rank one local system on
+\(X^{\mathrm{an}}\), there are still an infinity of isomorphism classes among
+the local systems
+\(\mathcal{F}_{d,\xi}\otimes j^*\mathcal{H}(k)\). Notice that each
+\(\mathcal{F}_{d,\xi}\otimes j^*\mathcal{H}(k)\) is a direct sum of \(m\)
+pairwise non-isomorphic irreducibles each of the same rank \(d\), namely the
+\(\mathcal{F}_{d,\xi}\otimes(j^*\mathcal{L}_1)^{\otimes ki}\) with
+\(1\leq i\leq m\), whose determinants
+\[
+  \det(\mathcal{F}_{d,\xi})\otimes(j^*\mathcal{L}_1)^{\otimes dki}
+\]
+are already pairwise non-isomorphic, \(\mathcal{L}_1\) being of infinite order.
+
+To any direct sum \(\mathcal{G}\) of \(m\) pairwise non-isomorphic irreducibles
+\(\mathcal{G}_i\), each of the same rank \(d\), we may attach the following
+invariant: the finite set consisting of the distinct isomorphism classes among
+the \(m(m-1)\) rank one objects
+\[
+  \det(\mathcal{G}_i)/\det(\mathcal{G}_j),\quad\text{for all }i\neq j.
+\]
+This construction visibly attaches the same invariant to \(\mathcal{G}\) and to
+\(\mathcal{G}\otimes j^*\mathcal{L}\), for any rank one local system
+\(\mathcal{L}\) on \(X^{\mathrm{an}}\).
+
+So it suffices to see that the objects
+\[
+  \mathcal{F}_{d,\xi}\otimes j^*\mathcal{H}(k)
+  =
+  \bigoplus_{1\leq i\leq m}
+  \mathcal{F}_{d,\xi}\otimes(j^*\mathcal{L}_1)^{\otimes ki},
+  \qquad k\geq 1,
+\]
+each give rise to distinct invariants. But this is obvious. The invariant
+attached to \(\mathcal{F}_{d,\xi}\otimes j^*\mathcal{H}(k)\) consists visibly
+of the isomorphism classes
+\[
+  (j^*\mathcal{L}_1)^{\otimes kdp},\qquad -(m-1)\leq p\leq m-1.
+\]
+Because \(\mathcal{L}_1\) has infinite order,
+\((j^*\mathcal{L}_1)^{\otimes kd(m-1)}\), which occurs in the invariant of
+\(\mathcal{F}_{d,\xi}\otimes j^*\mathcal{H}(k)\), does not occur in the
+invariant of \(\mathcal{F}_{d,\xi}\otimes j^*\mathcal{H}(N)\) for any
+\(1\leq N<k\).
+\end{proof}

@@ -1,0 +1,368 @@
+\documentclass[12pt,letterpaper]{article}
+
+% Compile from this directory: latexmk -pdf -outdir=build writeup.tex
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{aliascnt}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{176B70}
+\usepackage[colorlinks=true,linkcolor=accent,citecolor=accent,urlcolor=accent]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{mathpazo}
+
+% Gaps scale with font size, independently of font weight.
+% Number-to-title and punctuation spacing both use half the font size.
+\makeatletter
+% Keep the font-size calculation unexpanded while LaTeX prepares section labels.
+\protected\def\headingnumbersep{\dimexpr\f@size pt/2\relax}
+\protected\def\headingpunctsep{\dimexpr\f@size pt/2\relax}
+\renewcommand{\@seccntformat}[1]{%
+  \csname the#1\endcsname\hspace{\headingnumbersep}%
+}
+\makeatother
+
+\numberwithin{equation}{subsection}
+% One sequence per subsection: section.subsection.index.
+% The period belongs after the environment title, before the optional name.
+\newtheoremstyle{numberfirstplain}
+  {\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\headingpunctsep}
+  {\thmnumber{#2}\thmname{\hspace{\headingnumbersep}#1.}\thmnote{\hspace{\headingpunctsep}{\normalfont(#3)}}}
+\newtheoremstyle{numberfirstupright}
+  {\topsep}{\topsep}{\normalfont}{}{\bfseries}{}{\headingpunctsep}
+  {\thmnumber{#2}\thmname{\hspace{\headingnumbersep}#1.}\thmnote{\hspace{\headingpunctsep}{\normalfont(#3)}}}
+\theoremstyle{numberfirstplain}
+\newtheorem{theorem}{Theorem}[subsection]
+% Alias counters preserve each environment's name in \cref references.
+\newcommand{\sharedtheorem}[2]{%
+  \newaliascnt{#1}{theorem}%
+  \newtheorem{#1}[#1]{#2}%
+  \aliascntresetthe{#1}%
+}
+\sharedtheorem{proposition}{Proposition}
+\sharedtheorem{lemma}{Lemma}
+\sharedtheorem{corollary}{Corollary}
+\theoremstyle{numberfirstupright}
+\sharedtheorem{definition}{Definition}
+\sharedtheorem{notation}{Notation}
+\sharedtheorem{example}{Example}
+\sharedtheorem{question}{Question}
+\sharedtheorem{remark}{Remark}
+% Usage: \begin{custom}[Optional Info]{Your heading} ... \end{custom}
+% Headings may contain linked references, e.g. \Cref{thm:main}.
+\newcommand{\customheading}{}
+\sharedtheorem{custom}{\customheading}
+\let\customstart\custom
+\let\customfinish\endcustom
+\RenewDocumentEnvironment{custom}{O{} m}
+  {\renewcommand{\customheading}{#2}\customstart[#1]}
+  {\customfinish}
+\crefname{custom}{item}{items}
+\Crefname{custom}{Item}{Items}
+\crefname{question}{question}{questions}
+\Crefname{question}{Question}{Questions}
+\crefname{notation}{notation}{notations}
+\Crefname{notation}{Notation}{Notations}
+% Section references use section symbols; nameinlink links symbol and number.
+\crefname{section}{\S}{\S\S}
+\Crefname{section}{\S}{\S\S}
+\crefname{subsection}{\S}{\S\S}
+\Crefname{subsection}{\S}{\S\S}
+\crefname{subsubsection}{\S}{\S\S}
+\Crefname{subsubsection}{\S}{\S\S}
+
+% Centered, borderless tables, using their natural width up to the width limit.
+% notationtable rows: symbol & type & description \\
+% Declarations have aligned colons and no surrounding brackets.
+% typetable rows: type & description \\
+% Mathematical columns are automatically in math mode and use their natural
+% widths without wrapping; only the rightmost description column wraps.
+\newcommand{\notationtablespace}{0.4\baselineskip}
+\newcommand{\notationtablewidth}{\linewidth}
+\newsavebox{\notationtablemeasure}
+\NewDocumentEnvironment{notationtable}{+b}{%
+  \par\nobreak\addvspace{\notationtablespace}
+  \begingroup
+  \centering
+  \renewcommand{\arraystretch}{1.2}%
+  \sbox{\notationtablemeasure}{%
+    \begin{tabular}{@{}>{$}r<{$}@{\hspace{0.4em}:\hspace{0.4em}}>{$}l<{$}@{\hspace{1.2em}}l@{}}
+      #1
+    \end{tabular}%
+  }%
+  \noindent
+  \ifdim\wd\notationtablemeasure>\notationtablewidth\relax
+    \begin{tabularx}{\notationtablewidth}{@{}>{$}r<{$}@{\hspace{0.4em}:\hspace{0.4em}}>{$}l<{$}@{\hspace{1.2em}}>{\raggedright\arraybackslash}X@{}}
+      #1
+    \end{tabularx}%
+  \else
+    \usebox{\notationtablemeasure}%
+  \fi\par
+  \endgroup
+  \addvspace{\notationtablespace}
+}{}
+\NewDocumentEnvironment{typetable}{+b}{%
+  \par\nobreak\addvspace{\notationtablespace}
+  \begingroup
+  \centering
+  \renewcommand{\arraystretch}{1.2}%
+  \sbox{\notationtablemeasure}{%
+    \begin{tabular}{@{}>{$}c<{$}@{\hspace{1.2em}}l@{}}
+      #1
+    \end{tabular}%
+  }%
+  \noindent
+  \ifdim\wd\notationtablemeasure>\notationtablewidth\relax
+    \begin{tabularx}{\notationtablewidth}{@{}>{$}c<{$}@{\hspace{1.2em}}>{\raggedright\arraybackslash}X@{}}
+      #1
+    \end{tabularx}%
+  \else
+    \usebox{\notationtablemeasure}%
+  \fi\par
+  \endgroup
+  \addvspace{\notationtablespace}
+}{}
+
+% \paragraph{} Text produces "2.1.3. Text" and shares the theorem counter.
+% A nonempty argument adds a bold run-in title. \paragraph* stays unnumbered.
+% Ordinary body paragraphs are also numbered automatically (see hooks below).
+\newaliascnt{numberedparagraph}{theorem}
+\crefname{numberedparagraph}{paragraph}{paragraphs}
+\Crefname{numberedparagraph}{Paragraph}{Paragraphs}
+% Ignore source whitespace even when one or more labels precede the body.
+% A plain \ignorespaces stops at \label, leaving its following newline visible.
+\makeatletter
+\newcommand{\numberedparagraphignorespaces}{%
+  \@ifnextchar\label{\numberedparagraphlabel}{\ignorespaces}%
+}
+\def\numberedparagraphlabel\label{\numberedparagraphlabelargs}
+\NewDocumentCommand{\numberedparagraphlabelargs}{o m}{%
+  \IfNoValueTF{#1}{\label{#2}}{\label[#1]{#2}}%
+  \numberedparagraphignorespaces
+}
+\makeatother
+\let\originalparagraph\paragraph
+\RenewDocumentCommand{\paragraph}{s m}{%
+  \IfBooleanTF{#1}{\SkipAutomaticParagraphNumber\originalparagraph*{#2}}{%
+    \par\addvspace{\topsep}%
+    \refstepcounter{numberedparagraph}%
+    \SkipAutomaticParagraphNumber
+    \noindent\textbf{\thenumberedparagraph.\hspace{\headingpunctsep}}%
+    \if\relax\detokenize{#2}\relax\else\textbf{#2.}\hspace{\headingpunctsep}\fi
+    \numberedparagraphignorespaces
+  }%
+}
+
+% Number top-level prose only after a source paragraph break (a blank line
+% or an explicit \par). Layout paragraphs inside environments do not arm
+% numbering, so prose immediately following a table continues the same block.
+\makeatletter
+\newcount\autopar@suspended
+\newif\ifautopar@skipnext
+\newif\ifautopar@pending
+\newcommand{\SkipAutomaticParagraphNumber}{\global\autopar@skipnexttrue}
+\def\autopar@document{document}
+\newcommand{\autopar@sourcebreak}{%
+  \ifnum\autopar@suspended=0
+    \ifx\@currenvir\autopar@document
+      \ifinner\else
+        \global\autopar@pendingtrue
+      \fi
+    \fi
+  \fi
+}
+% Preserve LaTeX's paragraph machinery, including its environment-restoration
+% path through \@@par. A blank line in vertical mode must also be detected.
+\AddToHook{begindocument/end}{%
+  \let\autopar@originalpar\par
+  \protected\def\par{%
+    \autopar@sourcebreak\autopar@originalpar\autopar@blockspace}%
+  \let\@@par\par
+}
+% Add theorem-style separation at the source break, before TeX inserts the
+% next paragraph's glue. Adjacent theorem skips then merge via \addvspace.
+\newcommand{\autopar@blockspace}{%
+  \ifnum\autopar@suspended=0
+    \ifnum\value{section}>0
+      \ifx\@currenvir\autopar@document
+        \ifinner\else
+          \ifautopar@skipnext\else
+            \ifautopar@pending
+              \if@nobreak\else
+                \addvspace{\topsep}%
+              \fi
+            \fi
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+}
+\AddToHook{para/begin}[candidacy/numbered-prose]{%
+  \ifnum\autopar@suspended=0
+    \ifnum\value{section}>0
+      \ifinner\else
+        \ifx\@currenvir\autopar@document
+          \ifautopar@skipnext
+            \global\autopar@skipnextfalse
+          \else
+            \ifautopar@pending
+              \OmitIndent
+              \refstepcounter{numberedparagraph}%
+              \textbf{\thenumberedparagraph.\hspace{\headingpunctsep}}%
+            \fi
+          \fi
+        \fi
+        % An environment's body also consumes a preceding source break.
+        \global\autopar@pendingfalse
+      \fi
+    \fi
+  \fi
+}
+\newcommand{\autopar@excludecommand}[1]{%
+  \AddToHook{cmd/#1/before}{%
+    \global\autopar@pendingfalse
+    \advance\autopar@suspended by 1\relax}%
+  \AddToHook{cmd/#1/after}{\advance\autopar@suspended by -1\relax}%
+}
+% Hook the fully parsed heading commands, not argument-scanning \section.
+\autopar@excludecommand{@sect}
+\autopar@excludecommand{@ssect}
+\autopar@excludecommand{maketitle}
+\autopar@excludecommand{tableofcontents}
+\autopar@excludecommand{@footnotetext}
+\autopar@excludecommand{@mpfootnotetext}
+\autopar@excludecommand{newpage}
+\autopar@excludecommand{clearpage}
+\makeatother
+% Use at the start of ordinary prose when a paragraph needs a reference label.
+\NewDocumentCommand{\parlabel}{m}{\leavevmode\label{#1}\ignorespaces}
+\NewDocumentEnvironment{unnumberedparagraphs}{}{\par}{\par}
+\renewcommand{\refname}{References}
+
+% Notation: keep consistent with presentation/presentation.tex.
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\PP}{\mathbb{P}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\rig}{rig}
+
+\title{Middle Convolution of $\ell$-adic Perverse Sheaves\\[0.4em]\small Submitted for the Ph.D. Candidacy Examination at Western University}
+\author{Yunhai Xiang}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introduction}\label{sec:introduction}
+
+
+\subsection{Notations}\label{subsec:notation-style}
+
+
+Motivated by the growing interest in the formalization of mathematics, we adopt notation inspired by type theory throughout this write-up, without committing to type-theoretic foundations (foundational issues are irrelevant to this write-up). The symbols below denote types or categories depending on your preference, where \(X:\mathsf{T}\) denotes that \(X\) is a term of type \(\mathsf{T}\), or an object of the category \(\mathsf{T}\).
+\begin{typetable}
+  \mathsf{Set} & Sets \\
+  \mathsf{Set}^{\mathrm{fin}} & Finite sets \\
+  \mathsf{Nat} & Natural numbers (including zero) \\
+  \mathsf{Int} & Integers \\
+  \mathsf{Ab} & Abelian groups \\
+  \mathsf{Ring} & Rings (associative, unital, not necessarily commutative) \\
+  \mathsf{Field} & Fields \\
+  \mathsf{Mod}_R & Left modules over \(R : \mathsf{Ring}\) \\
+  \mathsf{Vect}_k & Vector spaces over \(k : \mathsf{Field}\) \\
+  \mathsf{Vect}^{\mathrm{fin}}_k & Finite-dimensional vector spaces over \(k : \mathsf{Field}\) \\
+  \mathsf{Sch} & Schemes \\
+  \mathsf{Sch}_S & Schemes over base scheme $S:\mathsf{Sch}$\\
+  \mathsf{Var}_k & Varieties over \(k : \mathsf{Field}\), i.e. integral separated schemes of finite type over \(k\) \\
+  \mathsf{Curv}_k & Curves over \(k : \mathsf{Field}\), i.e. one-dimensional varieties over \(k\) \\
+  \mathsf{Curv}^{\mathrm{sm}}_k & Smooth curves over \(k : \mathsf{Field}\) \\
+  \mathsf{Riem} & Riemann surfaces, i.e. connected one-dimensional complex manifolds \\
+  \mathsf{Site} & Sites, i.e. categories equipped with Grothendieck topologies \\
+  \mathsf{Sh}(X,\mathsf A) & Sheaves on \(X : \mathsf{Site}\) with values in a category \(\mathsf A\) admitting small limits\\
+  \mathsf{Mod}(X,\mathcal R) & Sheaves of left \(\mathcal R\)-modules on \(X : \mathsf{Site}\), where \(\mathcal R : \mathsf{Sh}(X,\mathsf{Ring})\) \\
+  \mathsf D^{\mathrm b}(\mathsf A) & Bounded derived objects of an abelian category \(\mathsf A\) \\
+  \mathsf D^{\mathrm b}(X,k) & Bounded derived objects of \(\mathsf{Sh}(X,\mathsf{Vect}_k)\), where \(X : \mathsf{Site}\) and \(k : \mathsf{Field}\) \\
+  X\rightarrow Y & Morphisms from $X : \mathsf{T}$ to $Y : \mathsf{T}$
+\end{typetable}
+
+\begin{custom}{Global Notations}The following terms will be used throughout the write-up
+\begin{notationtable}
+  (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor \\
+  {[n]} & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & Cohomological shift by \(n : \mathsf{Int}\), for \(X : \mathsf{Site}\)\\
+  \Gamma(X,-) & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(\mathsf{Vect}_k) & Derived global sections for \(X : \mathsf{Site}\)\\
+  \mathcal{H}^i & \mathsf D^{\mathrm b}(X,k)\to\mathsf{Sh}(X,\mathsf{Vect}_k) & The \(i\)-th cohomology sheaf, for \(i : \mathsf{Int}\) and \(X : \mathsf{Site}\) \\
+  \mathrm{H}^i(X,-) & \mathsf D^{\mathrm b}(X,k)\to\mathsf{Vect}_k & The \(i\)-th hypercohomology, for \(i : \mathsf{Int}\) and \(X : \mathsf{Site}\) \\
+  \underline{V}_X & \mathsf{Sh}(X,\mathsf{Vect}_k) & The constant sheaf associated with \(V : \mathsf{Vect}_k\) on \(X : \mathsf{Site}\) \\
+  f_* & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(Y,k) & Derived pushforward along \(f:X\to Y\) where $X,Y:\mathsf{Site}$ \\
+  f^* & \mathsf D^{\mathrm b}(Y,k)\to\mathsf D^{\mathrm b}(X,k) & Derived pullback along \(f:X\to Y\) where $X,Y:\mathsf{Site}$\\
+  \otimes_k & \mathsf D^{\mathrm b}(X,k)\times\mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & Derived tensor product for $X:\mathsf{Site}$ \\
+  \mathcal{H}om & \mathsf D^{\mathrm b}(X,k)^{\mathrm{op}}\times\mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & Derived sheaf Hom for $X:\mathsf{Site}$\\
+  \mathcal{E}nd & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & Derived sheaf End for \(X : \mathsf{Site}\) \\
+\end{notationtable}
+\noindent where the derived functors are assumed to preserve boundedness.
+\end{custom}
+\subsection{Motivations}\label{subsec:motivations}
+
+Monodromy groups are interesting mathematical objects that arise naturally in both geometric and arithmetic contexts. Controlling and understanding monodromy groups has been a central topic in both of these worlds. 
+On the geometric side, 
+On the arithmetic side, 
+
+\begin{custom}[]{A Question from Number Theory}
+
+\end{custom}
+
+
+\subsection{Structure of the Write-up}\label{subsec:structure}
+
+In \cref{sec:local-systems}
+
+In \cref{sec:perverse-sheaves}
+
+In \cref{sec:middle-convolution}
+
+In \cref{sec:hyperelliptic-monodromy}
+
+\subsection{Acknowledgements}\label{subsec:acknowledgements}
+
+The author thanks his advisor Prof. Chris Hall for his tremendous help.
+
+
+
+\section{Local Systems and Lisse Sheaves}\label{sec:local-systems}
+
+
+
+
+\begin{notation}[Complex Geometric Setting]Define the following collection of notations
+\begin{notationtable}
+  X & \mathsf{Curv}^{\mathrm{sm}}_{\C} & A smooth projective connected curve over \(\C\) \\
+  S & \mathsf{Set}^{\mathrm{fin}} & A finite nonempty subset of closed points of \(X\) \\
+  U & \mathsf{Curv}^{\mathrm{sm}}_{\C} & The open subvariety \(X\setminus S\)\\
+  j & U\rightarrow X & The inclusion map \\
+  m & \mathsf{Nat} & The cardinality of \(S\)
+\end{notationtable}
+\end{notation}
+
+\section{Perverse Sheaves and the Six Functor Formalism}\label{sec:perverse-sheaves}
+\section{Middle Convolution and Monodromy Groups}\label{sec:middle-convolution}
+\section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
+
+% Add citations with \cite{Katz1996}; entries live in references.bib.
+% Uncomment the bibliography line when you add your first citation.
+\bibliographystyle{alpha}
+% \bibliography{references}
+
+\end{document}

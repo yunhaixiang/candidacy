@@ -1,0 +1,508 @@
+\chapter{Diophantine aspects of rigidity}
+\label{chap:7}
+\setcounter{section}{-1}
+
+\section{Diophantine criterion for irreducibility}
+\label{sec:7.0}
+
+\sourcepara{7.0.1}
+Fix a prime number \(\ell\), and an embedding \(\iota:\overline{\mathbb{Q}}_\ell\to\mathbb{C}\). For \(x\) in \(\overline{\mathbb{Q}}_\ell\) denote by \(|x|\) the usual complex absolute value of \(\iota(x)\).
+
+Let \(F\) be a finite field of characteristic \(\ne\ell\), \(\overline{F}\) an algebraic closure of \(F\). On \(\mathbb{A}^1\) over \(F\), denote by \(k:\mathbb{A}^1\to\mathbb{P}^1\) the inclusion, and by \(j:U\to\mathbb{A}^1\) the inclusion of a nonempty open set.
+
+\sourcepara{7.0.2}
+To motivate this section, recall the well known diophantine criterion for a pure sheaf to be geometrically irreducible (cf. \cite[sections II and III]{Ka-MFC}).
+
+\sourceheading[lem:7.0.3]{Lemma 7.0.3}
+In the situation \hyperref[par:7.0.1]{(7.0.1)}, let \(\mathcal{F}\) be a lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf on \(U\), which is \(\iota\)-pure of weight zero. Then \(\mathcal{F}\) is geometrically irreducible, i.e., irreducible on \(U\otimes_F\overline{F}\), if and only if there exists a constant \(C\) such that for all finite extensions \(E\) of \(F\), of cardinality denoted \(q_E\), we have:
+\[
+\tag{*}
+\left|\sum_{x\in U(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2-q_E\right|\leq C(q_E)^{1/2}.
+\]
+\begin{proof}
+Because \(\mathcal{F}\) is pure of weight zero, we have
+\[
+|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2
+=\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{E}nd(\mathcal{F})),
+\]
+so we may rewrite (*) as
+\[
+\left|\sum_{x\in U(E)}\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{E}nd(\mathcal{F}))-q_E\right|\leq C(q_E)^{1/2}.
+\]
+By the Lefschetz Trace Formula, applied to the lisse sheaf \(\mathcal{E}nd(\mathcal{F})\) on \(U\), we know that
+\[
+\sum_{x\in U(E)}\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{E}nd(\mathcal{F}))
+=\sum_{i=1,2}(-1)^i\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^i_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))).
+\]
+Thus we may rewrite (*) as
+\[
+\tag{**}
+\left|\sum_{i=1,2}(-1)^i\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^i_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F})))-q_E\right|\leq C(q_E)^{1/2}.
+\]
+Because \(\mathcal{E}nd(\mathcal{F})\) is \(\iota\)-pure of weight zero, we know from \cite[3.3.1]{De-WeilII} that \(\mathrm{H}^i_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))\) is mixed of weight \(\leq i\), for \(i=1,2\), and the \(\mathrm{H}^2_c\) is pure of weight 2. Again by purity, we also know \cite[3.4.1(iii)]{De-WeilII} that both \(\mathcal{F}\) and \(\mathcal{E}nd(\mathcal{F})\) are geometrically semisimple, and hence
+\[
+\begin{aligned}
+\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))
+&=\text{(the coinvariants of }\pi_1(U\otimes_F\overline{F})\text{ in }\mathcal{E}nd(\mathcal{F}))(-1)\\
+&=\text{(the invariants of }\pi_1(U\otimes_F\overline{F})\text{ in }\mathcal{E}nd(\mathcal{F}))(-1).
+\end{aligned}
+\]
+Suppose first that \(\mathcal{F}\) is geometrically irreducible. Then by Schur's Lemma we have
+\[
+\begin{aligned}
+\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))&=\overline{\mathbb{Q}}_\ell(-1),\\
+\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F})))&=q_E.
+\end{aligned}
+\]
+Since the \(\mathrm{H}^1_c\) is mixed of weight \(\leq 1\), taking \(C:=h^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))\) gives
+\[
+\left|\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F})))\right|\leq C(q_E)^{1/2},
+\]
+and (**) is now obvious.
+
+Suppose now that (**) holds. Then at the expense of enlarging \(C\), for every finite extension \(E\) of \(F\) we have
+\[
+\left|\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F})))-q_E\right|\leq C(q_E)^{1/2}.
+\]
+Since \(\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))\) is pure of weight 2, the usual compactness argument (cf. \cite[2.2.2.1]{Ka-SE}) shows that \(h^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))=1\). Because \(\mathcal{F}\) is geometrically semisimple (being pure), this one-dimensionality means precisely that \(\mathcal{F}\) is geometrically irreducible.
+\end{proof}
+
+\section{Diophantine criterion for rigidity}
+\label{sec:7.1}
+
+\sourceheading[thm:7.1.1]{Theorem 7.1.1}
+In the situation \hyperref[par:7.0.1]{(7.0.1)}, let \(\mathcal{F}\) be a lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf on \(U\), which is \(\iota\)-pure of weight zero. The following conditions are equivalent.
+\begin{enumerate}[label=(\arabic*)]
+\item \(\mathcal{F}\) is geometrically irreducible, i.e., irreducible on \(U\otimes_F\overline{F}\), and cohomologically rigid, i.e.,
+\[
+\chi(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))=2.
+\]
+\item There exists a constant \(C\) such that for all finite extensions \(E\) of \(F\), of cardinality denoted \(q_E\), we have:
+\[
+\left|\sum_{x\in U(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2-q_E\right|\leq C.
+\]
+\end{enumerate}
+\begin{proof}
+Because \(\mathcal{E}nd(\mathcal{F})\) is pure of weight zero, we know by Weil II \cite[3.2.3]{De-WeilII} that for all \(i\), \(\mathrm{H}^i(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\) is pure of weight \(i\). From the long exact sequence of cohomology attached to the short exact (excision) sequence of sheaves on \(\mathbb{P}^1\),
+\[
+0\to k_!j_!\mathcal{E}nd(\mathcal{F})\to k_*j_*\mathcal{E}nd(\mathcal{F})\to(\text{punctual, wt. }\leq 0)\to0,
+\]
+we see that
+\[
+\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))
+\cong \mathrm{H}^2(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F})),
+\]
+and that we have a short exact sequence
+\[
+0\to(\text{wt. }\leq 0)\to \mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))
+\to \mathrm{H}^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\to0.
+\]
+Suppose first that \(\mathcal{F}\) is geometrically irreducible and cohomologically rigid. Then
+\[
+\begin{aligned}
+\mathrm{H}^2(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))&=\overline{\mathbb{Q}}_\ell(-1),\\
+\mathrm{H}^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))&=0,\\
+\mathrm{H}^0(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))&=\overline{\mathbb{Q}}_\ell.
+\end{aligned}
+\]
+Therefore we find
+\[
+\begin{aligned}
+\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))&=\overline{\mathbb{Q}}_\ell(-1),\\
+\mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))&\text{ is mixed of weight }\leq 0.
+\end{aligned}
+\]
+Thus (2) holds, taking \(C:=h^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))\).
+
+Conversely, suppose that (2) holds. By \hyperref[lem:7.0.3]{Lemma~7.0.3}, \(\mathcal{F}\) is geometrically irreducible, and hence
+\[
+\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))=\overline{\mathbb{Q}}_\ell(-1).
+\]
+Exactly as in the proof of \hyperref[lem:7.0.3]{Lemma~7.0.3}, the Lefschetz Trace Formula allows us to rewrite (2) as
+\[
+\left|\sum_{i=1,2}(-1)^i\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^i_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F})))-q_E\right|\leq C.
+\]
+But as \(\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))=\overline{\mathbb{Q}}_\ell(-1)\), this says precisely that for all finite extensions \(E\) of \(F\),
+\[
+\left|\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F})))\right|\leq C.
+\]
+From this, the standard ``radius of convergence'' argument (cf. \cite[2.2.1.1]{Ka-SE}) shows that \(\mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))\) is mixed of weight \(\leq0\). Therefore \(\mathrm{H}^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\), being a quotient of this \(\mathrm{H}^1_c\), is itself mixed of weight \(\leq0\). But it is also pure of weight one, hence it vanishes:
+\[
+\mathrm{H}^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))=0.
+\]
+Finally, the geometric irreducibility of \(\mathcal{F}\) gives
+\[
+\mathrm{H}^0(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))
+=\mathrm{H}^0(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))=\overline{\mathbb{Q}}_\ell.
+\]
+Thus we find \(\chi(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))=2\), as required.
+\end{proof}
+
+\sourceheading[thm:7.1.2]{Variant Theorem 7.1.2}
+In the situation \hyperref[par:7.0.1]{(7.0.1)}, let \(\mathcal{F}\) be a lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf on \(U\), which is \(\iota\)-pure of weight zero, and let \(A\geq0\) be a nonnegative integer. The following conditions are equivalent.
+\begin{enumerate}[label=(\arabic*)]
+\item \(\mathcal{F}\) is geometrically irreducible, i.e., irreducible on \(U\otimes_F\overline{F}\), and
+\[
+h^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\leq A,
+\quad\text{i.e.,}\quad
+\chi(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\geq 2-A.
+\]
+\item There exists a constant \(C\) such that for all finite extensions \(E\) of \(F\), of cardinality denoted \(q_E\), we have:
+\[
+\left|\sum_{x\in U(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2-q_E\right|\leq A(q_E)^{1/2}+C.
+\]
+\item There exists a constant \(C\) such that for all finite extensions \(E\) of \(F\), of cardinality denoted \(q_E\), we have:
+\[
+\left|\sum_{x\in \mathbb{A}^1(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid j_*\mathcal{F})|^2-q_E\right|\leq A(q_E)^{1/2}+C.
+\]
+\end{enumerate}
+\begin{proof}
+We first remark that (2) and (3) are trivially equivalent, since at each of the finitely many points of \(\mathbb{A}^1-U\), \(j_*\mathcal{F}\) is mixed of weight \(\leq0\).
+
+To show that (2) implies (1), we argue as follows. If (2) holds, then by \hyperref[lem:7.0.3]{Lemma~7.0.3}, \(\mathcal{F}\) is geometrically irreducible, \(\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))=\overline{\mathbb{Q}}_\ell(-1)\), so (2) says that for all finite extensions \(E\) of \(F\),
+\[
+\left|\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F})))\right|\leq A(q_E)^{1/2}+C.
+\]
+From this it follows (cf. \cite[2.2.1.1]{Ka-SE}) that \(\mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))\) is mixed of weight \(\leq1\), with at most \(A\) eigenvalues of weight 1. From the short exact sequence
+\[
+0\to(\text{wt. }\leq0)\to \mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))
+\to \mathrm{H}^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\to0
+\]
+and the fact that \(\mathrm{H}^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\) is pure of weight 1, we see that \(h^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\) is precisely the number of eigenvalues of weight one in \(\mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))\). Thus we find
+\[
+h^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\leq A,
+\]
+as required.
+
+Conversely, suppose that (1) holds. By \hyperref[lem:7.0.3]{Lemma~7.0.3}, \(\mathcal{F}\) is geometrically irreducible, \(\mathrm{H}^2_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))=\overline{\mathbb{Q}}_\ell(-1)\), and (2) is the assertion that there exists a constant \(C\) such that for all finite extensions \(E\) of \(F\),
+\[
+\left|\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F})))\right|\leq A(q_E)^{1/2}+C.
+\]
+Since by (1) we have \(h^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\leq A\), it suffices to show the existence of a constant \(C\) such that for all finite extensions \(E\) of \(F\),
+\[
+\begin{aligned}
+\left|\operatorname{Trace}(\operatorname{Frob}_E\mid\mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F})))\right|
+&\leq h^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))(q_E)^{1/2}+C.
+\end{aligned}
+\]
+But this is obvious from the short exact sequence
+\[
+0\to(\text{wt. }\leq0)\to \mathrm{H}^1_c(U\otimes_F\overline{F},\mathcal{E}nd(\mathcal{F}))
+\to \mathrm{H}^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\to0
+\]
+and the fact that \(\mathrm{H}^1(\mathbb{P}^1\otimes_F\overline{F},k_*j_*\mathcal{E}nd(\mathcal{F}))\) is pure of weight one.
+\end{proof}
+
+\sourcepara{7.1.3}
+This result allows us to give a quite short proof of the fact that Fourier Transform preserves the index of rigidity in the special case of pure objects. It was only after first proving this ``special case'' that we found the proof of the general case given in \hyperref[thm:3.0.2]{Theorem~3.0.2}.
+
+\sourceheading[thm:7.1.4]{Theorem 7.1.4}
+Let \(F\) be a finite field of characteristic \(\ne\ell\), \(\psi\) a nontrivial \(\overline{\mathbb{Q}}_\ell\)-valued character of the additive group of \(F\). Over \(F\), let \(K\) be a perverse sheaf on \(\mathbb{A}^1\) which is of the form \(j_*\mathcal{F}[1]\) for \(\mathcal{F}\) a lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf on \(U\), which is \(\iota\)-pure of weight zero, and geometrically irreducible. Suppose that \(\mathcal{F}\) is not geometrically isomorphic to \(\mathcal{L}_{\psi(ax)}\) for any \(a\) in \(F\). Consider the (Tate-twisted) Fourier Transform \(\operatorname{FT}_\psi(K)(1/2)\), which is known (cf. \cite[6.2.5]{Ka-GKM} and \hyperref[thm:8.4.1]{Theorem~8.4.1}) to be of the form \(j'_* \mathcal{G}[1]\) for \(j':U'\to\mathbb{A}^1\) the inclusion of a nonempty open set, and \(\mathcal{G}\) a lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf on \(U'\), which is \(\iota\)-pure of weight zero, geometrically irreducible, and not geometrically isomorphic to \(\mathcal{L}_{\psi(ax)}\) for any \(a\) in \(F\). Then \(\mathcal{F}\) and \(\mathcal{G}\) have the same index of rigidity:
+\[
+\chi(\mathbb{P}^1,k_*j_*\mathcal{E}nd(\mathcal{F}))=\chi(\mathbb{P}^1,k_*j'_*\mathcal{E}nd(\mathcal{G})),
+\]
+or equivalently,
+\[
+h^1(\mathbb{P}^1,k_*j_*\mathcal{E}nd(\mathcal{F}))=h^1(\mathbb{P}^1,k_*j'_*\mathcal{E}nd(\mathcal{G})).
+\]
+\begin{proof}
+For every finite extension \(E\) of \(F\), the trace functions of \(j_*\mathcal{F}\) and of \(j'_*\mathcal{G}\) as functions on \(\mathbb{A}^1(E)=E\) are, up to sign, normalized Fourier Transforms of each other: for \(y\) in \(E\), we have
+\[
+\begin{aligned}
+\operatorname{Trace}(\operatorname{Frob}_{y,E}\mid j'_*\mathcal{G})
+&=(-1/(q_E)^{1/2})\sum_{x\in E}\psi_E(yx)\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid j_*\mathcal{F}),
+\end{aligned}
+\]
+where we have written \(\psi_E\) for \(\psi\circ\operatorname{Trace}_{E/F}\). By the Plancherel formula, we have, for every finite extension \(E\) of \(F\), the equality
+\[
+\sum_{x\in\mathbb{A}^1(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid j_*\mathcal{F})|^2
+=\sum_{x\in\mathbb{A}^1(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid j'_*\mathcal{G})|^2.
+\]
+Now apply the equivalence of (1) and (3) in \hyperref[thm:7.1.2]{Variant Theorem~7.1.2} above. By (1) \(\Rightarrow\) (3) for \(\mathcal{F}\), with \(A\) taken as \(h^1(\mathbb{P}^1,k_*j_*\mathcal{E}nd(\mathcal{F}))\), followed by (3) \(\Rightarrow\) (1) for \(\mathcal{G}\), with the same \(A\). We see that
+\[
+h^1(\mathbb{P}^1,k_*j_*\mathcal{E}nd(\mathcal{F}))\geq h^1(\mathbb{P}^1,k_*j'_*\mathcal{E}nd(\mathcal{G})).
+\]
+Reversing the roles of \(\mathcal{F}\) and \(\mathcal{G}\), we get the opposite inequality.
+\end{proof}
+
+\section{Appendix: a counterexample}
+\label{sec:7.2}
+
+\sourcepara{7.2.1}
+What happens if, in \hyperref[thm:7.1.1]{Theorem~7.1.1}, we assume only that the lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{F}\) on \(U\) is \(\iota\)-mixed of weight \(\leq0\) (rather than pure of weight zero). By \cite[3.4.9]{De-WeilII}, any lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{F}\) on \(U\) which is \(\iota\)-mixed admits a filtration, indexed by real numbers \(w\), by lisse subsheaves
+\[
+\mathcal{F}_{<w}\subset\mathcal{F}_{\leq w}\subset\mathcal{F}_{w+\varepsilon}\cdots\subset\mathcal{F},
+\]
+such that \(\mathcal{F}_{<w}\) (resp. \(\mathcal{F}_{\leq w}\)) is \(\iota\)-mixed of weight \(<w\) (resp. \(\leq w\)), and such that \(\operatorname{Gr}_w(\mathcal{F}):=(\mathcal{F}_{\leq w})/(\mathcal{F}_{<w})\) is \(\iota\)-pure of weight \(w\). For \(\mathcal{F}\) which is \(\iota\)-mixed of weight \(\leq0\), the pieces \(\operatorname{Gr}_w(\mathcal{F})=0\) for \(w>0\).
+
+\sourcepara{7.2.2}
+Let \(\mathcal{F}\) be a lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf on \(U\) which is \(\iota\)-mixed of weight \(\leq0\), and suppose that there exists a constant \(C\) such that for all finite extensions \(E\) of \(F\), of cardinality denoted \(q_E\), we have:
+\[
+\tag{*}
+\left|\sum_{x\in U(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2-q_E\right|\leq C.
+\]
+
+\sourcepara{7.2.3}
+This estimate does imply that \(\operatorname{Gr}_0(\mathcal{F})\) is geometrically irreducible. (Indeed the geometric irreducibility of \(\operatorname{Gr}_0(\mathcal{F})\) for a lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{F}\) on \(U\) which is \(\iota\)-mixed of weight \(\leq0\) is equivalent to the existence of a real constant \(C\) and of a real \(\alpha<1\), such that for all finite extensions \(E\) of \(F\), we have
+\[
+\left|\sum_{x\in U(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2-q_E\right|\leq C(q_E)^\alpha.
+\]
+)
+
+\sourcepara{7.2.4}
+However, the estimate (*) above does not imply that \(\operatorname{Gr}_0(\mathcal{F})\) is cohomologically rigid. Here is an example.
+
+\sourcepara{7.2.5}
+We begin over \(\mathbb{Z}\), with a \(\mathbb{P}^1\) with homogeneous coordinates \((\mu,\nu)\), and a \(\mathbb{P}^2\) with homogeneous coordinates \((X,Y,Z)\). Over the open set of \(\mathbb{P}^1\) where \(\nu(\mu^3-27\nu^3)\) is invertible, the closed subscheme of \(\mathbb{P}^2\times\mathbb{P}^1\) defined by the single equation
+\[
+\nu(X^3+Y^3+Z^3)=\mu XYZ
+\]
+is an elliptic curve, say \(\pi:\mathcal{E}\to\mathbb{P}^1[1/(\nu(\mu^3-27\nu^3))]\). This curve, with say \((1,-1,0)\) as origin, carries an arithmetic level three structure
+\[
+\mu_3\times\mathbb{Z}/3\mathbb{Z}\cong\mathcal{E}[3]
+\]
+in the sense of \cite[2.0.4]{Ka-RA}, and in fact this is the universal elliptic curve with arithmetic level three structure.
+
+\sourcepara{7.2.6}
+If we extend scalars from \(\mathbb{Z}\) to \(\mathbb{Z}[1/3,\zeta_3]\), we may view this same curve as the universal elliptic curve with usual level 3 structure of determinant \(\zeta_3\) over \(\mathbb{Z}[1/3,\zeta_3]\)-algebras.
+
+\sourcepara{7.2.7}
+Fix a prime number \(\ell\). The sheaf
+\[
+\mathcal{G}_\ell:=\mathrm{R}^1\pi_*\overline{\mathbb{Q}}_\ell\quad\text{on }\mathbb{P}^1[1/(\ell\nu(\mu^3-27\nu^3))]
+\]
+is lisse of rank 2, pure of weight one, and \(\det(\mathcal{G}_\ell)\cong\overline{\mathbb{Q}}_\ell(-1)\).
+
+\sourcepara{7.2.8}
+We next invert the prime 3, i.e., we work over
+\[
+\mathbb{P}^1[1/(3\ell\nu(\mu^3-27\nu^3))].
+\]
+The advantage of doing this is that over \(\mathbb{Z}[1/3]\), the divisor in \(\mathbb{P}^1[1/3]\) of equation \(\nu(\mu^3-27\nu^3)=0\), is finite étale of degree 4: indeed over \(\mathbb{Z}[1/3,\zeta_3]\) it is the disjoint union of four sections. It is well known (cf. \cite[14.3.3]{KM}) that the local monodromy of \(\mathcal{G}_\ell\) along each of these four sections is unipotent and nontrivial.
+
+\sourcepara{7.2.9}
+In particular, for any prime \(p\) other than 3 or \(\ell\), the restriction
+\[
+\mathcal{G}_{\ell,p}:=\mathcal{G}_\ell\vert \mathbb{P}^1[1/(\nu(\mu^3-27\nu^3))]\otimes\mathbb{F}_p
+\]
+is lisse of rank 2, pure of weight 1, with nontrivial unipotent local monodromy at each of the four cusps. Since any pure lisse sheaf is geometrically semisimple \cite[3.4(iii)]{De-WeilII}, it follows that \(\mathcal{G}_{\ell,p}\) is geometrically irreducible (since already under local monodromy at any cusp it is indecomposable). Indeed, the geometric monodromy group of \(\mathcal{G}\) must be \(\operatorname{SL}(2)\), since it is a semisimple subgroup of \(\operatorname{SL}(2)\) which contains a nontrivial unipotent element.
+
+\sourcepara{7.2.10}
+Since we know the local monodromy, we can easily compute the index of rigidity of \(\mathcal{G}_{\ell,p}\). Denoting by
+\[
+j:\mathbb{P}^1[1/(\nu(\mu^3-27\nu^3))]\otimes\overline{\mathbb{F}}_p\to\mathbb{P}^1\otimes\overline{\mathbb{F}}_p
+\]
+the inclusion, we find
+\[
+\chi(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*\mathcal{E}nd(\mathcal{G}_{\ell,p}))=(2-4)4+4\times2=0,
+\]
+or equivalently, \(\mathcal{G}_{\ell,p}\) being geometrically irreducible,
+\[
+h^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*\mathcal{E}nd(\mathcal{G}_{\ell,p}))=2.
+\]
+In particular, \(\mathcal{G}_{\ell,p}\) is not cohomologically rigid.
+
+\sourceheading[prop:7.2.11]{Proposition 7.2.11}
+Hypotheses and notations as in \hyperref[par:7.2.5]{(7.2.5)}--\hyperref[par:7.2.9]{(7.2.9)} above, fix a prime \(p\equiv 2\pmod 3\), and a prime \(\ell\ne p\). Denote by \(\mathcal{F}\) the lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf on
+\[
+\begin{aligned}
+U&:=\mathbb{P}^1[1/(\nu(\mu^3-27\nu^3))]\otimes\mathbb{F}_{p^4},\\
+\mathcal{F}&:=\mathcal{G}_{\ell,p}(1/2)\oplus\mathcal{G}_{\ell,p}(1),
+\end{aligned}
+\]
+where the half Tate twist is defined using \(p^2\) as \(\sqrt{p^4}\). There exists a constant \(C\) such that for any finite extension \(E\) of \(\mathbb{F}_{p^4}\), we have
+\[
+\tag{*}
+\left|\sum_{x\in U(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2-q_E\right|\leq C.
+\]
+\begin{proof}
+Let us denote \(\mathcal{G}_{\ell,p}\) simply as \(\mathcal{G}\). The traces of \(\mathcal{F}\) and \(\mathcal{G}\) are related as follows: for any finite extension \(E\) of \(\mathbb{F}_{p^4}\), and any \(x\) in \(E\),
+\[
+\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})
+=\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{G})(1/\sqrt{q_E})(1+1/\sqrt{q_E}).
+\]
+In this formula, \(q_E\) is a power of \(p^4\), say \(q_E=p^{4n}\), and \(\sqrt{q_E}\) is the same power \(p^{2n}\) of \(p^2\). Thus
+\[
+\begin{aligned}
+|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2
+&=|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{G})|^2(1/q_E)(1+1/\sqrt{q_E})^2.
+\end{aligned}
+\]
+From its genesis via elliptic curves, we see that the trace function of \(\mathcal{G}\) has values in \(\mathbb{Z}\). Therefore we may omit the absolute value:
+\[
+|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2
+=(\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{G}))^2(1/q_E)(1+1/\sqrt{q_E})^2.
+\]
+We must prove the existence of a constant \(C\) such that for any finite extension \(E\) of \(\mathbb{F}_{p^4}\),
+\[
+\tag{*}
+\left|\sum_{x\in U(E)}|\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{F})|^2-q_E\right|\leq C.
+\]
+Multiplying through by \(q_E\), and substituting in terms of \(\mathcal{G}\), this amounts to
+\[
+\tag{**}
+\left|\sum_{x\in U(E)}(\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{G}))^2(1+1/\sqrt{q_E})^2-(q_E)^2\right|\leq Cq_E.
+\]
+Notice that
+\[
+(\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{G}))^2
+=\operatorname{Trace}(\operatorname{Frob}_{x,E}\mid\mathcal{G}\otimes\mathcal{G}).
+\]
+Because \(\mathcal{G}\otimes\mathcal{G}\) is pure of weight 2 on \(U\), \(j_*(\mathcal{G}\otimes\mathcal{G})\) is punctually mixed of weight \(\leq2\) at the cusps. So (**) is equivalent to the existence of a constant \(C\) such that for all finite extensions \(E\) of \(\mathbb{F}_{p^4}\), we have
+\[
+\left|\sum_{x\in\mathbb{P}^1(E)}\operatorname{Tr}(\operatorname{Frob}_{x,E}\mid j_*(\mathcal{G}\otimes\mathcal{G}))(1+1/\sqrt{q_E})^2-(q_E)^2\right|\leq Cq_E.
+\]
+We will show that this holds with \(C=2\). Indeed, we will show that
+\[
+\tag{***}
+\sum_{x\in\mathbb{P}^1(E)}\operatorname{Tr}(\operatorname{Frob}_{x,E}\mid j_*(\mathcal{G}\otimes\mathcal{G}))(1+1/\sqrt{q_E})^2=(q_E-1)^2,
+\]
+which makes this estimate obvious. Writing
+\[
+(q_E-1)^2=(q_E)^2(1-1/q_E)^2=(1+1/\sqrt{q_E})^2(1-1/\sqrt{q_E})^2,
+\]
+we see that (***) is given by the following
+
+\sourceheading[lem:7.2.12]{Lemma 7.2.12}
+If \(p\) is congruent to \(2\pmod 3\), then for all finite extensions \(E\) of \(\mathbb{F}_{p^4}\), we have
+\[
+\begin{aligned}
+\sum_{x\in\mathbb{P}^1(E)}\operatorname{Tr}(\operatorname{Frob}_{x,E}\mid j_*(\mathcal{G}\otimes\mathcal{G}))
+&=(q_E)^2(1-1/\sqrt{q_E})^2\\
+&=q_E(q_E+1)-2(q_E)^{3/2}.
+\end{aligned}
+\]
+\begin{proof}
+Decompose \(\mathcal{G}\otimes\mathcal{G}\) as
+\[
+\Lambda^2(\mathcal{G})\oplus\operatorname{Sym}^2(\mathcal{G})
+=\det(\mathcal{G})\oplus\operatorname{Sym}^2(\mathcal{G})
+=\overline{\mathbb{Q}}_\ell(-1)\oplus\operatorname{Sym}^2(\mathcal{G}).
+\]
+Thus on \(\mathbb{P}^1\) we have
+\[
+j_*(\mathcal{G}\otimes\mathcal{G})=\overline{\mathbb{Q}}_\ell(-1)\oplus j_*(\operatorname{Sym}^2(\mathcal{G})),
+\]
+and so
+\[
+\begin{aligned}
+\sum_{x\in\mathbb{P}^1(E)}\operatorname{Tr}(\operatorname{Frob}_{x,E}\mid j_*(\mathcal{G}\otimes\mathcal{G}))
+&=q_E(q_E+1)+\sum_{x\in\mathbb{P}^1(E)}\operatorname{Tr}(\operatorname{Frob}_{x,E}\mid j_*(\operatorname{Sym}^2(\mathcal{G}))).
+\end{aligned}
+\]
+Thus we are reduced to showing that
+\[
+\sum_{x\in\mathbb{P}^1(E)}\operatorname{Tr}(\operatorname{Frob}_{x,E}\mid j_*(\operatorname{Sym}^2(\mathcal{G})))=-2(q_E)^{3/2}.
+\]
+By the Lefschetz Trace Formula, we may rewrite this as
+\[
+\sum(-1)^i\operatorname{Tr}(\operatorname{Frob}_E\mid\mathrm{H}^i(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^2(\mathcal{G}))))=-2(q_E)^{3/2}.
+\]
+We claim that the only possibly nonvanishing cohomology group is the \(\mathrm{H}^1\). For this, it suffices that \(\operatorname{Sym}^2(\mathcal{G})\) be geometrically irreducible and nontrivial. But \(\operatorname{Sym}^2(\mathcal{G})\) is geometrically semisimple, because pure, and is indecomposable under each local monodromy, which acts as a single unipotent Jordan block. Therefore \(\operatorname{Sym}^2(\mathcal{G})\) is geometrically irreducible and nontrivial. Moreover, at each cusp the local monodromy is tame with a one-dimensional fixed space (because a single unipotent Jordan block).
+
+Thus we are reduced to showing that \(\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^2(\mathcal{G})))\) has dimension 2, and that for all finite extensions \(E\) of \(\mathbb{F}_{p^4}\), both eigenvalues of \(\operatorname{Frob}_E\) on this space are \((q_E)^{3/2}\). For this, it suffices to show that the two eigenvalues of \(\operatorname{Frob}_{\mathbb{F}_p}\) on this space are \(\pm i(p)^{3/2}\).
+
+That \(\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^2(\mathcal{G})))\) has dimension 2 is immediate from the Euler--Poincaré formula, which gives
+\[
+\chi(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^2(\mathcal{G})))=(2-4)3+4\times1=-2,
+\]
+and the vanishing of \(\mathrm{H}^i\) for \(i\ne1\).
+
+Now \(\mathcal{G}(1/2)\) is symplectically self-dual, so \(\operatorname{Sym}^2(\mathcal{G})(1)\) is orthogonally self dual, so by Poincaré duality the two eigenvalues of \(\operatorname{Frob}_{\mathbb{F}_p}\) on \(\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^2(\mathcal{G})))\) have product equal to \(p^3\). Therefore it suffices to show that
+\[
+\operatorname{Trace}(\operatorname{Frob}_{\mathbb{F}_p}\mid\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^2(\mathcal{G}))))=0,
+\]
+for any prime \(p\ne\ell\) which is congruent to \(2\pmod 3\).
+
+Implicit in Deligne's proof that ``Weil implies Ramanujan'' \cite[4.8--4.9, for \(n=3\)]{De-FMRl} is the following identity of traces: for any prime \(p\) not 3 or \(\ell\), and for any integer \(k\geq0\),
+\[
+\begin{aligned}
+\operatorname{trace}(\operatorname{Frob}_{\mathbb{F}_p}\mid\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^k(\mathcal{G}))))
+=\operatorname{trace}(T_p\mid\text{cusp forms of weight }k+2\text{ on }\Gamma(3)).
+\end{aligned}
+\]
+Unfortunately, this identity, which is certainly ``well-known'' to the specialists, does not seem to appear, at least in so explicit a form, anywhere in the literature. For the sake of completeness, we will give a (somewhat clumsy and convoluted) proof of it in the special case \(k=2\), by making use of results of Scholl \cite{Sch}.
+
+The space of weight 4 cusp forms on \(\Gamma(3)\) is one-dimensional. Since \(f:=\) the cube root of \(\Delta\) is known \cite[page 254]{Lang-EF} to be a weight 4 cusp form on \(\Gamma(3)\), \(f\) provides a basis of this one dimensional space, and is automatically an eigenfunction of all Hecke operators \(T_p\) for all primes \(p\ne3\). The \(q\)-expansion of this \(f\) at any cusp of \(\Gamma(3)\) is
+\[
+q\prod_{n\geq1}(1-q^{3n})^8.
+\]
+If we knew the asserted identity of traces, we would argue as follows. We write this \(q\) expansion as \(\sum a(n)q^n\). By Hecke theory we know that for primes \(p\) not 3 we have \(T_p(f)=a(p)f\). Therefore for any prime \(p\) not 3 or \(\ell\) we have
+\[
+\begin{aligned}
+\operatorname{trace}(\operatorname{Frob}_{\mathbb{F}_p}\mid\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^2(\mathcal{G}))))
+&=\operatorname{trace}(T_p\mid\text{cusp forms of weight }4\text{ on }\Gamma(3))\\
+&=a(p).
+\end{aligned}
+\]
+From the \(q\)-expansion of \(f\) above, it is visible that \(a(n)=0\) unless \(n\) is congruent to \(1\pmod 3\).
+
+We now indicate an alternate proof, valid for primes \(p\geq5\), \(p\ne\ell\), that
+\[
+\operatorname{trace}(\operatorname{Frob}_{\mathbb{F}_p}\mid\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^k(\mathcal{G}))))=a(p).
+\]
+Because \(f\) has even weight, the element \(-1\) in \(\operatorname{SL}(2,\mathbb{Z}/3\mathbb{Z})\) fixes \(f\). Therefore \(f\) is in fact invariant under \(\pm\Gamma(3)\), the group denoted \(\Gamma_0(3,3)\) in Atkin--Lehner \cite[page 134]{AL} consisting of all elements in \(\operatorname{SL}(2,\mathbb{Z})\) which reduce mod 3 to diagonal matrices. (In general \(\pm\Gamma(N)\) is a proper subgroup of \(\Gamma_0(N,N)\): they coincide precisely when \(\pm1\) are the only units in \(\mathbb{Z}/N\mathbb{Z}\), i.e., precisely for \(N\leq4\).) Now quite generally, \(f(\tau)\mapsto f(N\tau)\) is a bijection between cusp forms of any given weight \(k\) on \(\Gamma_0(N,N)\) and cusp forms of weight \(k\) on \(\Gamma_0(N^2)\). Returning to the case at hand, we conclude that the space of weight 4 cusp forms on \(\Gamma_0(9)\) is one-dimensional, spanned by a form whose \(q\)-expansion at the standard cusp is
+\[
+q\prod_{n\geq1}(1-q^{3n})^8.
+\]
+By the one-dimensionality, this form is automatically an eigenfunction of all Hecke operators \(T_p\) for all primes \(p\ne3\). If we write this \(q\) expansion as \(\sum a(n)q^n\), then by Hecke theory we know that for primes \(p\) not 3 we have \(T_p(f)=a(p)f\). Because we are now on \(\Gamma_0(9)\), \(T_p(f)=a(p)f\) translates into the following identity on coefficients:
+\[
+a(np)-a(p)a(n)+p^3a(n/p)=0,
+\]
+with the standard convention that \(a(x)=0\) if \(x\) is a non-integer.
+
+For each prime \(p\) not 3 or \(\ell\), let us define
+\[
+A(p):=\operatorname{trace}(\operatorname{Frob}_{\mathbb{F}_p}\mid\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^2(\mathcal{G})))).
+\]
+By the Lefschetz Trace Formula, and the fact that \(j_*(\operatorname{Sym}^2(\mathcal{G}))\) has a \(\mathbb{Z}\)-valued trace function (even at the cusps, where its trace is 1) which is independent of the auxiliary choice of \(\ell\), we see that \(A(p)\) lies in \(\mathbb{Z}\), and is independent of the auxiliary \(\ell\). For any prime \(p\) not 3 or \(\ell\) we have
+\[
+\det(T-\operatorname{Frob}_{\mathbb{F}_p}\mid\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_p,j_*(\operatorname{Sym}^2(\mathcal{G}))))=T^2-A(p)T+p^3.
+\]
+According to Scholl \cite[Theorem 5.4, applied to \(k=2\) and \(\Gamma:=\Gamma(3)\): the ``\(M\)'' of Prop. 5.2 is then 3]{Sch}, the \(q\)-expansion coefficients \(a(n)\) of \(f\) satisfy, for each prime \(p\) not \(3\), \(p>3\), the congruences
+\[
+a(np)-A(p)a(n)+p^3a(n/p)\equiv0\pmod{(pn)^3},
+\]
+for every integer \(n\). But we recall that they also satisfy the identities
+\[
+a(np)-a(p)a(n)+p^3a(n/p)=0.
+\]
+Subtracting, we find
+\[
+(a(p)-A(p))a(n)\equiv0\pmod{(pn)^3}.
+\]
+We wish to infer from this that in fact \(A(p)=a(p)\). We take \(n=1\). Because \(a(1)=1\), we get \(a(p)-A(p)\equiv0\pmod{p^3}\). But both \(a(p)\) and \(A(p)\) are usual integers, whose absolute values are at most \(2p^{3/2}\). So \(a(p)-A(p)\) is an integer of absolute value at most \(4p^{3/2}\). But \(a(p)-A(p)\) is divisible by \(p^3\), so if nonzero its absolute value is at least \(p^3\). But \(p^3>4p^{3/2}\) for \(p\geq3\). Therefore \(A(p)=a(p)\) for \(p>3\), \(p\ne\ell\).
+
+For the sake of completeness, let us show that for \(p=2\), \(\ell\ne2\),
+\[
+\operatorname{trace}(\operatorname{Frob}_{\mathbb{F}_2}\mid\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_2,j_*(\operatorname{Sym}^2(\mathcal{G}))))=0.
+\]
+Because the cohomology groups \(\mathrm{H}^i(\mathbb{P}^1\otimes\overline{\mathbb{F}}_2,j_*(\operatorname{Sym}^2(\mathcal{G})))\) vanish for \(i\ne1\), the Lefschetz Trace Formula gives
+\[
+\begin{aligned}
+\operatorname{trace}(\operatorname{Frob}_{\mathbb{F}_2}\mid\mathrm{H}^1(\mathbb{P}^1\otimes\overline{\mathbb{F}}_2,j_*(\operatorname{Sym}^2(\mathcal{G}))))
+&=-\sum_{x\in\mathbb{P}^1(\mathbb{F}_2)}\operatorname{Trace}(\operatorname{Frob}_{x,\mathbb{F}_2}\mid j_*(\operatorname{Sym}^2(\mathcal{G}))).
+\end{aligned}
+\]
+There are sufficiently few \(\mathbb{F}_2\)-rational points in \(\mathbb{P}^1\) that this computation is quite feasible. The points \(x=1\) and \(x=\infty\) are both cusps, at each of which the trace of Frobenius is 1 (indeed the restriction to the cusps of \(j_*(\operatorname{Sym}^k(\mathcal{G}))\) for any \(k\geq0\) is the constant sheaf). At the point \(x=0\), \(\operatorname{Sym}^2(\mathcal{G})\) is the \(\operatorname{Sym}^2\) of the \(\mathrm{H}^1\) of the elliptic curve \(E\) of homogeneous equation
+\[
+X^3+Y^3+Z^3=0
+\]
+over \(\mathbb{F}_2\). This curve has \(3\ \mathbb{F}_2\) rational points (the three \(\mathbb{F}_2\)-points where exactly one of \(X,Y\) or \(Z\) vanishes): as this number of rational points is given by
+\[
+1+2-\operatorname{Trace}(\operatorname{Frob}_{\mathbb{F}_2}\mid\mathrm{H}^1(E\otimes\overline{\mathbb{F}}_2,\overline{\mathbb{Q}}_\ell)),
+\]
+we see that \(\operatorname{Trace}(\operatorname{Frob}_{\mathbb{F}_2}\mid\mathrm{H}^1(E\otimes\overline{\mathbb{F}}_2,\overline{\mathbb{Q}}_\ell))=0\). Therefore the two eigenvalues of \(\operatorname{Frob}_{\mathbb{F}_2}\) on \(\mathrm{H}^1(E\otimes\overline{\mathbb{F}}_2,\overline{\mathbb{Q}}_\ell)\) are \(\pm i(2)^{1/2}\). Therefore the three eigenvalues of \(\operatorname{Frob}_{\mathbb{F}_2}\) on \(\operatorname{Sym}^2(\mathrm{H}^1(E\otimes\overline{\mathbb{F}}_2,\overline{\mathbb{Q}}_\ell))\) are \(-2,-2,2\).
+
+Hence for the point \(x=0\) we have
+\[
+\operatorname{Trace}(\operatorname{Frob}_{x,\mathbb{F}_2}\mid j_*(\operatorname{Sym}^2(\mathcal{G})))=(-2)+(-2)+2=-2.
+\]
+Thus we find that
+\[
+\sum_{x\in\mathbb{P}^1(\mathbb{F}_2)}\operatorname{Trace}(\operatorname{Frob}_{x,\mathbb{F}_2}\mid j_*(\operatorname{Sym}^2(\mathcal{G})))=1+1+(-2)=0,
+\]
+as required.
+\end{proof}
+This proves (***), and hence the proposition.
+\end{proof}

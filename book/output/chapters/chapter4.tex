@@ -1,0 +1,556 @@
+\chapter{Middle convolution: dependence on parameters}
+\label{chap:4}
+\setcounter{section}{-1}
+
+\section{Good schemes}\label{sec:4.0}
+
+\sourcepara{4.0.1}
+Recall that a ``good scheme'' is one which admits a map \(f\) of finite type to
+a scheme \(T\) which is regular of dimension at most one. For variable good
+schemes \(X\), and \(\ell\) any fixed prime number, we can speak of the
+triangulated categories
+\(\mathrm{D}^b_c(X[1/\ell],\overline{\mathbb{Q}}_\ell)\), which admit the full
+Grothendieck formalism of the ``six operations''
+(cf. \cite{De-ThFin}, \cite{De-WeilII}, \cite{Ek}, \cite{Me-SO}).
+
+\section{The basic setting}\label{sec:4.1}
+
+\sourcepara{4.1.1}
+Throughout this section, we fix a prime number \(\ell\), and work over a
+ground-ring \(R\) which is a normal noetherian integral domain in which \(\ell\)
+is invertible, and such that \(\operatorname{Spec}(R)\) is a good scheme. We
+work on
+\(\mathbb{A}^1_R:=\operatorname{Spec}(R[x])\). We fix a monic polynomial
+\(D(x)\) in \(R[x]\) of some degree \(d\geq1\) whose discriminant \(\Delta\) is
+a unit in \(R\), and denote by \(D\subset\mathbb{A}^1_R\) the divisor defined
+by the vanishing of \(D(x)\). We further assume that the polynomial \(D(x)\)
+factors completely in \(R[x]\), say
+\[
+  D(x)=\prod_{1\leq i\leq d}(x-a_i)
+  \quad\text{with }a_i-a_j\in R^\times\text{ for all }i\ne j.
+\]
+(This ``further assumption'' always holds after replacing
+\(\operatorname{Spec}(R)\) by a connected, finite étale covering of itself.)
+Then \(D=\coprod_i D_i\) is the disjoint union of the sections \(D_i\) defined
+by the vanishing of \(x-a_i\).
+
+\sourcepara{4.1.2}
+We say that an object \(K\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) is adapted to
+the stratification
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\) of \(\mathbb{A}^1_R\), if each of its
+cohomology sheaves is lisse when restricted either to \(\mathbb{A}^1_R-D\) or
+to any \(D_i\).
+
+\sourcepara{4.1.3}
+We say that an object \(K\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) is fibrewise
+perverse if its restriction to each geometric fibre of \(\mathbb{A}^1_R\) over
+\(\operatorname{Spec}(R)\) is perverse, i.e. if for any algebraically closed
+field \(k\), and any ring homomorphism \(\varphi:R\to k\), the inverse image
+\(K_\varphi\) of \(K\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1_k,\overline{\mathbb{Q}}_\ell)\) is perverse on
+\(\mathbb{A}^1_k\).
+
+\sourcepara{4.1.4}
+We say that an object \(K\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) is fibrewise
+tame if for any algebraically closed field \(k\), and any ring homomorphism
+\(\varphi:R\to k\), the inverse image \(K_\varphi\) of \(K\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1_k,\overline{\mathbb{Q}}_\ell)\) is tame on
+\(\mathbb{A}^1_k\) in the sense that for any dense open set
+\(U\subset\mathbb{A}^1_k\) on which \(K_\varphi\) is lisse, each of the
+cohomology sheaves \(\mathcal{H}^i(K_\varphi)\vert U\) is tamely ramified at
+each point of \(\mathbb{P}^1_k-U\).
+
+\section{Basic results in the basic setting}\label{sec:4.2}
+
+\sourceheading[prop:4.2.1]{Proposition 4.2.1}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\). If the fraction field of \(R\) has
+characteristic zero, then \(K\) is fibrewise tame.
+
+\begin{proof}
+\cite[4.7.1 and Remarque (ii)]{Ka-SE}, \cite[SGA 1, Exposé XIII, 5.5]{SGA}.
+\end{proof}
+
+\sourceheading[prop:4.2.2]{Proposition 4.2.2}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, suppose
+\(K\) in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) is
+adapted to \((\mathbb{A}^1_R-D,D=\coprod_iD_i)\) and is fibrewise tame. Then
+the following conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item \(K\) is fibrewise perverse.
+\item There exists a geometric fibre on which \(K\) is perverse.
+\item Each of the following three conditions holds.
+  \begin{enumerate}[label=(\roman*)]
+  \item \(\mathcal{H}^i(K)\) vanishes for \(i\) outside \(\{0,-1\}\),
+  \item \(\mathcal{H}^0(K)\vert\mathbb{A}^1_R-D\) vanishes, and
+  \item denoting by
+  \(j:\mathbb{A}^1_R-D\to\mathbb{A}^1_R\) the inclusion, the natural
+  adjunction map
+  \[
+    \mathcal{H}^{-1}(K)\to j_*j^*\mathcal{H}^{-1}(K)
+  \]
+  is injective.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{proof}
+Fix an algebraically closed field \(k\), and a ring homomorphism
+\(\varphi:R\to k\). The inverse image \(K_\varphi\) of \(K\) on
+\(\mathbb{A}^1_k\) is perverse if the conditions of \((3)\) above hold after the
+base change \(\varphi:R\to k\); let us call these conditions \(3(\varphi)\).
+
+For each integer \(i\), each of the sheaves
+\(\mathcal{H}^i(K)\vert\mathbb{A}^1_R-D\) and
+\(\mathcal{H}^i(K)\vert D\) is lisse. So for any \(\varphi:R\to k\) as above,
+\((3\mathrm{i})\) \(\Leftrightarrow 3(\varphi\mathrm{i})\), and
+\((3\mathrm{ii})\) \(\Leftrightarrow 3(\varphi\mathrm{ii})\). It is in showing
+\((3\mathrm{iii})\) \(\Leftrightarrow 3(\varphi\mathrm{iii})\) that we make essential use
+of the fibrewise tameness.
+
+The key point \cite[4.7.2 and 4.7.3]{Ka-SE} is that for \(\mathcal{F}\) a
+\(\overline{\mathbb{Q}}_\ell\)-sheaf on \(\mathbb{A}^1_R\) which is adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\) and fibrewise tame, we have:
+\begin{enumerate}[label=(\arabic*)]
+\item formation of \(j_*j^*\mathcal{F}\) commutes with arbitrary change of base
+on \(\operatorname{Spec}(R)\), and
+\item the sheaf
+\[
+  \mathcal{F}_{\mathrm{pct}}:=\operatorname{Ker}(\mathcal{F}\to j_*j^*\mathcal{F})
+\]
+is concentrated on \(D\), lisse on \(D\) (i.e., lisse on each \(D_i\)), and of
+formation compatible with arbitrary change of base on \(\operatorname{Spec}(R)\).
+\end{enumerate}
+Applying this to \(\mathcal{H}^{-1}(K)\), we see that
+\((3\mathrm{iii})\) \(\Leftrightarrow 3(\varphi\mathrm{iii})\).
+
+Fixing a single \(\varphi\), we get \((2)\) \(\Rightarrow\) \((3)\). Varying
+\(\varphi\), we get \((3)\) \(\Rightarrow\) \((1)\). And \((1)\) \(\Rightarrow\) \((2)\) is
+trivial.
+\end{proof}
+
+\sourceheading[prop:4.2.3]{Proposition 4.2.3}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+Then the following conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item on each geometric fibre, \(K\) is the middle extension of its restriction
+to \(\mathbb{A}^1_k-D_k\).
+\item there exists a geometric fibre on which \(K\) is the middle extension of
+its restriction to \(\mathbb{A}^1_k-D_k\).
+\item \(\mathcal{H}^0(K)=0\), and denoting by
+\(j:\mathbb{A}^1_R-D\to\mathbb{A}^1_R\) the inclusion, the adjunction map is an
+isomorphism
+\[
+  \mathcal{H}^{-1}(K)\cong j_*j^*\mathcal{H}^{-1}(K).
+\]
+\end{enumerate}
+
+\begin{proof}
+The kernel and cokernel of the adjunction map
+\[
+  \mathcal{H}^{-1}(K)\to j_*j^*\mathcal{H}^{-1}(K)
+\]
+are concentrated on \(D\), lisse on \(D\), and of formation compatible with
+arbitrary change of base on \(\operatorname{Spec}(R)\), cf.
+\cite[4.7.2--3]{Ka-SE}. Fixing a single \(\varphi\), we get
+\((2)\) \(\Rightarrow\) \((3)\). Varying \(\varphi\), we get \((3)\) \(\Rightarrow\) \((1)\).
+And \((1)\) \(\Rightarrow\) \((2)\) is trivial.
+\end{proof}
+
+\sourceheading[prop:4.2.4]{Proposition 4.2.4}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+Denote by \(n\) the rank of the lisse sheaf
+\(\mathcal{H}^{-1}(K)\vert\mathbb{A}^1_R-D\). Fix a subgroup
+\(\Gamma\) of \(\operatorname{GL}(n,\overline{\mathbb{Q}}_\ell)\). Then the
+following conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item on each geometric fibre, \(K\) is the middle extension of its restriction
+to \(\mathbb{A}^1_k-D_k\), and the image of
+\(\pi_1(\mathbb{A}^1_k-D_k,\text{base point})\) in
+\(\operatorname{GL}(n,\overline{\mathbb{Q}}_\ell)\) under the monodromy
+representation of
+\(\mathcal{H}^{-1}(K)\vert\mathbb{A}^1_k-D_k\) is conjugate to \(\Gamma\).
+\item On some geometric fibre, \(K\) is the middle extension of its restriction
+to \(\mathbb{A}^1_k-D_k\), and the image of
+\(\pi_1(\mathbb{A}^1_k-D_k,\text{base point})\) in
+\(\operatorname{GL}(n,\overline{\mathbb{Q}}_\ell)\) under the monodromy
+representation of
+\(\mathcal{H}^{-1}(K)\vert\mathbb{A}^1_k-D_k\) is conjugate to \(\Gamma\).
+\end{enumerate}
+
+\begin{proof}
+In view of the preceding \hyperref[prop:4.2.3]{Proposition~4.2.3}, this results from the fact that for a lisse
+\(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{F}\) on
+\(\mathbb{A}^1_R-D\) (namely
+\(\mathcal{H}^{-1}(K)\vert\mathbb{A}^1_R-D\)) of rank denoted \(n\) which is
+fibrewise tame, the function on geometric points of \(\operatorname{Spec}(R)\)
+given by
+\[
+  (\varphi:R\to k)\longmapsto
+  \text{the conjugacy class in }\operatorname{GL}(n,\overline{\mathbb{Q}}_\ell)
+  \text{ of the image of }
+  \pi_1(\mathbb{A}^1_k-D_k,\text{any base point})
+\]
+is constant (cf. \cite[8.17.13]{Ka-ESDE}).
+\end{proof}
+
+\sourceheading[cor:4.2.5]{Corollary 4.2.5}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+Then the following conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item on each geometric fibre, \(K\cong\overline{\mathbb{Q}}_\ell[1]\).
+\item there exists a geometric fibre on which
+\(K\cong\overline{\mathbb{Q}}_\ell[1]\).
+\end{enumerate}
+
+\begin{proof}
+This is the case \(n=1\), \(\Gamma=\{1\}\) of
+\hyperref[prop:4.2.4]{Proposition~4.2.4}.
+\end{proof}
+
+\sourceheading[cor:4.2.6]{Corollary 4.2.6}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+Then the following conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item on each geometric fibre, \(K\) is perverse irreducible and is the middle
+extension of its restriction to \(\mathbb{A}^1_k-D_k\).
+\item there exists a geometric fibre on which \(K\) is perverse irreducible and
+is the middle extension of its restriction to \(\mathbb{A}^1_k-D_k\).
+\end{enumerate}
+
+\begin{proof}
+This is the case ``\(\Gamma\) an irreducible subgroup of
+\(\operatorname{GL}(n,\overline{\mathbb{Q}}_\ell)\)'' of
+\hyperref[prop:4.2.4]{Proposition~4.2.4}, for all such \(\Gamma\).
+\end{proof}
+
+\sourceheading[prop:4.2.7]{Proposition 4.2.7}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+Denote by \(j:\mathbb{A}^1_R-D\to\mathbb{A}^1_R\) the inclusion. Then the
+following conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item on each geometric fibre,
+\(K\cong j_*\mathcal{L}_{\chi}(x-\alpha)[1]\) for some nontrivial Kummer sheaf
+\(\mathcal{L}_\chi\) and some \(\alpha\).
+\item there exists a geometric fibre on which
+\(K\cong j_*\mathcal{L}_{\chi}(x-\alpha)[1]\) for some nontrivial Kummer sheaf
+and some \(\alpha\).
+\item Each of the following conditions holds:
+  \begin{enumerate}[label=(\roman*)]
+  \item \(\mathcal{H}^0(K)=0\),
+  \item \(\mathcal{H}^{-1}(K)\vert\mathbb{A}^1_R-D\) is lisse of rank one,
+  \item \(\mathcal{H}^{-1}(K)\cong j_*j^*\mathcal{H}^{-1}(K)\),
+  \item \(\mathcal{H}^{-1}(K)\vert D_i\) is lisse of rank one for all but
+  exactly one value \(i_0\) of \(i\), and for this value
+  \(\mathcal{H}^{-1}(K)\vert D_{i_0}=0\).
+  \end{enumerate}
+\end{enumerate}
+
+\begin{proof}
+It is clear that \((1)\) \(\Rightarrow\) \((2)\) and \((2)\) \(\Rightarrow\) \((3)\). To see
+that \((3)\) \(\Rightarrow\) \((1)\), we may reduce by an additive translation on
+\(\mathbb{A}^1_R\) to the case where the divisor \(D_{i_0}\) is the divisor
+\(x=0\). In this case, we must show that for any geometric point
+\(\varphi:R\to k\), the only lisse rank one
+\(\overline{\mathbb{Q}}_\ell\)-sheaf on \(\mathbb{G}_{m,k}\) which is ramified
+at \(0\) and which is tame at both \(0\) and \(\infty\) is a nontrivial Kummer
+sheaf \(\mathcal{L}_\chi\). But this is a tautology.
+\end{proof}
+
+\sourceheading[prop:4.2.8]{Proposition 4.2.8}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+Then the following conditions are equivalent:
+\begin{enumerate}[label=(\arabic*)]
+\item on each geometric fibre, \(K\cong\delta_\alpha\) for some \(\alpha\).
+\item there exists a geometric fibre on which \(K\cong\delta_\alpha\) for some
+\(\alpha\).
+\item \(\mathcal{H}^{-1}(K)=0\), and
+\(\mathcal{H}^0(K)\vert D_i=0\) for all but exactly one value \(i_0\) of \(i\),
+and for this value \(\mathcal{H}^{-1}(K)\vert D_{i_0}\) is lisse of rank one.
+\end{enumerate}
+
+\begin{proof}
+It is clear that \((1)\) \(\Rightarrow\) \((2)\) and \((2)\) \(\Rightarrow\) \((3)\), and
+\((3)\) \(\Rightarrow\) \((1)\) is obvious as well.
+\end{proof}
+
+\section{Middle convolution in the basic setting}\label{sec:4.3}
+
+\sourcepara{4.3.1}
+We continue to work in the basic setting \hyperref[par:4.1.1]{(4.1.1)}. Fix a
+nontrivial character \(\chi\) of the group
+\[
+  \pi_1^{\mathrm{tame}}(\mathbb{G}_{m,R})
+  =
+  \prod_{\ell\text{ inv in }R}\mathbb{Z}_\ell(1).
+\]
+
+\sourcepara{4.3.2}
+Denote by \(\mathcal{C}(R,D)\) the full subcategory of
+\(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) consisting of
+all objects \(K\) which are adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+We will now define a middle convolution functor from \(\mathcal{C}(R,D)\) to
+itself,
+\[
+  K\longmapsto K*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1],
+\]
+whose formation commutes with arbitrary change of base on \(R\), and which for
+\(R\) a field of characteristic \(\ne\ell\) coincides with its namesake
+\hyperref[par:2.6.2]{(2.6.2)}. It is defined via the relative compactification
+of the map \(\operatorname{pr}_2\) as in
+\hyperref[par:2.8.3]{(2.8.3)}--\hyperref[prop:2.8.4]{Proposition~2.8.4},
+\[
+  j:\mathbb{A}^1_x\times\mathbb{A}^1_t
+  \hookrightarrow
+  \mathbb{P}^1_x\times\mathbb{A}^1_t,
+\]
+by extending \(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x}\) across
+\(Z:=\infty_{\mathbb{A}^1}\) by
+\(\tau^Z_{\leq -2}\mathrm{R}j_*\), \cite[1.4.13]{BBD} and then taking
+\(\mathrm{R}\operatorname{pr}_{2*}\) as in the earlier discussion. The key
+point is that
+\(\mathrm{R}j_*(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x})\vert Z\) is lisse,
+and of formation compatible with change of base on \(R\) (by
+\hyperref[lem:4.3.8]{Lemma~4.3.8} below). Therefore the object
+\[
+  \tau^Z_{\leq -2}
+  \mathrm{R}j_*(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x})\vert Z
+\]
+is lisse, and of formation compatible with change of base on \(R\).
+
+\sourcepara{4.3.3}
+Since the formation of \(\mathrm{R}\operatorname{pr}_{2*}\) commutes with
+passage to fibres, by proper base change, we know that
+\(K*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1]\) is fibrewise perverse, of
+formation compatible with arbitrary change of base on \(R\), and fibre by
+fibre equal to its namesake.
+
+\sourcepara{4.3.4}
+We also have an explicit triangle relating this middle convolution to the
+\(!\) convolution and to a lisse sheaf on \(\mathbb{A}^1_R\). On
+\(\mathbb{P}^1_R\times\mathbb{A}^1_R\) we have a distinguished triangle
+\[
+\begin{aligned}
+  &\tau^Z_{\leq -3}
+  \mathrm{R}j_*(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x}) \\
+  &\qquad\to
+  \tau^Z_{\leq -2}
+  \mathrm{R}j_*(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x}) \\
+  &\qquad\to
+  j_*\bigl(\mathcal{H}^{-2}(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x})[2]\bigr)
+  \vert Z.
+\end{aligned}
+\]
+
+\sourcepara{4.3.5}
+But
+\(\tau^Z_{\leq -3}\mathrm{R}j_*(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x})\) is
+\(j_!(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x})\), so rotating this triangle
+gives a distinguished triangle
+\[
+\begin{aligned}
+  &j_*\bigl(\mathcal{H}^{-2}(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x})[1]\bigr)
+  \vert Z \\
+  &\qquad\to
+  j_!(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x}) \\
+  &\qquad\to
+  \tau^Z_{\leq -2}\mathrm{R}j_*(K_x\otimes(j_*\mathcal{L}_\chi[1])_{t-x}),
+\end{aligned}
+\]
+in which the first term is (a lisse sheaf on \(Z\))[1].
+
+\sourcepara{4.3.6}
+Applying \(\mathrm{R}\operatorname{pr}_{2*}\) gives a distinguished triangle on
+\(\mathbb{A}^1_R\)
+\[
+  (\text{a lisse sheaf on }\mathbb{A}^1_R)[1]
+  \to
+  K*_{!+}j_*\mathcal{L}_\chi[1]
+  \to
+  K*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1].
+\]
+Using this triangle, we see the adaptedness of
+\(K*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1]\) to the same stratification
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\) to which \(K\) was adapted.
+
+\sourcepara{4.3.7}
+We know fibre by fibre that tameness is preserved: this is automatic for
+characteristic zero fibres, and for characteristic \(p>0\) fibres it was proven
+in \hyperref[cor:3.3.6]{Corollary~3.3.6}.
+
+\sourceheading[lem:4.3.8]{Lemma 4.3.8}
+Let \(S\) be an irreducible noetherian scheme, \(X/S\) smooth, and \(D\) in
+\(X\) a smooth/\(S\) divisor. For \(\mathcal{F}\) lisse on \(X-D\) and tame
+along \(D\), \(j:X-D\to X\) and \(i:D\to X\) the inclusions, we have
+\begin{enumerate}[label=(\arabic*)]
+\item formation of \(j_*\mathcal{F}\) and of
+\(\mathrm{R}j_*\mathcal{F}\) on \(X\) commutes with arbitrary change of base on
+\(S\),
+\item the sheaf \(i^*j_*\mathcal{F}\) on \(D\) is lisse, and formation of
+\(i^*j_*\mathcal{F}\) on \(D\) commutes with arbitrary change of base on \(S\).
+\end{enumerate}
+
+\begin{proof}
+\cite[4.7.2 and 4.7.3]{Ka-SE}.
+\end{proof}
+
+\sourceheading[prop:4.3.9]{Proposition 4.3.9}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+If \(K\) is fibrewise a middle extension, then its fibrewise index of rigidity
+is constant.
+
+\begin{proof}
+Consider the lisse tame sheaf on \(\mathbb{P}^1_R-\{D\coprod\infty\}\),
+\[
+  \mathcal{F}:=\operatorname{End}\bigl(
+  \mathcal{H}^{-1}\vert\mathbb{P}^1_R-\{D\coprod\infty\}\bigr).
+\]
+Its \(j_*\mathcal{F}\) on \(\mathbb{P}^1_R\) is adapted to
+\((\mathbb{P}^1_R-\{D\coprod\infty\},\{D\coprod\infty\})\), fibrewise tame, and
+of formation compatible with arbitrary change of base on \(\operatorname{Spec}(R)\),
+by \hyperref[lem:4.3.8]{Lemma~4.3.8}. By the Euler--Poincaré formula, the fibrewise
+\(\chi\) of \(j_*\mathcal{F}\) is constant. Indeed, if
+\[
+\begin{aligned}
+  n&:=\operatorname{rank}\text{ of }\mathcal{F}
+  \text{ on }\mathbb{P}^1_R-\{D\coprod\infty\},\\
+  n_\infty&:=\operatorname{rank}\text{ of }j_*\mathcal{F}\vert\infty_R,\\
+  n_i&:=\operatorname{rank}\text{ of }j_*\mathcal{F}\vert D_i,
+  \text{ for each of the }d\text{ sections }D_i,
+\end{aligned}
+\]
+then the fibrewise \(\chi\) of \(j_*\mathcal{F}\), i.e., the fibrewise index of
+rigidity, is
+\[
+  (1-d)n+n_\infty+\sum_i n_i.
+\]
+\end{proof}
+
+\sourceheading[thm:4.3.10]{Theorem 4.3.10}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+Suppose \(K\) is fibrewise perverse irreducible of type \((2d)\) in the sense
+of \hyperref[thm:3.3.3]{Theorem~3.3.3}. Then both \(K\) and
+\(K*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1]\) are fibrewise perverse
+irreducible of type \((2d)\) and have the same index of rigidity.
+
+\begin{proof}
+Suppose first that \(R\) is not a \(\mathbb{Q}\)-algebra. Then
+\(\operatorname{Spec}(R)\) has points with finite residue characteristic \(p\).
+Once we know that
+\[
+  K\longmapsto K*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1]
+\]
+is stable on fibrewise perverses which are fibrewise tame and adapted to \(D\),
+we just look fibrewise (legitimate by the earlier fibrewise results) and take a
+fibre in characteristic \(p>0\), where we can use
+\hyperref[thm:3.3.3]{Theorem~3.3.3(3)}.
+
+How do we get this result if we do not assume \(R\) has points in some positive
+characteristic? By passing to fibres, we first reduce to the case when \(R\) is
+itself an algebraically closed field of characteristic zero. Since \(\pi_1\) of
+open curves in characteristic zero does not ``see'' extensions of algebraically
+closed fields, we may assume that our field \(R\) is ``just'' an algebraic
+closure of the finitely generated field
+\(\mathbb{Q}(\text{coef's of }D(x))\), and try working over the ring
+\[
+  R_0:=\mathbb{Z}[\text{coef's of }D(x),1/\Delta].
+\]
+This ring \(R_0\) is way too big, but it does have points of characteristic
+\(p\) for all \(p\gg0\). Our
+\(\mathcal{H}^{-1}\vert\mathbb{A}^1_R-D\) has
+\(\operatorname{GL}(n,\mathcal{O}_\lambda)\) form, \(\mathcal{O}_\lambda\)
+denoting the ring of integers in a finite extension \(E_\lambda\) of
+\(\mathbb{Q}_\ell\), with finite residue field \(\mathbb{F}_\lambda\). The key
+point is that for \(p\gg0\) the group
+\(\operatorname{GL}(n,\mathcal{O}_\lambda)\) is prime to \(p\), because it is
+an extension of the finite group
+\(\operatorname{GL}(n,\mathbb{F}_\lambda)\) by the pro-\(\ell\) group
+\(1+\lambda M_n(\mathcal{O}_\lambda)\). For any \(p\gg0\), we can, by applying
+\hyperref[lem:5.9.3]{Lemma~5.9.3} and then extending the residue field, embed our
+\(R_0\) inside a complete discrete valuation ring \(R_1\) with algebraically
+closed residue field of characteristic \(p\).
+
+When we do this, \(D\) stays a good \(D\). By the specialization theorem for
+the prime to \(p\) fundamental group of the open curve \(\mathbb{A}^1_{R_1}-D\),
+we see that the sheaf
+\(\mathcal{H}^{-1}\vert\mathbb{A}^1_R-D\) extends to a lisse sheaf on
+\(\mathbb{A}^1_{R_1}-D\), which will be irreducible if and only if our
+original \(\mathcal{H}^{-1}\vert\mathbb{A}^1_R-D\) was geometrically
+irreducible. Denoting by
+\[
+  j:\mathbb{A}^1_{R_1}-D\to\mathbb{A}^1_{R_1}
+\]
+the inclusion, \(j_*(\mathcal{H}^{-1}\vert\mathbb{A}^1_{R_1}-D)\) is adapted,
+fibrewise perverse, fibrewise tame, and fibrewise a middle extension. By
+\hyperref[cor:4.2.6]{Corollary~4.2.6}, \hyperref[prop:4.2.7]{Proposition~4.2.7},
+and \hyperref[cor:4.2.5]{Corollary~4.2.5}, the fibrewise ``type \(2d\)
+irreducible'' condition is still satisfied by our extended \(K\) over \(R_1\).
+Now we apply the already known case of the result over the mixed characteristic
+\(R_1\) to get the index of rigidity on the general fibre.
+\end{proof}
+
+\sourceheading[thm:4.3.11]{Theorem 4.3.11}
+Hypotheses and notations as in \hyperref[par:4.1.1]{(4.1.1)} above, let \(K\)
+in \(\mathrm{D}^b_c(\mathbb{A}^1_R,\overline{\mathbb{Q}}_\ell)\) be adapted to
+\((\mathbb{A}^1_R-D,D=\coprod_iD_i)\), fibrewise perverse and fibrewise tame.
+Suppose \(K\) is fibrewise perverse irreducible of type \((2d)\) in the sense
+of \hyperref[thm:3.3.3]{Theorem~3.3.3}. For
+\(j:\mathbb{A}^1_R-D\to\mathbb{A}^1_R\) the inclusion, write
+\[
+  j^*K=\mathcal{F}[1],
+  \qquad
+  j^*(K*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1])=\mathcal{G}[1],
+\]
+with \(\mathcal{F}\) and \(\mathcal{G}\) lisse sheaves on
+\(\mathbb{A}^1_R-D\). Then on every geometric fibre, the local monodromies of
+\(\mathcal{F}\) and of \(\mathcal{G}\) are related as in
+\hyperref[cor:3.3.6]{Corollary~3.3.6} and
+\hyperref[cor:3.3.7]{Corollary~3.3.7}.
+
+\begin{proof}
+Denote by \(L\) the set of those prime numbers which are invertible on \(R\).
+Because \(\mathcal{F}\) is lisse on
+\(\mathbb{A}^1_R-\coprod D_i=\mathbb{P}^1_R-\{\infty_R,\coprod D_i\}\) and
+tame along each of the ``missing'' sections \(Z:=\infty_R\) or \(D_i\), its
+local monodromy along each of these sections is a pair
+\[
+  \bigl(
+  \text{a lisse }\mathbb{Q}_\ell\text{-sheaf }\mathcal{F}[Z]\text{ on }Z,
+  \text{ an action of }\mathbb{Z}_L(1)\text{ on }\mathcal{F}[Z]
+  \bigr)
+\]
+whose formation is compatible with arbitrary change of base on
+\(\operatorname{Spec}(R)\) (cf. \cite[1.7.8]{De-WeilII}, also
+\cite[4.7.2]{Ka-SE}). Similarly for \(\mathcal{G}\). So in order the verify
+the asserted relations between the fibrewise local monodromies of
+\(\mathcal{F}\) and \(\mathcal{G}\), it suffices to do so on a single
+geometric fibre.
+
+If \(\operatorname{Spec}(R)\) has a point of residue characteristic \(p\), we
+are done by \hyperref[cor:3.3.6]{Corollary~3.3.6} and
+\hyperref[cor:3.3.7]{Corollary~3.3.7}. If not, we reduce first to the case when
+\(R\) is an algebraically closed field of characteristic zero, and then we
+specialize both \(\mathcal{F}\) and \(\mathcal{L}_\chi\) into characteristic
+\(p\gg0\) by the argument of \hyperref[thm:4.3.10]{Theorem~4.3.10}, which reduces us to the case
+when \(R\) is a mixed characteristic discrete valuation ring.
+\end{proof}

@@ -1,0 +1,488 @@
+\chapter{Motivic description of rigids}
+\label{chap:8}
+\setcounter{section}{-1}
+
+\section{The basic setting}
+\label{sec:8.0}
+
+\sourcepara{8.0.1}
+To motivate this chapter, start with an algebraically closed field \(k\), \(n\geq2\) an integer, \(\alpha_1,\alpha_2,\ldots,\alpha_n\) a set of \(n\) distinct points of \(\mathbb{A}^1(k)\), \(\ell\) a prime number invertible in \(k\), \(N\geq1\) an integer which is invertible in \(k\), and \(\zeta\) a primitive \(N\)-th root of unity in \(k\). We are interested in ``describing'' all objects of \(\mathcal{T}_\ell\) which are lisse on \(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\), cohomologically rigid, and such that all eigenvalues of all local monodromies of \(\mathcal{F}\) are \(N\)-th roots of unity. We wish to do this describing in as universal a way as possible.
+
+\sourcepara{8.0.2}
+Thus we fix an integer \(N\geq1\). As in \hyperref[par:5.5.2]{(5.5.2)}--\hyperref[par:5.5.3]{(5.5.3)}, we have the rings
+\[
+\begin{aligned}
+R_{N,\ell}&:=\mathbb{Z}[\zeta_N,1/N\ell],
+\quad \zeta_N:=\text{a primitive }N\text{-th root of unity},\\
+S_{N,n,\ell}&:=R_{N,\ell}[T_1,\ldots,T_n][1/\Delta],
+\quad \Delta:=\prod_{i\ne j}(T_i-T_j).
+\end{aligned}
+\]
+We fix an embedding
+\[
+R_{N,\ell}\to\overline{\mathbb{Q}}_\ell,
+\]
+i.e., we fix a primitive \(N\)-th root of unity in \(\overline{\mathbb{Q}}_\ell\). We denote by \(E=E_N\) the fraction field of \(R_{N,\ell}\). We denote by \(\lambda\) the induced place of the ``abstract'' field \(E\), and by \(E_\lambda\) the \(\lambda\)-adic completion of \(E\). We denote by \(\varphi\) the unique ring homomorphism
+\[
+\varphi:S_{N,n,\ell}\to k
+\]
+for which \(\varphi(\zeta_N)=\zeta\) and for which \(\varphi(T_i)=\alpha_i\) for \(1\leq i\leq n\).
+
+\sourcepara{8.0.3}
+Over \(S_{N,n,\ell}\), we have \(\mathbb{A}^1\), with its \(n\) disjoint sections \(\{T_1,\ldots,T_n\}\), and coordinate \(X_1\). This space
+\[
+(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}
+\]
+is the spec of the ring \(S_{N,n+1,\ell}\) in which \(n+1\) variables are denoted \(T_1,\ldots,T_n,X_1\). More generally, for each integer \(r\geq0\), we will have occasion to consider the space
+\[
+A(n,r+1)_{R_{N,\ell}}:=\operatorname{Spec}(R_{N,\ell}[T_1,\ldots,T_n,X_1,\ldots,X_{r+1}][1/\Delta_{n,r}]),
+\]
+where
+\[
+\Delta_{n,r}:=\left(\prod_{i\ne j}(T_i-T_j)\right)\left(\prod_{a,j}(X_a-T_j)\right)\left(\prod_k(X_{k+1}-X_k)\right).
+\]
+(The indices \(i\) and \(j\) run in \(\{1,2,\ldots,n\}\), the index \(a\) in \(\{1,\ldots,r+1\}\), the index \(k\) in \(\{1,\ldots,r\}\); when \(r=0\) the empty product \(\prod_k(X_{k+1}-X_k)\) is understood to be \(1\).)
+
+\sourcepara{8.0.4}
+A more illuminating way to think of \(A(n,r+1)_{R_{N,\ell}}\) is as lying in the \(r+1\) fold fibre product of \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) with itself over \(S_{N,n,\ell}\), as the open set where the function \(\prod_k(X_{k+1}-X_k)\) is invertible. Thought of this way, we see \(r+1\) projection maps
+\[
+\begin{aligned}
+\operatorname{pr}_i:A(n,r+1)_{R_{N,\ell}}&\to(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}},\\
+(T_1,\ldots,T_n,X_1,\ldots,X_{r+1})&\mapsto(T_1,\ldots,T_n,X_i).
+\end{aligned}
+\]
+
+\sourcepara{8.0.5}
+Strictly speaking, \(A(n,r+1)_{R_{N,\ell}}\) depends on the integer \(n\) and on the ordered set \(\{1,2,\ldots,r+1\}\) (because \(\prod_k(X_{k+1}-X_k)\) depends on the order). For each nonempty subinterval
+\[
+[i,j]:=\{i,i+1,\ldots,j\}\subset\{1,2,\ldots,r+1\},
+\]
+we may form the space \(A(n,[i,j])_{R_{N,\ell}}\), by forming the \(j+1-i\) fold fibre product of \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) with itself over \(S_{N,n,\ell}\), and then passing to the open set where \(\prod_{k=i,\ldots,j-1}(X_{k+1}-X_k)\) is invertible. We have natural projections
+\[
+\begin{aligned}
+\operatorname{pr}_{[i,j],[\alpha,\beta]}:A(n,[i,j])_{R_{N,\ell}}&\to A(n,[\alpha,\beta])_{R_{N,\ell}},\\
+(T_1,\ldots,T_n,X_i,\ldots,X_j)&\mapsto(T_1,\ldots,T_n,X_\alpha,\ldots,X_\beta),
+\end{aligned}
+\]
+whenever \([\alpha,\beta]\subset[i,j]\). In this notation, the projection \(\operatorname{pr}_i\) above is \(\operatorname{pr}_{[1,r+1],[i,i]}\).
+
+\section{Interlude: Kummer sheaves}
+\label{sec:8.1}
+
+\sourcepara{8.1.1}
+We work in the setting \hyperref[sec:8.0]{\S8.0}. On \((\mathbb{G}_m)_{R_{N,\ell}}\) with coordinate \(Z\), we have the Kummer covering of degree \(N\), of equation \(Y^N=Z\). This is a connected \(\mu_N(R_{N,\ell})\)-torsor, whose existence defines a surjective homomorphism
+\[
+\pi_1((\mathbb{G}_m)_{R_{N,\ell}})\twoheadrightarrow\mu_N(R_{N,\ell}).
+\]
+The chosen embedding \(R_{N,\ell}\to\overline{\mathbb{Q}}_\ell\) gives an embedding \(\mu_N(R_{N,\ell})\to\overline{\mathbb{Q}}_\ell^{\times}\), which we can think of as a faithful \(\overline{\mathbb{Q}}_\ell\)-valued character \(\chi_N\) of the structural group \(\mu_N(R_{N,\ell})\). The composite homomorphism
+\[
+\pi_1((\mathbb{G}_m)_{R_{N,\ell}})\twoheadrightarrow\mu_N(R_{N,\ell})\to\overline{\mathbb{Q}}_\ell^{\times}
+\]
+defines the Kummer sheaf \(\mathcal{L}_{\chi_N}\) on \((\mathbb{G}_m)_{R_{N,\ell}}\).
+
+\sourcepara{8.1.2}
+More generally, any character
+\[
+\rho:\mu_N(R_{N,\ell})\to\overline{\mathbb{Q}}_\ell^{\times}
+\]
+defines in this way a Kummer sheaf \(\mathcal{L}_\rho\) on \((\mathbb{G}_m)_{R_{N,\ell}}\). Any such character \(\rho\) is some power of \(\chi_N\), say \(\rho=(\chi_N)^a\) for some integer \(a\) (which is unique mod \(N\)).
+
+\sourcepara{8.1.3}
+For any scheme \(W\) and any map
+\[
+f:W\to(\mathbb{G}_m)_{R_{N,\ell}},
+\]
+the Kummer sheaves \(f^*\mathcal{L}_\rho:=\mathcal{L}_{\rho(f)}\) and \(f^*\mathcal{L}_{\chi_N}:=\mathcal{L}_{\chi_N(f)}\) on \(W\) are related by
+\[
+\mathcal{L}_{\rho(f)}=\mathcal{L}_{\chi_N(f^a)}=(\mathcal{L}_{\chi_N(f)})^{\otimes a}.
+\]
+
+\sourcepara{8.1.4}
+An alternative description of the Kummer sheaf \(\mathcal{L}_{\rho(f)}\) on \(W\) is this. One considers the covering of \(W\) of equation \(y^N=f\), with structural map
+\[
+\pi:(y^N=f)\to W.
+\]
+The zeroth direct image sheaf \(\pi_*\overline{\mathbb{Q}}_\ell\) has a \(\mu_N(R_{N,\ell})\) action, and its \(\rho\)-component is the sheaf \(\mathcal{L}_{\rho(f)}\) on \(W\).
+
+\section[Naive convolution on the punctured affine line]{Naive convolution on \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\)}
+\label{sec:8.2}
+
+\sourcepara{8.2.1}
+We continue in the setting \hyperref[sec:8.0]{\S8.0}. Denote by \(\operatorname{Lisse}(N,n,\ell)\) the category of lisse \(\overline{\mathbb{Q}}_\ell\)-sheaves on
+\[
+A(n,1)_{R_{N,\ell}}:=(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}.
+\]
+For each nontrivial \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued character \(\chi\) of the group \(\mu_N(R_{N,\ell})\), we define an exact functor, ``naive convolution with \(\mathcal{L}_\chi\)'', denoted \(\operatorname{NC}_\chi\), from \(\operatorname{Lisse}(N,n,\ell)\) to itself, as follows. Consider the space \(A(n,2)_{R_{N,\ell}}\), with its two projections to \(A(n,1)_{R_{N,\ell}}\). We define
+\[
+\operatorname{NC}_\chi(\mathcal{F}):=\mathrm{R}^1(\operatorname{pr}_2)_!(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)}).
+\]
+
+\sourceheading[lem:8.2.2]{Lemma 8.2.2}
+In the setting \hyperref[par:8.2.1]{(8.2.1)}, let \(\mathcal{F}\) in \(\operatorname{Lisse}(N,n,\ell)\), and \(\chi\) an arbitrary \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued character of \(\mu_N(R_{N,\ell})\).
+\begin{enumerate}[label=(\arabic*)]
+\item The sheaves \(\mathrm{R}^i(\operatorname{pr}_2)_!(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)})\) are all in \(\operatorname{Lisse}(N,n,\ell)\).
+\item If \(\chi\) is nontrivial, they vanish for \(i\ne1\).
+\item If \(\chi\) is nontrivial, the functor \(\operatorname{NC}_\chi\) is exact.
+\item If \(\chi\) is nontrivial, and if \(\mathcal{F}\) is mixed of weight \(\leq w\), then \(\operatorname{NC}_\chi(\mathcal{F})\) is mixed of weight \(\leq w+1\).
+\end{enumerate}
+\begin{proof}
+(1) Over the target \(A(n,1)_{R_{N,\ell}}\), the total space is a relative \(\mathbb{A}^1\) with coordinate \(X_1\), minus the \(n+1\) disjoint sections \(\{T_1,\ldots,T_n,X_2\}\). The sheaf \(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)}\) is lisse on this space. Because the base is normal and connected with generic point of characteristic zero, any lisse sheaf is automatically tamely ramified along each of these missing sections, as well as along \(\infty\). The lisseness of the \(\mathrm{R}^i(\operatorname{pr}_2)_!(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)})\) now results from the standard specialization theorems, cf. \cite[4.7.1]{Ka-SE}.
+
+(2) Since \(\mathcal{F}\) is lisse, and our morphism is affine and lisse of relative dimension one, proper base change shows that the only possibly nonvanishing cohomology sheaves are those with \(i=1\) or \(i=2\). As \(\mathcal{F}\) is lisse outside the \(n\) disjoint sections \(\{T_1,\ldots,T_n\}\), it is lisse along the section \(X_2\). If \(\chi\) is nontrivial, the sheaf \(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)}\) is totally ramified along the section \(X_2\), and this remains true after passage to any geometric fibre. On a geometric fibre, say \((T_i\mapsto\alpha_i,X_2\mapsto\beta)\), the \(\mathrm{H}^2_c\) must vanish: already the inertia group \(I(\beta)\) at \(\beta\) acts as a scalar \(\zeta\ne1\), so has no nonzero coinvariants, and a fortiori the entire \(\pi_1\) of the geometric fibre has none either. By proper base change, the sheaf \(\mathrm{R}^2(\operatorname{pr}_2)_!(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)})\) vanishes.
+
+(3) This results formally from (2), by the long exact cohomology sequence.
+
+(4) This is Weil II \cite[3.3.1]{De-WeilII}.
+\end{proof}
+
+\sourceheading[cor:8.2.3]{Corollary 8.2.3}
+In the setting \hyperref[par:8.2.1]{(8.2.1)}, let \(r\geq1\) be a positive integer, \(\mathcal{F}_1,\ldots,\mathcal{F}_{r+1}\) objects in \(\operatorname{Lisse}(N,n,\ell)\), and \(\chi_1,\ldots,\chi_r\) nontrivial \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued characters of \(\mu_N(R_{N,\ell})\). Consider the objects \(\mathcal{G}_0,\mathcal{G}_1,\ldots,\mathcal{G}_r\) in \(\operatorname{Lisse}(N,n,\ell)\) defined inductively by
+\[
+\begin{aligned}
+\mathcal{G}_0&:=\mathcal{F}_1,\\
+\mathcal{G}_1&:=\mathcal{F}_2\otimes\operatorname{NC}_{\chi_1}(\mathcal{G}_0),\\
+&\ \vdots\\
+\mathcal{G}_r&:=\mathcal{F}_{r+1}\otimes\operatorname{NC}_{\chi_r}(\mathcal{G}_{r-1}).
+\end{aligned}
+\]
+On \(A(n,r+1)_{R_{N,\ell}}\), consider the lisse sheaf
+\[
+\mathcal{F}_1(X_1)\otimes\left(\bigotimes_{k=1,\ldots,r}(\mathcal{L}_{\chi_k(X_{k+1}-X_k)}\otimes\mathcal{F}_{k+1}(X_{k+1}))\right)
+\]
+and the projection
+\[
+\operatorname{pr}_{r+1}:A(n,r+1)_{R_{N,\ell}}\to(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}.
+\]
+We have
+\[
+\mathcal{G}_r=\mathrm{R}^r(\operatorname{pr}_{r+1})_!\left(\mathcal{F}_1(X_1)\otimes\left(\bigotimes_{k=1,\ldots,r}(\mathcal{L}_{\chi_k(X_{k+1}-X_k)}\otimes\mathcal{F}_{k+1}(X_{k+1}))\right)\right),
+\]
+and for \(i\ne r\) we have
+\[
+\mathrm{R}^i(\operatorname{pr}_{r+1})_!\left(\mathcal{F}_1(X_1)\otimes\left(\bigotimes_{k=1,\ldots,r}(\mathcal{L}_{\chi_k(X_{k+1}-X_k)}\otimes\mathcal{F}_{k+1}(X_{k+1}))\right)\right)=0.
+\]
+\begin{proof}
+This follows from parts (1) and (2) of the previous \hyperref[lem:8.2.2]{Lemma~8.2.2}. Factor the map \(\operatorname{pr}_{r+1}\) as the composition of successive ``one-variable at a time'' projections
+\[
+\begin{aligned}
+\pi_i:=\operatorname{pr}_{[i,r+1],[i+1,r+1]}:A(n,[i,r+1])_{R_{N,\ell}}&\to A(n,[i+1,r+1])_{R_{N,\ell}},\\
+(T_1,\ldots,T_n,X_i,\ldots,X_{r+1})&\mapsto(T_1,\ldots,T_n,X_{i+1},\ldots,X_{r+1}).
+\end{aligned}
+\]
+It suffices to show that for each \(i=1,\ldots,r\), we have
+\[
+\begin{aligned}
+&\mathrm{R}^1(\pi_i)_!\left(\mathcal{G}_{i-1}(X_i)\otimes\left(\bigotimes_{k=i,\ldots,r}(\mathcal{L}_{\chi_k(X_{k+1}-X_k)}\otimes\mathcal{F}_{k+1}(X_{k+1}))\right)\right)\\
+&\quad=\mathcal{G}_i(X_{i+1})\otimes\left(\bigotimes_{k=i+1,\ldots,r}(\mathcal{L}_{\chi_k(X_{k+1}-X_k)}\otimes\mathcal{F}_{k+1}(X_{k+1}))\right),
+\end{aligned}
+\]
+and that the other \(\mathrm{R}^j\) vanish for \(j\ne1\). For this we argue as follows. For each \(i\), denote by \(\mathcal{H}_i\) the lisse sheaf on \(A(n,[i,r+1])_{R_{N,\ell}}\)
+\[
+\mathcal{H}_i:=\bigotimes_{k=i,\ldots,r}(\mathcal{L}_{\chi_k(X_{k+1}-X_k)}\otimes\mathcal{F}_{k+1}(X_{k+1})).
+\]
+The map \(\pi_i\) sits in a cartesian diagram
+\[
+\begin{tikzcd}[column sep=6.2em,row sep=4.2em]
+A(n,[i,r+1])_{R_{N,\ell}}
+  \arrow[r,"{\scriptstyle\operatorname{pr}_{\substack{[i,r+1]\\ [i,i+1]}}}"]
+  \arrow[d,"\pi_i"'] &
+A(n,[i,i+1])_{R_{N,\ell}}
+  \arrow[d,"{\scriptstyle\operatorname{pr}_{\substack{[i,i+1]\\ [i+1,i+1]}}}"]\\
+A(n,[i+1,r+1])_{R_{N,\ell}}
+  \arrow[r,"{\scriptstyle\operatorname{pr}_{\substack{[i+1,r+1]\\ [i+1,i+1]}}}"'] &
+A(n,[i+1,i+1])_{R_{N,\ell}}.
+\end{tikzcd}
+\]
+The sheaf
+\[
+\mathcal{G}_{i-1}(X_i)\otimes\left(\bigotimes_{k=i,\ldots,r}(\mathcal{L}_{\chi_k(X_{k+1}-X_k)}\otimes\mathcal{F}_{k+1}(X_{k+1}))\right)
+\]
+on the source is the tensor product
+\[
+(\pi_i)^*(\mathcal{F}_{i+1}(X_{i+1})\otimes\mathcal{H}_{i+1})\otimes(\operatorname{pr}_{[i,r+1],[i,i+1]})^*(\mathcal{G}_{i-1}(X_i)\otimes\mathcal{L}_{\chi_i(X_{i+1}-X_i)})
+\]
+of a pullback from the base, namely \((\pi_i)^*(\mathcal{F}_{i+1}(X_{i+1})\otimes\mathcal{H}_{i+1})\), which the projection formula takes care of, and of a pullback \((\operatorname{pr}_{[i,r+1],[i,i+1]})^*(\mathcal{G}_{i-1}(X_i)\otimes\mathcal{L}_{\chi_i(X_{i+1}-X_i)})\) from the situation of the previous lemma.
+\end{proof}
+
+\section[Middle convolution on the punctured affine line]{Middle convolution on \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\)}
+\label{sec:8.3}
+
+\sourcepara{8.3.1}
+We continue in the setting \hyperref[par:8.2.1]{(8.2.1)}. For each nontrivial \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued character \(\chi\) of the group \(\mu_N(R_{N,\ell})\), we now define a left exact functor, ``middle convolution with \(\mathcal{L}_\chi\)'', denoted \(\operatorname{MC}_\chi\), from \(\operatorname{Lisse}(N,n,\ell)\) to itself, as follows. We view the space \(A(n,2)_{R_{N,\ell}}\), with its second projection \(\operatorname{pr}_2\) to \(A(n,1)_{R_{N,\ell}}\), as a relative \(\mathbb{A}^1\) with coordinate \(X_1\), minus the \(n+1\) disjoint sections \(\{T_1,\ldots,T_n,X_2\}\). We then compactify the morphism \(\operatorname{pr}_2\) into the relative \(\mathbb{P}^1\)
+\[
+\overline{\operatorname{pr}}_2:\mathbb{P}^1\times A(n,1)_{R_{N,\ell}}\to A(n,1)_{R_{N,\ell}},
+\]
+by ``putting back'' the \(n+2\) disjoint sections \(\{T_1,\ldots,T_n,X_2,\infty\}\):
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+A(n,2)_{R_{N,\ell}} \arrow[r,"j"] \arrow[dr,"\operatorname{pr}_2"'] &
+\mathbb{P}^1\times A(n,1)_{R_{N,\ell}} \arrow[d,"\overline{\operatorname{pr}}_2"]\\
+& A(n,1)_{R_{N,\ell}}.
+\end{tikzcd}
+\]
+We then define
+\[
+\operatorname{MC}_\chi(\mathcal{F}):=\mathrm{R}^1(\overline{\operatorname{pr}}_2)_*(j_*(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)})).
+\]
+
+\sourceheading[lem:8.3.2]{Lemma 8.3.2}
+In the situation \hyperref[par:8.3.1]{(8.3.1)}, let \(\mathcal{F}\) in \(\operatorname{Lisse}(N,n,\ell)\), and \(\chi\) an arbitrary \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued character of \(\mu_N(R_{N,\ell})\).
+\begin{enumerate}[label=(\arabic*)]
+\item The sheaves \(\mathrm{R}^i(\overline{\operatorname{pr}}_2)_*(j_*(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)}))\) are all in \(\operatorname{Lisse}(N,n,\ell)\).
+\item If \(\chi\) is nontrivial, the above sheaves vanish for \(i\ne1\).
+\item If \(\chi\) is nontrivial, and if \(\mathcal{F}\) is pure of weight \(w\), then \(\operatorname{MC}_\chi(\mathcal{F})\) is pure of weight \(w+1\), and we have a short exact sequence of lisse sheaves on \(A(n,1)_{R_{N,\ell}}\)
+\[
+0\to(\text{lisse, mixed of weight }\leq w)\to\operatorname{NC}_\chi(\mathcal{F})\to\operatorname{MC}_\chi(\mathcal{F})\to0.
+\]
+\item If \(\chi\) is nontrivial, then \(\operatorname{MC}_\chi(\mathcal{F})\) is related to the middle convolution of \hyperref[sec:4.3]{\S4.3} as follows. In the notations of \hyperref[chap:4]{Chapter~4}, take \(R\) to be the ring \(S_{N,n,\ell}\), \(D\) to be the \(n\) disjoint sections \(\{T_1,\ldots,T_n\}\) of \(\mathbb{A}^1\) over \(S_{N,n,\ell}\),
+\[
+k:(\mathbb{A}^1-D)_{S_{N,n,\ell}}\to(\mathbb{A}^1)_{S_{N,n,\ell}}
+\]
+the inclusion, and \(K:=k_*\mathcal{F}[1]\). We know that \(K*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1]\) on \((\mathbb{A}^1)_{S_{N,n,\ell}}\) is adapted to the stratification \((\mathbb{A}^1-D,D)\), so its restriction to \(\mathbb{A}^1-D\) is of the form \((\text{a lisse sheaf})[1]\). This lisse sheaf is \(\operatorname{MC}_\chi(\mathcal{F})\):
+\[
+\operatorname{MC}_\chi(\mathcal{F})[1]=k^*(K*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1]).
+\]
+\end{enumerate}
+\begin{proof}
+Proof of (1). Denote by \(D\) the divisor \(\{T_1,\ldots,T_n,X_2,\infty\}\) in \(\mathbb{P}^1\times A(n,1)_{R_{N,\ell}}\), a disjoint union of sections. The key point is that the sheaf
+\[
+j_*(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)})
+\]
+is adapted to the stratification \((\mathbb{P}^1\times A(n,1)_{R_{N,\ell}}-D,D)\) (cf. \hyperref[sec:4.3]{\S4.3}), and of formation compatible with all change of base. Let us make this explicit. In the exact sequence of sheaves on \(\mathbb{P}^1\times A(n,1)_{R_{N,\ell}}\)
+\[
+0\to j_!(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)})\to j_*(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)})\to\operatorname{Quot}\to0,
+\]
+the sheaf \(\operatorname{Quot}\) is the direct sum of sheaves \(\operatorname{Quot}(T_i)\), concentrated along the section \(T_i\), a sheaf \(\operatorname{Quot}(X_2)\) concentrated along the section \(X_2\), and of a sheaf \(\operatorname{Quot}(\infty)\) concentrated along the section \(\infty\). The adaptedness means that each of these sheaves, viewed (via the section on which it is concentrated) as a sheaf on the base, is a lisse sheaf on the base. Therefore \(\mathrm{R}(\overline{\operatorname{pr}}_2)_*\operatorname{Quot}\) is a lisse sheaf on the base, concentrated in degree zero. By the previous \hyperref[lem:8.2.2]{Lemma~8.2.2}, \(\mathrm{R}(\overline{\operatorname{pr}}_2)_*(j_!(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)}))\) has lisse cohomology sheaves, and thus (1) is obvious from the long exact cohomology sequence.
+
+Proof of (2). If \(\chi\) is nontrivial, use the fact that formation of \(j_*(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)})\) commutes with passage to fibres. Then fibre by fibre we have a sheaf on \(\mathbb{P}^1\) with no nonzero punctual sections and whose stalk at some point \(\beta\) vanishes. Such a sheaf has vanishing \(\mathrm{H}^i\) for \(i\ne1\). By proper base change, we get (2).
+
+Proof of (3). If \(\chi\) is nontrivial, the long exact cohomology sequence appealed to in the proof of (1) above reads
+\[
+0\to(\overline{\operatorname{pr}}_2)_*\operatorname{Quot}\to\operatorname{NC}_\chi(\mathcal{F})\to\operatorname{MC}_\chi(\mathcal{F}).
+\]
+If \(\mathcal{F}\) is pure of weight \(w\), then each of the sheaves \(\operatorname{Quot}(T_i)\), \(\operatorname{Quot}(X_2)\), and \(\operatorname{Quot}(\infty)\) is mixed of weight \(\leq w\) (cf. \cite[4.7.4]{Ka-SE}). The sheaf \((\overline{\operatorname{pr}}_2)_*\operatorname{Quot}\) is just the direct sum of these sheaves, each viewed on the base. Thus \((\overline{\operatorname{pr}}_2)_*\operatorname{Quot}\) is lisse, and mixed of weight \(\leq w\). That \(\operatorname{MC}_\chi(\mathcal{F})\) is pure of weight \(w+1\) results from the fact that the formation of \(j_*(\operatorname{pr}_1^*(\mathcal{F})\otimes\mathcal{L}_{\chi(X_2-X_1)})\) on \(\mathbb{P}^1\times A(n,1)_{R_{N,\ell}}\) commutes with arbitrary change of base on \(A(n,1)_{R_{N,\ell}}\), together with Weil II \cite[3.2.3]{De-WeilII} applied fibre by fibre.
+
+Proof of (4). This is a tautology, given the definitions of \hyperref[chap:4]{Chapter~4}.
+\end{proof}
+
+\sourceheading[cor:8.3.3]{Corollary 8.3.3}
+In the situation \hyperref[par:8.3.1]{(8.3.1)}, let \(\mathcal{F}\) in \(\operatorname{Lisse}(N,n,\ell)\), and \(\chi\) a nontrivial \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued character of \(\mu_N(R_{N,\ell})\). Suppose that \(\mathcal{F}\) is nonzero and geometrically irreducible on each geometric fibre of \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\).
+\begin{enumerate}[label=(\arabic*)]
+\item If \(\mathcal{F}\) is fibrewise in \(\mathcal{T}_\ell\), so is \(\operatorname{MC}_\chi(\mathcal{F})\). In this case, \(\mathcal{F}\) and \(\operatorname{MC}_\chi(\mathcal{F})\) have the same fibrewise index of rigidity.
+\item If on a single geometric fibre, \(\mathcal{F}\) is constant, then \(\mathcal{F}\) is fibrewise constant, and \(\operatorname{MC}_\chi(\mathcal{F})=0\).
+\item If on a single geometric fibre, \(\mathcal{F}\cong\mathcal{L}_{\overline{\chi}(X_1-T_i)}\) for some index \(i\), then \(\mathcal{F}\) is fibrewise isomorphic to \(\mathcal{L}_{\overline{\chi}(X_1-T_i)}\), and \(\operatorname{MC}_\chi(\mathcal{F})=0\).
+\item If on a single geometric fibre, \(\mathcal{F}\cong\mathcal{L}_{\rho(X_1-T_i)}\) for some index \(i\), and some \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued character \(\rho\) of \(\mu_N(R_{N,\ell})\) with \(\rho\ne\overline{\chi}\), then \(\mathcal{F}\) is fibrewise isomorphic to \(\mathcal{L}_{\rho(X_1-T_i)}\), and \(\operatorname{MC}_\chi(\mathcal{F})\) is fibrewise isomorphic to \(\mathcal{L}_{\rho\chi(X_1-T_i)}\).
+\end{enumerate}
+\begin{proof}
+These all result, thanks to part (4) of the above \hyperref[lem:8.3.2]{Lemma~8.3.2}, from what we have already proven about middle convolution with parameters. Part (1) is just a restatement of \hyperref[thm:4.3.10]{Theorem~4.3.10}.
+
+To prove parts (2), (3), and (4), we argue as follows. We first show that if the condition envisioned holds on a single geometric fibre, then it holds on every fibre. For this, just apply \hyperref[cor:4.2.5]{Corollary~4.2.5} to \(k_*(\mathcal{F})\), \(k_*(\mathcal{F}\otimes\mathcal{L}_{\chi(X_1-T_i)})\), and to \(k_*(\mathcal{F}\otimes\mathcal{L}_{\overline{\rho}\overline{\chi}(X_1-T_i)})\) respectively, noting that formation of \(k_*(\mathcal{F})\) commutes with arbitrary change of base (cf. \cite[4.7.2 and 4.7.3]{Ka-SE}). Once we know that the conditions hold fibrewise, it suffices to check on all geometric fibres in positive characteristic. For parts (2) and (3), this is given in \hyperref[thm:3.3.3]{Theorem~3.3.3}, (1a) and (2b). For part (4), we use \hyperref[thm:3.3.3]{Theorem~3.3.3}, (2b) to show that \(\operatorname{MC}_\chi(\mathcal{F})\cong\mathcal{L}_{\rho\chi(X_1-T_i)}\) on every geometric fibre of positive characteristic, hence in particular on a single geometric fibre. As above, we consider \(k_*(\operatorname{MC}_\chi(\mathcal{F})\otimes\mathcal{L}_{\overline{\rho\chi}(X_1-T_i)})\) and apply \hyperref[cor:4.2.5]{Corollary~4.2.5} to it, to conclude that \(\operatorname{MC}_\chi(\mathcal{F})\) is fibrewise isomorphic to \(\mathcal{L}_{\rho\chi(X_1-T_i)}\).
+\end{proof}
+
+\sourceheading[cor:8.3.4]{Second Corollary 8.3.4}
+In the situation \hyperref[par:8.3.1]{(8.3.1)}, let \(r\geq0\) be an integer, \(\mathcal{F}_1,\ldots,\mathcal{F}_{r+1}\) objects in \(\operatorname{Lisse}(N,n,\ell)\) which are all pure of weight \(0\), and \(\chi_1,\ldots,\chi_r\) nontrivial \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued characters of \(\mu_N(R_{N,\ell})\). Consider the objects \(\mathcal{G}_0,\mathcal{G}_1,\ldots,\mathcal{G}_r\) in \(\operatorname{Lisse}(N,n,\ell)\) defined inductively by
+\[
+\begin{aligned}
+\mathcal{G}_0&:=\mathcal{F}_1,\\
+\mathcal{G}_1&:=\mathcal{F}_2\otimes\operatorname{NC}_{\chi_1}(\mathcal{G}_0),\\
+&\ \vdots\\
+\mathcal{G}_r&:=\mathcal{F}_{r+1}\otimes\operatorname{NC}_{\chi_r}(\mathcal{G}_{r-1}).
+\end{aligned}
+\]
+Consider also the objects \(\mathcal{H}_0,\mathcal{H}_1,\ldots,\mathcal{H}_r\) in \(\operatorname{Lisse}(N,n,\ell)\) defined inductively by
+\[
+\begin{aligned}
+\mathcal{H}_0&:=\mathcal{F}_1,\\
+\mathcal{H}_1&:=\mathcal{F}_2\otimes\operatorname{MC}_{\chi_1}(\mathcal{H}_0),\\
+&\ \vdots\\
+\mathcal{H}_r&:=\mathcal{F}_{r+1}\otimes\operatorname{MC}_{\chi_r}(\mathcal{H}_{r-1}).
+\end{aligned}
+\]
+For \(i=0,1,\ldots,r\) each \(\mathcal{H}_i\) is pure of weight \(i\), each \(\mathcal{G}_i\) is mixed of weights \(\leq i\), and we have a short exact sequence of lisse sheaves on \(A(n,1)_{R_{N,\ell}}\),
+\[
+0\to(\text{mixed of weight }\leq i-1)\to\mathcal{G}_i\to\mathcal{H}_i\to0.
+\]
+\begin{proof}
+For \(r=0\), there is nothing to prove. If \(r\geq1\), this results by induction from part (3) of the previous \hyperref[lem:8.3.2]{Lemma~8.3.2}. Indeed, suppose we already have a short exact sequence of lisse sheaves on \(A(n,1)_{R_{N,\ell}}\)
+\[
+0\to(\text{mixed of weight }\leq i-1)\to\mathcal{G}_i\to\mathcal{H}_i\to0,
+\]
+and \(\mathcal{H}_i\) is pure of weight \(i\). Applying \(\operatorname{NC}_{\chi_i}\), we get (by \hyperref[lem:8.3.2]{Lemma~8.3.2}, parts (3) and (4)) a short exact sequence of lisse sheaves on \(A(n,1)_{R_{N,\ell}}\)
+\[
+0\to(\text{mixed of weight }\leq i)\to\operatorname{NC}_{\chi_i}(\mathcal{G}_i)\to\operatorname{NC}_{\chi_i}(\mathcal{H}_i)\to0.
+\]
+From part (3) of the previous \hyperref[lem:8.3.2]{Lemma~8.3.2}, we get a short exact sequence of lisse sheaves on \(A(n,1)_{R_{N,\ell}}\)
+\[
+0\to(\text{lisse, mixed of weight }\leq i)\to\operatorname{NC}_{\chi_i}(\mathcal{H}_i)\to\operatorname{MC}_{\chi_i}(\mathcal{H}_i)\to0,
+\]
+and \(\operatorname{MC}_{\chi_i}(\mathcal{H}_i)\) is pure of weight \(i+1\). The composite map
+\[
+\operatorname{NC}_{\chi_i}(\mathcal{G}_i)\to\operatorname{NC}_{\chi_i}(\mathcal{H}_i)\to\operatorname{MC}_{\chi_i}(\mathcal{H}_i)
+\]
+is surjective, and its kernel is lisse and mixed of weight \(\leq i\). So we get a short exact sequence of lisse sheaves on \(A(n,1)_{R_{N,\ell}}\),
+\[
+0\to(\text{lisse, mixed of weight }\leq i)\to\operatorname{NC}_{\chi_i}(\mathcal{G}_i)\to\operatorname{MC}_{\chi_i}(\mathcal{H}_i)\to0.
+\]
+Tensoring this with \(\mathcal{F}_{i+1}\) gives the required short exact sequence
+\[
+0\to(\text{lisse, mixed of weight }\leq i-1)\to\mathcal{G}_{i+1}\to\mathcal{H}_{i+1}\to0,
+\]
+and shows that \(\mathcal{H}_{i+1}\) is pure of weight \(i+1\).
+\end{proof}
+
+\sourceheading[thm:8.3.5]{Theorem 8.3.5}
+In the situation \hyperref[par:8.3.1]{(8.3.1)}, fix an integer \(r\geq0\). Fix a choice of \((r+1)n\) arbitrary characters
+\[
+\chi_{a,i}:\mu_N(R_{N,\ell})\to\overline{\mathbb{Q}}_\ell^{\times},
+\]
+and a choice of \(r\) nontrivial characters
+\[
+\rho_k:\mu_N(R_{N,\ell})\to\overline{\mathbb{Q}}_\ell^{\times}.
+\]
+On \(A(n,r+1)_{R_{N,\ell}}\), consider the lisse, rank one, pure of weight zero \(\overline{\mathbb{Q}}_\ell\)-sheaf
+\[
+\mathcal{L}:=\left(\bigotimes_{a,i}\mathcal{L}_{\chi_{a,i}(X_a-T_i)}\right)\left(\bigotimes_{k=1,\ldots,r}\mathcal{L}_{\rho_k(X_{k+1}-X_k)}\right).
+\]
+Denote by
+\[
+\operatorname{pr}_{r+1}:A(n,r+1)_{R_{N,\ell}}\to(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}
+\]
+the map
+\[
+(T_1,\ldots,T_n,X_1,\ldots,X_{r+1})\mapsto(T_1,\ldots,T_n,X_{r+1}).
+\]
+\begin{enumerate}[label=(\arabic*)]
+\item The sheaves \(\mathrm{R}^i(\operatorname{pr}_{r+1})_!\mathcal{L}\) on \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) are lisse and tame, and they vanish for \(i\ne r\).
+\item The sheaf \(\mathcal{K}:=\mathrm{R}^r(\operatorname{pr}_{r+1})_!\mathcal{L}\) is mixed of integral weights in \([0,r]\). It sits in a short exact sequence of lisse sheaves
+\[
+0\to\mathcal{K}_{\leq r-1}\to\mathcal{K}\to\mathcal{K}_{=r}\to0
+\]
+where \(\mathcal{K}_{\leq r-1}\) is mixed of integral weights in \([0,r-1]\), and where \(\mathcal{K}_{=r}\) is punctually pure of weight \(r\).
+\item If \(\mathcal{K}_{=r}\) is nonzero, then its restriction to every geometric fibre of \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) over \(S_{N,n,\ell}\) is geometrically irreducible and cohomologically rigid, with all eigenvalues of all local monodromies \(N\)-th roots of unity.
+\item Fix a geometric point of \(S_{N,n,\ell}\), i.e., a ring homomorphism
+\[
+\varphi:S_{N,n,\ell}\to k
+\]
+to an algebraically closed field \(k\). Denote \(\varphi(T_i):=\alpha_i\) in \(k\). On the corresponding geometric fibre \(\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\}\) over \(k\), any tame, geometrically irreducible lisse sheaf which is cohomologically rigid, and such that all eigenvalues of all local monodromies are \(N\)-th roots of unity, is isomorphic to (the restriction to that fibre of) a nonzero \(\mathcal{K}_{=r}\) for some integer \(r\geq0\), some choice of the characters \(\chi_{a,i}\) and some choice of the \(r\) nontrivial characters \(\rho_k\).
+\end{enumerate}
+\begin{proof}
+For \(a=1,\ldots,r+1\), define \(\mathcal{F}_a\) in \(\operatorname{Lisse}(N,n,\ell)\) by
+\[
+\mathcal{F}_a(X_a):=\bigotimes_{i=1,\ldots,n}\mathcal{L}_{\chi_{a,i}(X_a-T_i)}.
+\]
+Define \(\mathcal{G}_0,\mathcal{G}_1,\ldots,\mathcal{G}_r\) in \(\operatorname{Lisse}(N,n,\ell)\) inductively by
+\[
+\begin{aligned}
+\mathcal{G}_0&:=\mathcal{F}_1,\\
+\mathcal{G}_1&:=\mathcal{F}_2\otimes\operatorname{NC}_{\rho_1}(\mathcal{G}_0),\\
+&\ \vdots\\
+\mathcal{G}_r&:=\mathcal{F}_{r+1}\otimes\operatorname{NC}_{\rho_r}(\mathcal{G}_{r-1}).
+\end{aligned}
+\]
+Define \(\mathcal{H}_0,\mathcal{H}_1,\ldots,\mathcal{H}_r\) in \(\operatorname{Lisse}(N,n,\ell)\) defined inductively by
+\[
+\begin{aligned}
+\mathcal{H}_0&:=\mathcal{F}_1,\\
+\mathcal{H}_1&:=\mathcal{F}_2\otimes\operatorname{MC}_{\rho_1}(\mathcal{H}_0),\\
+&\ \vdots\\
+\mathcal{H}_r&:=\mathcal{F}_{r+1}\otimes\operatorname{MC}_{\rho_r}(\mathcal{H}_{r-1}).
+\end{aligned}
+\]
+Assertion (1) results from \hyperref[cor:8.2.3]{Corollary~8.2.3}, which further tells us that \(\mathcal{K}\) is the sheaf \(\mathcal{G}_r\). Thanks to \hyperref[cor:8.3.4]{Corollary~8.3.4}, we get (2), with the further information that \(\mathcal{K}_{=r}\) is the sheaf \(\mathcal{H}_r\).
+
+To prove (3), we successively apply \hyperref[cor:8.3.3]{Corollary~8.3.3} to the sheaves \(\mathcal{H}_i\).
+
+To prove (4), we argue as follows. If the \(\mathcal{F}\) in question is of rank one, take \(r=0\), and take \(\mathcal{F}_1\) to be the unique sheaf of type
+\[
+\bigotimes_{i=1,\ldots,n}\mathcal{L}_{\chi_{1,i}(X_1-T_i)}
+\]
+whose restriction to the fibre in question is \(\mathcal{F}\). If the \(\mathcal{F}\) in question is of rank 2 or higher, the \hyperref[thm:5.2.1]{Main Theorem~5.2.1} gives us an explicit algorithm for choosing the \(\chi_{a,i}\) and the \(\rho_k\) so that with the resulting choice of
+\[
+\mathcal{F}_a(X_a):=\bigotimes_{i=1,\ldots,n}\mathcal{L}_{\chi_{a,i}(X_a-T_i)},
+\]
+our \(\mathcal{F}\) is the restriction to its fibre of the object \(\mathcal{H}_r\) defined as above.
+\end{proof}
+
+\section[``Geometric'' description of tame rigids]{``Geometric'' description of all tame rigids with quasi-\allowbreak{}unipotent local monodromy}
+\label{sec:8.4}
+
+\sourceheading[thm:8.4.1]{Theorem 8.4.1}
+\label{par:8.4.1}
+In the setting of \hyperref[sec:8.0]{\S8.0}, fix an integer \(r\geq0\). Fix a choice of \((r+1)n\) arbitrary integers \(e(a,i)\), and a choice of \(r\) integers \(f(k)\) such that no \(f(k)\) is divisible by \(N\). In the product space \(\mathbb{G}_m\times A(n,r+1)_{R_{N,\ell}}\), consider the hypersurface \(\operatorname{Hyp}(e\text{'s},f\text{'s})\) of equation
+\[
+Y^N=\left(\prod_{a,i}(X_a-T_i)^{e(a,i)}\right)\left(\prod_{k=1,\ldots,r}(X_{k+1}-X_k)^{f(k)}\right).
+\]
+Denote by
+\[
+\pi:\operatorname{Hyp}(e\text{'s},f\text{'s})\to(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}
+\]
+the map
+\[
+(Y,T_1,\ldots,T_n,X_1,\ldots,X_{r+1})\mapsto(T_1,\ldots,T_n,X_{r+1}).
+\]
+(Thus we think of \(\operatorname{Hyp}(e\text{'s},f\text{'s})\) as a family of hypersurfaces in the \(r+1\) variables \((Y,X_1,\ldots,X_r)\), parameterized by \((T_1,\ldots,T_n,X_{r+1})\).)
+
+Fix a faithful \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued character \(\chi\) of the group \(\mu_N(R_{N,\ell})\), which acts on \(\operatorname{Hyp}(e\text{'s},f\text{'s})\) by moving \(Y\) alone.
+\begin{enumerate}[label=(\arabic*)]
+\item The sheaves \(\mathrm{R}^i\pi_!\overline{\mathbb{Q}}_\ell\) on \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) are lisse and tame.
+\item The \(\chi\)-component \((\mathrm{R}^i\pi_!\overline{\mathbb{Q}}_\ell)^\chi\) vanishes for \(i\ne r\).
+\item The sheaf \(\mathcal{K}:=(\mathrm{R}^r\pi_!\overline{\mathbb{Q}}_\ell)^\chi\) is mixed of integral weights in \([0,r]\). It sits in a short exact sequence of lisse sheaves
+\[
+0\to\mathcal{K}_{\leq r-1}\to\mathcal{K}\to\mathcal{K}_{=r}\to0
+\]
+where \(\mathcal{K}_{\leq r-1}\) is mixed of integral weights in \([0,r-1]\), and where \(\mathcal{K}_{=r}\) is punctually pure of weight \(r\).
+\item If \(\mathcal{K}_{=r}\) is nonzero, then its restriction to every geometric fibre of \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) over \(S_{N,n,\ell}\) is geometrically irreducible and cohomologically rigid, with all eigenvalues of all local monodromies \(N\)-th roots of unity.
+\item Fix a geometric point of \(S_{N,n,\ell}\), i.e., a ring homomorphism
+\[
+\varphi:S_{N,n,\ell}\to k.
+\]
+Denote \(\varphi(T_i):=\alpha_i\) in \(k\). On the corresponding geometric fibre \(\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\}\) over \(k\), any tame, geometrically irreducible lisse sheaf which is cohomologically rigid, and such that all eigenvalues of all local monodromies are \(N\)-th roots of unity, is isomorphic to a nonzero \(\mathcal{K}_{=r}\) for some integer \(r\geq0\) and some choice of integers \(e(a,i)\) and \(f(k)\) as in the theorem.
+\end{enumerate}
+\begin{proof}
+Denote by \(p_2\) the projection
+\[
+p_2:\operatorname{Hyp}(e\text{'s},f\text{'s})\to A(n,r+1)_{R_{N,\ell}}.
+\]
+This map is a \(\mu_N\)-torsor, and hence we have a direct sum decomposition
+\[
+(p_2)_*\overline{\mathbb{Q}}_\ell=\bigoplus_\rho((p_2)_*\overline{\mathbb{Q}}_\ell)^\rho,
+\]
+indexed by all characters \(\rho:\mu_N(R_{N,\ell})\to\overline{\mathbb{Q}}_\ell^{\times}\). The \(\chi\)-component is precisely
+\[
+((p_2)_*\overline{\mathbb{Q}}_\ell)^\chi=\left(\bigotimes_{a,i}\mathcal{L}_{\chi_{a,i}(X_a-T_i)}\right)\left(\bigotimes_{k=1,\ldots,r}\mathcal{L}_{\rho_k(X_{k+1}-X_k)}\right),
+\]
+where the characters \(\chi_{a,i}\) and \(\rho_k\) are given by the recipe
+\[
+\chi_{a,i}=\chi^{e(a,i)},\qquad \rho_k=\chi^{f(k)}.
+\]
+For each integer \(i\) and each character \(\chi\), we have
+\[
+(\mathrm{R}^i\pi_!\overline{\mathbb{Q}}_\ell)^\chi=\mathrm{R}^i(\operatorname{pr}_{r+1})_!(((p_2)_*\overline{\mathbb{Q}}_\ell)^\chi).
+\]
+Thus we find
+\[
+\begin{aligned}
+(\mathrm{R}^i\pi_!\overline{\mathbb{Q}}_\ell)^\chi
+&=\mathrm{R}^i(\operatorname{pr}_{r+1})_!\left(\left(\bigotimes_{a,i}\mathcal{L}_{\chi_{a,i}(X_a-T_i)}\right)\left(\bigotimes_{k=1,\ldots,r}\mathcal{L}_{\rho_k(X_{k+1}-X_k)}\right)\right).
+\end{aligned}
+\]
+That all of these sheaves are in \(\operatorname{Lisse}(N,n,\ell)\) follows from \hyperref[lem:8.2.2]{Lemma~8.2.2}. For \(\chi\) faithful, the hypothesis that none of \(f(k)\) is divisible by \(N\) is equivalent to the hypothesis that each \(\rho_k\) is nontrivial. Thus this theorem is no more or less than a restatement of the previous one \hyperref[thm:8.3.5]{Theorem~8.3.5}.
+\end{proof}
+
+\section{A remark and a question}
+\label{sec:8.5}
+
+\sourcepara{8.5.1}
+In the case \(r=1\) of the above theorem, we are looking at the \(n+1\) parameter family of curves in two variables \((Y,X_1)\), with parameters \((T_1,\ldots,T_n,X_2)\), defined by the equation
+\[
+Y^N=\left(\prod_i(X_1-T_i)^{e(1,i)}\right)\left(\prod_i(X_2-T_i)^{e(2,i)}\right)(X_2-X_1)^{f(1)}.
+\]
+The local systems \(\mathcal{K}_{=r}\) in this case are, over \(\mathbb{C}\), the (\(\ell\)-adic incarnations of the) Lauricella hypergeometric local systems whose monodromy was studied extensively by Picard, Terada, and, most recently, Deligne--Mostow, cf. the bibliography of \cite{De-Mos}.
+
+We should remark that because the factor \(\left(\prod_i(X_2-T_i)^{e(2,i)}\right)\) comes from the base, omitting it simply twists \(\mathcal{K}_{=r}\) by the inverse of \(\bigotimes_i\mathcal{L}_{\chi_{2,i}(X_2-T_i)}\), where \(\chi_{a,i}=\chi^{e(a,i)}\). So essentially we are dealing with the \(n+1\) parameter family of curves in two variables \((Y,X_1)\), with parameters \((T_1,\ldots,T_n,X_2)\), defined by the more familiar equation
+\[
+Y^N=\left(\prod_i(X_1-T_i)^{e(1,i)}\right)(X_2-X_1)^{f(1)}.
+\]
+
+\sourcepara{8.5.2}
+In the case of higher \(r\), the local systems \(\mathcal{K}_{=r}\) do not seem to have been the object of much systematic study. One might ask whether, over \(\mathbb{C}\), the (``Betti realizations'' of the) local systems \(\mathcal{K}_{=r}\) can have ``interesting'' monodromy groups also in the case \(r>1\)?

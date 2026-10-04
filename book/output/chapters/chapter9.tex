@@ -1,0 +1,593 @@
+\chapter[Grothendieck's \texorpdfstring{\(p\)}{p}-curvature conjecture for rigids]{Grothendieck's \(p\)-curvature conjecture for rigids}
+\label{chap:9}
+\setcounter{section}{-1}
+
+\section{Introduction}
+\label{sec:9.0}
+
+\sourcepara{9.0.1}
+In this chapter, we will prove \hyperref[thm:9.4.1]{Theorem~9.4.1}, Grothendieck's \(p\)-curvature conjecture for the regular singular differential equation corresponding, via Riemann--Hilbert, to any irreducible rigid local system on an open set of \(\mathbb{P}^1\) over \(\mathbb{C}\): such a differential equation has \(p\)-curvature zero for almost all \(p\) if and only if it has finite monodromy.
+
+\section[Review of Grothendieck's \texorpdfstring{\(p\)}{p}-curvature conjecture]{Review of Grothendieck's \(p\)-curvature conjecture}
+\label{sec:9.1}
+
+\sourcepara{9.1.1}
+Let \(S\) be any smooth connected quasi-projective \(\mathbb{C}\)-scheme. On \(S^{\mathrm{an}}\), we have the category \(\operatorname{LocSys}(S^{\mathrm{an}})\) of all local systems of finite-dimensional \(\mathbb{C}\)-vector spaces on \(S^{\mathrm{an}}\). On \(S^{\mathrm{an}}\), we also have the category \(\operatorname{DE}(S^{\mathrm{an}})\) of ``analytic differential equations on \(S^{\mathrm{an}}\)'', i.e., the category of all pairs \((M,\nabla)\), with \(M\) a coherent \(\mathcal{O}_{S^{\mathrm{an}}}\)-module \(M\) and \(\nabla\) an integrable connection \(\nabla:M\to M\otimes\Omega^1_{S^{\mathrm{an}}/\mathbb{C}}\) on \(M\). The functor ``sheaf of germs of horizontal sections'',
+\[
+M\mapsto M^\nabla:=\operatorname{Ker}(\nabla:M\to M\otimes\Omega^1_{S^{\mathrm{an}}/\mathbb{C}}),
+\]
+is an equivalence of categories
+\[
+\operatorname{DE}(S^{\mathrm{an}})\cong\operatorname{LocSys}(S^{\mathrm{an}}).
+\]
+
+\sourcepara{9.1.2}
+On \(S/\mathbb{C}\) itself, we have the category \(\operatorname{DE}(S/\mathbb{C})\) of all ``algebraic differential equations on \(S/\mathbb{C}\)'', i.e., the category of all pairs \((M,\nabla)\), with \(M\) a coherent \(\mathcal{O}_S\)-module \(M\) and \(\nabla\) an integrable connection \(\nabla:M\to M\otimes\Omega^1_{S/\mathbb{C}}\) on \(M\). Inside \(\operatorname{DE}(S/\mathbb{C})\), we have the full subcategory \(\operatorname{RSDE}(S/\mathbb{C})\), consisting of those algebraic differential equations with regular singular points ``at \(\infty\)'' in the sense of \cite{De-ED}. Thanks to Deligne's solution of the Riemann--Hilbert problem, cf. \cite{De-ED} and \cite{Ka-ODW23}, we know that the functor ``passage to the analytic'',
+\[
+(M,\nabla)\mapsto(M^{\mathrm{an}}:=M\otimes_{\mathcal{O}_S}\mathcal{O}_{S^{\mathrm{an}}},\nabla^{\mathrm{an}})
+\]
+is an equivalence of categories
+\[
+\operatorname{RSDE}(S/\mathbb{C})\cong\operatorname{DE}(S^{\mathrm{an}}).
+\]
+Combining this equivalence with the previous one, we see that the functor ``sheaf of germs of holomorphic solutions'',
+\[
+M\mapsto(M^{\mathrm{an}})^{\nabla^{\mathrm{an}}},
+\]
+is an equivalence of categories
+\[
+\operatorname{RSDE}(S/\mathbb{C})\cong\operatorname{LocSys}(S^{\mathrm{an}}).
+\]
+In words, any local system on \(S^{\mathrm{an}}\) is the monodromy of a unique algebraic differential equation on \(S\) with regular singular points.
+
+\sourcepara{9.1.3}
+Let us next recall from \cite{Ka-NCMT} and \cite[Introduction]{Ka-ASDE}, what it means for an algebraic differential equation \((M,\nabla)\) on \(S/\mathbb{C}\), not a priori assumed to have regular singular points, to have ``\(p\)-curvature zero for almost all \(p\)''. Given \(S/\mathbb{C}\), we can find a subring \(R\) of \(\mathbb{C}\) which, as a ring, is finitely generated over \(\mathbb{Z}\) and smooth over \(\mathbb{Z}\), and a smooth \(R\)-scheme \(\mathcal{S}/R\) whose \(\mathbb{C}\)-fibre (via the given inclusion of \(R\) into \(\mathbb{C}\) as a subring) is \(S/\mathbb{C}\). At the possible expense of enlarging \(R\), but still keeping it finitely generated over \(\mathbb{Z}\) and smooth over \(\mathbb{Z}\), we can find an affine open \(\mathcal{U}\) in \(\mathcal{S}\) whose \(\mathbb{C}\)-fibre \(\mathcal{U}_{\mathbb{C}}\) is a Zariski dense affine open \(U\) in \(S\), and a pair \((\mathcal{M},\nabla)\) consisting of a locally free \(\mathcal{O}_{\mathcal{U}}\)-module of finite rank and an integrable \(\mathcal{U}/R\)-connection \(\nabla:\mathcal{M}\to\mathcal{M}\otimes\Omega^1_{\mathcal{U}/R}\) whose complex fibre is the restriction to \(U:=\mathcal{U}_{\mathbb{C}}\) of the original \((M,\nabla)\) on \(S/\mathbb{C}\).
+
+\sourcepara{9.1.4}
+Having made such choices \((R,\mathcal{U},\mathcal{M},\nabla)\), we can ask whether there exists an affine open \(\mathcal{V}\) in \(\mathcal{U}\), whose \(\mathbb{C}\)-fibre \(\mathcal{V}_{\mathbb{C}}\) is Zariski dense in \(\mathcal{U}_{\mathbb{C}}\), such that either of the following two equivalent conditions holds:
+\begin{enumerate}[label=(\arabic*)]
+\item for every maximal ideal \(\mathfrak{m}\) of \(R\), with (necessarily finite) residue field \(R/\mathfrak{m}\) of positive characteristic \(p\), the restriction to \(\mathcal{V}\otimes_R(R/\mathfrak{m})\) of the differential equation \((\mathcal{M}/\mathfrak{m}\mathcal{M},\nabla)\) on \(\mathcal{U}\otimes_R(R/\mathfrak{m})\) has \(p\)-curvature zero (meaning that \(\nabla(D)^p=\nabla(D^p)\) for every \(R/\mathfrak{m}\)-linear derivation \(D\) of the affine ring of \(\mathcal{V}\otimes_R(R/\mathfrak{m})\) to itself).
+\item[\((1')\)] for every prime number \(p\), the restriction to \(\mathcal{V}\otimes_R(R/pR)\) of the differential equation \((\mathcal{M}/p\mathcal{M},\nabla)\) on \(\mathcal{U}\otimes_R(R/pR)\) has \(p\)-curvature zero (meaning that \(\nabla(D)^p=\nabla(D^p)\) for every \(R/pR\)-linear derivation \(D\) of the affine ring of \(\mathcal{V}\otimes_R(R/pR)\) to itself).
+\end{enumerate}
+
+\sourcepara{9.1.5}
+If there exists such a \(\mathcal{V}\) (i.e. a \(\mathcal{V}\) such that (1) and \((1')\) hold) for one set of choices \((R,\mathcal{U},\mathcal{M},\nabla)\), then there exists such a \(\mathcal{V}\) for any other set of choices. The existence of such a \(\mathcal{V}\) is thus an intrinsic property of the original differential equation \((M,\nabla)\) on \(S/\mathbb{C}\) (indeed an intrinsic property of the germ of \((M,\nabla)\) at the generic point of \(S\)), which is called ``having \(p\)-curvature zero for almost all \(p\)''.
+
+\sourcepara{9.1.6}
+It is known \cite[13.0]{Ka-NCMT} that if \((M,\nabla)\) on \(S/\mathbb{C}\) has \(p\)-curvature zero for almost all \(p\), then \((M,\nabla)\) has regular singular points, and its local monodromy around any smooth divisor \(D_i\) at \(\infty\) in any normal crossing compactification \(\overline{S}\) of \(S\) (i.e., \(S\) open dense in a projective smooth \(\overline{S}/\mathbb{C}\) such that \(\overline{S}-S\) is a union of smooth divisors \(D_i\) with normal crossings) is of finite order.
+
+\sourcepara{9.1.7}
+Grothendieck's \(p\)-curvature conjecture is that if \((M,\nabla)\) on \(S/\mathbb{C}\) has \(p\)-curvature zero for almost all \(p\), then \((M,\nabla)\) satisfies the following equivalent (equivalent because \((M,\nabla)\) has regular singular points) conditions:
+\begin{enumerate}[label=(\arabic*)]
+\item \((M,\nabla)^{\mathrm{an}}\) has finite monodromy on \(S^{\mathrm{an}}\).
+\item \((M,\nabla)^{\mathrm{an}}\) becomes trivial on a finite étale covering of \(S^{\mathrm{an}}\).
+\item \((M,\nabla)\) becomes trivial on a finite étale covering of \(S\).
+\item \((M,\nabla)\) has a full set of algebraic solutions.
+\item There exists a dense open \(U\subset S\) such that \((M,\nabla)|U\) satisfies the preceding conditions (1)--(4) on \(U\).
+\end{enumerate}
+
+\section{Interlude: Picard--Fuchs equations and some variants}
+\label{sec:9.2}
+
+\sourcepara{9.2.1}
+Let us denote by \(K\) the function field of \(S\). Thus \(K\) is a finitely generated extension of \(\mathbb{C}\). Given any smooth \(K\)-scheme \(U/K\), separated and of finite type, its algebraic de Rham cohomology groups \(\mathrm{H}^i_{\mathrm{DR}}(U/K)\) are finite-dimensional \(K\)-spaces endowed with a canonical integrable \(\mathbb{C}\)-connection \(\nabla\), the Gauss--Manin connection. The algebraic differential equations \((\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla)\) on \(K/\mathbb{C}\) are called the Picard--Fuchs equations (in dimension \(i\), for \(U/K\)).
+
+\sourcepara{9.2.2}
+There are two variations on this theme which will be essential in what follows. The first involves a finite group action. Suppose we are given a finite group \(G\) which acts \(K\)-linearly on \(U/K\). Then \(G\) acts \(K\)-linearly and horizontally on each \(\mathrm{H}^i_{\mathrm{DR}}(U/K)\). For each irreducible \(\mathbb{C}\)-representation \(\rho\) of \(G\), we denote by \(\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho)\) the \(\rho\)-isotypical component of \(\mathrm{H}^i_{\mathrm{DR}}(U/K)\). This is a \(\nabla\)-stable \(K\)-subspace of \(\mathrm{H}^i_{\mathrm{DR}}(U/K)\), so corresponds to a subequation \((\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho),\nabla)\) of \((\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla)\). In fact, this subequation is a direct factor, since
+\[
+(\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla)=\bigoplus_\rho(\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho),\nabla).
+\]
+
+\sourcepara{9.2.3}
+Hironaka has announced, in the introduction to his paper \cite{Hir-IES}, that given \(U/K\) and \(G\) as above, we can find a \(G\)-equivariant normal crossing compactification \(X/K\) of \(U/K\), i.e., a proper smooth \(X/K\) which contains \(U\) as a dense open set, such that \(X-U\) is a union of smooth divisors \(D_i\) with normal crossings, such that \(G\) acts \(K\)-linearly on \(X/K\) and such that the inclusion of \(U\) into \(X\) is \(G\)-equivariant. Youssin, in the introduction to \cite{You}, has announced another proof of this same result. Unfortunately, neither proof of this result has yet appeared (although Hironaka's proof of equivariant resolution for the presumably much harder case of complex analytic spaces has appeared, cf. the bibliography of \cite{Hir-IES}). Although this result was already used freely in \cite{Ka-ASDE}, and its use in what follows would slightly simplify the exposition, we will avoid using it here.
+
+\sourcepara{9.2.4}
+Given \(U/K\) as above, by Nagata \cite{Na} there exists a compactification \(X_0/K\) of \(U/K\), i.e., a proper \(K\)-scheme \(X_0\) which contains \(U\) as a dense open set (if \(U/K\) is quasiprojective, we may take for \(X_0\) its closure in the ambient projective space). Applying Hironaka \cite[Corollary~3 of Theorem~2]{Hir-RS} to a compactification \(X_0/K\) of \(U/K\), there exists a proper birational \(K\)-morphism \(\pi:X\to X_0\) which is an isomorphism over \(U\), and such that \(X/K\) is a normal crossings compactification of \(U/K\), i.e., a proper smooth \(X/K\) which contains \(U\) as a dense open set, such that \(X-U\) is a union of smooth divisors \(D_i\) with normal crossings.
+
+\sourcepara{9.2.5}
+Given a second smooth \(K\)-scheme \(V/K\) which is separated and of finite type, and a \(K\)-morphism \(f:V\to U\), we can find a normal crossings compactification \(Y/K\) of \(V/K\), and a \(K\)-morphism \(\varphi:Y\to X\) which ``extends'' \(f\) in the sense that the following diagram commutes:
+\[
+\begin{tikzcd}[column sep=small,row sep=small]
+V \arrow[r,"f"] \arrow[d,hook] & U \arrow[d,hook]\\
+Y \arrow[r,"\varphi"'] & X.
+\end{tikzcd}
+\]
+(Recall the construction: one takes any compactification \(Y_0\) of \(Y\), and applies Hironaka \cite[Corollary~3 of Theorem~2]{Hir-RS} to the compactification \(Y_1\) of \(V\) which is defined to be the closure in \(Y_0\times X\) of the graph of \(f\).)
+
+\sourcepara{9.2.6}
+Given finitely many \(K\)-morphisms \(f_i:V\to U\), \(i=1,\ldots,n\), we can find a single normal crossings compactification \(Y/K\) of \(V/K\) and maps \(\varphi_i:Y\to X\) such that \(\varphi_i\) extends \(f_i\) for each \(i\); just apply the one map statement to the map \(f_1\times\cdots\times f_n:V\to U^n\), and the normal crossings compactification \(X^n\) of \(U^n\).
+
+\sourcepara{9.2.7}
+By functoriality, the inclusion of \(U/K\) into \(X/K\) induces on cohomology a horizontal restriction map
+\[
+(\mathrm{H}^i_{\mathrm{DR}}(X/K),\nabla)\to(\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla).
+\]
+The image of this map is thus a subequation of \((\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla)\), denoted
+\[
+(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla),
+\]
+and called the ``weight \(i\) part'' of \((\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla)\). It was a fundamental insight of Grothendieck's \cite[9.1--4]{Gro-BrauerIII}, later generalized by Deligne's mixed Hodge theory \cite[3.2.17]{De-HodgeII}, and for us an easy consequence of the Weil conjectures and resolution, cf. \hyperref[par:9.4.3]{(9.4.3)}--\hyperref[par:9.4.5]{(9.4.5)}, that the ``weight \(i\) part'' of \((\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla)\) is independent of the auxiliary choice of the normal crossing compactification \(X/K\) used to define it.
+
+\sourcepara{9.2.8}
+Because \((W_i\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla)\) is an intrinsic subequation of \((\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla)\), it must, by ``pure thought'', be stable under the action of \(G\). Here is an explicit geometric way to see this stability. We can find a normal crossings compactification \(Y/K\) of \(U/K\) such that each of the finitely many maps \(g:U\to U\), one for each \(g\) in \(G\), extends to a map \(\varphi_g:Y\to X\). Then from the commutative diagram
+\[
+\begin{tikzcd}[column sep=small,row sep=small]
+U \arrow[r,"g"] \arrow[d,hook] & U \arrow[d,hook]\\
+Y \arrow[r,"\varphi_g"'] & X
+\end{tikzcd}
+\]
+we get a commutative diagram of de Rham cohomology groups
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\mathrm{H}^i_{\mathrm{DR}}(X/K) \arrow[r,"(\varphi_g)^*"] \arrow[d,"\operatorname{restr.}"'] &
+\mathrm{H}^i_{\mathrm{DR}}(Y/K) \arrow[d,"\operatorname{restr.}"]\\
+\mathrm{H}^i_{\mathrm{DR}}(U/K) \arrow[r,"g^*"'] &
+\mathrm{H}^i_{\mathrm{DR}}(U/K).
+\end{tikzcd}
+\]
+But both \(\mathrm{H}^i_{\mathrm{DR}}(X/K)\) and \(\mathrm{H}^i_{\mathrm{DR}}(Y/K)\) have the same image in \(\mathrm{H}^i_{\mathrm{DR}}(U/K)\), namely \(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)\). So this diagram shows that \(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)\) is \(G\)-stable.
+
+\sourcepara{9.2.9}
+So for each irreducible representation \(\rho\) of \(G\), we may form the \(\rho\)-isotypical component \(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho)\); we call it the weight \(i\) part of \(\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho)\). It is a subequation both of \((\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho),\nabla)\) and of \((W_i\mathrm{H}^i_{\mathrm{DR}}(U/K),\nabla)\). Moreover, we have
+\[
+W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho)=(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K))\cap(\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho)).
+\]
+However, there is another way to describe \(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho)\) which will be useful later.
+
+\sourcepara{9.2.10}
+Recall that for an irreducible representation \(\rho\) of \(G\), the projector onto the \(\rho\)-isotypical component is the central idempotent \(P(\rho)\) in the group ring \(\mathbb{Z}[1/\operatorname{Card}(G),\zeta_{\operatorname{Card}(G)}][G]\) defined by
+\[
+P(\rho):=(\deg(\rho)/\operatorname{Card}(G))\sum_{g\in G}\operatorname{trace}(\rho(g^{-1}))g.
+\]
+We denote by \(P(\rho;\varphi)\) the \(K\)-linear horizontal map
+\[
+P(\rho;\varphi):\mathrm{H}^i_{\mathrm{DR}}(X/K)\to\mathrm{H}^i_{\mathrm{DR}}(Y/K)
+\]
+defined by
+\[
+P(\rho;\varphi):=(\deg(\rho)/\operatorname{Card}(G))\sum_{g\in G}\operatorname{trace}(\rho(g^{-1}))(\varphi_g)^*.
+\]
+We have a commutative diagram
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\mathrm{H}^i_{\mathrm{DR}}(X/K) \arrow[r,"P(\rho;\varphi)"] \arrow[d,"\operatorname{restr}_X"'] &
+\mathrm{H}^i_{\mathrm{DR}}(Y/K) \arrow[d,"\operatorname{restr}_Y"]\\
+\mathrm{H}^i_{\mathrm{DR}}(U/K) \arrow[r,"P(\rho)"'] &
+\mathrm{H}^i_{\mathrm{DR}}(U/K).
+\end{tikzcd}
+\]
+By definition, \(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho)\) is the result of applying the projector \(P(\rho)\) to the subequation \(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)\) of \(\mathrm{H}^i_{\mathrm{DR}}(U/K)\). If we think of \(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)\) as the image of \(\mathrm{H}^i_{\mathrm{DR}}(X/K)\), we get
+\[
+W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho)=\operatorname{Image}(P(\rho)\circ\operatorname{restr}_X).
+\]
+This corresponds to going around the diagram by the bottom. If instead we go around by the top, we get the alternate description
+\[
+W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)(\rho)=\operatorname{Image}(\operatorname{restr}_Y\circ P(\rho;\varphi)).
+\]
+
+\section[The main result of Ka-ASDE and a generalization]{The main result of \cite{Ka-ASDE} and a generalization}
+\label{sec:9.3}
+
+\sourcepara{9.3.1}
+For the reader's convenience, we recall the statement of the main result of \cite{Ka-ASDE}. Let \(S\) be a smooth connected quasi-projective \(\mathbb{C}\)-scheme, with function field \(K\). Let \((M,\nabla)\) in \(\operatorname{DE}(S/\mathbb{C})\). Consider the following condition \((*)\):
+
+\((*)\) There exists a smooth \(K\)-scheme \(U/K\), separated and of finite type, a finite group \(G\) acting \(K\)-linearly on \(U/K\), an irreducible \(\mathbb{C}\)-representation \(\chi\) of \(G\), and an integer \(i\geq0\), such that denoting by \(\{\chi^\sigma\}_\sigma\) the distinct \(\operatorname{Aut}(\mathbb{C})\)-conjugates of \(\chi\), the restriction of \((M,\nabla)\) to \(K\) is isomorphic to
+\[
+\bigoplus_\sigma(\mathrm{H}^i_{\mathrm{DR}}(U/K)(\chi^\sigma),\nabla).
+\]
+
+\sourceheading[thm:9.3.2]{Theorem 9.3.2}
+\cite[5.7]{Ka-ASDE} Let \(S\) be a smooth connected quasi-projective \(\mathbb{C}\)-scheme. Let \((M,\nabla)\) in \(\operatorname{DE}(S/\mathbb{C})\) satisfy the condition \((*)\) above. Then Grothendieck's \(p\)-curvature conjecture holds for \((M,\nabla)\): if \((M,\nabla)\) has \(p\)-curvature zero for almost all \(p\), then \((M,\nabla)\) has finite monodromy.
+
+\sourcepara{9.3.3}
+Consider now the following conditions \((**)\) and \((***)\):
+
+\((**)\) There exists a smooth \(K\)-scheme \(U/K\), separated and of finite type, a finite group \(G\) acting \(K\)-linearly on \(U/K\), an irreducible \(\mathbb{C}\)-representation \(\chi\) of \(G\), and an integer \(i\geq0\), such that the restriction of \((M,\nabla)\) to \(K\) is isomorphic to
+\[
+(\mathrm{H}^i_{\mathrm{DR}}(U/K)(\chi),\nabla).
+\]
+
+\((***)\) There exists a smooth \(K\)-scheme \(U/K\), separated and of finite type, a finite group \(G\) acting \(K\)-linearly on \(U/K\), an irreducible \(\mathbb{C}\)-representation \(\chi\) of \(G\), and an integer \(i\geq0\), such that the restriction of \((M,\nabla)\) to \(K\) is isomorphic to
+\[
+(W_i\mathrm{H}^i_{\mathrm{DR}}(U/K)(\chi),\nabla).
+\]
+
+\sourcepara{9.3.4}
+The following theorem generalizes and implies the theorem \cite[5.7]{Ka-ASDE} stated above. Its proof is essentially already contained in \cite{Ka-ASDE}, but the author only recently understood this fact.
+
+\sourceheading[thm:9.3.5]{Theorem 9.3.5}
+Let \(S\) be a smooth connected quasi-projective \(\mathbb{C}\)-scheme. Let \((M,\nabla)\) in \(\operatorname{DE}(S/\mathbb{C})\) satisfy either of the conditions \((**)\) or \((***)\) above. Then Grothendieck's \(p\)-curvature conjecture holds for \((M,\nabla)\): if \((M,\nabla)\) has \(p\)-curvature zero for almost all \(p\), then \((M,\nabla)\) has finite monodromy.
+\begin{proof}
+The question is birational on \(S\). So at the expense of shrinking \(S\), we may apply standard ``spreading out'' techniques to produce
+\begin{enumerate}[label=(\arabic*)]
+\item a subring \(R\) of \(\mathbb{C}\), which is finitely generated and smooth over \(\mathbb{Z}\), and which contains the cyclotomic ring \(\mathbb{Z}[1/\operatorname{Card}(G),\zeta_{\operatorname{Card}(G)}]\),
+\item a smooth affine \(\mathcal{S}/R\), whose \(\mathbb{C}\)-fibre is \(S\),
+\item a smooth \(\mathcal{U}/\mathcal{S}\), whose restriction to the generic point of \(\mathcal{S}_{\mathbb{C}}\) is \(U/K\), and an \(\mathcal{S}\)-linear action of the finite group \(G\) on \(\mathcal{U}/\mathcal{S}\) which over the generic point of \(\mathcal{S}_{\mathbb{C}}\) is the given action of \(G\) on \(U/K\),
+\item a normal crossings compactification \(\mathcal{X}/\mathcal{S}\) of \(\mathcal{U}/\mathcal{S}\), i.e., a proper smooth \(\mathcal{X}/\mathcal{S}\) containing \(\mathcal{U}\) as a dense open set, such that \((\mathcal{X}-\mathcal{U})^{\mathrm{red}}:=\mathcal{D}\) is a union of finitely many smooth over \(\mathcal{S}\) divisors \(\mathcal{D}_i\) in \(\mathcal{X}\) which have normal crossings relative to \(\mathcal{S}\),
+\item a normal crossings compactification \(\mathcal{Y}/\mathcal{S}\) of \(\mathcal{U}/\mathcal{S}\), i.e., a proper smooth \(\mathcal{Y}/\mathcal{S}\) containing \(\mathcal{U}\) as a dense open set, such that \((\mathcal{Y}-\mathcal{U})^{\mathrm{red}}:=\mathcal{E}\) is a union of finitely many smooth over \(\mathcal{S}\) divisors \(\mathcal{E}_i\) in \(\mathcal{Y}\) which have normal crossings relative to \(\mathcal{S}\),
+\item for each \(g\) in \(G\), an \(\mathcal{S}\)-morphism \(\varphi_g:\mathcal{Y}\to\mathcal{X}\) which maps \(\mathcal{U}\) to \(\mathcal{U}\) and induces \(g\) on \(\mathcal{U}\).
+\end{enumerate}
+
+At the expense of further shrinking on \(\mathcal{S}\), we may also assume that
+\begin{enumerate}[label=(\arabic*)]
+\item for each pair of integers \((a,b)\), each of the four Hodge cohomology groups on \(\mathcal{S}\)
+\[
+\begin{aligned}
+&\mathrm{H}^b(\mathcal{X},\Omega^a_{\mathcal{X}/\mathcal{S}}),\quad
+\mathrm{H}^b(\mathcal{X},\Omega^a_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D})),\\
+&\mathrm{H}^b(\mathcal{Y},\Omega^a_{\mathcal{Y}/\mathcal{S}}),\quad
+\mathrm{H}^b(\mathcal{Y},\Omega^a_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E})),
+\end{aligned}
+\]
+is a locally free \(\mathcal{O}_{\mathcal{S}}\)-module of finite rank, whose formation commutes with arbitrary change of base on \(\mathcal{S}\).
+\item each of the four Hodge--de Rham spectral sequences
+\[
+\begin{aligned}
+(\mathrm{I})\qquad &E_1^{a,b}=\mathrm{H}^b(\mathcal{X},\Omega^a_{\mathcal{X}/\mathcal{S}})\Rightarrow
+\mathrm{H}^{a+b}(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}),\\
+(\mathrm{I}\log)\qquad &E_1^{a,b}=\mathrm{H}^b(\mathcal{X},\Omega^a_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\Rightarrow
+\mathrm{H}^{a+b}(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D})),\\
+(\mathrm{II})\qquad &E_1^{a,b}=\mathrm{H}^b(\mathcal{Y},\Omega^a_{\mathcal{Y}/\mathcal{S}})\Rightarrow
+\mathrm{H}^{a+b}(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}),\\
+(\mathrm{II}\log)\qquad &E_1^{a,b}=\mathrm{H}^b(\mathcal{Y},\Omega^a_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))\Rightarrow
+\mathrm{H}^{a+b}(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E})),
+\end{aligned}
+\]
+degenerates at \(E_1\), and is of formation compatible with arbitrary change of base on \(\mathcal{S}\).
+\item For each \(g\) in \(G\), the \(\mathcal{S}\)-morphism \(\varphi_g:\mathcal{Y}\to\mathcal{X}\) induces an isomorphism of spectral sequences \((\mathrm{I}\log)\cong(\mathrm{II}\log)\). If we identify \((\mathrm{I}\log)=(\mathrm{II}\log)\) via \(\varphi_{\mathrm{id}}\), then \(g\mapsto\varphi_g\) defines an action of \(G\) on the spectral sequences \((\mathrm{I}\log)\) and \((\mathrm{II}\log)\).
+\item For each \(i\) and \(j\), the restriction maps
+\[
+\begin{aligned}
+&\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}})
+\to\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D})),\\
+&\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}})
+\to\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E})),
+\end{aligned}
+\]
+are maps of locally free \(\mathcal{O}_{\mathcal{S}}\)-modules of finite rank whose kernels, images, and cokernels are locally free \(\mathcal{O}_{\mathcal{S}}\)-modules of finite rank whose formation commutes with arbitrary change of base on \(\mathcal{S}\). Moreover, via the identification \((\mathrm{I}\log)=(\mathrm{II}\log)\) via \(\varphi_{\mathrm{id}}\) in (3) above, these image coincide, and are \(G\)-stable subspaces of
+\[
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))=\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E})).
+\]
+\end{enumerate}
+
+With all these preliminaries out of the way, we are ready to proceed with the proof of the theorem.
+
+Let us first treat the case \((**)\). Thus we assume that
+\[
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi),
+\]
+which ``makes sense'' thanks to our preliminary assumption (3) above, has \(p\)-curvature zero for almost all \(p\). We must show that its complex fibre has finite monodromy on \(\mathcal{S}_{\mathbb{C}}=S\). Denote by \(\{\chi^\sigma\}_\sigma\) the distinct \(\operatorname{Aut}(\mathbb{C})\)-conjugates of \(\chi\). It suffices, by \cite[4.2.2.3]{Ka-ASDE} to prove that the Hodge filtration on
+\[
+\bigoplus_\sigma \mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)
+\]
+is horizontal, for over \(\mathcal{S}_{\mathbb{C}}\) this is (the de Rham ``realization'' of) a family of mixed Hodge structures whose associated graded family of pure Hodge structures is polarizable. For this, it suffices to prove that each individual term \(\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)\) has its Hodge filtration horizontal (under the assumption that \(\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi)\) has \(p\)-curvature zero for almost all \(p\)).
+
+The key observation here is that every irreducible representation \(\chi\) of \(G\) is defined over the field \(\mathbb{Q}(\zeta_{\operatorname{Card}(G)})\). Therefore all the \(\operatorname{Aut}(\mathbb{C})\)-conjugates \(\chi^\sigma\) of \(\chi\) are obtained as we let \(\sigma\) vary over the Galois group \(\operatorname{Gal}(\mathbb{Q}(\zeta_{\operatorname{Card}(G)})/\mathbb{Q})=(\mathbb{Z}/\operatorname{Card}(G)\mathbb{Z})^\times\), with \(a\) in \((\mathbb{Z}/\operatorname{Card}(G)\mathbb{Z})^\times\) corresponding to the unique element \(\sigma_a\) of this Galois group with \(\sigma_a(\xi)=\xi^a\) for each \(\operatorname{Card}(G)\)-th root of unity.
+
+Fix an integer \(a\) which is invertible mod \(\operatorname{Card}(G)\), and consider the automorphism \(\sigma:=\sigma_a\) in \(\operatorname{Gal}(\mathbb{Q}(\zeta_{\operatorname{Card}(G)})/\mathbb{Q})\). In order to show that \(\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)\) has its Hodge filtration horizontal, it suffices to show that for an infinity of primes \(p\),
+\[
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)\otimes_{\mathbb{Z}}(\mathbb{Z}/p\mathbb{Z})
+\]
+has its Hodge filtration horizontal.
+
+We will show that \(\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)\otimes_{\mathbb{Z}}(\mathbb{Z}/p\mathbb{Z})\) has its Hodge filtration horizontal for almost all of the infinitely many (thanks to Dirichlet) primes \(p\) which satisfy
+\[
+p\equiv 1/a\mod \operatorname{Card}(G).
+\]
+If we were to admit the existence of \(G\)-equivariant normal crossing compactifications, as we did in \cite{Ka-ASDE}, the desired horizontality modulo almost any prime \(p\equiv 1/a\mod \operatorname{Card}(G)\) would be given by \cite[3.3.2]{Ka-ASDE}, applied not to \(\chi\) but rather to \(\chi^\sigma\) (for then \((\chi^\sigma)(p)\) in characteristic \(p\) is just (the reduction mod \(p\) of) \(\chi\) itself).
+
+Since we wish to avoid assuming the existence of \(G\)-equivariant normal crossing compactifications, we must give a slightly more involved, but not essentially different, argument.
+
+To say that \(\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)\) has its Hodge filtration horizontal means that for any derivation \(D\) of \(\mathcal{S}/R\), acting via the Gauss--Manin connection, the composite map
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))
+\arrow[d,"\nabla(D)"]\\
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))
+\arrow[d,"P(\chi^\sigma;\varphi)"]\\
+\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))
+\end{tikzcd}
+\]
+maps \(\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\) to \(\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))\) for every integer \(j\geq0\). By Griffiths transversality \cite[1.4.1.6]{Ka-ASDE}, \(\nabla(D)\) maps \(\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i\) to \(\operatorname{Fil}^{j-1}_{\mathrm{Hodge}}\mathrm{H}^i\). The other map, \(P(\chi^\sigma;\varphi)\), respects the Hodge filtration. Thus \(\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)\) has its Hodge filtration horizontal if and only if for each \(j\geq0\) the composite of the associated graded maps
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\operatorname{gr}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))
+\arrow[d,"\nabla(D)"]\\
+\operatorname{gr}^{j-1}_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))
+\arrow[d,"P(\chi^\sigma;\varphi)"]\\
+\operatorname{gr}^{j-1}_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))
+\end{tikzcd}
+\]
+vanishes.
+
+Since \(\mathcal{S}\) is smooth over \(R\) and \(R\) is smooth over \(\mathbb{Z}\), \(\mathcal{S}\) is smooth over \(\mathbb{Z}\), so \(\mathcal{S}\otimes\mathbb{F}_p\) is smooth over \(\mathbb{Z}/p\mathbb{Z}\), and hence \(\mathcal{S}\otimes\mathbb{F}_p\) is reduced. Therefore the absolute Frobenius \(F_{\mathrm{abs}}\) on \(\mathcal{S}\otimes\mathbb{F}_p\) is injective. So to show this vanishing on \(\mathcal{S}\otimes\mathbb{F}_p\), it suffices to check after base change by the absolute Frobenius \(F_{\mathrm{abs}}\) of \(\mathcal{S}\otimes\mathbb{F}_p\). Thanks to the main technical result \cite[3.2]{Ka-ASDE}, and its functoriality for the mappings \(\varphi_g:\mathcal{Y}\to\mathcal{X}\), this composite, after reduction mod \(p\) and base change on \(\mathcal{S}\otimes\mathbb{F}_p\) by absolute Frobenius, becomes (up to sign) the composite of associated graded maps for the conjugate filtration (see \cite[2.3]{Ka-ASDE})
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\operatorname{gr}^{i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\otimes\mathbb{F}_p
+\arrow[d,"\psi(D)"]\\
+\operatorname{gr}^{1+i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\otimes\mathbb{F}_p
+\arrow[d,"P((\chi^\sigma)(p);\varphi)"]\\
+\operatorname{gr}^{1+i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))\otimes\mathbb{F}_p
+\end{tikzcd}
+\]
+where \(\psi(D)\) denotes the \(p\)-curvature. Thus we need to see that this composite vanishes, for almost every prime \(p\) with
+\[
+p\equiv 1/a\mod \operatorname{Card}(G).
+\]
+Now the map \(P((\chi^\sigma)(p);\varphi)\) respects the conjugate filtration, while the \(p\)-curvature \(\psi(D)\) maps \(\operatorname{Fil}^{i-j}_{\mathrm{con}}\) to \(\operatorname{Fil}^{1+i-j}_{\mathrm{con}}\). Thus we are reduced to showing that the composite map
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\otimes\mathbb{F}_p
+\arrow[d,"\psi(D)"]\\
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\otimes\mathbb{F}_p
+\arrow[d,"P((\chi^\sigma)(p);\varphi)=P(\chi;\varphi)"]\\
+\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))\otimes\mathbb{F}_p
+\end{tikzcd}
+\]
+maps
+\[
+\operatorname{Fil}^{i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\otimes\mathbb{F}_p
+\]
+to
+\[
+\operatorname{Fil}^{2+i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))\otimes\mathbb{F}_p.
+\]
+But this composite map is in fact the zero map for almost all primes \(p\equiv 1/a\mod \operatorname{Card}(G)\), precisely by the hypothesis that
+\[
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi)
+\]
+has \(p\)-curvature zero for almost all \(p\), and hence in particular has \(p\)-curvature zero for almost all primes \(p\equiv 1/a\mod \operatorname{Card}(G)\). This concludes the proof of case \((**)\).
+
+We now turn to the proof of the theorem in the case \((***)\). The proof is very similar to that of case \((**)\), but for the sake of completeness we will spell out all the details. Thus we assume that
+\[
+W_i\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi):=
+\operatorname{Image}(\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}})\to
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D})))(\chi)
+\]
+has \(p\)-curvature zero for almost all \(p\). We must show that its complex fibre has finite monodromy on \(\mathcal{S}_{\mathbb{C}}=S\). Denote by \(\{\chi^\sigma\}_\sigma\) the distinct \(\operatorname{Aut}(\mathbb{C})\)-conjugates of \(\chi\). It suffices, by \cite[4.2.1.3]{Ka-ASDE} to prove that the Hodge filtration on
+\[
+\bigoplus_\sigma W_i\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)
+\]
+is horizontal, for over \(\mathcal{S}_{\mathbb{C}}\) this is (the de Rham ``realization'' of) a family of polarizable pure Hodge structures. For this, it suffices to prove that each individual term \(W_i\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)\) has its Hodge filtration horizontal (under the assumption that \(W_i\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi)\) has \(p\)-curvature zero for almost all \(p\)).
+
+To say that \(W_i\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)\) has its Hodge filtration horizontal means that for any derivation \(D\) of \(\mathcal{S}/R\), acting via the Gauss--Manin connection, the composite map
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}})
+\arrow[d,"\operatorname{restr.}"]\\
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))
+\arrow[d,"\nabla(D)"]\\
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))
+\arrow[d,"P(\chi^\sigma;\varphi)"]\\
+\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))
+\end{tikzcd}
+\]
+maps \(\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}})\) to \(\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))\) for every integer \(j\geq0\). By Griffiths transversality \cite[1.4.1.6]{Ka-ASDE}, \(\nabla(D)\) maps \(\operatorname{Fil}^j_{\mathrm{Hodge}}\mathrm{H}^i\) to \(\operatorname{Fil}^{j-1}_{\mathrm{Hodge}}\mathrm{H}^i\). The other two maps, restriction and \(P(\chi^\sigma;\varphi)\), respect the Hodge filtration. Thus \(W_i\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi^\sigma)\) has its Hodge filtration horizontal if and only if for each \(j\geq0\) the composite of the associated graded maps
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\operatorname{gr}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}})
+\arrow[d,"\operatorname{restr.}"]\\
+\operatorname{gr}^j_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))
+\arrow[d,"\nabla(D)"]\\
+\operatorname{gr}^{j-1}_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))
+\arrow[d,"P(\chi^\sigma;\varphi)"]\\
+\operatorname{gr}^{j-1}_{\mathrm{Hodge}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))
+\end{tikzcd}
+\]
+vanishes.
+
+Fix an integer \(a\) which is invertible mod \(\operatorname{Card}(G)\), and suppose that \(\sigma:=\sigma_a\) in \(\operatorname{Gal}(\mathbb{Q}(\zeta_{\operatorname{Card}(G)})/\mathbb{Q})\). In order to show that this last composite vanishes, it suffices to show that it vanishes mod \(p\) for an infinity of primes \(p\). We will show that it vanishes mod \(p\) for almost all of the infinitely many (thanks to Dirichlet) primes \(p\) which satisfy
+\[
+p\equiv 1/a\mod \operatorname{Card}(G).
+\]
+Since \(\mathcal{S}\) is smooth over \(R\) and \(R\) is smooth over \(\mathbb{Z}\), \(\mathcal{S}\) is smooth over \(\mathbb{Z}\), so \(\mathcal{S}\otimes\mathbb{F}_p\) is smooth over \(\mathbb{Z}/p\mathbb{Z}\), and hence \(\mathcal{S}\otimes\mathbb{F}_p\) is reduced. Therefore the absolute Frobenius \(F_{\mathrm{abs}}\) on \(\mathcal{S}\otimes\mathbb{F}_p\) is injective. So to show this vanishing on \(\mathcal{S}\otimes\mathbb{F}_p\), it suffices to check after base change by the absolute Frobenius \(F_{\mathrm{abs}}\) of \(\mathcal{S}\otimes\mathbb{F}_p\). Thanks to the main technical result \cite[3.2]{Ka-ASDE}, and its functoriality for the mappings \(\varphi_g:\mathcal{Y}\to\mathcal{X}\), this composite, after reduction mod \(p\) and base change on \(\mathcal{S}\otimes\mathbb{F}_p\) by absolute Frobenius, becomes (up to sign) the composite of associated graded maps for the conjugate filtration
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\operatorname{gr}^{i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}})\otimes\mathbb{F}_p
+\arrow[d,"\operatorname{restr.}"]\\
+\operatorname{gr}^{i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\otimes\mathbb{F}_p
+\arrow[d,"\psi(D)"]\\
+\operatorname{gr}^{1+i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\otimes\mathbb{F}_p
+\arrow[d,"P((\chi^\sigma)(p);\varphi)=P(\chi;\varphi)"]\\
+\operatorname{gr}^{1+i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))\otimes\mathbb{F}_p
+\end{tikzcd}
+\]
+where \(\psi(D)\) denotes the \(p\)-curvature. Thus we need to see that this composite vanishes, for every prime \(p\) with \(p\equiv 1/a\mod \operatorname{Card}(G)\).
+
+Now both the restriction map and the map \(P((\chi^\sigma)(p);\varphi)\) respect the conjugate filtration, while the \(p\)-curvature \(\psi(D^{(p)})\) maps \(\operatorname{Fil}^{i-j}_{\mathrm{con}}\) to \(\operatorname{Fil}^{1+i-j}_{\mathrm{con}}\). Thus we are reduced to showing that the composite map
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}})\otimes\mathbb{F}_p
+\arrow[d,"\operatorname{restr.}"]\\
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\otimes\mathbb{F}_p
+\arrow[d,"\psi(D)"]\\
+\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))\otimes\mathbb{F}_p
+\arrow[d,"P((\chi^\sigma)(p);\varphi)=P(\chi;\varphi)"]\\
+\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))\otimes\mathbb{F}_p
+\end{tikzcd}
+\]
+maps
+\[
+\operatorname{Fil}^{i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}})\otimes\mathbb{F}_p
+\]
+to
+\[
+\operatorname{Fil}^{2+i-j}_{\mathrm{con}}\mathrm{H}^i(\mathcal{Y},\Omega^\bullet_{\mathcal{Y}/\mathcal{S}}(\log\mathcal{E}))\otimes\mathbb{F}_p.
+\]
+But this composite map is in fact the zero map for almost all primes \(p\equiv 1/a\mod \operatorname{Card}(G)\), precisely by the hypothesis that
+\[
+W_i\mathrm{H}^i(\mathcal{X},\Omega^\bullet_{\mathcal{X}/\mathcal{S}}(\log\mathcal{D}))(\chi)
+\]
+has \(p\)-curvature zero for almost all \(p\), and hence in particular has \(p\)-curvature zero for almost all primes \(p\equiv 1/a\mod \operatorname{Card}(G)\).
+\end{proof}
+
+\section{Application to rigid local systems}
+\label{sec:9.4}
+
+\sourceheading[thm:9.4.1]{Theorem 9.4.1}
+The regular singular differential equation corresponding, via Riemann--Hilbert, to any irreducible rigid local system on an open set of \(\mathbb{P}^1\) over \(\mathbb{C}\) satisfies Grothendieck's \(p\)-curvature conjecture: such a differential equation has \(p\)-curvature zero for almost all \(p\) if and only if it has finite monodromy.
+\begin{proof}
+Let \(\{\alpha_1,\ldots,\alpha_n\}\) be \(n\geq2\) distinct complex numbers. Suppose that on \((\mathbb{A}^1(\mathbb{C})-\{\alpha_1,\ldots,\alpha_n\})^{\mathrm{an}}\) we are given an irreducible rigid local system \(\mathcal{F}_{\mathbb{C}}\) of \(\mathbb{C}\)-vector spaces whose underlying regular singular differential equation, say \((M,\nabla)\), has \(p\)-curvature zero for almost all \(p\). Thanks to the previous \hyperref[thm:9.3.5]{Theorem~9.3.5}, it suffices to prove that \((M,\nabla)\) satisfies the condition \((***)\) of \hyperref[par:9.3.3]{(9.3.3)}.
+
+To prove that \((M,\nabla)\) satisfies \((***)\), we argue as follows. The \(p\)-curvature hypothesis implies that \(\mathcal{F}_{\mathbb{C}}\) has local monodromy of finite order around \(\infty\) and around each of the points \(\alpha_i\) \cite[13.0.2]{Ka-NCMT}. So we are reduced to proving the following proposition, which may be of independent interest.
+\end{proof}
+
+\sourceheading[prop:9.4.2]{Proposition 9.4.2}
+Let \(\{\alpha_1,\ldots,\alpha_n\}\) be \(n\geq2\) distinct complex numbers. Suppose that on \((\mathbb{A}^1(\mathbb{C})-\{\alpha_1,\ldots,\alpha_n\})^{\mathrm{an}}\) we are given an irreducible rigid local system \(\mathcal{F}_{\mathbb{C}}\) of \(\mathbb{C}\)-vector spaces whose local monodromies are all quasiunipotent. Then the underlying regular singular differential equation satisfies \((***)\) of \hyperref[par:9.3.3]{(9.3.3)}.
+\begin{proof}
+Fix an integer \(N\) such that all the eigenvalues of all the local monodromies of \(\mathcal{F}_{\mathbb{C}}\) have order dividing \(N\). According to \hyperref[cor:5.10.6]{Corollary~5.10.6}, \(\mathcal{F}\) has a \(\mathbb{Q}(\zeta_N)\)-form \(\mathcal{F}_{\mathrm{cycl}}\) on \((\mathbb{A}^1(\mathbb{C})-\{\alpha_1,\ldots,\alpha_n\})^{\mathrm{an}}\), and for every finite place \(\lambda\) of \(E:=\mathbb{Q}(\zeta_N)\), there exists a lisse \(E_\lambda\)-sheaf \(\mathcal{F}_\lambda\) on the algebraic variety \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_{\mathbb{C}}\) with \((\mathcal{F}_\lambda)^{\mathrm{an}}\cong(\mathcal{F}_{\mathrm{cycl}})\otimes_EE_\lambda\).
+Fix one such finite place \(\lambda\), say of residue characteristic \(\ell\), and choose (!) an isomorphism of fields \(\overline{\mathbb{Q}}_\ell\cong\mathbb{C}\). Denote by \(\mathcal{F}_\ell\) the lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{F}_\lambda\otimes_{E_\lambda}\overline{\mathbb{Q}}_\ell\) on \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_{\mathbb{C}}\). Then
+\[
+(\mathcal{F}_\ell)^{\mathrm{an}}\cong\mathcal{F}_{\mathbb{C}}\otimes_{\mathbb{C}}\overline{\mathbb{Q}}_\ell,
+\]
+and \(\mathcal{F}_\ell\) is a tame, geometrically irreducible lisse sheaf which is cohomologically rigid, such that all eigenvalues of all local monodromies are \(N\)-th roots of unity. For technical reasons, it will be convenient to consider the dual local system \((\mathcal{F}_\ell)^\vee\), which, like \(\mathcal{F}_\ell\), is a tame, geometrically irreducible lisse sheaf which is cohomologically rigid, such that all eigenvalues of all local monodromies are \(N\)-th roots of unity.
+
+According to \hyperref[thm:8.4.1]{Theorem~8.4.1}, \((\mathcal{F}_\ell)^\vee\) on \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_{\mathbb{C}}\) arises as follows. For a suitable choice of an integer \(r\geq0\), \((r+1)n\) arbitrary integers \(e(a,i)\), \(r\) integers \(f(k)\) such that no \(f(k)\) is divisible by \(N\), and a faithful \(\overline{\mathbb{Q}}_\ell^{\times}\)-valued character \(\chi\) of the group \(\mu_N(\mathbb{Z}[1/N\ell,\zeta_N])\), there is an explicit smooth affine hypersurface of relative dimension \(r\), on which the group \(\mu_N(\mathbb{Z}[1/N\ell,\zeta_N])\) acts,
+\[
+\pi:\operatorname{Hyp}(e\text{'s},f\text{'s})\to(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}},
+\]
+with the following properties:
+\begin{enumerate}[label=(\arabic*)]
+\item For all \(i\), the sheaves \(\mathrm{R}^i\pi_!\overline{\mathbb{Q}}_\ell\) on \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) are lisse and tame (and mixed of integral weights in \([0,i]\), by \cite{De-WeilII}).
+\item For any faithful character \(\rho\) of the group \(\mu_N(\mathbb{Z}[1/N\ell,\zeta_N])\), the \(\rho\)-component \((\mathrm{R}^i\pi_!\overline{\mathbb{Q}}_\ell)^\rho\) vanishes for \(i\ne r\), and the sheaf \((\mathrm{R}^r\pi_!\overline{\mathbb{Q}}_\ell)^\rho\) is lisse and mixed of integral weights in \([0,r]\).
+\item The weight \(r\) quotient \(((\mathrm{R}^r\pi_!\overline{\mathbb{Q}}_\ell)^\chi)_{=r}\) of \((\mathrm{R}^r\pi_!\overline{\mathbb{Q}}_\ell)^\chi\), restricted to \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_{\mathbb{C}}\), is isomorphic to \((\mathcal{F}_\ell)^\vee\).
+\end{enumerate}
+
+We now apply Poincaré duality to this situation. By (1), all of the sheaves \(\mathrm{R}^i\pi_*\overline{\mathbb{Q}}_\ell\) on \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) are lisse and tame, mixed of integer weights \(\geq i\), and of formation compatible with arbitrary change of base on \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\). By (2), for any faithful character \(\rho\) of the group \(\mu_N(\mathbb{Z}[1/N\ell,\zeta_N])\), the \(\rho\)-component \((\mathrm{R}^i\pi_*\overline{\mathbb{Q}}_\ell)^\rho\) vanishes for \(i\ne r\), and the sheaf \((\mathrm{R}^r\pi_*\overline{\mathbb{Q}}_\ell)^\rho\) is lisse and mixed of integral weights \(\geq r\). By (3), the weight \(r\) subsheaf \(W_r(\mathrm{R}^r\pi_*\overline{\mathbb{Q}}_\ell)^{\overline{\chi}}\) of \((\mathrm{R}^r\pi_*\overline{\mathbb{Q}}_\ell)^{\overline{\chi}}\), i.e., the \(\overline{\chi}\)-isotypical component of \(W_r(\mathrm{R}^r\pi_*\overline{\mathbb{Q}}_\ell)\), restricted to \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_{\mathbb{C}}\), is isomorphic to \(\mathcal{F}_\ell\).
+
+Denote by \(R_0\) the subring of \(\mathbb{C}\) defined by
+\[
+R_0:=\mathbb{Z}[1/N\ell,\zeta_N,\alpha_1,\ldots,\alpha_n,1/\prod_{i\ne j}(\alpha_i-\alpha_j)].
+\]
+The ring \(R_0\) is finitely generated over \(\mathbb{Z}\) as a ring, and there exists a nonzero element \(\delta\) in \(R_0\) such that \(R:=R_0[1/\delta]\) is smooth over \(\mathbb{Z}\). We have a canonical ring homomorphism
+\[
+S_{N,n,\ell}\to R,\qquad T_i\mapsto \alpha_i.
+\]
+Via this base change, the open curve \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) over \(S_{N,n,\ell}\) gives rise to an open curve \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_R\) over \(R\), whose complex fibre (via the given inclusion of \(R\) into \(\mathbb{C}\)) is the complex curve \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_{\mathbb{C}}\).
+
+Now consider the pullback \(\pi_R\) to \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_R\) of the smooth hypersurface
+\[
+\pi:\operatorname{Hyp}(e\text{'s},f\text{'s})\to(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}},
+\]
+and of the various cohomology sheaves to which it gives rise. Thanks to Hironaka \cite[Corollary~3 of Theorem~2]{Hir-RS}, we can find a normal crossings compactification of this pulled-back morphism, first over the generic point of \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_R\), and then, by ``spreading out'', over a dense open set, say \(\mathcal{U}\), of \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_R\), say
+\[
+\overline{\pi}_R:\mathcal{X}\to(\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_R.
+\]
+It is standard (a proof is given in \hyperref[par:9.4.3]{(9.4.3)} below) that, for every \(i\), we have
+\[
+W_i(\mathrm{R}^i\pi_*\overline{\mathbb{Q}}_\ell)|\mathcal{U}
+=\operatorname{Image}(\mathrm{R}^i(\overline{\pi}_R)_*\overline{\mathbb{Q}}_\ell\to\mathrm{R}^i(\pi_R)_*\overline{\mathbb{Q}}_\ell).
+\]
+Extending scalars from \(R\) to \(\mathbb{C}\), we find that over a dense open set \(U:=\mathcal{U}_{\mathbb{C}}\) of \((\mathbb{A}^1-\{\alpha_1,\ldots,\alpha_n\})_{\mathbb{C}}\), there exists a normal crossings compactification \(\overline{\pi}_{\mathbb{C}}:X\to U\) of a smooth morphism \(\pi_{\mathbb{C}}:\operatorname{Hyp}\to U\) on which \(\mu_N\) acts, and a faithful character \(\chi\) of \(\mu_N\) such that
+\[
+\mathcal{F}_\ell|U=(\operatorname{Image}(\mathrm{R}^r(\overline{\pi}_{\mathbb{C}})_*\overline{\mathbb{Q}}_\ell\to\mathrm{R}^r(\pi_{\mathbb{C}})_*\overline{\mathbb{Q}}_\ell))(\overline{\chi}).
+\]
+Restricting to \(U^{\mathrm{an}}\), using the comparison theorem \cite[Exposé~XVI, 4.1]{SGA} and the isomorphism \(\overline{\mathbb{Q}}_\ell\cong\mathbb{C}\), we find
+\[
+\mathcal{F}_{\mathbb{C}}|U^{\mathrm{an}}=(\operatorname{Image}(\mathrm{R}^r(\overline{\pi}_{\mathbb{C}})^{\mathrm{an}}_*\mathbb{C}\to\mathrm{R}^r(\pi_{\mathbb{C}})^{\mathrm{an}}_*\mathbb{C}))(\overline{\chi}).
+\]
+Because \(X/U\) is a normal crossing compactification of \(\operatorname{Hyp}/U\), the relative de Rham cohomology sheaves on \(U\), \(\mathrm{H}^i_{\mathrm{DR}}(X/U)\) and \(\mathrm{H}^i_{\mathrm{DR}}(\operatorname{Hyp}/U)\), are coherent \(\mathcal{O}_U\)-modules with integrable connection, of formation compatible with arbitrary change of base on \(U\). They are known \cite{Ka-NCMT} to have regular singular points. Under the Riemann--Hilbert correspondence, they correspond to the local systems \(\mathrm{R}^i(\overline{\pi}_{\mathbb{C}})^{\mathrm{an}}_*\mathbb{C}\) and \(\mathrm{R}^i(\pi_{\mathbb{C}})^{\mathrm{an}}_*\mathbb{C}\) on \(U^{\mathrm{an}}\).
+
+Taking \(i=r\), we see that, on \(U\), the regular singular differential equation corresponding to the local system \(\mathcal{F}_{\mathbb{C}}\) is
+\[
+(\operatorname{Image}(\mathrm{H}^r_{\mathrm{DR}}(X/U)\to\mathrm{H}^r_{\mathrm{DR}}(\operatorname{Hyp}/U)))(\overline{\chi}).
+\]
+Restricting to the generic point of \(U\), we see that this differential equation is indeed of type \((***)\). This concludes the proof.
+\end{proof}
+
+\sourcepara{9.4.3}
+It remains only to recall why
+\[
+W_i(\mathrm{R}^i\pi_*\overline{\mathbb{Q}}_\ell)|\mathcal{U}
+=\operatorname{Image}(\mathrm{R}^i(\overline{\pi}_R)_*\overline{\mathbb{Q}}_\ell\to\mathrm{R}^i(\pi_R)_*\overline{\mathbb{Q}}_\ell).
+\]
+It suffices to check at all closed points. Since both sides commute with arbitrary change of base, we are reduced to checking that if \(k\) is a finite field of characteristic \(\ne\ell\), \(X/k\) is proper and smooth, and \(D=\cup D_i\) is a union of smooth divisors in \(X\) with normal crossings, then under the restriction map, we have
+\[
+\operatorname{Image}(\mathrm{H}^i(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\to
+\mathrm{H}^i((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell))
+=W_i\mathrm{H}^i((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell).
+\]
+To see this, consider the Leray spectral sequence
+\[
+E_2^{p,q}=\mathrm{H}^p(X\otimes_k\overline{k},\mathrm{R}^qj_*\overline{\mathbb{Q}}_\ell)
+\Rightarrow\mathrm{H}^{p+q}((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)
+\]
+for the inclusion map \(j:X-D\to X\). We have \(j_*\overline{\mathbb{Q}}_\ell=\overline{\mathbb{Q}}_\ell\), and for each \(q\geq1\), we have
+\[
+\mathrm{R}^qj_*\overline{\mathbb{Q}}_\ell
+=\bigoplus_{i_1<i_2<\cdots<i_q}\overline{\mathbb{Q}}_\ell(-q)|D_{i_1}\cap D_{i_2}\cap\cdots\cap D_{i_q}.
+\]
+Thus \(E_2^{p,q}\) is pure of weight \(p+2q\), and hence \(E_r^{p,q}\) is pure of weight \(p+2q\) for every \(r\geq2\). Since \(d_r\) has bidegree \((r,1-r)\), we have \(d_r=0\) for all \(r\geq3\). Looking at the weights of the \(E_\infty=E_3\) terms, we see that \(\mathrm{H}^i((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\) is mixed of weight \(\geq i\), and that
+\[
+W_i\mathrm{H}^i((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)=E_\infty^{i,0}=E_3^{i,0}.
+\]
+Since this is a first quadrant spectral sequence, \(d_2\) kills \(E_2^{i,0}\), so we have a surjective map \(E_2^{i,0}\to E_3^{i,0}\), i.e., a surjective map
+\[
+\mathrm{H}^i(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\to
+W_i\mathrm{H}^i((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell),
+\]
+as required.
+
+\sourcepara{9.4.4}
+Here is an alternate proof of a stronger statement. Let \(X\) be proper and smooth over a finite field \(k\) of characteristic \(\ne\ell\), and \(Z\) in \(X\) any closed subscheme. Then for every \(i\),
+\[
+\operatorname{Image}(\mathrm{H}^i(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\to
+\mathrm{H}^i((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell))
+=W_i\mathrm{H}^i((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell).
+\]
+To prove this, we argue as follows. Passing to connected components, we may reduce to the case when \(X\) is connected, of some dimension \(d\). Now \(\mathrm{H}^i((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\) and \(\mathrm{H}^{2d-i}_c((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\) are Poincaré dual, with values in \(\overline{\mathbb{Q}}_\ell(-d)\). Looking at weights, we see that under this pairing, the dual of \(W_i\mathrm{H}^i((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\) is the weight \(2d-i\) quotient of \(\mathrm{H}^{2d-i}_c((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\). So our statement is dual to the statement that
+\[
+\operatorname{Image}(\mathrm{H}^{2d-i}_c((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\to
+\mathrm{H}^{2d-i}(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell))
+\]
+is the weight \(2d-i\) quotient of \(\mathrm{H}^{2d-i}_c((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\), or what is the same (since \(\mathrm{H}^{2d-i}(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\) is pure of weight \(2d-i\)), that
+\[
+\operatorname{Ker}(\mathrm{H}^{2d-i}_c((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\to
+\mathrm{H}^{2d-i}(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell))
+\]
+is mixed of weight \(<2d-i\). But this is clear from the excision sequence
+\[
+\cdots\mathrm{H}^{2d-i-1}(Z\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\to
+\mathrm{H}^{2d-i}_c((X-Z)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\to
+\mathrm{H}^{2d-i}(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\cdots
+\]
+and the fact that, \(Z\) being proper over \(k\), \(\mathrm{H}^{2d-i-1}(Z\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\) is mixed of weight \(\leq2d-i-1\), by \cite[3.3.1]{De-WeilII}.
+
+\sourcepara{9.4.5}
+As a minor variant on this argument, we could more explicitly exploit the exactness of the functors \(\operatorname{gr}^W_i\) (:= associated graded of weight \(i\) for the weight filtration) on the category of finite dimensional \(\overline{\mathbb{Q}}_\ell[\operatorname{Gal}(\overline{k}/k)]\)-modules. Applying \(\operatorname{gr}^W_{2d-i}\) to the excision sequence gives the injectivity of
+\[
+\operatorname{gr}^W_{2d-i}(\mathrm{H}^{2d-i}_c((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell))
+\to
+\operatorname{gr}^W_{2d-i}(\mathrm{H}^{2d-i}(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)).
+\]
+The Poincaré dual of this injectivity is the surjectivity of
+\[
+\operatorname{gr}^W_i(\mathrm{H}^i(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell))
+\to
+\operatorname{gr}^W_i(\mathrm{H}^i((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)).
+\]
+Since \(\mathrm{H}^i(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\) is pure of weight \(i\), while \(\mathrm{H}^i((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)\) is mixed of weight \(\geq i\), this is the required surjectivity of
+\[
+\mathrm{H}^i(X\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell)
+\to W_i\mathrm{H}^i((X-D)\otimes_k\overline{k},\overline{\mathbb{Q}}_\ell).
+\]
+
+\section{Comments and questions}
+\label{sec:9.5}
+
+\sourcepara{9.5.1}
+In addition to the general result \cite[5.7]{Ka-ASDE}, Grothendieck's \(p\)-curvature conjecture has been proven for several explicit families of differential equations on open sets of \(\mathbb{P}^1\). It is striking that in all of these cases, whenever the equation in question is irreducible, it is in fact rigid (in the sense that its local system of germs of holomorphic solutions is a rigid local system). These cases were:
+\begin{enumerate}[label=(\arabic*)]
+\item the (differential equation satisfied by the) Gauss hypergeometric function \({}_2F_1\), cf. \cite[6.2 and 6.9.4]{Ka-ASDE},
+\item the (differential equation satisfied by the) generalized hypergeometric function \({}_nF_{n-1}\), cf. \cite[4.8 and 4.9]{B-H},
+\item the (``Pochhammer'' differential equation, satisfied by) the hypergeometric functions of Pochhammer type, cf. \cite[Theorems~1.2, 1.3, 2.1]{Har}.
+\end{enumerate}
+
+\sourcepara{9.5.2}
+In all three of these cases, an essential step is to compute, in terms of the parameters of the equation (i.e., in terms of our ``numerical data'' of \hyperref[chap:6]{Chapter~6}, which specifies all the local monodromies) precisely what is the condition to have \(p\)-curvature zero for almost all \(p\). In each case, one gets an a posteriori verification that, having begun with a differential equation satisfying \((**)\), one has a direct factor of a differential equation satisfying \((*)\). This was the method of proof in \cite[6.2]{Ka-ASDE}. It was also the method employed in the exposition of \cite{B-H} given in \cite[5.5]{Ka-ESDE}.
+
+\sourcepara{9.5.3}
+However, it should be emphasized that both Beukers--Heckmann and Haraoka prove their results without invoking \cite[5.7]{Ka-ASDE}. Rather, what they do, at least in the irreducible case with quasiunipotent local monodromy, is to consider the unique (up to scalars) hermitian form carried by the local system \(\mathcal{F}_{\mathbb{C}}\) in question which expresses that the dual local system to \(\mathcal{F}_{\mathbb{C}}\) is just its complex conjugate. They calculate the signature of this hermitian form in terms of the parameters of the equation, and then show that the form is (positive or negative) definite provided the parameters satisfy the conditions of \(p\)-curvature zero for almost all \(p\).
+
+\sourcepara{9.5.4}
+In contrast, while we have proven that Grothendieck's \(p\)-curvature conjecture holds for (the regular singular differential equation underlying) any irreducible rigid local system on an open set of \(\mathbb{P}^1\), we do not know how to tell, in terms of the numerical data of \hyperref[chap:6]{Chapter~6}, or equivalently in terms of the data of all the local monodromies, whether or not a particular such differential equation has in fact \(p\)-curvature zero for almost all \(p\). Presumably there is a simple explicit algorithm for computing, in terms of the numerical data, whether or not we have \(p\)-curvature zero for almost all \(p\). What is it? If one is more optimistic, one might ask how to compute, in terms of the numerical data, the dimension of the differential Galois group (which for regular singular points is the Zariski closure of the monodromy group), or even the isomorphism class of its Lie algebra. Much remains to be done.

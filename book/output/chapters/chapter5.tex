@@ -1,0 +1,2136 @@
+\chapter{Structure of rigid local systems}
+\label{chap:5}
+\setcounter{section}{-1}
+
+\section{Cohomological rigidity}\label{sec:5.0}
+
+\sourcepara{5.0.1}
+Let \(\ell\) be a prime number, \(k\) an algebraically closed field of
+characteristic \(\neq \ell\). On \(\mathbb{A}^1\) over \(k\), denote by
+\(\kappa:\mathbb{A}^1\to \mathbb{P}^1\) the inclusion. Let \(K\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1,\overline{\mathbb{Q}}_\ell)\) be a perverse
+irreducible sheaf which is nonpunctual, i.e., \(K\) is \(j_*\mathcal{F}[1]\)
+for a nonempty open set \(j:U\to\mathbb{A}^1\), and a lisse irreducible
+\(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{F}\) on \(U\). In
+\hyperref[par:3.0.1]{(3.0.1)}, we defined the index of rigidity of \(K\),
+\(\operatorname{rig}(K)\), to be the integer
+\[
+  \operatorname{rig}(K):=
+  \chi(\mathbb{P}^1,\kappa_*j_*\underline{\operatorname{End}}(\mathcal{F})).
+\]
+We say that \(K\), or \(\mathcal{F}\), is cohomologically rigid, if
+\(\operatorname{rig}(K)=2\).
+
+\sourceheading[thm:5.0.2]{Theorem 5.0.2}
+Let \(\ell\) be a prime number, \(k\) an algebraically closed field of
+characteristic \(\neq\ell\). In \(\mathbb{A}^1\) over \(k\), let
+\(j:U\to\mathbb{A}^1\) be a nonempty open set, \(\mathcal{F}\) a lisse
+irreducible \(\overline{\mathbb{Q}}_\ell\)-sheaf on \(U\). Suppose that
+\(\mathcal{F}\) is cohomologically rigid. Let \(\mathcal{G}\) be any lisse
+\(\overline{\mathbb{Q}}_\ell\)-sheaf on \(U\) which is locally isomorphic to
+\(\mathcal{F}\) in the sense that for each point \(s\) of \(\mathbb{P}^1-U\),
+there exists an isomorphism between the representations \(\mathcal{F}(s)\) and
+\(\mathcal{G}(s)\) of the inertia group \(I(s)\) afforded by \(\mathcal{F}\)
+and \(\mathcal{G}\) respectively. Then there exists an isomorphism
+\(\mathcal{F}\cong\mathcal{G}\) of lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf
+on \(U\).
+
+\begin{proof}
+This is a trivial modification of the easy half of
+\hyperref[thm:1.1.2]{Theorem~1.1.2}. Denote by
+\(\kappa:\mathbb{A}^1\to\mathbb{P}^1\) the inclusion. Since \(\mathcal{F}\)
+and \(\mathcal{G}\) are locally isomorphic, so are the two local systems
+\(\underline{\operatorname{End}}(\mathcal{F})\) and
+\(\underline{\operatorname{Hom}}(\mathcal{F},\mathcal{G})\). So from the shape
+of the Euler--Poincaré formula, which depends only on ranks and on local data
+at the ramification points and at infinity, we see that
+\[
+  2=\chi(\mathbb{P}^1,\kappa_*j_*\underline{\operatorname{End}}(\mathcal{F}))
+  =\chi(\mathbb{P}^1,\kappa_*j_*\underline{\operatorname{Hom}}(\mathcal{F},\mathcal{G})).
+\]
+Once we have the inequality
+\(\chi(\mathbb{P}^1,\kappa_*j_*\underline{\operatorname{Hom}}(\mathcal{F},\mathcal{G}))\geq 2\),
+we conclude exactly as we did in \hyperref[thm:1.1.2]{Theorem~1.1.2}.
+\end{proof}
+
+\section{The category \texorpdfstring{\(\mathcal{T}_\ell\)}{T ell}, and the
+functors \texorpdfstring{\(\operatorname{MC}_\chi\)}{MC chi} and
+\texorpdfstring{\(\operatorname{MT}_{\mathcal{L}}\)}{MT L}}
+\label{sec:5.1}
+
+\sourcepara{5.1.1}
+In this section, we work on \(\mathbb{A}^1\) over an algebraically closed
+field \(k\). We fix a prime number \(\ell\neq\operatorname{char}(k)\). We are
+interested in the full subcategory \(\mathcal{T}_\ell\) of the category of
+constructible \(\overline{\mathbb{Q}}_\ell\)-sheaves \(\mathcal{F}\) on
+\(\mathbb{A}^1\) consisting of those which satisfy the following three
+conditions:
+\begin{enumerate}[label={\(\mathcal{T}\arabic*\)}]
+\item \(\mathcal{F}\) is an irreducible middle extension: there exists a dense
+open set \(j:U\to\mathbb{A}^1\) such that \(j^*\mathcal{F}\) is lisse and
+irreducible on \(U\), and such that \(\mathcal{F}\cong j_*j^*\mathcal{F}\).
+
+\item \(\mathcal{F}\) is tame: \(j^*\mathcal{F}\) is tamely ramified at every
+point of \(\mathbb{P}^1-U\).
+
+\item \(\mathcal{F}\) has at least two finite singularities: there are at least
+two distinct points of \(\mathbb{A}^1\) at which \(\mathcal{F}\) fails to be
+lisse.
+\end{enumerate}
+
+\sourceheading[lem:5.1.2]{Lemma 5.1.2}
+In the situation \hyperref[par:5.0.1]{(5.0.1)}, suppose \(\mathcal{F}\)
+satisfies conditions \(\mathcal{T}1\) and \(\mathcal{T}2\) above. If
+\(\mathcal{F}\) has generic rank \(\geq 2\), then \(\mathcal{F}\) satisfies
+\(\mathcal{T}3\).
+
+\begin{proof}
+Indeed, if \(\mathcal{F}\) is tame and irreducible with at most one finite
+singularity, say \(\alpha\), then \(j^*\mathcal{F}\) is an irreducible
+representation of the abelian group
+\(\pi_1^{\mathrm{tame}}(\mathbb{A}^1-\{\alpha\})\), so has rank \(\leq 1\).
+\end{proof}
+
+\sourceheading[lem:5.1.3]{Lemma 5.1.3}
+In the situation \hyperref[par:5.0.1]{(5.0.1)}, the perverse irreducibles
+\(K\) in \(\mathrm{D}^b_c(\mathbb{A}^1,\overline{\mathbb{Q}}_\ell)\) which are
+tame, and of type \(2d\)) in the sense of
+\hyperref[thm:3.3.3]{Theorem~3.3.3} are precisely those of the form
+\(\mathcal{F}[1]\), with \(\mathcal{F}\) in \(\mathcal{T}_\ell\).
+
+\begin{proof}
+A nonpunctual perverse irreducible \(K\) is precisely an \(\mathcal{F}[1]\) for
+\(\mathcal{F}\) satisfying condition \(\mathcal{T}1\) above (and we recover
+\(\mathcal{F}\) as \(\mathcal{H}^{-1}(K)\)). Such a perverse irreducible \(K\)
+is tame if and only if \(\mathcal{F}\) is tame. Requiring in addition that
+\(K\) have property \(\mathcal{P}\) forces \(\mathcal{F}\) to be nonconstant
+(and not to be an \(\mathcal{L}_\psi\), but that case was already eliminated by
+the tameness requirement). Requiring \(K\) to be of type \(2d\)) eliminates the
+possibility that \(\mathcal{F}\) be any
+\(j_*\mathcal{L}_{\chi(x-\alpha)}\). But these last two eliminations, of
+\(\overline{\mathbb{Q}}_\ell\) and of any
+\(j_*\mathcal{L}_{\chi(x-\alpha)}\), amount precisely to condition
+\(\mathcal{T}3\) above. Indeed, of tame irreducible middle extensions, those
+with at most one finite singularity are either \(\overline{\mathbb{Q}}_\ell\)
+(if there is no finite singularity, because
+\(\pi_1^{\mathrm{tame}}(\mathbb{A}^1)=0\)) or they are
+\(j_*\mathcal{L}_{\chi(x-\alpha)}\) for \(\alpha\) the unique finite
+singularity (because \(\pi_1^{\mathrm{tame}}(\mathbb{G}_m)\) is abelian).
+\end{proof}
+
+\sourcepara{5.1.4}
+For any nontrivial continuous character
+\[
+  \chi:\pi_1^{\mathrm{tame}}(\mathbb{G}_{m,k})\to
+  \overline{\mathbb{Q}}_\ell^\times,
+\]
+we denote by \(\mathcal{L}_\chi\) the corresponding lisse sheaf of rank one on
+\(\mathbb{G}_m\), and by \(j_*\mathcal{L}_\chi\) its direct image to
+\(\mathbb{A}^1\). We may restate \hyperref[thm:4.3.11]{Theorem~4.3.11} in
+terms of \(\mathcal{T}_\ell\) as follows. Given a finite subset \(D\) in
+\(\mathbb{A}^1(k)\), and an \(\mathcal{F}\) in \(\mathcal{T}_\ell\) which is
+lisse on \(\mathbb{A}^1-D\), the middle convolution
+\[
+  \mathcal{F}[1]*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1]
+\]
+is of the form \(\mathcal{G}[1]\), with \(\mathcal{G}\) in
+\(\mathcal{T}_\ell\), and \(\mathcal{G}\) lisse on the same
+\(\mathbb{A}^1-D\). We can recover \(\mathcal{F}\) from \(\mathcal{G}\) by the
+inversion formula
+\[
+  \mathcal{F}[1]=\mathcal{G}[1]*_{\mathrm{mid}+}j_*\mathcal{L}_{\bar{\chi}}[1].
+\]
+Moreover, the local monodromies of \(\mathcal{F}\) and of \(\mathcal{G}\) are
+related by \hyperref[cor:3.3.6]{Corollary~3.3.6} and
+\hyperref[cor:3.3.7]{Corollary~3.3.7}. According to
+\hyperref[thm:4.3.10]{Theorem~4.3.10}, the indices of rigidity of
+\(\mathcal{F}\) and \(\mathcal{G}\) (strictly speaking, of the perverse objects
+\(\mathcal{F}[1]\) and of \(\mathcal{G}[1]\)) are equal:
+\[
+  \operatorname{rig}(\mathcal{F})=\operatorname{rig}(\mathcal{G}).
+\]
+
+\sourcepara{5.1.5}
+We define, for \(\chi\) a nontrivial character as above, the functor
+\[
+  \operatorname{MC}_\chi:\mathcal{T}_\ell\to\mathcal{T}_\ell
+\]
+by
+\[
+  \operatorname{MC}_\chi(\mathcal{F}):=\mathcal{G}:=
+  (\mathcal{F}[1]*_{\mathrm{mid}+}j_*\mathcal{L}_\chi[1])[-1].
+\]
+These functors have the composition laws
+\[
+\begin{aligned}
+  \operatorname{MC}_\chi\circ\operatorname{MC}_\rho
+  &=\operatorname{MC}_\rho\circ\operatorname{MC}_\chi
+  =\operatorname{MC}_{\chi\rho}\quad\text{if \(\chi\rho\) is nontrivial},\\
+  \operatorname{MC}_\chi\circ\operatorname{MC}_{\bar{\chi}}&=\mathrm{id}.
+\end{aligned}
+\]
+
+\sourcepara{5.1.6}
+Here is a relatively concrete description of \(\operatorname{MC}_\chi(\mathcal{F})\).
+Let \(\mathcal{F}\) in \(\mathcal{T}_\ell\). Denote by \(D\) the set of finite
+singularities of \(\mathcal{F}\), and by
+\[
+  j:\mathbb{A}^1-D\to\mathbb{A}^1
+\]
+the inclusion. Consider the projection
+\[
+  \operatorname{pr}_2:\mathbb{A}^2\to\mathbb{A}^1,\quad (x,t)\mapsto t.
+\]
+On \(\mathbb{A}^2\), we have the sheaf
+\(\mathcal{F}_x\otimes\mathcal{L}_{\chi(t-x)}\) (extended by zero across the
+diagonal \(t=x\)). Because \(\mathcal{F}\) is lisse on \(\mathbb{A}^1-D\), and
+in \(\mathcal{T}_\ell\), the higher direct images
+\(\mathrm{R}^i\operatorname{pr}_{2!}(\mathcal{F}_x\otimes\mathcal{L}_{\chi(t-x)})\)
+and
+\(\mathrm{R}^i\operatorname{pr}_{2*}(\mathcal{F}_x\otimes\mathcal{L}_{\chi(t-x)})\)
+are both lisse on \(\mathbb{A}^1-D\), and both vanish for \(i\neq 1\).
+Moreover, both are of formation compatible with arbitrary change of base on
+\(\mathbb{A}^1-D\) (by \hyperref[cor:2.8.5]{Corollary~2.8.5}). Thus we may
+form the lisse sheaf on \(\mathbb{A}^1-D\) which is
+\[
+  \operatorname{Image}\bigl(
+  j^*\mathrm{R}^1\operatorname{pr}_{2!}(\mathcal{F}_x\otimes\mathcal{L}_{\chi(t-x)})
+  \to
+  j^*\mathrm{R}^1\operatorname{pr}_{2*}(\mathcal{F}_x\otimes\mathcal{L}_{\chi(t-x)})
+  \bigr).
+\]
+It is tautological that this is none other than
+\(j^*\operatorname{MC}_\chi(\mathcal{F})\). But
+\(\operatorname{MC}_\chi(\mathcal{F})\) is a middle extension, so we get the
+
+\sourceheading[recipe:5.1.7]{Explicit Recipes 5.1.7}
+In the situation \hyperref[par:5.1.1]{(5.1.1)}, we have:
+\begin{enumerate}[label=(\arabic*)]
+\item For \(\mathcal{F}\) in \(\mathcal{T}_\ell\), and
+\(j:\mathbb{A}^1-D\to\mathbb{A}^1\) the inclusion of a dense open set on which
+\(j^*\mathcal{F}\) is lisse,
+\[
+\begin{aligned}
+  \operatorname{MC}_\chi(\mathcal{F})
+  &=j_*j^*\operatorname{MC}_\chi(\mathcal{F})\\
+  &=j_*\operatorname{Image}\bigl(
+  j^*\mathrm{R}^1\operatorname{pr}_{2!}(\mathcal{F}_x\otimes\mathcal{L}_{\chi(t-x)})
+  \to
+  j^*\mathrm{R}^1\operatorname{pr}_{2*}(\mathcal{F}_x\otimes\mathcal{L}_{\chi(t-x)})
+  \bigr).
+\end{aligned}
+\]
+
+\item At any geometric point \(\tau\) in \(\mathbb{A}^1-D\), the stalk at
+\(\tau\) of \(\operatorname{MC}_\chi(\mathcal{F})\) is given by
+\[
+  (\operatorname{MC}_\chi(\mathcal{F}))_\tau
+  =\operatorname{Image}\bigl(
+  \mathrm{H}^1_c(\mathbb{A}^1,\mathcal{F}\otimes\mathcal{L}_{\chi(\tau-x)})
+  \to
+  \mathrm{H}^1(\mathbb{A}^1,\mathcal{F}\otimes\mathcal{L}_{\chi(\tau-x)})
+  \bigr).
+\]
+
+\item In terms of the inclusion \(\kappa:\mathbb{A}^1\to\mathbb{P}^1\), this
+image is just the ``parabolic'' group
+\(\mathrm{H}^1(\mathbb{P}^1,\kappa_*(\mathcal{F}\otimes\mathcal{L}_{\chi(\tau-x)}))\),
+so
+\[
+  (\operatorname{MC}_\chi(\mathcal{F}))_\tau
+  =\mathrm{H}^1(\mathbb{P}^1,\kappa_*(\mathcal{F}\otimes\mathcal{L}_{\chi(\tau-x)})),
+  \quad\text{for \(\tau\) in \(\mathbb{A}^1-D\)}.
+\]
+
+\item In terms of the inclusion
+\(\kappa_1:\mathbb{A}^1-D-\{\tau\}\to\mathbb{P}^1\), we may rewrite this as
+\[
+\begin{aligned}
+  (\operatorname{MC}_\chi(\mathcal{F}))_\tau
+  &=
+  \mathrm{H}^1(\mathbb{P}^1,\kappa_{1*}((\mathcal{F}\otimes
+  \mathcal{L}_{\chi(\tau-x)})\vert\mathbb{A}^1-D-\{\tau\}))\\
+  &=
+  \operatorname{Image}\text{ of the ``forget supports'' map}\\
+  &\quad
+  \mathrm{H}^1_c(\mathbb{A}^1-D-\{\tau\},
+  \mathcal{F}\otimes\mathcal{L}_{\chi(\tau-x)})
+  \to
+  \mathrm{H}^1(\mathbb{A}^1-D-\{\tau\},
+  \mathcal{F}\otimes\mathcal{L}_{\chi(\tau-x)}).
+\end{aligned}
+\]
+\end{enumerate}
+
+\sourcepara{5.1.8}
+Let \(\mathcal{L}\) be a middle extension sheaf on \(\mathbb{A}^1\) which is
+generically of rank one, and which is tame. We wish to define an operation of
+``middle tensor product with \(\mathcal{L}\)'' for objects of
+\(\mathcal{T}_\ell\) (compare \hyperref[sec:3.2]{\S3.2}). The naive idea is
+this: given \(\mathcal{F}\) in \(\mathcal{T}_\ell\), pick
+\(j:U\to\mathbb{A}^1\) a dense open on which both \(\mathcal{F}\) and
+\(\mathcal{L}\) are lisse, and form
+\[
+  j_*((j^*\mathcal{F})\otimes(j^*\mathcal{L})).
+\]
+This sheaf, which is independent of the auxiliary choice of \(U\), visibly
+satisfies both \(\mathcal{T}1\) and \(\mathcal{T}2\). As it has the same
+generic rank as \(\mathcal{F}\), it will satisfy \(\mathcal{T}3\) if
+\(\mathcal{F}\) has generic rank at least \(2\), thanks to
+\hyperref[lem:5.1.2]{Lemma~5.1.2}.
+
+\sourcepara{5.1.9}
+However, for \(\mathcal{F}\) of generic rank one,
+\(j_*((j^*\mathcal{F})\otimes(j^*\mathcal{L}))\) may very well fail to satisfy
+\(\mathcal{T}3\): for example, it might be the constant sheaf. In order to deal
+with this problem, we define
+\[
+  \mathcal{T}_{\ell,\operatorname{rk}\geq 2}:=
+  \text{the full subcategory of \(\mathcal{T}_\ell\) consisting of those
+  objects of generic rank \(\geq 2\)}.
+\]
+On this full subcategory \(\mathcal{T}_{\ell,\operatorname{rk}\geq 2}\), we can
+define the above ``middle tensor product with \(\mathcal{L}\)'', which we denote
+\[
+\begin{aligned}
+  \operatorname{MT}_{\mathcal{L}}:
+  \mathcal{T}_{\ell,\operatorname{rk}\geq 2}\to
+  \mathcal{T}_{\ell,\operatorname{rk}\geq 2},\\
+  \operatorname{MT}_{\mathcal{L}}(\mathcal{F}):=
+  j_*((j^*\mathcal{F})\otimes(j^*\mathcal{L})),
+\end{aligned}
+\]
+for \(j:U\to\mathbb{A}^1\) any dense open on which both \(\mathcal{F}\) and
+\(\mathcal{L}\) are lisse. It is clear from the definitions that
+\(\operatorname{MT}_{\mathcal{L}}\) preserves index of rigidity:
+\[
+  \operatorname{rig}(\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))
+  =\operatorname{rig}(\mathcal{F}).
+\]
+If we are given a lisse, rank one \(\mathcal{L}\) on a dense open
+\(j:U\to\mathbb{A}^1\), we will often write \(\operatorname{MT}_{\mathcal{L}}\)
+instead of the literally correct \(\operatorname{MT}_{j_*\mathcal{L}}\).
+
+\section{The main theorem on the structure of rigid local systems}\label{sec:5.2}
+
+\sourcepara{5.2.0}
+Given an everywhere tame lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf on
+\(\mathbb{A}^1-D\), we denote by \(\operatorname{LocMono}(\mathcal{F})\) the
+subgroup of the group of all continuous characters
+\[
+  \chi:I(0)^{\mathrm{tame}}\cong
+  \pi_1^{\mathrm{tame}}(\mathbb{G}_{m,k})\to
+  \overline{\mathbb{Q}}_\ell^\times
+\]
+generated by those which ``occur'' in the local monodromies of \(\mathcal{F}\)
+at all the points of \(\mathbb{P}^1\) (i.e., canonically identify the tame
+inertia groups \(I(\alpha)^{\mathrm{tame}}\) at points \(\alpha\) in
+\(\mathbb{P}^1\) to \(I(0)^{\mathrm{tame}}\) via automorphisms of
+\(\mathbb{P}^1\) which carry \(\alpha\) to \(0\) (the resulting identifications
+are independent of the choice)).
+
+\sourceheading[thm:5.2.1]{Main Theorem 5.2.1}
+In the situation \hyperref[par:5.1.1]{(5.1.1)}, suppose \(\mathcal{F}\) in
+\(\mathcal{T}_\ell\) has generic rank \(r(\mathcal{F})\geq 2\), and is lisse
+on \(\mathbb{A}^1-D\). Suppose further that \(\mathcal{F}\) is
+cohomologically rigid. Then
+\begin{enumerate}[label=(\arabic*)]
+\item There exists a lisse, everywhere tame, rank one
+\(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{L}\) on \(\mathbb{A}^1-D\),
+and a nontrivial character \(\chi\), such that the (necessarily
+cohomologically rigid) object \(\mathcal{G}\) in \(\mathcal{T}_\ell\) defined
+by
+\[
+  \mathcal{G}:=\operatorname{MC}_\chi\operatorname{MT}_{\mathcal{L}}(\mathcal{F})
+\]
+has strictly lower generic rank: \(r(\mathcal{G})<r(\mathcal{F})\).
+
+\item In (1) above, we may choose both \(\mathcal{L}_\chi\) and
+\(\mathcal{L}\) to have all of their local monodromies in the group
+\(\operatorname{LocMono}(\mathcal{F})\), and, if we so choose them, then
+\(\mathcal{G}:=\operatorname{MC}_\chi\operatorname{MT}_{\mathcal{L}}(\mathcal{F})\)
+has \(\operatorname{LocMono}(\mathcal{G})\subset\operatorname{LocMono}(\mathcal{F})\).
+
+\item If for some integer \(N\geq 1\) all the eigenvalues of all the local
+monodromies of \(\mathcal{F}\) are \(N\)'th roots of unity, then in (1) above
+we may choose \(\chi\) of order dividing \(N\), and we may choose
+\(\mathcal{L}\) to have each of its local monodromies of order dividing \(N\),
+and if we so choose them,
+all the eigenvalues of all the local monodromies of \(\mathcal{G}\) will be
+\(N\)'th roots of unity.
+\end{enumerate}
+
+\sourcepara{5.2.2}
+\textit{Proof.} We will prove the theorem by giving an algorithm for how to
+choose both \(\mathcal{L}\) and \(\chi\).
+
+\sourcepara{5.2.2.1}
+In order to eliminate any ambiguity in the algorithm, for each point \(\alpha\)
+in \(\mathbb{P}^1(k)\), we will choose a total ordering of the underlying set
+of the group of all continuous characters
+\[
+  \chi:I(\alpha)^{\mathrm{tame}}\to\overline{\mathbb{Q}}_\ell^\times.
+\]
+One way to do this is as follows. If we pick a topological generator, say
+\(\gamma^{\mathrm{tame}}\), of the group \(I(\alpha)^{\mathrm{tame}}\) (which
+is canonically the group
+\(\prod_{\ell\neq\operatorname{char}(k)}\mathbb{Z}_\ell(1)\)), and a field
+embedding of \(\overline{\mathbb{Q}}_\ell\) into \(\mathbb{C}\), then
+``evaluation at \(\gamma^{\mathrm{tame}}\)'' embeds the continuous characters
+into the group \(\mathbb{C}^\times\). So we are reduced to exhibiting a total
+ordering of \(\mathbb{C}^\times\). The simplest way to do this is to use polar
+coordinates, writing nonzero complex numbers as \(re^{i\vartheta}\) with \(r\)
+and \(\vartheta\) real, \(r>0\) and \(0\leq \vartheta<2\pi\). Then we say
+\(re^{i\vartheta}<r'e^{i\vartheta'}\) if either \(r<r'\) or if \(r=r'\) and
+\(\vartheta<\vartheta'\).
+
+\sourcepara{5.2.2.2}
+\textbf{First Step.} We now explain how to choose \(\mathcal{L}\). Because
+\(\mathcal{F}\) is lisse on \(\mathbb{A}^1-D\), and everywhere tame, at each
+point \(\alpha\) in \(D\amalg\{\infty\}\), the local monodromy of
+\(\mathcal{F}\) defines an \(r(\mathcal{F})\)-dimensional representation of
+\(I(\alpha)^{\mathrm{tame}}\). We first describe a shorthand to describe this
+representation of \(I(\alpha)^{\mathrm{tame}}\). We write it as a direct sum of
+(character)\(\otimes\)(unipotent representation):
+\[
+\begin{aligned}
+  \mathcal{F}\text{ as }I(\alpha)^{\mathrm{tame}}\text{-rep'n.}
+  &=\bigoplus_\chi
+  \mathcal{L}_{\chi(x-\alpha)}\otimes
+  \operatorname{Unip}(\alpha,\chi,\mathcal{F}),\quad \alpha\text{ finite},\\
+  \mathcal{F}\text{ as }I(\infty)^{\mathrm{tame}}\text{-rep'n.}
+  &=\bigoplus_\chi
+  \mathcal{L}_\chi\otimes\operatorname{Unip}(\infty,\chi,\mathcal{F}),
+  \quad\text{for \(\alpha=\infty\)}.
+\end{aligned}
+\]
+We write \(\operatorname{Unip}(\alpha,\chi,\mathcal{F})\) as a direct sum of
+Jordan blocks, of dimensions \(\{n_i(\alpha,\chi,\mathcal{F})\}_i\), and then
+pass to its ``dual partition'' (compare \hyperref[par:3.1.10]{(3.1.10)}), the
+decreasing sequence of non-negative integers
+\[
+  e_1(\alpha,\chi,\mathcal{F})\geq e_2(\alpha,\chi,\mathcal{F})\geq\cdots
+  \geq e_k(\alpha,\chi,\mathcal{F})=0\quad\text{for \(k\gg 0\)}
+\]
+defined by
+\[
+  e_j(\alpha,\chi,\mathcal{F}):=
+  \text{the number of Jordan blocks in }
+  \operatorname{Unip}(\alpha,\chi,\mathcal{F})
+  \text{ whose dimension is \(\geq j\)}.
+\]
+Thus \(e_1(\alpha,\chi,\mathcal{F})\) is the multiplicity
+\[
+  \dim\operatorname{Hom}_{I(\alpha)}
+  (\{\mathcal{L}_{\chi(x-\alpha)}\text{ if \(\alpha\) finite, }
+  \mathcal{L}_\chi\text{ if \(\alpha=\infty\)}\},\mathcal{F}(\alpha))
+\]
+of \(\chi\) as simple eigenvalue in
+\(\mathcal{F}(\alpha):=\mathcal{F}\) as \(I(\alpha)^{\mathrm{tame}}\)-representation
+(and \(e_j(\alpha,\chi,\mathcal{F})=0\) for all \(j\) if the character \(\chi\)
+does not occur in the local monodromy of \(\mathcal{F}\) at \(\alpha\)).
+
+Given \(\mathcal{F}\) and a point \(\alpha\) in \(D\), pick a character
+\(\chi\) whose \(e_1(\alpha,\chi,\mathcal{F})\) is maximal among all the
+characters which occur in the local monodromy of \(\mathcal{F}\) at \(\alpha\).
+There may not be a unique such \(\chi\), but in case of a tie we choose the one
+which comes first in the chosen total ordering of the set of all characters of
+\(I(\alpha)^{\mathrm{tame}}\). (The proof works just as well if whenever we
+are confronted with a tie we make an arbitrary choice, rather than consult some
+pre-chosen total ordering.) This character we denote \(\chi_{\alpha,\mathcal{F}}\).
+
+\sourcepara{5.2.2.3}
+We now have chosen, at each point \(\alpha\) in the finite set
+\(D\subset\mathbb{A}^1\), a continuous character \(\chi_{\alpha,\mathcal{F}}\)
+of \(I(\alpha)^{\mathrm{tame}}\). By the known structure of the prime-to-\(p\)
+fundamental group of \(\mathbb{A}^1-D\) (the maximal prime-to-\(p\) quotient of
+the profinite completion of the free group with one generator for each point
+\(\alpha\) in \(D\)), there is a unique (up to isomorphism) lisse, everywhere
+tame, rank one \(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{L}\) on
+\(\mathbb{A}^1-D\) with the property that, for every \(\alpha\) in \(D\),
+\[
+  \mathcal{L}\text{ as }I(\alpha)^{\mathrm{tame}}\text{-representation}
+  =(\chi_{\alpha,\mathcal{F}})^{-1}.
+\]
+Concretely, \(\mathcal{L}\) is the tensor product, over \(\alpha\) in \(D\), of
+the inverses of the translated Kummer sheaves
+\(\mathcal{L}_{\chi_{\alpha,\mathcal{F}}(x-\alpha)}\).
+
+\sourcepara{5.2.2.4}
+With this choice of \(\mathcal{L}\), the sheaf
+\(\operatorname{MT}_{\mathcal{L}}(\mathcal{F})\), which has the same generic
+rank as \(\mathcal{F}\) and the same index of rigidity as \(\mathcal{F}\), has
+the additional property that, at each \(\alpha\) in \(D\), the trivial
+character \(\mathbf{1}\) has maximal ``simple multiplicity'': for each
+\(\alpha\) in \(D\), we have
+\[
+  e_1(\alpha,\mathbf{1},\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))
+  \geq
+  e_1(\alpha,\chi,\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))
+  \quad\text{for all \(\chi\)}.
+\]
+
+\sourcepara{5.2.2.5}
+Notice that the local monodromies of \(\mathcal{L}\) were all drawn from the
+group \(\operatorname{LocMono}(\mathcal{F})\), and that, consequently,
+\(\operatorname{LocMono}(\operatorname{MT}_{\mathcal{L}}(\mathcal{F}))\) lies
+in \(\operatorname{LocMono}(\mathcal{F})\).
+
+\sourcepara{5.2.2.6}
+\textbf{Second Step.} In order to complete the proof of the theorem, it
+suffices to apply the following result to
+\(\operatorname{MT}_{\mathcal{L}}(\mathcal{F})\).
+
+\sourceheading[thm:5.2.3]{Main Theorem 5.2.3 (= \hyperref[thm:5.2.1]{\textcolor{blue}{5.2.1 bis}})}
+In the situation \hyperref[par:5.1.1]{(5.1.1)}, suppose \(\mathcal{F}\) in
+\(\mathcal{T}_\ell\) has generic rank \(r(\mathcal{F})\geq 2\), and is lisse
+on \(\mathbb{A}^1-D\). Suppose that \(\mathcal{F}\) satisfies the following
+condition:
+\[
+  (*)\quad
+  \text{At every point \(\alpha\) in \(D\), we have }
+  e_1(\alpha,\mathbf{1},\mathcal{F})\geq e_1(\alpha,\chi,\mathcal{F})
+  \text{ for all \(\chi\)}.
+\]
+If \(\mathcal{F}\) is in addition cohomologically rigid, there exists a
+nontrivial character \(\chi\) in \(\operatorname{LocMono}(\mathcal{F})\), such
+that the (necessarily cohomologically rigid) object \(\mathcal{G}\) in
+\(\mathcal{T}_\ell\) defined by
+\[
+  \mathcal{G}:=\operatorname{MC}_\chi(\mathcal{F})
+\]
+has strictly lower generic rank: \(r(\mathcal{G})<r(\mathcal{F})\). Moreover,
+\(\operatorname{LocMono}(\mathcal{G})\) is contained in
+\(\operatorname{LocMono}(\mathcal{F})\).
+
+\sourcepara{5.2.4}
+\textit{Proof.} The ``moreover'' follows from the explicit recipes of
+\hyperref[cor:3.3.6]{Corollary~3.3.6}.
+
+\sourcepara{5.2.4.1}
+We choose the character \(\chi\) so as to maximize the dimension of the
+\(I(\infty)^{\mathrm{tame}}\) invariants in
+\(\mathcal{L}_\chi\otimes\mathcal{F}\). (If there is more than one \(\chi\)
+which works, we choose the first of them in the chosen total ordering, though
+any choice would work for the proof.)
+
+\sourcepara{5.2.4.2}
+We claim that any \(\chi\) which maximize the dimension of the
+\(I(\infty)^{\mathrm{tame}}\) invariants in
+\(\mathcal{L}_\chi\otimes\mathcal{F}\) is nontrivial. If not, we would have
+\[
+  e_1(\infty,\mathbf{1},\mathcal{F})\geq
+  e_1(\infty,\chi,\mathcal{F})\quad\text{for all \(\chi\)}.
+\]
+Recall that already at all finite singularities \(\alpha\) in \(D\),
+\(\mathcal{F}\) has
+\[
+  e_1(\alpha,\mathbf{1},\mathcal{F})\geq
+  e_1(\alpha,\chi,\mathcal{F})\quad\text{for all \(\chi\)}.
+\]
+
+\sourcepara{5.2.4.3}
+We will show this is impossible if \(\mathcal{F}\) in \(\mathcal{T}_\ell\) is
+cohomologically rigid. First, we remark that on \(\mathbb{A}^1-D\),
+\(\mathcal{F}\) is both irreducible and nontrivial (just because it lies in
+\(\mathcal{T}_\ell\)). Therefore, denoting by
+\[
+  j:\mathbb{A}^1-D\to\mathbb{P}^1
+\]
+the inclusion, we have
+\[
+  \mathrm{H}^0(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))=0
+  =
+  \mathrm{H}^2(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D)),
+\]
+and hence we have the inequality
+\[
+  \chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))\leq 0.
+\]
+
+\sourcepara{5.2.4.4}
+On the other hand, we are given that \(\mathcal{F}\) is cohomologically rigid,
+i.e.,
+\[
+  \chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))=2.
+\]
+
+\sourcepara{5.2.4.5}
+The idea now is to use the Euler--Poincaré formula to make explicit both of
+these Euler characteristics. Consider any \(\mathcal{F}\) in
+\(\mathcal{T}_\ell\) which is lisse on \(\mathbb{A}^1-D\). Because
+\(\mathcal{F}\) is tame,
+\[
+\begin{aligned}
+  &\chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))\\
+  &=
+  \chi(\mathbb{A}^1-D,\underline{\operatorname{End}}(\mathcal{F}))
+  +\sum_{\alpha\in D\amalg\{\infty\}}
+  \dim(\underline{\operatorname{End}}(\mathcal{F}))^{I(\alpha)}\\
+  &=
+  (1-\operatorname{Card}(D))r(\mathcal{F})^2
+  +\sum_{\alpha\in D\amalg\{\infty\}}\sum_\chi\sum_i
+  (e_i(\alpha,\chi,\mathcal{F}))^2,
+\end{aligned}
+\]
+the last equality thanks to \hyperref[lem:3.1.15]{Lemma~3.1.15}.
+
+\sourcepara{5.2.4.6}
+Now at each \(\alpha\) in \(D\amalg\{\infty\}\), denote by
+\(\chi_{\alpha,\mathcal{F}}\) a choice of character for which
+\(e_1(\alpha,\chi,\mathcal{F})\) is maximal. Since the \(e_i\) are a
+decreasing sequence, we have
+\[
+  e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})
+  \geq e_i(\alpha,\rho,\mathcal{F})\quad
+  \text{for all \(\rho\) and for all \(i\)}.
+\]
+Therefore we have the inequality
+\[
+  \sum_\chi\sum_i(e_i(\alpha,\chi,\mathcal{F}))^2
+  \leq
+  \sum_\chi\sum_i
+  e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})
+  e_i(\alpha,\chi,\mathcal{F}).
+\]
+But
+\[
+\begin{aligned}
+  &\sum_\chi\sum_i
+  e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})
+  e_i(\alpha,\chi,\mathcal{F})\\
+  &=
+  e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})
+  \sum_\chi\sum_i e_i(\alpha,\chi,\mathcal{F})\\
+  &=e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})r(\mathcal{F}),
+\end{aligned}
+\]
+so we get
+\[
+\begin{aligned}
+  &\chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))\\
+  &\leq
+  (1-\operatorname{Card}(D))r(\mathcal{F})^2
+  +
+  \sum_{\alpha\in D\amalg\{\infty\}}
+  e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})r(\mathcal{F}).
+\end{aligned}
+\]
+This we record as
+
+\sourceheading[ineq:5.2.4.7]{Basic Inequality 5.2.4.7}
+For any \(\mathcal{F}\) in \(\mathcal{T}_\ell\) which is lisse on
+\(\mathbb{A}^1-D\), we have
+\[
+\begin{aligned}
+  &\chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))\\
+  &\leq
+  r(\mathcal{F})\bigl[
+  (1-\operatorname{Card}(D))r(\mathcal{F})
+  +
+  \sum_{\alpha\in D\amalg\{\infty\}}
+  e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})
+  \bigr].
+\end{aligned}
+\]
+
+\sourcepara{5.2.4.8}
+Now suppose that
+\[
+  (**)\quad
+  \text{for every \(\alpha\) in \(D\amalg\{\infty\}\), we have }
+  e_1(\alpha,\mathbf{1},\mathcal{F})\geq
+  e_1(\alpha,\chi,\mathcal{F})\text{ for all \(\chi\)}.
+\]
+Then \(e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})\) is just
+\(e_1(\alpha,\mathbf{1},\mathcal{F})\), and we find
+\[
+\begin{aligned}
+  &(1/r(\mathcal{F}))
+  \chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))\\
+  &\leq
+  (1-\operatorname{Card}(D))r(\mathcal{F})
+  +
+  \sum_{\alpha\in D\amalg\{\infty\}}
+  e_1(\alpha,\mathbf{1},\mathcal{F}).
+\end{aligned}
+\]
+But the Euler--Poincaré formula for \(j_*\mathcal{F}\) gives
+\[
+  \chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))
+  =
+  (1-\operatorname{Card}(D))r(\mathcal{F})
+  +
+  \sum_{\alpha\in D\amalg\{\infty\}}
+  e_1(\alpha,\mathbf{1},\mathcal{F}).
+\]
+Thus for \(\mathcal{F}\) in \(\mathcal{T}_\ell\) satisfying \((**)\), we get
+the inequality
+\[
+  \chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))
+  \leq
+  r(\mathcal{F})\chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D)).
+\]
+But \(\chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))\leq 0\) for any
+\(\mathcal{F}\) in \(\mathcal{T}_\ell\), so we get
+\[
+  \chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))
+  \leq 0,
+\]
+which is impossible if \(\mathcal{F}\) is cohomologically rigid, i.e., if
+\[
+  \chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))
+  =2.
+\]
+
+\sourcepara{5.2.4.9}
+This shows that if we choose a character \(\chi\) so as to maximize the
+dimension of the \(I(\infty)^{\mathrm{tame}}\) invariants in
+\(\mathcal{L}_\chi\otimes\mathcal{F}\), then any such \(\chi\) is nontrivial,
+provided \(\mathcal{F}\) is cohomologically rigid and satisfies the hypothesis
+\((*)\) of \hyperref[thm:5.2.3]{Main Theorem~5.2.3}.
+
+\sourcepara{5.2.4.10}
+We must now show that for any such choice of \(\chi\), the sheaf
+\(\mathcal{G}:=\operatorname{MC}_\chi(\mathcal{F})\) has strictly lower generic
+rank: \(r(\mathcal{G})<r(\mathcal{F})\). For this, we use the rank formula
+\hyperref[cor:3.3.7]{Corollary~3.3.7}, according to which, for any
+\(\mathcal{F}\) in \(\mathcal{T}_\ell\),
+\[
+\begin{aligned}
+  r(\mathcal{G})
+  &=
+  \sum_{\alpha\in D}
+  \operatorname{rank}(\mathcal{F}(\alpha)/\mathcal{F}(\alpha)^{I(\alpha)})
+  -
+  \operatorname{rank}((\mathcal{F}(\infty)\otimes\mathcal{L}_\chi)^{I(\infty)})\\
+  &=
+  \operatorname{Card}(D)r(\mathcal{F})
+  -
+  \sum_{\alpha\in D}\operatorname{rank}(\mathcal{F}(\alpha)^{I(\alpha)})
+  -
+  \operatorname{rank}((\mathcal{F}(\infty)\otimes\mathcal{L}_\chi)^{I(\infty)})\\
+  &=
+  \operatorname{Card}(D)r(\mathcal{F})
+  -
+  \sum_{\alpha\in D}e_1(\alpha,\mathbf{1},\mathcal{F})
+  -
+  \operatorname{rank}((\mathcal{F}(\infty)\otimes\mathcal{L}_\chi)^{I(\infty)}).
+\end{aligned}
+\]
+
+\sourcepara{5.2.4.11}
+The Euler--Poincaré formula for \(\mathcal{F}\) says
+\[
+\begin{aligned}
+  \chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))
+  &=
+  (1-\operatorname{Card}(D))r(\mathcal{F})
+  +
+  \sum_{\alpha\in D\amalg\{\infty\}}e_1(\alpha,\mathbf{1},\mathcal{F})\\
+  &=
+  -\bigl[\operatorname{Card}(D)r(\mathcal{F})
+  -\sum_{\alpha\in D}e_1(\alpha,\mathbf{1},\mathcal{F})\bigr]
+  +r(\mathcal{F})+e_1(\infty,\mathbf{1},\mathcal{F}).
+\end{aligned}
+\]
+
+\sourcepara{5.2.4.12}
+Thus in our formula for \(r(\mathcal{G})\) we get, for any \(\mathcal{F}\) in
+\(\mathcal{T}_\ell\),
+\[
+  r(\mathcal{G})=
+  r(\mathcal{F})+e_1(\infty,\mathbf{1},\mathcal{F})
+  -\chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))
+  -
+  \operatorname{rank}((\mathcal{F}(\infty)\otimes\mathcal{L}_\chi)^{I(\infty)}).
+\]
+
+\sourcepara{5.2.4.13}
+We rewrite this as
+\[
+\begin{aligned}
+  r(\mathcal{F})-r(\mathcal{G})
+  &=
+  \chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))
+  +
+  \operatorname{rank}((\mathcal{F}(\infty)\otimes\mathcal{L}_\chi)^{I(\infty)})
+  -
+  e_1(\infty,\mathbf{1},\mathcal{F}).
+\end{aligned}
+\]
+
+\sourcepara{5.2.4.14}
+So we need to show that, for our \(\mathcal{F}\), we have
+\[
+  \chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))
+  +
+  \operatorname{rank}((\mathcal{F}(\infty)\otimes\mathcal{L}_\chi)^{I(\infty)})
+  -
+  e_1(\infty,\mathbf{1},\mathcal{F})>0.
+\]
+
+\sourcepara{5.2.4.15}
+To show this, recall that for any \(\mathcal{F}\) in \(\mathcal{T}_\ell\) we
+had the \hyperref[ineq:5.2.4.7]{Basic Inequality~5.2.4.7}
+\[
+\begin{aligned}
+  &\chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))\\
+  &\leq
+  r(\mathcal{F})\bigl[
+  (1-\operatorname{Card}(D))r(\mathcal{F})
+  +
+  \sum_{\alpha\in D\amalg\{\infty\}}
+  e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})
+  \bigr].
+\end{aligned}
+\]
+For \(\mathcal{F}\) cohomologically rigid and satisfying the hypothesis
+\((*)\) of \hyperref[thm:5.2.3]{Main Theorem~5.2.3}, the left hand side is
+\(2\) (\(\mathcal{F}\) is cohomologically rigid) and on the right each term
+\(e_1(\alpha,\chi_{\alpha,\mathcal{F}},\mathcal{F})\) for \(\alpha\) in \(D\)
+is equal to \(e_1(\alpha,\mathbf{1},\mathcal{F})\). Thus the Basic Inequality
+gives
+\[
+\begin{aligned}
+  2/r(\mathcal{F})
+  &\leq
+  (1-\operatorname{Card}(D))r(\mathcal{F})
+  +e_1(\infty,\chi_{\infty,\mathcal{F}},\mathcal{F})
+  +\sum_{\alpha\in D}e_1(\alpha,\mathbf{1},\mathcal{F})\\
+  &=
+  \chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))
+  +e_1(\infty,\chi_{\infty,\mathcal{F}},\mathcal{F})
+  -e_1(\infty,\mathbf{1},\mathcal{F}).
+\end{aligned}
+\]
+Since the left hand side (namely \(2/r(\mathcal{F})\)) is strictly positive, we
+get
+\[
+  0<
+  \chi(\mathbb{P}^1,j_*(\mathcal{F}\vert\mathbb{A}^1-D))
+  +e_1(\infty,\chi_{\infty,\mathcal{F}},\mathcal{F})
+  -e_1(\infty,\mathbf{1},\mathcal{F}).
+\]
+This is precisely the required inequality
+\hyperref[par:5.2.4.14]{(5.2.4.14)}, for by the very choice of the character
+\(\chi\) we have
+\[
+  e_1(\infty,\chi_{\infty,\mathcal{F}},\mathcal{F})
+  =
+  \operatorname{rank}((\mathcal{F}(\infty)\otimes\mathcal{L}_\chi)^{I(\infty)}).
+\]
+
+\section{Applications and interpretations of the main theorem}\label{sec:5.3}
+
+\sourcepara{5.3.1}
+We continue to work in the situation \hyperref[par:5.1.1]{(5.1.1)}. Fix a
+dense open set \(\mathbb{A}^1-D\) in \(\mathbb{A}^1\), and a subgroup
+\(\Gamma\) of the group of all continuous \(\overline{\mathbb{Q}}_\ell^\times\)-valued
+characters of \(I(0)^{\mathrm{tame}}\). Let us denote by
+\(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) the full subcategory of
+\(\mathcal{T}_\ell\) consisting of the objects \(\mathcal{F}\) which are lisse
+on \(\mathbb{A}^1-D\) and for which
+\(\operatorname{LocMono}(\mathcal{F})\subset\Gamma\).
+
+\sourcepara{5.3.2}
+We can construct a graph whose vertices are the objects of
+\(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\), and in which there is an edge
+joining two objects \(\mathcal{F}\) and \(\mathcal{G}\) if either of the
+following conditions (a) or (b) holds:
+\begin{enumerate}[label=(\alph*)]
+\item \(\mathcal{F}\) and \(\mathcal{G}\) both have generic rank \(>1\), and
+there is a lisse tame rank one \(\mathcal{L}\) on \(\mathbb{A}^1-D\), all of
+whose local monodromies are in \(\Gamma\), such that
+\(\mathcal{F}\cong\operatorname{MT}_{\mathcal{L}}(\mathcal{G})\), or
+equivalently
+\(\mathcal{G}\cong\operatorname{MT}_{\mathcal{L}^{-1}}(\mathcal{F})\).
+
+\item there exists a nontrivial character \(\chi\) in \(\Gamma\) such that
+\(\mathcal{F}\cong\operatorname{MC}_\chi(\mathcal{G})\), or equivalently
+\(\mathcal{G}\cong\operatorname{MC}_{\chi^{-1}}(\mathcal{F})\).
+\end{enumerate}
+In terms of this graph, the Main Theorem says precisely
+
+\sourceheading[thm:5.3.3]{Main Theorem 5.3.3 (= \hyperref[thm:5.2.1]{\textcolor{blue}{5.2.1 bis}})}
+If \(\mathcal{F}\) in \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) is
+cohomologically rigid, then \(\mathcal{F}\) (as vertex of the graph
+\hyperref[par:5.3.2]{(5.3.2)}) is connected to an object of rank one in
+\(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\), and its distance to such an
+object is at most \(2(r(\mathcal{F})-1)\).
+
+\section{Some open questions}\label{sec:5.4}
+
+\sourcepara{5.4.1}
+In this graph, any two objects which are connected have the same index of
+rigidity
+\(\chi(\mathbb{P}^1,j_*\underline{\operatorname{End}}(\mathcal{F}\vert\mathbb{A}^1-D))\),
+by \hyperref[thm:4.3.10]{Theorem~4.3.10}. Let us say that an object
+\(\mathcal{F}\) of \(\mathcal{T}_\ell(\mathbb{A}^1-D,\Gamma)\) is minimal if
+for any object \(\mathcal{G}\) to which it is connected,
+\(r(\mathcal{F})\leq r(\mathcal{G})\). Obviously every object is connected to a
+minimal object which has the same index of rigidity. The
+\hyperref[thm:5.3.3]{Main Theorem~5.3.3} states that the minimal
+cohomologically rigid objects are exactly those of generic rank one.
+
+\sourcepara{5.4.2}
+But the index of rigidity, a priori even and \(\leq 2\), can be any even
+integer \(\leq 2\). (For instance, the pullback by \(x\mapsto x^n\) of the rank
+two local system on \(\mathbb{P}^1-\{0,1,\infty\}\) attached to the
+differential equation for the Gauss hypergeometric function
+\(F(1/2,1/2,1;x)\) has index of rigidity \(4-2n\).) What are the minimal
+objects \(\mathcal{F}\) whose index of rigidity is some given even integer
+\(\leq 0\)? Already the simplest case of this question, index of rigidity
+\(=0\), is far from understood. For instance, is it true that if an object is
+not minimal, then it is at distance at most two from an object of strictly
+lower rank? Are there minimal objects with index of rigidity \(=0\) of
+arbitrarily large rank?
+
+\sourcepara{5.4.3}
+Here is a ``candidate'' for a construction of minimal objects with index of
+rigidity \(=0\) of arbitrarily large rank on \(\mathbb{A}^1-\{3\text{
+points}\}\). Over \(\mathbb{C}\) take an elliptic curve
+\[
+  y^2=(x-e_1)(x-e_2)(x-e_3),
+\]
+an integer \(n\geq 1\), and a primitive \(n\)'th root of unity \(\zeta\).
+Denote by \(\mathcal{F}_{n,\zeta}\) the (extension by zero to \(E\) of the)
+rank \(n\) local system on \(E-\{0\}\) with local monodromy around \(0\) given
+by the scalar \(\zeta\) constructed in the proof of
+\hyperref[lem:1.4.4]{Lemma~1.4.4}. For a rank one local system \(\mathcal{L}\)
+on \(E\) for which \(\mathcal{L}^{\otimes 2n}\) is nontrivial, there exists no
+isomorphism (of local systems on \(E-\{0\}\))
+\[
+  \mathcal{L}\otimes\mathcal{F}_{n,\zeta}
+  \cong[-1]^*(\mathcal{L}\otimes\mathcal{F}_{n,\zeta})
+\]
+(compare determinants). Let \(\pi:E\to\mathbb{P}^1\) be the map ``\(x\)''.
+Then \(\mathcal{G}:=\pi_*(\mathcal{L}\otimes\mathcal{F}_{n,\zeta})\), for
+\(\mathcal{L}\) as above, is an irreducible middle extension sheaf on
+\(\mathbb{P}^1\) which on \(\mathbb{A}^1-\{e_1,e_2,e_3\}\) is a rank \(2n\)
+local system with index of rigidity \(0\). Its local monodromies at the four
+missing points are semisimple, with eigenvalues
+\[
+\begin{aligned}
+  \text{at \(\infty\):}\quad
+    &\text{each of the two square roots of \(\zeta\), repeated \(n\) times},\\
+  \text{at \(e_i\):}\quad
+    &\text{each of \(\pm 1\), repeated \(n\) times}.
+\end{aligned}
+\]
+It is easy to show that any object of distance at most two from
+\(\mathcal{G}\) has rank at least that of \(\mathcal{G}\). Is \(\mathcal{G}\)
+minimal? If so, \(\mathcal{G}\) provides an example of a minimal object of rank
+\(2n\), lisse on \(\mathbb{A}^1-\{e_1,e_2,e_3\}\), with index of rigidity
+\(=0\).
+
+\section[Universal families of rigids]{Existence of universal families of rigids with given local monodromy}
+\label{sec:5.5}
+
+\sourcepara{5.5.1}
+Let \(k\) be an algebraically closed field, \(n\geq 2\) an integer,
+\(\alpha_1,\alpha_2,\ldots,\alpha_n\) a set of \(n\) distinct points of
+\(\mathbb{A}^1(k)\), \(\ell\) a prime number invertible in \(k\), \(N\geq 1\)
+an integer which is invertible in \(k\), and \(\zeta\) a primitive \(N\)'th root
+of unity in \(k\). Let \(\mathcal{F}\) be an object of \(\mathcal{T}_\ell\)
+which is lisse on
+\(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\), cohomologically rigid,
+and such that all eigenvalues of all local monodromies of \(\mathcal{F}\) are
+\(N\)'th roots of unity.
+
+\sourcepara{5.5.2}
+Given the data \((n,N,\ell)\), we form the ring
+\[
+  R_{N,\ell}:=\mathbb{Z}[\zeta_N,1/N\ell],
+  \quad \zeta_N:=\text{a primitive \(N\)'th root of unity}
+\]
+(i.e., \(R_{N,\ell}\) is
+\(\mathbb{Z}[1/N\ell][X]/(\Phi_N(X))\), with \(\Phi_N(X)\) in
+\(\mathbb{Z}[X]\) the \(N\)'th cyclotomic polynomial). We denote by
+\(E=E_N\) the fraction field of \(R_{N,\ell}\): thus \(E\) is the cyclotomic
+field \(\mathbb{Q}(\zeta_N)\). We fix an embedding
+\[
+  R_{N,\ell}\to\overline{\mathbb{Q}}_\ell,
+\]
+i.e., we fix a primitive \(N\)'th root of unity in
+\(\overline{\mathbb{Q}}_\ell\). We denote by \(\lambda\) the induced place of
+the ``abstract'' field \(E\), and by \(E_\lambda\) the \(\lambda\)-adic
+completion of \(E\).
+
+\sourcepara{5.5.3}
+Denote by \(S_{N,n,\ell}\) the ring
+\[
+  S_{N,n,\ell}:=
+  R_{N,\ell}[T_1,\ldots,T_n][1/\Delta],
+  \quad
+  \Delta:=\prod_{i\neq j}(T_i-T_j).
+\]
+There is a unique ring homomorphism
+\[
+  \varphi:S_{N,n,\ell}\to k
+\]
+for which \(\varphi(\zeta_N)=\zeta\) and for which
+\(\varphi(T_i)=\alpha_i\) for \(1\leq i\leq n\).
+
+Over \(S_{N,n,\ell}\), we have \(\mathbb{A}^1\), with its \(n\) disjoint
+sections \(\{T_1,\ldots,T_n\}\). We denote by
+\[
+  j:(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}
+  \to
+  (\mathbb{A}^1)_{S_{N,n,\ell}}
+\]
+the inclusion.
+
+\sourceheading[thm:5.5.4]{Theorem 5.5.4}
+In the situation \hyperref[par:5.5.1]{(5.5.1)}, we have
+\begin{enumerate}[label=(\alph*)]
+\item There exists a lisse \(E_\lambda\)-sheaf
+\[
+  \mathcal{F}\text{ on }
+  (\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}
+\]
+which, after the base change \(\varphi:S_{N,n,\ell}\to k\) and the extension
+of scalars \(E_\lambda\to\overline{\mathbb{Q}}_\ell\) becomes (the restriction
+to \(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\) of)
+\(\mathcal{F}\).
+
+\item (``mise pour memoire'', cf.
+\hyperref[prop:4.2.3]{Proposition~4.2.3},
+\hyperref[lem:4.3.8]{Lemma~4.3.8}, and
+\hyperref[prop:4.3.9]{Proposition~4.3.9}) The object \(j_*\mathcal{F}\) on
+\((\mathbb{A}^1)_{S_{N,n,\ell}}\) is of formation compatible with arbitrary
+change of base on \(S_{N,n,\ell}\), and is adapted to the stratification
+\[
+  ((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}},
+  \{T_1,\ldots,T_n\}_{S_{N,n,\ell}})
+  \text{ of }(\mathbb{A}^1)_{S_{N,n,\ell}}.
+\]
+The restriction of \(j_*\mathcal{F}\) to every geometric fibre of
+\((\mathbb{A}^1)_{S_{N,n,\ell}}\) is (after extension of scalars
+\(E_\lambda\to\overline{\mathbb{Q}}_\ell\)) a cohomologically rigid object of
+\(\mathcal{T}_\ell\), all of whose local monodromies have all their eigenvalues
+\(N\)'th roots of unity.
+
+\item The lisse \(E_\lambda\)-sheaf \(\mathcal{F}\) on
+\((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) is pure of some integer
+weight \(w\), \(0\leq w\leq\operatorname{rank}(\mathcal{F})-1\), and all its
+characteristic polynomials of Frobenius at all finite field-valued points have
+coefficients in the subring \(\mathbb{Z}[\zeta_N]\) of \(E_\lambda\) (a subring
+via the given embedding of \(R_{N,\ell}\) into
+\(\overline{\mathbb{Q}}_\ell\)).
+
+\item For any prime number \(\ell_1\), and any embedding
+\[
+  \lambda_1:\mathbb{Z}[\zeta_N]\to\overline{\mathbb{Q}}_{\ell_1},
+\]
+there exists on
+\((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell_1}}\) a lisse
+\(E_{\lambda_1}\)-sheaf \(\mathcal{F}_{\lambda_1}\) which satisfies (2) above
+with \(\ell\) replaced by \(\ell_1\), which is pure of the same weight \(w\),
+which at every finite field-valued point has characteristic polynomial of
+Frobenius with coefficients in the subring \(\mathbb{Z}[\zeta_N]\) of
+\(E_{\lambda_1}\). Moreover, at any such finite field valued point where
+\(\ell\) is invertible, the characteristic polynomial of
+\(\mathcal{F}_{\lambda_1}\) is equal to that of \(\mathcal{F}\) (equality in
+the common subring \(\mathbb{Z}[\zeta_N]\)).
+\end{enumerate}
+
+\sourceheading[proofhead:5.5.5]{5.5.5 Construction-proof of \hyperref[thm:5.5.4]{\textcolor{blue}{Theorem~5.5.4}}}
+
+\sourcepara{5.5.5.1}
+We proceed by induction on the generic rank \(r(\mathcal{F})\) of
+\(\mathcal{F}\). Suppose first that \(r(\mathcal{F})=1\). Then on
+\(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\), \(\mathcal{F}\) is a
+lisse sheaf of rank one, all of whose local monodromies have order dividing
+\(N\). Denote by \(\chi_i\) the character of order dividing \(N\) of
+\(I(\alpha_i)^{\mathrm{tame}}\) given by \(\mathcal{F}\) at \(\alpha_i\). Thus
+\(\chi_i\) is a \(E_\lambda^\times\)-valued character of
+\[
+  I(\alpha_i)^{\mathrm{tame}}/NI(\alpha_i)^{\mathrm{tame}}\cong\mu_N(k),
+\]
+the isomorphism given by the action of \(\mu_N(k)\) as Galois group of the
+finite étale Galois connected covering of
+\(\mathbb{A}^1-\{\alpha_i\}\) of equation \(y^N=x-\alpha_i\), on which
+\(\xi\) in \(\mu_N(k)\) acts by \((x,y)\mapsto(x,\xi y)\). Thus the translated
+Kummer sheaf \(\mathcal{L}_{\chi_i(x-\alpha_i)}\) on
+\(\mathbb{A}^1-\{\alpha_i\}\) is a lisse rank one \(E_\lambda\)-sheaf on
+\(\mathbb{A}^1-\{\alpha_i\}\), and it has the same local monodromy at
+\(\alpha_i\) that \(\mathcal{F}\) does.
+
+\sourcepara{5.5.5.2}
+Consider the lisse, rank one \(E_\lambda\)-sheaf
+\[
+  \bigotimes_i\mathcal{L}_{\chi_i(x-\alpha_i)}
+  \text{ on }\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}.
+\]
+It has the same local monodromy as \(\mathcal{F}\) at each point
+\(\alpha_i\), and both it and \(\mathcal{F}\) are tame at \(\infty\).
+Therefore
+\[
+  \mathcal{F}\cong
+  \bigotimes_i\mathcal{L}_{\chi_i(x-\alpha_i)}
+  \text{ on }\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\},
+\]
+because their ratio is lisse and tame on \(\mathbb{A}^1\), but
+\(\pi_1^{\mathrm{tame}}(\mathbb{A}^1)=0\).
+
+\sourcepara{5.5.5.3}
+By means of the fixed choices of primitive \(N\)'th roots of unity \(\zeta_N\)
+in \(R_{N,\ell}\subset S_{N,n,\ell}\) and \(\zeta\) in \(k\), we may identify
+the groups \(\mu_N(R_{N,\ell})=\mu_N(S_{N,n,\ell})\) and \(\mu_N(k)\). This
+allows us to view \(\chi_i\) as a character of the group
+\(\mu_N(S_{N,n,\ell})\) which is the Galois group of the finite étale Galois
+connected covering of \((\mathbb{A}^1-\{T_i\})_{S_{N,n,\ell}}\) of equation
+\[
+  y^N=x-T_i,
+\]
+on which \(\xi\) in \(\mu_N(S_{N,n,\ell})\) acts by
+\((x,y)\mapsto(x,\xi y)\). Thus we may speak of the translated Kummer sheaf
+\(\mathcal{L}_{\chi_i(x-T_i)}\) as a lisse \(E_\lambda\)-sheaf of rank one on
+\((\mathbb{A}^1-\{T_i\})_{S_{N,n,\ell}}\).
+
+\sourcepara{5.5.5.4}
+We now define \(\mathcal{F}\) to be
+\[
+  \mathcal{F}:=
+  \bigotimes_i\mathcal{L}_{\chi_i(x-T_i)}
+  \text{ on }(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}.
+\]
+It is obvious that (1) (and hence (2) also) and (3) are satisfied, with the
+weight \(w=0\). Since the characters \(\chi_i\) have values in the subgroup
+\(\mu_N(\mathbb{Z}[\zeta_N])\) of
+\(\overline{\mathbb{Q}}_\ell^\times\), for any prime number \(\ell_1\), and
+any embedding
+\[
+  \lambda_1:\mathbb{Z}[\zeta_N]\to\overline{\mathbb{Q}}_{\ell_1},
+\]
+we can view the \(\chi_i\) as \(E_{\lambda_1}^\times\)-valued characters, and
+define \(\mathcal{F}_{\lambda_1}\) by the same recipe as above, viewing now
+each \(\mathcal{L}_{\chi_i(x-T_i)}\) as a lisse rank one
+\(E_{\lambda_1}\)-sheaf on
+\((\mathbb{A}^1-\{T_i\})_{S_{N,n,\ell_1}}\). It is obvious that (4) is now
+satisfied. (One should remark that, fibre by fibre, this
+\(\mathcal{F}_{\lambda_1}\) does indeed have at least two finite singularities,
+since along the section \(T_i\) its local monodromy is of exactly the same
+order as was the local monodromy of the original \(\mathcal{F}\) at
+\(\alpha_i\), namely the order of the character \(\chi_i\); and the assumption
+that \(\mathcal{F}\) is in \(\mathcal{T}_\ell\) guarantees that \(\chi_i\) is
+nontrivial for at least two distinct values of \(i\).) This concludes the
+construction-proof in the case of generic rank one.
+
+\sourcepara{5.5.5.5}
+We now explain how to pass to the general case. Thus let \(\mathcal{F}\) in
+\(\mathcal{T}_\ell\) be lisse on
+\(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\), cohomologically rigid,
+with all local monodromy eigenvalues \(N\)'th roots of unity, and with generic
+rank \(r(\mathcal{F})\geq 2\).
+
+\sourcepara{5.5.5.6}
+According to the main theorem \hyperref[thm:5.2.1]{Main Theorem~5.2.1}, there
+exist
+\begin{enumerate}[label=(\arabic*)]
+\item an object \(\mathcal{G}\) in \(\mathcal{T}_\ell\), lisse on
+\(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\), with all local
+monodromy eigenvalues \(N\)'th roots of unity, with
+\(r(\mathcal{G})<r(\mathcal{F})\),
+
+\item a lisse rank one \(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{L}\) on
+\(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\), with all local
+monodromies of order dividing \(N\),
+
+\item a nontrivial \(\overline{\mathbb{Q}}_\ell\)-valued character \(\chi\) of
+\(\pi_1(\mathbb{G}_m)^{\mathrm{tame}}\) of order dividing \(N\),
+
+\item an isomorphism
+\[
+  \mathcal{F}\cong\operatorname{MT}_{\mathcal{L}}(\operatorname{MC}_\chi(\mathcal{G})).
+\]
+\end{enumerate}
+
+\sourcepara{5.5.5.7}
+By applying the argument given in the rank one case to \(\mathcal{L}\) on
+\(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\), and to
+\(\mathcal{L}_\chi\) on \(\mathbb{G}_m=\mathbb{A}^1-\{0\}\), we construct
+lisse rank one \(E_\lambda\)-sheaves \(\mathcal{L}\) on
+\((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) and
+\(\mathcal{L}_\chi\) on \((\mathbb{A}^1-\{0\})_{S_{N,n,\ell}}\) which after
+the base change \(\varphi:S_{N,n,\ell}\to k\) and the extension of scalars
+\(E_\lambda\to\overline{\mathbb{Q}}_\ell\) become \(\mathcal{L}\) and
+\(\mathcal{L}_\chi\) respectively. The conclusions (2), (3), and (4) of the
+theorem hold for \(\mathcal{L}\) on
+\((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\). These same conclusions
+hold also for \(\mathcal{L}_\chi\) on
+\((\mathbb{A}^1-\{0\})_{S_{N,n,\ell}}\) provided we delete the phrase ``in
+\(\mathcal{T}_\ell\)'' from (2).
+
+\sourcepara{5.5.5.8}
+By induction, we may assume there exists a lisse \(E_\lambda\)-sheaf
+\(\mathcal{G}\) on
+\((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) for which after the base
+change \(\varphi:S_{N,n,\ell}\to k\) and the extension of scalars
+\(E_\lambda\to\overline{\mathbb{Q}}_\ell\) becomes \(\mathcal{G}\), and for
+which (2), (3), and (4) hold. We define \(\mathcal{F}\) on
+\((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) by
+\[
+  \mathcal{F}[1]:=
+  \mathcal{L}\otimes
+  j^*(j_*\mathcal{G}[1]*_{\mathrm{mid}+}j_{0*}\mathcal{L}_\chi[1]),
+\]
+where
+\[
+  j:(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\to
+  (\mathbb{A}^1)_{S_{N,n,\ell}},
+\]
+and
+\[
+  j_0:(\mathbb{A}^1-\{0\})_{S_{N,n,\ell}}\to
+  (\mathbb{A}^1)_{S_{N,n,\ell}}
+\]
+denote the inclusions.
+
+\sourcepara{5.5.5.9}
+That (1) holds results from \hyperref[par:4.3.2]{(4.3.2)},
+\hyperref[par:4.3.3]{(4.3.3)}, and \hyperref[thm:4.3.10]{Theorem~4.3.10}. As
+already remarked, (2) for \(\mathcal{F}\) is automatic once we have (1) (use
+\hyperref[thm:4.3.10]{Theorem~4.3.10} to see that (after extension of scalars
+\(E_\lambda\to\overline{\mathbb{Q}}_\ell\))
+\(\mathcal{F}\otimes\mathcal{L}^{-1}\), and hence \(\mathcal{F}\), whose
+generic rank is \(\geq 2\), is fibre-by-fibre in \(\mathcal{T}_\ell\)). To
+prove (3) for \(\mathcal{F}\), it suffices to do so for
+\((j_*\mathcal{G}[1]*_{\mathrm{mid}+}j_{0*}\mathcal{L}_\chi[1])[-1]\), because
+we already know that (3) holds for \(\mathcal{L}\) itself, with weight \(w=0\).
+
+\sourcepara{5.5.5.10}
+We begin the proof of (3). Let \(\mathbb{F}\) be a finite field in which
+\(N\ell\) is invertible, and \(\rho:S_{N,n,\ell}\to\mathbb{F}\) a ring
+homomorphism. Pick a point \(\tau\) in
+\(\mathbb{A}^1(\mathbb{F})-\{\rho(T_1),\ldots,\rho(T_n)\}\). Denote by \(U\)
+the open set
+\[
+  U:=(\mathbb{A}^1-\{\rho(T_1),\ldots,\rho(T_n),\tau\})_{\mathbb{F}}
+\]
+of \(\mathbb{A}^1_{\mathbb{F}}\). According to
+\hyperref[recipe:5.1.7]{Explicit Recipes~5.1.7}, the stalk of
+\((j_*\mathcal{G}[1]*_{\mathrm{mid}+}j_{0*}\mathcal{L}_\chi[1])[-1]\) at the
+geometric point \((\rho,\tau,\overline{\mathbb{F}})\) is the image of the
+``forget supports'' map
+\[
+  \mathrm{H}^1_c(U\otimes\overline{\mathbb{F}},
+  \mathcal{G}\otimes\mathcal{L}_{\chi(\tau-x)})
+  \to
+  \mathrm{H}^1(U\otimes\overline{\mathbb{F}},
+  \mathcal{G}\otimes\mathcal{L}_{\chi(\tau-x)}).
+\]
+By induction, \(\mathcal{G}\) is pure weight \(w\),
+\(0\leq w\leq\operatorname{rank}(\mathcal{G})-1\), while
+\(\mathcal{L}_\chi\) is pure of weight zero. By
+\cite[3.2.3 and remark following its statement]{De-WeilII} the image of the
+``forget supports'' map is precisely the weight \(=w+1\) quotient of the group
+\[
+  \mathrm{H}^1_c(U\otimes\overline{\mathbb{F}},
+  \mathcal{G}\otimes\mathcal{L}_{\chi(\tau-x)}),
+\]
+which is a priori of weight \(\leq w+1\). Now the cohomology groups
+\[
+  \mathrm{H}^i_c(U\otimes\overline{\mathbb{F}},
+  \mathcal{G}\otimes\mathcal{L}_{\chi(\tau-x)})=0
+  \quad\text{for \(i\neq 1\)}
+\]
+(for \(i=0\) because we are lisse on an open curve, for \(i=2\) because in
+addition we are geometrically irreducible and nontrivial). Therefore the
+characteristic polynomial of Frobenius \(\operatorname{Frob}_{\rho,\tau,\mathbb{F}}\)
+on
+\(\mathrm{H}^1_c(U\otimes\overline{\mathbb{F}},
+\mathcal{G}\otimes\mathcal{L}_{\chi(\tau-x)})\) is, by the Lefschetz Trace
+Formula \cite{Gro-FL}, equal to the \(L\)-function of the lisse sheaf
+\(\mathcal{G}\otimes\mathcal{L}_{\chi(\tau-x)}\) on \(U\):
+\[
+\begin{aligned}
+  L(U,\mathcal{G}\otimes\mathcal{L}_{\chi(\tau-x)},T)
+  &=
+  \det(1-T\operatorname{Frob}_{\rho,\tau,\mathbb{F}}\mid
+  \mathrm{H}^1_c(U\otimes\overline{\mathbb{F}},
+  \mathcal{G}\otimes\mathcal{L}_{\chi(\tau-x)})).
+\end{aligned}
+\]
+Therefore the characteristic polynomial of Frobenius
+\(\operatorname{Frob}_{\rho,\tau,\mathbb{F}}\) on
+\((j_*\mathcal{G}[1]*_{\mathrm{mid}+}j_{0*}\mathcal{L}_\chi[1])[-1]\) is the
+``pure of weight \(w+1\) part'' of this \(L\)-function.
+
+\sourcepara{5.5.5.11}
+We now consider more closely this \(L\)-function. Because both \(\mathcal{G}\)
+and \(\mathcal{L}_\chi\) have all their characteristic polynomials of Frobenius
+with coefficients in the subring \(\mathbb{Z}[\zeta_N]\) of
+\(\overline{\mathbb{Q}}_\ell\), the Euler product for this \(L\)-function shows
+that the \(L\)-function itself lies in \(1+T(\mathbb{Z}[\zeta_N][[T]])\),
+hence (being a polynomial) in \(1+T(\mathbb{Z}[\zeta_N][T])\), and that it is
+entirely determined by all the individual characteristic polynomials of
+Frobenius of both \(\mathcal{G}\) and \(\mathcal{L}_\chi\). If we factor
+\(L(T)\) as
+\[
+  L(T)=\prod_j(1-\beta_jT),
+\]
+the reciprocal roots \(\beta_j\) are algebraic integers, which (as a set with
+multiplicity) are stable under \(\operatorname{Aut}(\mathbb{C}/\mathbb{Q}(\zeta_N))\).
+Taking the ``part of weight \(w+1\)'' of \(L\) produces the intrinsic divisor
+of \(L(T)\) in which we keep precisely those \(\beta_j\) which, together with
+all their conjugates, are algebraic integers, have complex absolute value
+\(\sqrt{(\operatorname{Card}(\mathbb{F}))^{w+1}}\). This intrinsic divisor is
+also stable under \(\operatorname{Aut}(\mathbb{C}/\mathbb{Q}(\zeta_N))\), so
+has coefficients in
+\(\mathbb{Q}(\zeta_N)\cap\{\text{algebraic integers}\}=\mathbb{Z}[\zeta_N]\).
+Moreover, being intrinsic, it too is entirely determined by all the individual
+characteristic polynomials of Frobenius of both \(\mathcal{G}\) and
+\(\mathcal{L}_\chi\).
+
+\sourcepara{5.5.5.12}
+It remains to prove (4). Again by induction, all the objects
+\(\mathcal{G}\), \(\mathcal{L}\), and \(\mathcal{L}_\chi\) have
+\(\lambda_1\)-adic versions, say \(\mathcal{G}_{\lambda_1}\),
+\(\mathcal{L}_{\lambda_1}\), and \(\mathcal{L}_{\chi_{\lambda_1}}\). Using
+these, we define \(\mathcal{F}_{\lambda_1}\) out of them in precisely the same
+way we defined \(\mathcal{F}\):
+\[
+  \mathcal{F}_{\lambda_1}[1]:=
+  \mathcal{L}_{\lambda_1}\otimes
+  j^*(j_*\mathcal{G}_{\lambda_1}[1]*_{\mathrm{mid}+}
+  j_{0*}\mathcal{L}_{\chi_{\lambda_1}}[1]).
+\]
+Now repeat for
+\[
+  j^*(j_*\mathcal{G}_{\lambda_1}[1]*_{\mathrm{mid}+}
+  j_{0*}\mathcal{L}_{\chi_{\lambda_1}}[1])[-1]
+\]
+the above discussion of characteristic polynomials of Frobenius. It will
+establish that its characteristic polynomials of Frobenius have coefficients
+in \(\mathbb{Z}[\zeta_N]\), and are entirely determined by all the individual
+characteristic polynomials of Frobenius of both \(\mathcal{G}_{\lambda_1}\) and
+\(\mathcal{L}_{\chi_{\lambda_1}}\) by exactly the same ``part of weight
+\(w+1\) of an \(L\)-function'' rules as the characteristic polynomials of
+\(\mathcal{F}\) were determined by those of \(\mathcal{G}\) and
+\(\mathcal{L}_\chi\). This proves inductively that
+\[
+  j^*(j_*\mathcal{G}_{\lambda_1}[1]*_{\mathrm{mid}+}
+  j_{0*}\mathcal{L}_{\chi_{\lambda_1}}[1])[-1]
+\]
+is pure of weight \(w+1\), has characteristic polynomials of Frobenius with
+coefficients in \(\mathbb{Z}[\zeta_N]\), and that for any finite field-valued
+point of \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) where
+\(\ell_1\) is invertible,
+\[
+  j^*(j_*\mathcal{G}[1]*_{\mathrm{mid}+}j_{0*}\mathcal{L}_\chi[1])[-1]
+  \quad\text{and}\quad
+  j^*(j_*\mathcal{G}_{\lambda_1}[1]*_{\mathrm{mid}+}
+  j_{0*}\mathcal{L}_{\chi_{\lambda_1}}[1])[-1]
+\]
+have the ``same'' (comparison in the common subring \(\mathbb{Z}[\zeta_N]\) of
+\(\overline{\mathbb{Q}}_\ell\) and \(\overline{\mathbb{Q}}_{\ell_1}\))
+characteristic polynomial of Frobenius. Because we already know that (4) holds
+for \(\mathcal{L}\) and its \(\lambda_1\)-partner
+\(\mathcal{L}_{\lambda_1}\), we may tensor by these to deduce that
+\(\mathcal{F}\) and \(\mathcal{F}_{\lambda_1}\) also have the same
+characteristic polynomials of Frobenius at any finite field-valued point of
+\((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) where \(\ell_1\) is
+invertible.
+
+\sourcepara{5.5.5.13}
+It remains only to show that \(j_*\mathcal{F}_{\lambda_1}\) satisfies (2).
+Using \hyperref[lem:4.3.8]{Lemma~4.3.8}, we get most of (2): it remains only
+to show that \(j_*\mathcal{F}_{\lambda_1}\) is fibre-by-fibre in
+\(\mathcal{T}_\ell\). But as \(\operatorname{rank}(\mathcal{F}_{\lambda_1})\geq 2\),
+it is equivalent to show that
+\[
+  (j_*\mathcal{G}_{\lambda_1}[1]*_{\mathrm{mid}+}
+  j_{0*}\mathcal{L}_{\chi_{\lambda_1}}[1])[-1]
+\]
+is fibre-by-fibre in \(\mathcal{T}_\ell\). This results from
+\hyperref[thm:4.3.10]{Theorem~4.3.10} and
+\hyperref[thm:4.3.11]{Theorem~4.3.11}.
+
+\sourcepara{5.5.6}
+We now discuss the weight \(w\) of \(\mathcal{F}\) constructed in
+\hyperref[thm:5.5.4]{Theorem~5.5.4}. If \(\mathcal{F}\) has rank one, then
+\(w=0\). When \(\mathcal{F}\) has rank \(r(\mathcal{F})\geq 2\), we can, by
+\hyperref[thm:5.3.3]{Main Theorem~5.3.3}, connect \(\mathcal{F}\) to a rank
+one object \(\mathcal{L}_0\) through a finite number of steps, each of which is
+either an \(\operatorname{MT}_{\mathcal{L}}\) or an
+\(\operatorname{MC}_\chi\), say
+\[
+  \mathcal{F}=
+  \operatorname{MT}_{\mathcal{L}_d}\circ\operatorname{MC}_{\chi_d}
+  \circ\cdots\circ
+  \operatorname{MT}_{\mathcal{L}_1}\circ\operatorname{MC}_{\chi_1}
+  (\mathcal{L}_0),
+\]
+in such a way that
+\begin{enumerate}[label=(\arabic*)]
+\item each application of an \(\operatorname{MC}_\chi\) strictly increases the
+rank,
+\item we have \((\chi_i)^N=1\) for \(i=1,\ldots,d\), but each
+\(\chi_i\neq\mathbf{1}\),
+\item we have \((\mathcal{L}_i)^{\otimes N}\cong\overline{\mathbb{Q}}_\ell\),
+for \(i=0,\ldots,d\), but \(\mathcal{L}_i\) is non-constant for
+\(i=0,\ldots,d-1\).
+\end{enumerate}
+There may be more than one such expression for \(\mathcal{F}\), but each
+choice of such an expression gives rise to an \(\mathcal{F}\). Concretely, we
+``thicken'' each \(\mathcal{L}_i\) to \(\mathcal{L}_i\), each
+\(\mathcal{L}_{\chi_i}\) to \(\mathcal{L}_{\chi_i}\), and inductively define
+\(\mathcal{F}_0:=\mathcal{L}_0\), \(\mathcal{F}_1,\ldots,\mathcal{F}_d:=\mathcal{F}\)
+by (in the notations of \hyperref[par:5.5.5.8]{(5.5.5.8)})
+\[
+  \mathcal{F}_{i+1}[1]:=
+  \mathcal{L}_i\otimes
+  j^*(j_*\mathcal{F}_{i-1}[1]*_{\mathrm{mid}+}j_{0*}\mathcal{L}_{\chi_i}[1]),
+\]
+for \(i=0,\ldots,d-1\). The weight of the \(\mathcal{F}\) constructed this way
+is the number \(d\) of steps of type \(\operatorname{MC}_\chi\).
+
+\sourcepara{5.5.7}
+We now examine the unicity of an \(\mathcal{F}\) given by
+\hyperref[thm:5.5.4]{Theorem~5.5.4}. Denote by
+\[
+  \pi:(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\to S_{N,n,\ell}
+\]
+the projection. For any lisse \(E_\lambda\)-sheaf \(\mathcal{L}\) on
+\(S_{N,n,\ell}\), \(\mathcal{F}\otimes\pi^*(\mathcal{L})\) works just as well
+as \(\mathcal{F}\) in \hyperref[thm:5.5.4]{Theorem~5.5.4(1)}. This is the only
+ambiguity in \(\mathcal{F}\).
+
+\sourceheading[lem:5.5.7.1]{Lemma 5.5.7.1}
+Hypotheses and notations as in \hyperref[thm:5.5.4]{Theorem~5.5.4}, suppose
+\(\mathcal{F}\) and \(\mathcal{F}_1\) both satisfy
+\hyperref[thm:5.5.4]{Theorem~5.5.4(1)}. Then there exists a lisse
+\(E_\lambda\)-sheaf \(\mathcal{L}\) on \(S_{N,n,\ell}\), and an isomorphism
+\[
+  \mathcal{F}_1\cong\mathcal{F}\otimes\pi^*(\mathcal{L}).
+\]
+
+\begin{proof}
+This follows from the Rigidity Corollary \hyperref[cor:5.5.7.3]{Corollary~5.5.7.3}
+below, applied to \(S:=\operatorname{Spec}(S_{N,n,\ell})\), and
+\(U:=(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\).
+\end{proof}
+
+\sourceheading[lem:5.5.7.2]{Lemma 5.5.7.2 (mise pour memoire)}
+Let \(\ell\) be a prime number, \(S\) a normal connected noetherian
+\(\mathbb{Z}[1/\ell]\)-scheme whose generic point has
+characteristic zero, \(X/S\) a proper smooth curve with geometrically
+connected fibres, \(D\subset X\) a closed subscheme which is finite étale over
+S of degree \(d\geq 0\), \(U:=X-D\), and \(\pi:U\to S\) the structural map.
+For any finite extension \(E_\lambda\) of \(\mathbb{Q}_\ell\), and any lisse
+\(E_\lambda\)-sheaf \(\mathcal{F}\) on \(U\), the sheaves
+\(\mathrm{R}^i\pi_!\mathcal{F}\) and \(\mathrm{R}^i\pi_*\mathcal{F}\) on \(S\)
+are lisse, and of formation compatible with arbitrary change of base on \(S\).
+
+\begin{proof}
+Because \(S\) has generic characteristic zero, \(\mathcal{F}\) is automatically
+tame on the geometric generic fibre, and the asserted result for
+\(\mathrm{R}^i\pi_!\mathcal{F}\) is well-known, cf. \cite[4.7.1]{Ka-SE}. This
+result, applied to \(\mathcal{F}^{\vee}\), yields the result for
+\(\mathrm{R}^i\pi_*\mathcal{F}\) by duality.
+\end{proof}
+
+\sourceheading[cor:5.5.7.3]{Rigidity Corollary 5.5.7.3}
+In the situation \hyperref[lem:5.5.7.2]{Lemma~5.5.7.2}, let \(\mathcal{F}\)
+and \(\mathcal{G}\) be lisse \(E_\lambda\)-sheaves (respectively
+\(\overline{\mathbb{Q}}_\ell\)-sheaves) on \(U\). The following conditions are
+equivalent.
+\begin{enumerate}[label=(\arabic*)]
+\item For some geometric point \(s\) of \(S\), both \(\mathcal{F}\vert U_s\)
+and \(\mathcal{G}\vert U_s\) are absolutely irreducible, and there exists an
+isomorphism
+\(\mathcal{F}\vert U_s\cong\mathcal{G}\vert U_s\) of lisse sheaves on \(U_s\).
+
+\item For every geometric point \(s\) of \(S\), both
+\(\mathcal{F}\vert U_s\) and \(\mathcal{G}\vert U_s\) are absolutely
+irreducible, and there exists an isomorphism
+\(\mathcal{F}\vert U_s\cong\mathcal{G}\vert U_s\) of lisse sheaves on \(U_s\).
+
+\item Condition (2) holds, and there exists a lisse, rank one
+\(E_\lambda\)-sheaf (respectively \(\overline{\mathbb{Q}}_\ell\)-sheaf)
+\(\mathcal{L}\) on \(S\), and an isomorphism
+\(\mathcal{G}\cong\mathcal{F}\otimes\pi^*(\mathcal{L})\) of lisse sheaves on
+\(U\).
+\end{enumerate}
+
+\begin{proof}
+It is trivial that (3) \(\Rightarrow\) (2) \(\Rightarrow\) (1). We now show
+that (1) \(\Rightarrow\) (3). Consider the lisse sheaf
+\(\mathcal{H}:=\underline{\operatorname{Hom}}(\mathcal{F},\mathcal{G})\) on
+\(U\). By \hyperref[lem:5.5.7.2]{Lemma~5.5.7.2} applied to \(\mathcal{H}\),
+\(\pi_*\underline{\operatorname{Hom}}(\mathcal{F},\mathcal{G})\) is lisse on
+\(S\), of formation compatible with arbitrary change of base on \(S\). Taking
+the fibre at \(s\), we see from (1) that
+\(\mathcal{L}:=\pi_*\underline{\operatorname{Hom}}(\mathcal{F},\mathcal{G})\)
+is lisse of rank one. We have a canonical map of lisse sheaves on \(U\),
+\[
+  \mathcal{F}\otimes\pi^*(\mathcal{L})\to\mathcal{G},
+\]
+which is an isomorphism on \(U_s\). But the kernel and cokernel of this map are
+lisse sheaves on \(U\), so both must vanish. Therefore
+\(\mathcal{F}\otimes\pi^*(\mathcal{L})\cong\mathcal{G}\). For every geometric
+point \(s\) of \(S\), we get
+\(\mathcal{F}\vert U_s\cong\mathcal{G}\vert U_s\) by passing to fibres. That
+both \(\mathcal{F}\vert U_s\) and \(\mathcal{G}\vert U_s\) are absolutely
+irreducible for every geometric point \(s\) results from
+\hyperref[cor:4.2.6]{Corollary~4.2.6}.
+\end{proof}
+
+\sourcepara{5.5.8}
+We now clarify the sense in which the \(\mathcal{F}\) constructed in
+\hyperref[thm:5.5.4]{Theorem~5.5.4} is a universal family of rigids with the
+same local monodromy as \(\mathcal{F}\). We must first specify the precise
+meaning of ``same local monodromy as \(\mathcal{F}\)''. Thus let \(k_1\) be a
+second algebraically closed field in which \(\ell N\) is invertible,
+\(\zeta_1\) in \(k_1\) a primitive \(N\)'th root of unity, and
+\(\beta_1,\ldots,\beta_n\) a set of \(n\geq 2\) distinct points of
+\(\mathbb{A}^1(k_1)\). Let \(\mathcal{F}_1\) be a lisse
+\(\overline{\mathbb{Q}}_\ell\)-sheaf on
+\(\mathbb{A}^1_{k_1}-\{\beta_1,\ldots,\beta_n\}\) which is everywhere tame and
+such that all eigenvalues of all local monodromies of \(\mathcal{F}_1\) are
+\(N\)'th roots of unity. At any point
+\(\beta\) in \(\{\beta_1,\ldots,\beta_n,\infty\}\), we can describe the local
+monodromy of \(\mathcal{F}_1\) at \(\beta\) as follows. The tame inertia group
+\(I(\beta)^{\mathrm{tame}}\) is canonically the pro-cyclic group
+\[
+  \prod_{\ell\neq\operatorname{char}(k)}\mathbb{Z}_\ell(1)(k_1)
+  \cong\varprojlim_M\mu_M(k_1),
+\]
+the inverse limit taken over \(M\)'s invertible in \(k_1\). This group maps
+onto \(\mu_N(k_1)\). By hypothesis, \(\mathcal{F}_1(\beta)\) as
+\(I(\beta)^{\mathrm{tame}}\)-representation is canonically the direct sum of
+representations of the form
+\[
+  (\text{a character of \(\mu_N(k_1)\)})\otimes
+  (\text{a unipotent rep'n. of \(I(\beta)^{\mathrm{tame}}\)}).
+\]
+A unipotent representation of \(I(\beta)^{\mathrm{tame}}\) factors through a
+unipotent representation of \(\mathbb{Z}_\ell(1)(k_1)\), and its isomorphism
+class is the Jordan normal form of the action of any topological generator of
+\(\mathbb{Z}_\ell(1)(k)\).
+
+Therefore \(\mathcal{F}_1(\beta)\) as \(I(\beta)^{\mathrm{tame}}\)-representation
+factors through the quotient
+\[
+  \varprojlim_\nu\mu_{\ell^\nu N}(k_1)
+\]
+of \(I(\beta)^{\mathrm{tame}}\). Moreover, for any choice
+\(\gamma(\beta,\zeta_1)^{\mathrm{tame}}\) of a generator of this last group
+which maps onto \(\zeta_1\) in \(\mu_N(k_1)\), the Jordan normal form (i.e.,
+conjugacy class in \(\operatorname{GL}(\operatorname{rank}(\mathcal{F}_1),
+\overline{\mathbb{Q}}_\ell)\)) of its action on \(\mathcal{F}_1(\beta)\) is
+independent of the choice. By ``the local monodromy of \(\mathcal{F}_1\) at
+\(\beta\), relative to \(\zeta_1\)'', we mean the Jordan normal form of the
+action on \(\mathcal{F}_1(\beta)\) of any
+\(\gamma(\beta,\zeta_1)^{\mathrm{tame}}\).
+
+\sourceheading[prop:5.5.8.1]{Proposition 5.5.8.1}
+Consider the situation \hyperref[par:5.5.1]{(5.5.1)}. Let \(k_1\) be a second
+algebraically closed field in which \(\ell N\) is invertible, \(\zeta_1\) in
+\(k_1\) a primitive \(N\)'th root of unity, and
+\(\beta_1,\ldots,\beta_n\) a set of \(n\geq 2\) distinct
+\(\mathbb{A}^1(k_1)\). Let \(\mathcal{F}_1\) be an object of
+\(\mathcal{T}_\ell\) on \(\mathbb{A}^1_{k_1}\) which is lisse on
+\(\mathbb{A}^1_{k_1}-\{\beta_1,\ldots,\beta_n\}\), cohomologically rigid, and
+such that all eigenvalues of all local monodromies of \(\mathcal{F}_1\) are
+\(N\)'th roots of unity. Suppose that
+\begin{enumerate}[label=(\arabic*)]
+\item for \(i=1,\ldots,n\), the local monodromy of \(\mathcal{F}_1\) at
+\(\beta_i\), relative to \(\zeta_1\), is isomorphic to the local monodromy of
+\(\mathcal{F}\) at \(\alpha_i\), relative to \(\zeta\),
+
+\item the local monodromy of \(\mathcal{F}_1\) at \(\infty\), relative to
+\(\zeta_1\), is isomorphic to the local monodromy of \(\mathcal{F}\) at
+\(\infty\), relative to \(\zeta\).
+\end{enumerate}
+
+Denote by \(\mathcal{F}\) and \(\mathcal{F}_1\) on
+\((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) any choices of the lisse
+\(E_\lambda\)-sheaves given by \hyperref[thm:5.5.4]{Theorem~5.5.4}, applied
+to \(\mathcal{F}\) and to \(\mathcal{F}_1\) respectively. Denote by
+\[
+  \pi:(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\to S_{N,n,\ell}
+\]
+the projection. Then
+\begin{enumerate}[label=(\arabic*)]
+\item At any geometric point \(\varphi:S_{N,n,\ell}\to k_2\) of
+\(S_{N,n,\ell}\), the restriction \(\mathcal{F}_{\varphi}\) of
+\(\mathcal{F}\) to the fibre over \(\varphi\) is a cohomologically rigid object
+of \(\mathcal{T}_\ell\), whose local monodromy at the point \(\varphi(T_i)\),
+\(i=1,\ldots,n\), (respectively at \(\infty\)) relative to
+\(\varphi(\zeta_N)\), is isomorphic to the local monodromy of \(\mathcal{F}\)
+at \(\alpha_i\), \(i=1,\ldots,n\) (respectively at \(\infty\)), relative to
+\(\zeta\).
+
+\item Denote by \(s_1\) the geometric point
+\(\varphi_1:S_{N,n,\ell}\to k_1\) with \(\varphi_1(\zeta_N)=\zeta_1\) and
+\(\varphi_1(T_i)=\beta_i\) for \(i=1,\ldots,n\). The restriction
+\(\mathcal{F}_{s_1}\) of \(\mathcal{F}\) to the fibre over \(s_1\) is
+isomorphic to \(\mathcal{F}_1\).
+
+\item There exists a lisse \(E_\lambda\)-sheaf \(\mathcal{L}\) on
+\(S_{N,n,\ell}\) and an isomorphism
+\[
+  \mathcal{F}_1\cong\mathcal{F}\otimes\pi^*(\mathcal{L}).
+\]
+\end{enumerate}
+
+\begin{proof}
+Statement (1) results from \hyperref[thm:5.5.4]{Theorem~5.5.4(2)}, together
+with \cite[1.7.8]{De-WeilII} (cf. \cite[4.7.2]{Ka-SE} and the proof of
+\hyperref[thm:4.3.11]{Theorem~4.3.11}), which tells us that the local
+monodromy of \(\mathcal{F}\) along each section \(T_i\) and along the section
+\(\infty\) is ``the same'' on all geometric fibres. (Strictly speaking, we
+should first extend scalars in the universal situation from
+\(\mathbb{Z}[\zeta_N,1/N\ell]\) to
+\(\mathbb{Z}[\text{all }\zeta_{\ell^\nu N},1/N\ell]\), choose a topological
+generator of
+\(\varprojlim_\nu\mu_{\ell^\nu N}(\mathbb{Z}[\text{all }\zeta_{\ell^\nu N},1/N\ell])\)
+which maps to \(\zeta_N\), and use the fact that fibre by fibre this generator
+gives a choice of \(\gamma(\beta,\zeta_1)^{\mathrm{tame}}\).) By (1), the
+restriction \(\mathcal{F}_{s_1}\) of \(\mathcal{F}\) to the fibre over \(s_1\)
+has the same local monodromy as \(\mathcal{F}_1\), at each of the points
+\(\{\beta_1,\ldots,\beta_n,\infty\}\). Since \(\mathcal{F}_1\) is
+cohomologically rigid, \(\mathcal{F}_1\) is isomorphic to
+\(\mathcal{F}_{s_1}\). To get (3), apply the rigidity corollary
+\hyperref[cor:5.5.7.3]{Corollary~5.5.7.3} to \(\mathcal{F}\) and to
+\(\mathcal{F}_1\), and the geometric point \(s_1\).
+\end{proof}
+
+\section{Remark on braid groups}\label{sec:5.6}
+
+The space \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_{N,n,\ell}}\) is the spec of
+\[
+  \mathbb{Z}[\zeta_N,1/N\ell][X,T_1,\ldots,T_n]
+  [1/((\prod_{i\neq j}(T_i-T_j))(\prod_j(X-T_j)))].
+\]
+So if name the variables \(X\) as \(T_{n+1}\), we can think of this as the ring
+\[
+  \mathbb{Z}[\zeta_N,1/N\ell][T_1,\ldots,T_{n+1}]
+  [1/(\prod_{i\neq j}(T_i-T_j))].
+\]
+Thought of this way, we see its fundamental group as an arithmetic-geometrical
+version of the Artin braid group on \(n+1\) letters. And so we can restate the
+first assertion of the theorem by the catch-phrase ``an irreducible local
+system on \(\mathbb{A}^1\) minus \(n\) points which is cohomologically rigid
+extends to a representation of the braid group on \(n+1\) letters''.
+
+\section{Universal families without quasiunipotence}\label{sec:5.7}
+
+\sourcepara{5.7.1}
+We next explore the situation if we drop the hypothesis of quasiunipotence.
+Thus, we let \(k\) be an algebraically closed field, \(n\geq 2\) an integer,
+\(\alpha_1,\alpha_2,\ldots,\alpha_n\) a set of \(n\) distinct points of
+\(\mathbb{A}^1(k)\), and \(\ell\) a prime number invertible in \(k\). Let
+\(\mathcal{F}\) be a cohomologically rigid object of \(\mathcal{T}_\ell\) which
+is lisse on \(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\).
+
+\sourcepara{5.7.2}
+We denote by \(p\) the characteristic of \(k\). If \(p>0\), we denote by
+\(\overline{\mathbb{F}}_p\) the algebraic closure of \(\mathbb{F}_p\) in \(k\),
+and we denote by \(R\) the ring \(W(\overline{\mathbb{F}}_p)\) of Witt vectors
+over \(\overline{\mathbb{F}}_p\). If \(\operatorname{char}(k)=0\), we denote
+by \(R\) the subfield \(\mathbb{Q}(\text{all roots of unity})\) of \(k\). There
+is a canonical ring homomorphism from \(R\) to \(k\), which for \(p=0\) is the
+inclusion, and which for \(p>0\) is the composite
+\[
+  R\to R/pR=\overline{\mathbb{F}}_p\to k
+\]
+of reduction mod \(p\) and of the inclusion.
+
+\sourcepara{5.7.3}
+We denote by \(S_n\) the ring
+\[
+  S_n:=R[T_1,\ldots,T_n][1/\Delta],
+  \quad
+  \Delta:=\prod_{i\neq j}(T_i-T_j).
+\]
+There is a unique ring homomorphism
+\[
+  \varphi:S_n\to k
+\]
+which induces the canonical map on \(R\), and for which
+\(\varphi(T_i)=\alpha_i\) for \(1\leq i\leq n\). Over \(S_n\), we have
+\(\mathbb{A}^1\), with its \(n\) disjoint sections
+\(\{T_1,\ldots,T_n\}\). We denote by
+\[
+  j:(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_n}\to(\mathbb{A}^1)_{S_n}
+\]
+the inclusion.
+
+A straightforward modification of the proof of the previous
+\hyperref[thm:5.5.4]{Theorem~5.5.4} yields:
+
+\sourceheading[thm:5.7.4]{Theorem 5.7.4}
+In the situation \hyperref[par:5.7.1]{(5.7.1)}, we have
+\begin{enumerate}[label=(\arabic*)]
+\item There exists a lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf
+\[
+  \mathcal{F}\text{ on }(\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_n}
+\]
+which, after the base change \(\varphi:S_n\to k\), becomes (the restriction to
+\(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\) of) \(\mathcal{F}\).
+
+\item (``mise pour memoire'', cf.
+\hyperref[prop:4.2.3]{Proposition~4.2.3},
+\hyperref[lem:4.3.8]{Lemma~4.3.8},
+\hyperref[prop:4.3.9]{Proposition~4.3.9}) The object \(j_*\mathcal{F}\) on
+\((\mathbb{A}^1)_{S_n}\) is of formation compatible with arbitrary change of
+base on \(S_{N,n,\ell}\), and is adapted to the stratification
+\[
+  ((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_n},
+  \{T_1,\ldots,T_n\}_{S_n})
+  \text{ of }(\mathbb{A}^1)_{S_n}.
+\]
+At any geometric point \(\varphi:S_n\to k_2\) of \(S_n\), the restriction of
+\(j_*\mathcal{F}\) to the fibre over \(\varphi\) is a cohomologically rigid
+object of \(\mathcal{T}_\ell\), whose local monodromy at each point
+\(\varphi(T_i)\) (respectively at \(\infty\)) is isomorphic to the local
+monodromy of \(\mathcal{F}\) at \(\alpha_i\) (respectively at \(\infty\)).
+\end{enumerate}
+
+\sourceheading[rem:5.7.5]{Remark 5.7.5}
+The space \((\mathbb{A}^1-\{T_1,\ldots,T_n\})_{S_n}\) is the spec of
+\[
+  R[T_1,\ldots,T_{n+1}][1/(\prod_{i\neq j}(T_i-T_j))].
+\]
+Its fundamental group is a (less arithmetic) version of the Artin braid group
+on \(n+1\) letters, and we can again restate the first assertion of the
+theorem by the catch-phrase ``an irreducible local system on \(\mathbb{A}^1\)
+minus \(n\) points which is cohomologically rigid extends to a representation
+of the braid group on \(n+1\) letters''.
+
+\section{The complex analytic situation}\label{sec:5.8}
+
+\sourceheading[thm:5.8.1]{Theorem 5.8.1}
+Over \(\mathbb{C}\), suppose given \(n\geq 2\) an integer,
+\(\alpha_1,\alpha_2,\ldots,\alpha_n\) a set of \(n\) distinct points of
+\(\mathbb{A}^1(\mathbb{C})\), \(\ell\) a prime number, \(N\geq 1\) an integer,
+\(\zeta_N\) a primitive \(N\)'th root of unity in \(\mathbb{C}\), and an
+embedding of \(\mathbb{Q}(\zeta_N)\) into
+\(\overline{\mathbb{Q}}_\ell\). Let \(\mathcal{F}\) be a cohomologically rigid
+object of \(\mathcal{T}_\ell\) which is lisse on
+\[
+  U:=\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\},
+\]
+and such that all eigenvalues of all local monodromies of \(\mathcal{F}\) are
+\(N\)'th roots of unity. Then there exists on \(U^{\mathrm{an}}\) a local
+system \(\mathcal{F}_{\mathrm{cycl}}\) of finite-dimensional
+\(\mathbb{Q}(\zeta_N)\)-vector spaces and an isomorphism of
+\(\overline{\mathbb{Q}}_\ell\)-local systems on \(U^{\mathrm{an}}\),
+\[
+  \mathcal{F}^{\mathrm{an}}\cong
+  \mathcal{F}_{\mathrm{cycl}}\otimes_{\mathbb{Q}(\zeta_N)}
+  \overline{\mathbb{Q}}_\ell.
+\]
+
+\begin{proof}
+Any lisse, rank one, \(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{L}\) on
+\(U\) whose local monodromies all have order dividing \(N\) is a homomorphism
+from \(\pi_1(U)\) to
+\(\mu_N(\overline{\mathbb{Q}}_\ell)=\mu_N(\mathbb{Q}(\zeta_N))\). Now
+\(\mathcal{L}^{\mathrm{an}}\) is the same homomorphism, restricted to
+\(\pi_1(U^{\mathrm{an}})\), so it too has values in
+\(\mu_N(\mathbb{Q}(\zeta_N))\), so may be viewed as a rank one
+\(\mathbb{Q}(\zeta_N)\)-local system \(\mathcal{L}_{\mathrm{cycl}}\) on
+\(U^{\mathrm{an}}\) which sits in an isomorphism
+\[
+  \mathcal{L}^{\mathrm{an}}\cong
+  \mathcal{L}_{\mathrm{cycl}}\otimes_{\mathbb{Q}(\zeta_N)}
+  \overline{\mathbb{Q}}_\ell.
+\]
+
+We proceed by induction on the generic rank \(r(\mathcal{F})\) of
+\(\mathcal{F}\). If \(r(\mathcal{F})=1\), we are done, by the above
+discussion. Suppose that \(r(\mathcal{F})\geq 2\). By the
+\hyperref[thm:5.2.1]{Main Theorem~5.2.1}, we know that there exists on \(U\) a rank
+one lisse \(\mathcal{L}\) of order dividing \(N\), a nontrivial character
+\(\chi\) of order dividing \(N\), a lisse cohomologically rigid \(\mathcal{G}\)
+with \(r(\mathcal{G})<r(\mathcal{F})\) and with all eigenvalues of all local
+monodromies \(N\)'th roots of unity, and an isomorphism on \(U\)
+\[
+  \mathcal{F}[1]:=
+  \mathcal{L}\otimes j^*(j_*\mathcal{G}[1]*_{\mathrm{mid}+}
+  j_{0*}\mathcal{L}_\chi[1]).
+\]
+By induction, the \(\mathbb{Q}(\zeta_N)\)-local system
+\(\mathcal{G}_{\mathrm{cycl}}\) exists on \(U^{\mathrm{an}}\), as do
+\(\mathcal{L}_{\mathrm{cycl}}\) and \(\mathcal{L}_{\chi,\mathrm{cycl}}\). We
+define \(\mathcal{F}_{\mathrm{cycl}}\) on \(U^{\mathrm{an}}\) to be
+\[
+  \mathcal{F}_{\mathrm{cycl}}[1]:=
+  \mathcal{L}_{\mathrm{cycl}}\otimes
+  j^*(j_*\mathcal{G}_{\mathrm{cycl}}[1]*_{\mathrm{mid}+}
+  j_{0*}\mathcal{L}_{\chi,\mathrm{cycl}}[1]).
+\]
+By the comparison theorem, \(\mathcal{F}_{\mathrm{cycl}}\) is a local system
+of finite-dimensional \(\mathbb{Q}(\zeta_N)\)-vector spaces which sits in an
+isomorphism of \(\overline{\mathbb{Q}}_\ell\)-local systems on
+\(U^{\mathrm{an}}\),
+\[
+  \mathcal{F}^{\mathrm{an}}\cong
+  \mathcal{F}_{\mathrm{cycl}}\otimes_{\mathbb{Q}(\zeta_N)}
+  \overline{\mathbb{Q}}_\ell.
+\]
+\end{proof}
+
+\sourcepara{5.8.2}
+What happens if we drop the quasiunipotence hypothesis? Over \(\mathbb{C}\),
+\(I(\infty)\) and each of the groups \(I(\alpha_i)\) are canonically the group
+\[
+  \varprojlim_N\mu_N(\mathbb{C}),
+\]
+a group which has a canonical generator, namely
+\(\{\exp(2\pi i/N!)\}_N\). Thus we may speak of ``the eigenvalues of local
+monodromy'', meaning the eigenvalues of the action of this canonical generator,
+of a lisse \(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{F}\) on
+\(\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\}\) at any of the points
+\(\infty\) or \(\alpha_i\) where it possibly fails to be lisse.
+
+Repeating the above proof yields:
+
+\sourceheading[thm:5.8.3]{Theorem 5.8.3}
+Over \(\mathbb{C}\), suppose given \(n\geq 2\) an integer,
+\(\alpha_1,\alpha_2,\ldots,\alpha_n\) a set of \(n\) distinct points of
+\(\mathbb{A}^1(\mathbb{C})\), \(\ell\) a prime number, \(\Gamma\) a subgroup
+of \(\overline{\mathbb{Q}}_\ell^\times\), \(K\) the subfield
+\(\mathbb{Q}(\Gamma)\) of \(\overline{\mathbb{Q}}_\ell\). Let \(\mathcal{F}\)
+be a cohomologically rigid object of \(\mathcal{T}_\ell\) which is lisse on
+\[
+  U:=\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\},
+\]
+and such that all eigenvalues of all local monodromies of \(\mathcal{F}\) lie
+in \(\Gamma\). Then there exists on \(U^{\mathrm{an}}\) a local system
+\(\mathcal{F}_{\Gamma}\) of finite-dimensional \(K\)-vector spaces and an
+isomorphism of \(\overline{\mathbb{Q}}_\ell\)-local systems on
+\(U^{\mathrm{an}}\),
+\[
+  \mathcal{F}^{\mathrm{an}}\cong
+  \mathcal{F}_{\Gamma}\otimes_K\overline{\mathbb{Q}}_\ell.
+\]
+
+\section{Return to the original question}\label{sec:5.9}
+
+\sourcepara{5.9.1}
+We now return to the question with which we began: what is the structure of
+irreducible local systems of finite-dimensional \(\mathbb{C}\)-vector spaces
+on \(U^{\mathrm{an}}\) which are physically rigid? We know from
+\hyperref[thm:1.1.2]{Theorem~1.1.2} that for such local systems, physical
+rigidity is equivalent to cohomological rigidity. Thus it ``suffices'' to
+understand the structure of cohomologically rigid irreducible local systems of
+finite-dimensional \(\mathbb{C}\)-vector spaces on \(U^{\mathrm{an}}\). Rather
+than deal with it directly, we reduce it to the \(\ell\)-adic case on \(U\).
+This reduction is made possible by the following standard result, which we
+spell out for the convenience of the reader.
+
+\sourceheading[prop:5.9.2]{Proposition 5.9.2}
+Over \(\mathbb{C}\), suppose given \(n\geq 2\) an integer,
+\(\alpha_1,\alpha_2,\ldots,\alpha_n\) a set of \(n\) distinct points of
+\(\mathbb{A}^1(\mathbb{C})\),
+\[
+  U:=\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\},
+\]
+and \(\mathcal{F}_{\mathbb{C},\mathrm{an}}\) a local system of
+finite-dimensional \(\mathbb{C}\)-vector spaces on \(U^{\mathrm{an}}\). There
+exists an integer \(N\geq 1\) such that for all primes \(\ell\) not dividing
+\(N\), there exists an isomorphism of fields
+\(\iota:\mathbb{C}\cong\overline{\mathbb{Q}}_\ell\), a lisse
+\(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{F}_\ell\) on \(U\), and an
+isomorphism of \(\overline{\mathbb{Q}}_\ell\)-local systems on
+\(U^{\mathrm{an}}\),
+\[
+  (\mathcal{F}_\ell)^{\mathrm{an}}\cong
+  \mathcal{F}_{\mathbb{C},\mathrm{an}}\otimes_{\mathbb{C}}
+  \overline{\mathbb{Q}}_\ell.
+\]
+
+\begin{proof}
+Let \(n:=\operatorname{rank}(\mathcal{F}_{\mathbb{C},\mathrm{an}})\) be the
+rank of \(\mathcal{F}_{\mathbb{C},\mathrm{an}}\). Once we pick a base point in
+\(U^{\mathrm{an}}:=U(\mathbb{C})\), we may interpret
+\(\mathcal{F}_{\mathbb{C},\mathrm{an}}\) as a homomorphism of groups
+\[
+  \rho:\pi_1(U^{\mathrm{an}})\to\operatorname{GL}(n,\mathbb{C}).
+\]
+We know that \(\pi_1(U^{\mathrm{an}})\) is a finitely generated group, and
+that its profinite completion is the profinite group \(\pi_1(U)\).
+
+Because \(\pi_1(U^{\mathrm{an}})\) is finitely generated, \(\rho\) takes values
+in \(\operatorname{GL}(n,R)\) for some subring \(R\) of \(\mathbb{C}\) which
+is finitely generated as a \(\mathbb{Z}\)-algebra. (For instance, if
+\(\{\gamma_i\}_i\) is a finite set of generators, we may take for \(R\) the
+ring \(\mathbb{Z}[\text{entries of all }\rho(\gamma_i)\text{ and of all }
+\rho(\gamma_i^{-1})]\).) Let us admit temporarily the truth of the following
+lemma, which is certainly well-known, cf. \cite[6.1.2 (A'')]{BBD}, but for
+which I do not know an explicit reference:
+
+\sourceheading[lem:5.9.3]{Lemma 5.9.3}
+Let \(R\) be a subring of \(\mathbb{C}\) which is finitely generated as a
+\(\mathbb{Z}\)-algebra. Then there exists an integer \(N\geq 1\) such that for
+every prime number \(\ell\) which does not divide \(N\), there exists a finite
+extension \(E_\lambda\) of \(\mathbb{Q}_\ell\) with integer ring
+\(\mathcal{O}_\lambda\), and an isomorphism of fields
+\(\iota:\mathbb{C}\cong\overline{\mathbb{Q}}_\ell\) under which
+\(\iota(R)\subset\mathcal{O}_\lambda\).
+
+\sourcepara{5.9.4}
+Granted the lemma, for any \(\ell\) prime to \(N\) we get that
+\(\mathcal{F}_{\mathbb{C},\mathrm{an}}\) has an
+\(\mathcal{O}_\lambda\)-form. As the group
+\(\operatorname{GL}(n,\mathcal{O}_\lambda)\) is profinite, the composite
+homomorphism
+\[
+  \rho_\lambda:\pi_1(U^{\mathrm{an}})\to
+  \operatorname{GL}(n,R)\subset\operatorname{GL}(n,\mathcal{O}_\lambda)
+\]
+extends to a continuous homomorphism of profinite completions
+\[
+  \rho_{\lambda,\mathrm{alg}}:\pi_1(U)\to
+  \operatorname{GL}(n,\mathcal{O}_\lambda).
+\]
+Corresponding to \(\rho_{\lambda,\mathrm{alg}}\), we have a lisse
+\(\mathcal{O}_\lambda\)-sheaf, say \(\mathcal{F}_\lambda\), and in terms of
+\(\mathcal{F}_\lambda\) we define
+\[
+  \mathcal{F}_\ell:=\mathcal{F}_\lambda
+  \otimes_{\mathcal{O}_\lambda}\overline{\mathbb{Q}}_\ell.
+\]
+\end{proof}
+
+\sourceheading[proofhead:5.9.5]{5.9.5 Proof of \hyperref[lem:5.9.3]{\textcolor{blue}{Lemma~5.9.3}}}
+Denote by \(R_{\mathbb{Q}}\) the \(\mathbb{Q}\)-subalgebra of \(\mathbb{C}\)
+generated by \(R\). Thus \(R_{\mathbb{Q}}\) is a finitely generated
+\(\mathbb{Q}\)-algebra, to which we apply Noether normalization
+\cite[2.5]{AK}: there exists a finite collection of elements
+\(x_1,\ldots,x_n\) in \(R_{\mathbb{Q}}\) which are algebraically independent
+over \(\mathbb{Q}\), and such that \(R_{\mathbb{Q}}\) is integral over
+\(\mathbb{Q}[x_1,\ldots,x_n]\). Notice that the ring
+\(\mathbb{Q}[x_1,\ldots,x_n]\) is unchanged if we replace each \(x_i\) by a
+nonzero integer multiple of itself. Since each \(x_i\) is in
+\(R_{\mathbb{Q}}\), after so replacing it we may assume that each \(x_i\) lies
+in \(R\).
+
+Now every element \(r\) in \(R\) is integral over
+\(\mathbb{Q}[x_1,\ldots,x_n]\). Writing an equation of integral dependence for
+\(r\) over \(\mathbb{Q}[x_1,\ldots,x_n]\), we see that for some integer
+\(N(r)\geq 1\), \(r\) is integral over
+\(\mathbb{Z}[1/N(r)][x_1,\ldots,x_n]\). Because \(R\) is generated as a
+\(\mathbb{Z}\)-algebra by finitely many elements \(r_i\) in \(R\), if we
+define \(N:=\prod_i N(r_i)\), then each \(r_i\) is integral over
+\(\mathbb{Z}[1/N][x_1,\ldots,x_n]\). Since the integral closure of
+\(\mathbb{Z}[1/N][x_1,\ldots,x_n]\) in \(R_{\mathbb{Q}}\) is a
+\(\mathbb{Z}[1/N]\)-algebra, \(R[1/N]\) is integral over
+\(\mathbb{Z}[1/N][x_1,\ldots,x_n]\).
+
+Now pick any prime \(\ell\) not dividing \(N\). Because
+\(\mathbb{Q}_\ell\) is uncountable, it has uncountable transcendence degree
+over \(\mathbb{Q}\). In particular, there exist \(n\) elements
+\(y_1,y_2,\ldots,y_n\) in \(\mathbb{Q}_\ell\) which are algebraically
+independent over \(\mathbb{Q}\). Multiplying each \(y_i\) by a power of
+\(\ell\), we may further suppose that each \(y_i\) lies in
+\(\mathbb{Z}_\ell\).
+
+Using the axiom of choice, there exists an isomorphism
+\[
+  \iota:\mathbb{C}\cong\overline{\mathbb{Q}}_\ell
+\]
+such that \(\iota(x_i)=y_i\) for \(i=1,\ldots,n\). Under this isomorphism,
+\(\iota(\mathbb{Z}[1/N][x_1,\ldots,x_n])\subset\mathbb{Z}_\ell\), and hence
+\(\iota(R[1/N])\) is integral over \(\mathbb{Z}_\ell\). In particular, every
+element of \(\iota(R[1/N])\) lies in some finite extension of
+\(\mathbb{Q}_\ell\). Since \(R[1/N]\) is finitely generated as a
+\(\mathbb{Z}\)-algebra, there exists a single finite extension field
+\(E_\lambda\) of \(\mathbb{Q}_\ell\) with
+\(\iota(R[1/N])\subset E_\lambda\). As \(\iota(R[1/N])\) is integral over
+\(\mathbb{Z}_\ell\), we have
+\(\iota(R)\subset\iota(R[1/N])\subset\mathcal{O}_\lambda\).
+
+\section{The category
+\texorpdfstring{\(\mathcal{T}_{\mathrm{an}}(U,\Gamma)\)}{T an(U,Gamma)}}\label{sec:5.10}
+
+\sourcepara{5.10.1}
+Over \(\mathbb{C}\), suppose given \(n\geq 2\) an integer,
+\(\alpha_1,\alpha_2,\ldots,\alpha_n\) a set of \(n\) distinct points of
+\(\mathbb{A}^1(\mathbb{C})\),
+\[
+  U:=\mathbb{A}^1-\{\alpha_1,\alpha_2,\ldots,\alpha_n\},
+\]
+and \(\Gamma\) a subgroup of \(\mathbb{C}^\times\). We denote by
+\(\mathcal{T}_{\mathrm{an}}(U,\Gamma)\) the full subcategory of the category of
+all local systems of finite-dimensional \(\mathbb{C}\)-vector spaces on
+\(U^{\mathrm{an}}\) whose objects are those which are irreducible, have
+nontrivial local monodromy at two or more of the points \(\alpha_i\), and for
+which all of eigenvalues of all topological local monodromies lie in
+\(\Gamma\).
+
+\sourceheading[thm:5.10.2]{Theorem 5.10.2}
+Let \(\chi\) be any nontrivial \(\mathbb{C}^\times\)-valued character with
+values in the subgroup \(\Gamma\), and \(\mathcal{L}_{\chi,\mathrm{an}}\) the
+corresponding Kummer sheaf on \(\mathbb{G}_{m,\mathrm{an}}\). Then for
+\(\mathcal{F}_{\mathrm{an}}\) in \(\mathcal{T}_{\mathrm{an}}(U,\Gamma)\), the
+object \(\mathcal{G}_{\mathrm{an}}\) in
+\(\mathrm{D}^b_c(U^{\mathrm{an}},\mathbb{C})\) defined by
+\[
+  \mathcal{G}_{\mathrm{an}}[1]:=
+  j^{\mathrm{an}*}(j^{\mathrm{an}}_*\mathcal{F}_{\mathrm{an}}[1]*_{\mathrm{mid}+}
+  j_{0,\mathrm{an}*}\mathcal{L}_{\chi,\mathrm{an}}[1]),
+\]
+lies in \(\mathcal{T}_{\mathrm{an}}(U,\Gamma)\), and its local monodromies are
+related to those of \(\mathcal{F}_{\mathrm{an}}\) by the rules of
+\hyperref[cor:3.3.6]{Corollary~3.3.6} and
+\hyperref[cor:3.3.7]{Corollary~3.3.7}.
+
+\begin{proof}
+For any chosen \(\ell\gg 0\), there exists a field isomorphism
+\(\iota:\mathbb{C}\cong\overline{\mathbb{Q}}_\ell\) under which both
+\(\mathcal{F}_{\mathrm{an}}\) and \(\mathcal{L}_{\chi,\mathrm{an}}\) come from
+lisse \(\overline{\mathbb{Q}}_\ell\)-sheaves \(\mathcal{F}\) on \(U\) and
+\(\mathcal{L}_\chi\) on \(\mathbb{G}_m\) respectively. If we now view
+\(\Gamma\) as a subgroup of \(\overline{\mathbb{Q}}_\ell^\times\), we may
+speak of the subgroup \(\Gamma_{\mathrm{values}}\) of the group of continuous
+\(\overline{\mathbb{Q}}_\ell^\times\)-valued characters of \(I(0)\) which on
+the canonical (we are over \(\mathbb{C}\)) generator take values in
+\(\Gamma\). Then \(\mathcal{F}\) lies in
+\(\mathcal{T}_\ell(U,\Gamma_{\mathrm{values}})\), and \(\chi\) lies in
+\(\Gamma_{\mathrm{values}}\). By
+\hyperref[thm:4.3.11]{Theorem~4.3.11}, the object \(\mathcal{G}\) of
+\(\mathrm{D}^b_c(U,\overline{\mathbb{Q}}_\ell)\) defined by
+\[
+  \mathcal{G}[1]:=
+  j^*(j_*\mathcal{F}[1]*_{\mathrm{mid}+}j_{0*}\mathcal{L}_\chi[1]),
+\]
+lies in \(\mathcal{T}_\ell(U,\Gamma_{\mathrm{values}})\), and its local
+monodromies are related to those of \(\mathcal{F}\) by the rules of
+\hyperref[cor:3.3.6]{Corollary~3.3.6} and
+\hyperref[cor:3.3.7]{Corollary~3.3.7}. Passing to \(U^{\mathrm{an}}\) and
+applying the inverse of the isomorphism
+\(\iota:\mathbb{C}\cong\overline{\mathbb{Q}}_\ell\), we recover our assertions
+about \(\mathcal{G}_{\mathrm{an}}\).
+\end{proof}
+
+\sourcepara{5.10.3}
+We write
+\[
+  \mathcal{G}_{\mathrm{an}}=\operatorname{MC}_{\chi,\mathrm{an}}
+  (\mathcal{F}_{\mathrm{an}}).
+\]
+
+\sourcepara{5.10.4}
+We can construct a graph whose vertices are the objects of
+\(\mathcal{T}_{\mathrm{an}}(U,\Gamma)\), and in which there is an edge joining
+two objects \(\mathcal{F}_{\mathrm{an}}\) and \(\mathcal{G}_{\mathrm{an}}\) if
+either of the following conditions (a) or (b) holds:
+\begin{enumerate}[label=(\alph*)]
+\item \(\mathcal{F}_{\mathrm{an}}\) and \(\mathcal{G}_{\mathrm{an}}\) both
+have rank \(>1\), and there is a rank one \(\mathbb{C}\)-local system
+\(\mathcal{L}_{\mathrm{an}}\) on \(U\), all of whose local monodromy
+eigenvalues are in \(\Gamma\), such that
+\[
+  \mathcal{F}_{\mathrm{an}}\cong
+  \mathcal{L}_{\mathrm{an}}\otimes\mathcal{G}_{\mathrm{an}},
+  \quad\text{or equivalently}\quad
+  \mathcal{G}_{\mathrm{an}}\cong
+  \mathcal{L}_{\mathrm{an}}^{-1}\otimes\mathcal{F}_{\mathrm{an}}.
+\]
+
+\item there exists a nontrivial character \(\chi\) with values in \(\Gamma\)
+such that
+\[
+  \mathcal{F}_{\mathrm{an}}\cong
+  \operatorname{MC}_{\chi,\mathrm{an}}(\mathcal{G}_{\mathrm{an}}),
+  \quad\text{or equivalently}\quad
+  \mathcal{G}_{\mathrm{an}}\cong
+  \operatorname{MC}_{\chi^{-1},\mathrm{an}}(\mathcal{F}_{\mathrm{an}}).
+\]
+\end{enumerate}
+
+\sourceheading[thm:5.10.5]{Main Theorem 5.10.5 (complex analytic version of \hyperref[thm:5.3.3]{\textcolor{blue}{Main Theorem~5.3.3}})}
+If \(\mathcal{F}_{\mathrm{an}}\) is an object of
+\(\mathcal{T}_{\mathrm{an}}(U,\Gamma)\) which is rigid, in either of the
+equivalent senses of being physically rigid or of being cohomologically rigid,
+then \(\mathcal{F}_{\mathrm{an}}\) (as vertex of the above graph) is connected
+to an object of rank one in \(\mathcal{T}_{\mathrm{an}}(U,\Gamma)\), and its
+distance to such an object is at most
+\(2(\operatorname{rank}(\mathcal{F}_{\mathrm{an}})-1)\).
+
+\begin{proof}
+Once we have the previous result \hyperref[thm:5.10.2]{Theorem~5.10.2}, we
+can repeat, essentially verbatim, the proof already given in the
+\(\ell\)-adic case.
+\end{proof}
+
+\sourceheading[cor:5.10.6]{Corollary 5.10.6}
+In the situation \hyperref[par:5.10.1]{(5.10.1)}, let \(N\geq 2\) be an
+integer, and consider the case \(\Gamma=\mu_N(\mathbb{C})\). Thus let
+\(\mathcal{F}\) be a local system of finite-dimensional \(\mathbb{C}\)-vector
+spaces on \(U^{\mathrm{an}}\) which is irreducible, has nontrivial local
+monodromy at two or more of the points \(\alpha_i\), and for which all of
+eigenvalues of topological local monodromy are \(N\)'th roots of unity.
+Suppose that \(\mathcal{F}\) is rigid. Then
+\begin{enumerate}[label=(\arabic*)]
+\item \(\mathcal{F}\) has a \(\mathbb{Q}(\zeta_N)\)-form, i.e., for any
+embedding of the abstract field \(\mathbb{Q}(\zeta_N)\) into \(\mathbb{C}\),
+there exists a local system \(\mathcal{F}_{\mathrm{cycl}}\) of
+\(\mathbb{Q}(\zeta_N)\)-vector spaces on \(U^{\mathrm{an}}\) such that
+\[
+  \mathcal{F}\cong
+  \mathcal{F}_{\mathrm{cycl}}\otimes_{\mathbb{Q}(\zeta_N)}\mathbb{C}.
+\]
+
+\item Fix a \(\mathbb{Q}(\zeta_N)\)-form \(\mathcal{F}_{\mathrm{cycl}}\) of
+\(\mathcal{F}\). For every finite place \(\lambda\) of
+\(E:=\mathbb{Q}(\zeta_N)\), with \(\lambda\)-adic completion \(E_\lambda\) and
+integer ring \(\mathcal{O}_\lambda\), there exists a lisse
+\(E_\lambda\)-sheaf \(\mathcal{F}_\lambda\) on \(U\) and an isomorphism
+\[
+  (\mathcal{F}_\lambda)^{\mathrm{an}}\cong
+  \mathcal{F}_{\mathrm{cycl}}\otimes_E E_\lambda.
+\]
+
+\item Fix a \(\mathbb{Q}(\zeta_N)\)-form \(\mathcal{F}_{\mathrm{cycl}}\) of
+\(\mathcal{F}\). For every finite place \(\lambda\) of
+\(E:=\mathbb{Q}(\zeta_N)\), with \(\lambda\)-adic completion \(E_\lambda\) and
+integer ring \(\mathcal{O}_\lambda\), there exists a local system
+\(\mathbf{F}_\lambda\) of free \(\mathcal{O}_\lambda\)-modules on \(U\) such
+that
+\[
+  \mathcal{F}_{\mathrm{cycl}}\otimes_E E_\lambda\cong
+  (\mathbf{F}_\lambda\otimes_{\mathcal{O}_\lambda}E_\lambda)^{\mathrm{an}}.
+\]
+
+\item Fix a \(\mathbb{Q}(\zeta_N)\)-form \(\mathcal{F}_{\mathrm{cycl}}\) of
+\(\mathcal{F}\). For every finite place \(\lambda\) of
+\(E:=\mathbb{Q}(\zeta_N)\), with \(\lambda\)-adic completion \(E_\lambda\) and
+integer ring \(\mathcal{O}_\lambda\), there exists a local system
+\(\mathbf{F}^{\mathrm{an}}_\lambda\) of free \(\mathcal{O}_\lambda\)-modules
+on \(U^{\mathrm{an}}\) such that
+\[
+  \mathcal{F}_{\mathrm{cycl}}\otimes_E E_\lambda\cong
+  \mathbf{F}^{\mathrm{an}}_\lambda\otimes_{\mathcal{O}_\lambda}E_\lambda.
+\]
+\end{enumerate}
+
+\begin{proof}
+First let us notice that (4) follows trivially from (3): one takes the
+\(\mathbf{F}_\lambda\) of (3), and defines \(\mathbf{F}^{\mathrm{an}}_\lambda\)
+to be \((\mathbf{F}_\lambda)^{\mathrm{an}}\). Also, (3) follows trivially from
+(2), since any lisse \(E_\lambda\)-sheaf \(\mathcal{F}_\lambda\) on \(U\) has
+an \(\mathcal{O}_\lambda\)-form.
+
+So it remains to prove (1) and (2). We prove these by induction on the generic
+rank of \(\mathcal{F}\). Both are obvious for rank one lisse sheaves
+\(\mathcal{L}\) on \(U^{\mathrm{an}}\) all of whose local monodromies are
+\(N\)'th roots of unity, and for \(\mathcal{L}_\chi\) with \(\chi\) nontrivial
+of order dividing \(N\). Moreover, if (1) and (2) hold for
+\(\mathcal{G}_{\mathrm{an}}\), they hold for both
+\(\mathcal{L}_{\mathrm{an}}\otimes\mathcal{G}_{\mathrm{an}}\) and
+\(\operatorname{MC}_{\chi,\mathrm{an}}(\mathcal{G}_{\mathrm{an}})\) (compare
+\hyperref[par:5.5.5.5]{(5.5.5.5)}--\hyperref[par:5.5.5.9]{(5.5.5.9)}). So
+by the connectedness properties
+\hyperref[thm:5.10.5]{Theorem~5.10.5} of the set of rigid points in the graph
+on \(\mathcal{T}_{\mathrm{an}}(U,\Gamma)\), with
+\(\Gamma:=\mu_N(\mathbb{C})\), (1) and (2) hold for all \(\mathcal{F}\) in
+\(\mathcal{T}_{\mathrm{an}}(U,\Gamma)\).
+\end{proof}

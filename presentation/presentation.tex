@@ -1,0 +1,139 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+
+% Compile from this directory: latexmk -pdf -outdir=build presentation.tex
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{tikz-cd}
+
+\usetheme{Madrid}
+\usefonttheme{professionalfonts}
+\definecolor{accent}{HTML}{176B70}
+\setbeamercolor{structure}{fg=accent}
+\setbeamercolor{alerted text}{fg=accent}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{bibliography item}[text]
+
+% Metadata: replace the bracketed fields before presenting.
+\title[Rigid Local Systems]{Rigid Local Systems}
+\subtitle{Candidacy Presentation}
+\author{[Your name]}
+\institute{[Department] \\ {[University]}}
+\date{[Presentation date]}
+
+% Notation: keep consistent with writeup/writeup.tex.
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\PP}{\mathbb{P}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\rig}{rig}
+\newcommand{\placeholder}[1]{{\color{gray}\textit{[#1]}}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Roadmap}
+  \tableofcontents
+\end{frame}
+
+\section{Motivation}
+
+\begin{frame}{The guiding question}
+  \begin{block}{Question}
+    When does local monodromy determine a local system up to isomorphism?
+  \end{block}
+  \medskip
+  \placeholder{Explain the motivation and give one concrete example.}
+\end{frame}
+
+\section{Background and definitions}
+
+\begin{frame}{Geometric setup}
+  Let
+  \[
+    U = \PP^1(\C) \setminus S,
+    \qquad S = \{s_1,\ldots,s_m\}.
+  \]
+  \begin{itemize}
+    \item \placeholder{Specify the coefficient field and rank.}
+    \item \placeholder{Define the local systems under consideration.}
+    \item \placeholder{Explain the local monodromy at each puncture.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Physical rigidity}
+  \begin{definition}[Physical rigidity]
+    \placeholder{Insert the precise definition, including the class of
+    competing local systems and the meaning of the same local monodromy.}
+  \end{definition}
+  \medskip
+  \placeholder{Distinguish local conjugacy from a single global conjugacy.}
+\end{frame}
+
+\section{Main result}
+
+\begin{frame}{The main theorem}
+  \begin{theorem}[\placeholder{Attribution and theorem number}]
+    \placeholder{State every hypothesis and the exact conclusion.}
+  \end{theorem}
+  \medskip
+  \placeholder{Explain the significance in one sentence.}
+\end{frame}
+
+\begin{frame}{Proof strategy}
+  \begin{enumerate}
+    \item \placeholder{First reduction or key construction.}
+    \item \placeholder{Central calculation or lemma.}
+    \item \placeholder{Deduce the theorem.}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{A key step}
+  \begin{lemma}
+    \placeholder{State the key lemma.}
+  \end{lemma}
+  \begin{proof}[Proof idea]
+    \placeholder{Give the main argument; move lengthy details to the appendix.}
+  \end{proof}
+\end{frame}
+
+\section{Examples and next steps}
+
+\begin{frame}{A worked example}
+  \placeholder{Choose a low-rank example and compute its local data.}
+  \[
+    A_1\cdots A_m = I,
+    \qquad A_i \in \GL_n(\C).
+  \]
+  \placeholder{Explain what the theorem tells us in this example.}
+\end{frame}
+
+\begin{frame}{Next steps}
+  \begin{itemize}
+    \item \placeholder{A mathematical question to investigate.}
+    \item \placeholder{A formalization task, with precise remaining dependencies.}
+    \item \placeholder{A concrete milestone.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{References}
+  % Replace with bibliographic entries and use \cite{key} on relevant slides.
+  \placeholder{Add the references used in the talk.}
+\end{frame}
+
+\appendix
+\section*{Backup slides}
+
+\begin{frame}{Backup: details and computations}
+  \placeholder{Put additional proofs, examples, or definitions here.}
+  % A frame containing tikzcd should use \begin{frame}[fragile]{Title}.
+\end{frame}
+
+\end{document}

@@ -1,0 +1,129 @@
+\documentclass[11pt,openany]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{microtype}
+\usepackage{indentfirst}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{tikz-cd}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[
+  colorlinks=true,
+  allcolors=blue,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+\addbibresource{references.bib}
+
+\title{Rigid Local Systems}
+\author{Nicolas M. Katz}
+\date{}
+
+\setcounter{tocdepth}{2}
+\numberwithin{equation}{chapter}
+\renewcommand{\thesection}{\S\thechapter.\arabic{section}}
+\crefname{section}{\S}{\S\S}
+\Crefname{section}{\S}{\S\S}
+\raggedbottom
+\allowdisplaybreaks[3]
+\binoppenalty=700
+\relpenalty=500
+\hyphenpenalty=50
+\exhyphenpenalty=50
+\emergencystretch=1.5em
+\setlength{\abovedisplayskip}{0.72\baselineskip plus 0.16\baselineskip minus 0.10\baselineskip}
+\setlength{\belowdisplayskip}{0.72\baselineskip plus 0.16\baselineskip minus 0.10\baselineskip}
+\setlength{\abovedisplayshortskip}{0.52\baselineskip plus 0.14\baselineskip minus 0.08\baselineskip}
+\setlength{\belowdisplayshortskip}{0.62\baselineskip plus 0.14\baselineskip minus 0.08\baselineskip}
+\setlist{topsep=0.45\baselineskip,itemsep=0.22\baselineskip,parsep=0pt}
+\newlength{\proofpreskip}
+\setlength{\proofpreskip}{0.62\baselineskip plus 0.12\baselineskip minus 0.08\baselineskip}
+\newlength{\proofpostskip}
+\setlength{\proofpostskip}{0.62\baselineskip plus 0.12\baselineskip minus 0.08\baselineskip}
+\newlength{\sourceblockpreskip}
+\setlength{\sourceblockpreskip}{0.62\baselineskip plus 0.12\baselineskip minus 0.08\baselineskip}
+\newcommand{\sourceheading}[2][]{%
+  \par\addvspace{\sourceblockpreskip}%
+  \phantomsection%
+  \if\relax\detokenize{#1}\relax\else\label{#1}\fi
+  \noindent\textbf{#2.}\hspace{0.5em}\ignorespaces
+}
+\newcommand{\sourcesubheading}[1]{%
+  \par\addvspace{\sourceblockpreskip}%
+  \noindent\textbf{#1}\quad\ignorespaces
+}
+\newcommand{\sourcepara}[1]{%
+  \par\addvspace{\sourceblockpreskip}%
+  \noindent\phantomsection\label{par:#1}(#1)\quad\ignorespaces
+}
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.1em}}
+\renewenvironment{proof}[1][\proofname]{%
+  \par\addvspace{\proofpreskip}\noindent\pushQED{\qed}\normalfont
+  \topsep\z@skip
+  \trivlist
+  \item[\hskip\labelsep\itshape #1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse\par\addvspace{\proofpostskip}%
+}
+\makeatother
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{axiom}[theorem]{Axiom}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{notation}[theorem]{Notation}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{warning}[theorem]{Warning}
+\numberwithin{theorem}{section}
+\renewcommand{\thetheorem}{\thechapter.\arabic{section}.\arabic{theorem}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\mainmatter
+
+\include{chapters/introduction}
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter3}
+\include{chapters/chapter4}
+\include{chapters/chapter5}
+\include{chapters/chapter6}
+\include{chapters/chapter7}
+\include{chapters/chapter8}
+\include{chapters/chapter9}
+
+\backmatter
+
+\printbibliography[heading=bibintoc,title={References}]
+
+\end{document}

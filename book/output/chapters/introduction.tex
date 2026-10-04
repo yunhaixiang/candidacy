@@ -1,0 +1,417 @@
+\chapter*{Introduction}
+\markboth{Introduction}{Introduction}
+\phantomsection
+\addcontentsline{toc}{chapter}{Introduction}
+\label{chap:introduction}
+
+% Source PDF pp. 4--12 (Introduction, pp. 1--9).
+It is now nearly 140 years since Riemann introduced \cite{Rie-EDL} the
+concept of a ``local system'' on
+\(\mathbb{P}^1-\{\text{a finite set of points}\}\). His idea was that one
+could (and should) study the solutions of an \(n\)'th order linear
+differential equation by studying the rank \(n\) local system (of its local
+holomorphic solutions) to which it gave rise. Riemann knew that a rank
+\(n\) local system on \(\mathbb{P}^1-\{m\text{ points}\}\) was ``nothing
+more'' than a collection of \(m\) invertible matrices \(A_i\) in
+\(\operatorname{GL}(n,\mathbb{C})\) which satisfy the matrix equation
+\(A_1A_2\cdots A_m=(\mathrm{id}_n)\), such collections taken up to
+simultaneous conjugation by a single element of
+\(\operatorname{GL}(n,\mathbb{C})\). He also knew each individual \(A_i\)
+was, up to \(\operatorname{GL}(n,\mathbb{C})\) conjugacy, just the effect
+of analytic continuation along a small loop encircling the \(i\)'th missing
+point.
+
+His first application of these then revolutionary ideas was to study the
+classical Gauss hypergeometric function \cite{Rie-SG}, which he did by
+studying rank two local systems on \(\mathbb{P}^1-\{\text{three points}\}\).
+His investigation was a stunning success, in large part because any such
+(irreducible) local system is \emph{rigid} in the sense that it is determined
+up to isomorphism as soon as one knows separately the individual conjugacy
+classes of all its local monodromies. By exploiting this rigidity, Riemann
+was able to recover Kummer's transformation theory of hypergeometric
+functions ``almost without calculation'' \cite{Rie-APM}.
+
+It soon became clear that Riemann had been ``lucky'', in the sense that the
+most local systems are not rigid. For instance, rank two irreducible local
+systems on \(\mathbb{P}^1-\{m\text{ points}\}\), all of whose local
+monodromies are non-scalar, are rigid precisely for \(m=3\). And rank \(n\)
+irreducible local systems on \(\mathbb{P}^1-\{\text{three points}\}\), each
+of whose local monodromies has \(n\) distinct eigenvalues, are rigid
+precisely for \(n=1\) and \(n=2\).
+
+On the other hand, some of the best known classical functions are solutions
+of differential equations whose local systems are rigid, including both of
+the standard generalizations of the hypergeometric function, namely
+\({}_nF_{n-1}\), which gives a rank \(n\) local system on
+\(\mathbb{P}^1-\{0,1,\infty\}\), and the Pochhammer hypergeometric
+functions, which give rank \(n\) local systems on
+\(\mathbb{P}^1-\{n+1\text{ points}\}\).
+
+In the classical literature, rigidity or its lack is expressed in terms of
+the vanishing or nonvanishing of the ``number of accessory parameters''.
+But the object whose rigidity is classically in question is not a rank
+\(n\) local system on \(\mathbb{P}^1-\{m\text{ points}\}\), but rather an
+\(n\)'th order linear differential equation with rational function
+coefficients which has regular singularities at the \(m\) missing points,
+and no other singularities. In practice, one assumes also that each of the
+local monodromies has \(n\) distinct eigenvalues, expressed classically by
+saying that no two exponents differ by integers. One then looks for the
+most general \(n\)'th order linear differential equation with rational
+function coefficients which has regular singularities at the \(m\) missing
+points, no other singularities, and whose indicial polynomial at each
+missing point is the same as for the equation we started with. (This game
+with indicial polynomials makes sense for any equation with regular
+singularities, but it is only a meaningful game in the case where each of
+its local monodromies has \(n\) distinct eigenvalues, for only then can we
+be sure that any equation with the same indicial polynomials automatically
+has isomorphic local monodromies.) The ``number of parameters'' upon which
+such an equation depends is called the ``number of accessory parameters'',
+or the ``number of constants in excess'' \cite[\S20.4]{Ince}. For example,
+in the classical literature one finds that for second order equations with
+\(m\) regular singularities, the number of accessory parameters is
+\(m-3\) \cite[top of page 506]{Ince}.
+
+From a modern point of view, what corresponds precisely to a rank \(n\)
+local system on \(\mathbb{P}^1-\{m\text{ points}\}\) is an \(n\times n\)
+first order system of differential equations with regular singularities
+at the named points (i.e., an algebraic vector bundle with integrable
+connection on \(\mathbb{P}^1-\{m\text{ points}\}\) with regular
+singularities at the \(m\) missing points) \cite{De-ED}. So what corresponds
+to rigidity for a local system is the absence of deformations of the
+corresponding \(n\times n\) system which preserve local monodromy. But in
+the classical literature, the question of deforming such a system while
+preserving its local monodromy does not seem to be addressed. Even, or
+perhaps especially, if we start with an \(n\)'th order equation with
+regular singularities, there is a priori a great difference between
+deforming it as an equation and deforming it as a system (in both cases
+preserving local monodromies).
+
+For an irreducible local system \(\mathcal{F}\) on
+\(\mathbb{P}^1-\{m\text{ points}\}\), there is a simple cohomological
+invariant, \(\operatorname{rig}(\mathcal{F})\), the ``index of rigidity'',
+which measures the rigidity or lack thereof of \(\mathcal{F}\), cf.\
+\hyperref[chap:1]{Chapter~1}. One denotes by
+\[
+  j:\mathbb{P}^1-\{m\text{ points}\}\longrightarrow\mathbb{P}^1
+\]
+the inclusion, one forms the sheaf \(j_*\operatorname{End}(\mathcal{F})\) on
+\(\mathbb{P}^1\), and one then defines \(\operatorname{rig}(\mathcal{F})\)
+to be the Euler characteristic
+\(\chi(\mathbb{P}^1,j_*\operatorname{End}(\mathcal{F}))\). Since
+\(\mathcal{F}\) is irreducible, we have
+\[
+  \operatorname{rig}(\mathcal{F})
+  :=2-h^1(\mathbb{P}^1,j_*\operatorname{End}(\mathcal{F})).
+\]
+One proves (\hyperref[thm:1.1.2]{Theorem~1.1.2}) that the irreducible local system
+\(\mathcal{F}\) is rigid if and only if
+\(\operatorname{rig}(\mathcal{F})=2\), i.e., if and only if
+\(h^1(\mathbb{P}^1,j_*\operatorname{End}(\mathcal{F}))\) vanishes. So the
+integer \(h^1(\mathbb{P}^1,j_*\operatorname{End}(\mathcal{F}))\) appears as a
+cohomological analogue of the number of accessory parameters, at least in
+the cases where that number was defined classically. In terms of the
+corresponding \(n\times n\) system, this \(h^1\) is the ``number'' of its
+deformations to systems having the same local monodromies. So in case we
+start with an \(n\)'th order equation, we should expect this \(h^1\) to be
+larger than the number of accessory parameters, since the \(h^1\) allows
+deformations as system, while in computing the number of accessory
+parameters we allow only deformations as equation.
+
+In the case of a rank \(n\) irreducible local system \(\mathcal{F}\) which
+arises from an \(n\)'th order equation, and each of whose local monodromies
+has all distinct eigenvalues, one can separately compute both the number,
+say \(\rho\), of accessory parameters and the number
+\(h^1(\mathbb{P}^1,j_*\operatorname{End}(\mathcal{F}))\). One finds a doubling:
+\[
+  h^1(\mathbb{P}^1,j_*\operatorname{End}(\mathcal{F}))=2\rho.
+\]
+(Both sides come out to be \(2-[(2-m)n^2+mn]\), cf.\
+\cite[pp.\ 127--128]{Forsythe} for the calculation of \(\rho\), and
+\hyperref[chap:1]{Chapter~1} for the calculation of \(h^1\).) That the
+\(h^1\) turns out to be even is not a surprise, because
+\(H^1(\mathbb{P}^1,j_*\operatorname{End}(\mathcal{F}))\) carries a symplectic
+autoduality. But why the underlying \(n\)'th order equation should have
+``twice as many'' system-deformations as equation-deformations seems
+entirely mysterious. It is as though the group
+\(H^1(\mathbb{P}^1,j_*\operatorname{End}(\mathcal{F}))\) carried a weight one
+Hodge structure, in such a way that the ``holomorphic part''
+\(H^{1,0}\) corresponded to deformations as equation. But there is almost
+nothing to back up such speculation.
+
+Let us return to the consideration of a rank \(n\) local system on
+\(\mathbb{P}^1-\{m\text{ points}\}\), in its incarnation as a collection,
+taken up to simultaneous conjugation, of \(m\) elements \(A_i\) of
+\(\operatorname{GL}(n,\mathbb{C})\) whose product is \(1\). Such a local
+system is said to be irreducible if the subgroup of
+\(\operatorname{GL}(n,\mathbb{C})\) generated by all the \(A_i\) is
+irreducible, i.e., if there exists no proper nonzero subspace of
+\(\mathbb{C}^n\) which is respected by all the \(A_i\). Given a local
+system, we extract, at each of the \(m\) missing points, the conjugacy class
+of its local monodromy at that point (concretely, the Jordan normal form
+of each separate \(A_i\)), and call this the numerical data of our local
+system. There is also the notion of abstract numerical data of rank \(n\)
+on \(\mathbb{P}^1-\{m\text{ points}\}\): one specifies at each of the
+\(m\) missing points a conjugacy class in
+\(\operatorname{GL}(n,\mathbb{C})\), i.e., a Jordan normal form.
+
+Two basic problems in the subject are:
+
+\noindent\textbf{Irreducible Recognition Problem.}\quad
+Given abstract numerical data of rank \(n\) on
+\(\mathbb{P}^1-\{m\text{ points}\}\), determine if it is the numerical
+data attached to an irreducible rank \(n\) local system on
+\(\mathbb{P}^1-\{m\text{ points}\}\).
+
+\noindent\textbf{Irreducible Construction Problem.}\quad
+Given abstract numerical data of rank \(n\) on
+\(\mathbb{P}^1-\{m\text{ points}\}\) which one is told arises from an
+irreducible local system on \(\mathbb{P}^1-\{m\text{ points}\}\), construct
+explicitly at least one such local system. Or construct all such local
+systems.
+
+Because the index of rigidity \(\operatorname{rig}(\mathcal{F})\) can be
+expressed in terms of the underlying numerical data of \(\mathcal{F}\) by
+universal formulas, one can pose these two problems separately for each of
+the a priori possible values \(2,0,-2,-4,\ldots\) of the index of rigidity.
+This book is devoted to the solution of these two problems in the special
+case of rigid local systems, \(\operatorname{rig}(\mathcal{F})=2\).
+
+The case of more general local systems remains entirely open. Already the
+next simplest case, \(\operatorname{rig}(\mathcal{F})=0\), seems out of
+reach. Also the analogues of these problems for reducible local systems
+remain entirely open.
+
+Another problem which remains open is this. Suppose we are given a rank
+\(n\) irreducible rigid local system \(\mathcal{F}\) on
+\(\mathbb{P}^1-\{m\text{ points}\}\). We know \cite{De-ED} that it is the
+local system attached to a (unique, by rigidity) \(n\times n\) system on
+\(\mathbb{P}^1-\{m\text{ points}\}\), with regular singular points at the
+\(m\) missing points. Is this this \(n\times n\) system in fact (the system
+attached to) an \(n\)'th order equation with regular singular points only
+at the \(m\) missing points? By \cite{Ka-CV} any system has, Zariski
+locally, cyclic vectors. So at the expense of allowing finitely many
+additional ``apparent singularities'' in our \(n\)'th order equation, we
+can always get one whose local system is \(\mathcal{F}\). The question is
+whether there exists such an equation \emph{without} apparent
+singularities. It should be remarked that if we drop the word ``rigid''
+from this question, a ``counting constants'' argument of Poincar\'e
+\cite[pp.\ 314--315 of Tome II, where he counts projective representations]{Poin}
+suggests that ``in general'' it should \emph{not} be possible to avoid
+apparent singularities in this ``strong form'' of the Riemann--Hilbert
+problem. Another heuristic argument that one cannot avoid apparent
+singularities, pointed out to me by Washnitzer, is this. Consider an
+irreducible \(n\)'th order equation with regular singular points on
+\(\mathbb{P}^1-\{m\text{ points}\}\), each of whose local monodromies has
+\(n\) distinct eigenvalues. Suppose the underlying local system, say
+\(\mathcal{F}\), is not rigid. Then the calculation \(h^1=2\rho\) discussed
+above suggests that \(\mathcal{F}\) has a \(2\rho\)-dimensional deformation
+space of local systems with the same local monodromies, and that only for
+deformations \(\mathcal{G}\) in a \(\rho\)-dimensional subspace will there
+be an \(n\)'th order equation on \(\mathbb{P}^1-\{m\text{ points}\}\),
+i.e., without apparent singularities, with \(\mathcal{G}\) as monodromy.
+
+Let us now turn to a more detailed discussion of the contents of this book.
+Although the Irreducible Recognition Problem is, on its face, an elementary
+problem about multiplying complex matrices which could be explained to a
+bright high school student, our solution for rigids is, unfortunately,
+far from elementary.
+
+We begin with the trivial observation that on
+\(\mathbb{P}^1-\{m\text{ points}\}\), any rank one local system is both
+irreducible and rigid. Our basic idea is to construct two sorts
+``operations'' (which we call ``middle convolution'' and ``middle tensor
+product'') on a suitable collection of irreducible local systems which
+preserve the index of rigidity and whose effect on local monodromy we can
+calculate. The ``middle tensor'' operation offers no difficulty; all the
+work is in working out the theory of middle convolution.
+
+What does convolution have to do with rigid local systems? The idea is
+simple. The earliest known, and still the best known, rigid local system
+is the local system of solutions of the second order differential equation
+% The supplied erratum replaces the erroneous x in the original coefficient.
+\[
+  \lambda(1-\lambda)\left(\frac{d}{d\lambda}\right)^2f
+  +\bigl(c-(a+b+1)\lambda\bigr)\left(\frac{d}{d\lambda}\right)f-abf=0
+\]
+satisfied by the Gauss hypergeometric function \(F(a,b,c,\lambda)\).
+A solution is given \cite[page 293]{WWW} by the integral
+\[
+  \int x^{a-c}(1-x)^{c-b-1}(\lambda-x)^{-a}\,dx.
+\]
+Our key observation is that formally, this integral is the additive
+convolution
+\[
+  \int f(x)g(\lambda-x)\,dx
+\]
+of \(f(x):=x^{a-c}(1-x)^{c-b-1}\) and \(g(x):=x^{-a}\). We then view
+\(f(x)\) as incarnating a rigid local system, and \(g(x)\) as incarnating
+a Kummer sheaf on \(\mathbb{G}_m\), and think about forming the additive
+convolution of two such objects. In some sense, our entire book consists
+of first making sense of this, and then exploiting it.
+
+In \hyperref[chap:2]{Chapter~2} we define the middle convolution operators,
+and work out their basic properties. The theory of perverse sheaves is the
+indispensable setting for this theory. The theory we need is that of middle
+convolution on \(\mathbb{A}^1\) as additive group. However, we also devote
+some attention to the theory on \(\mathbb{G}_m\), where it ties in nicely
+with our previous work \cite{Ka-GKM} and \cite{Ka-ESDE} on Kloosterman and
+hypergeometric sheaves and differential equations.
+
+\hyperref[chap:3]{Chapters~3} and \hyperref[chap:4]{4} are devoted to the
+proof that our middle convolution operators do in fact preserve the index
+of rigidity, and to calculating their effect on local monodromy. Here the
+main technical tool is the \(\ell\)-adic Fourier Transform in
+characteristic \(p>0\). In \hyperref[chap:3]{Chapter~3}, we show that
+Fourier Transform preserves the index of rigidity in characteristic \(p\).
+Because middle convolution in characteristic \(p>0\) has a simple
+expression in terms of Fourier Transform, we find that middle convolution
+in characteristic \(p\) also preserves the index of rigidity. Because
+Laumon has worked out the precise effect of Fourier Transform on local
+monodromy, we also get the effect of middle convolution on local monodromy,
+still in characteristic \(p>0\). In \hyperref[chap:4]{Chapter~4}, we use a
+specialization argument to show that these results on middle convolution
+still hold in characteristic zero (despite the fact that the Fourier
+Transform no longer exists).
+
+The next step is to show, in \hyperref[chap:5]{Chapter~5}, that any rigid
+irreducible local system can be built up from a rank one local system by
+applying a finite sequence of middle convolution and middle tensor
+operations. The proof of this last step gives us an algorithm to calculate,
+for any given irreducible rigid local system \(\mathcal{F}\), exactly what
+sequence of operations to apply to what rank one local system
+\(\mathcal{L}\) in order to end up with \(\mathcal{F}\). This algorithm is
+thus a solution to the Irreducible Construction Problem for rigids. This
+algorithm depends only on the ``numerical data'' of \(\mathcal{F}\).
+
+Roughly speaking, we solve the Irreducible Recognition Problem (in
+\hyperref[chap:6]{Chapter~6}) by showing that if we are given some abstract
+numerical data which is rigid, then it comes from an irreducible
+\(\mathcal{F}\) if and only if the algorithm, applied ``formally'', gives
+a meaningful answer.
+
+In \hyperref[chap:7]{Chapter~7}, we explore some of the diophantine aspects
+of rigidity. In \hyperref[chap:8]{Chapter~8}, we reinterpret our
+construction of rigids in terms of ``pieces'' of the relative de Rham
+cohomology of suitable families of varieties. In
+\hyperref[chap:9]{Chapter~9}, we use this cohomological expression,
+together with an easy but previously overlooked generalization of our
+earlier work on Grothendieck's \(p\)-curvature conjecture, to prove
+Grothendieck's \(p\)-curvature conjecture for all those differential
+equations on \(\mathbb{P}^1-\{m\text{ points}\}\) with regular singular
+points whose underlying local systems are rigid and irreducible.
+
+Let us now discuss what is \emph{not} done in this book. One could try to
+classify systematically all rigid irreducible local systems, since one has
+an algorithm to recognize their numerical data. Even a cursory glance at
+the kinds of local monodromy one can get by starting with a rank one local
+system and applying a cleverly chosen sequence of middle convolution and
+middle tensor operations leaves one with the impression that there is a
+fascinating bestiary waiting to be compiled.
+
+One could also study the identities between special functions which
+presumably result whenever a rigid irreducible \(\mathcal{F}\) can be built
+in two or more different ways out of rank one local systems by successive
+middle convolution and middle tensor operations. Already for the case of
+\({}_nF_{n-1}\), any \(n\geq2\), there are in general a plethora of such
+building paths. Do we get anything about \({}_nF_{n-1}\) which is not
+already in the classical literature?
+
+In characteristic zero, we have shown how to construct all rigid
+irreducible local systems out of rank one local systems, by using the
+operations of middle convolution and middle tensor. Our arguments in fact
+begin in characteristic \(p>0\), where we prove the same result for rigid
+irreducible local systems which are everywhere tamely ramified. But in
+characteristic \(p\), the everywhere tame local systems are by far the
+least interesting ones. What can be said about arbitrary rigid irreducible
+local systems in characteristic \(p\)? Is it true that any rigid
+irreducible local system in characteristic \(p\) on
+\(\mathbb{P}^1-\{m\text{ points}\}\) is built out of a rank one local
+system by finitely iterating the operations Fourier Transform, middle
+tensor with a rank one local system, and pullback by an automorphism of
+\(\mathbb{P}^1\)? For example, all the irreducible \(\ell\)-adic
+hypergeometrics are rigid, and they are all obtained in this way
+\cite[proof of 8.5.3]{Ka-ESDE}.
+
+In characteristic zero, the analogue of a not necessarily tame local
+system is a differential equation which does not necessarily have regular
+singular points. There is no difficulty in defining the index of rigidity
+in the holonomic \(\mathcal{D}\)-module context, cf.\
+\cite[3.7.3 and 2.9.8.1]{Ka-ESDE}. One knows, for example, that the
+generalized hypergeometric equations studied in \cite{Ka-ESDE} are rigid.
+One also has the \(\mathcal{D}\)-module Fourier Transform. It \emph{should}
+be true that Fourier Transform preserves the index of rigidity in the
+\(\mathcal{D}\)-module context, but this is unknown. The main stumbling
+block to proving this is the absence of an \(\mathcal{D}\)-module analogue
+of Laumon's theory of local Fourier Transform and his stationary phase
+theorem relating the local and global Fourier Transforms: Laumon's theory
+in the \(\ell\)-adic case was the main technical tool in our proof that
+Fourier Transform preserves index of rigidity. If the
+\(\mathcal{D}\)-module analogue of Laumon's local Fourier Transform exists
+and satisfies stationary phase, one can then use stationary phase to
+``compute'' what the local Fourier Transforms must be, in terms of slope
+decompositions at \(\infty\) of global Fourier Transforms of suitable
+``canonical extensions'' in the sense of \cite[\S2.4.11]{Ka-DGG} of various
+completions of the input \(\mathcal{D}\)-module. In this sense, one could
+say that the theory of local Fourier Transform does already exist, and
+that ``all'' that one lacks is the \(\mathcal{D}\)-module analogue of
+stationary phase.
+
+If one could prove that the \(\mathcal{D}\)-module Fourier Transform
+preserves index of rigidity, or even that it preserves rigid objects, one
+could ask if any irreducible \(\mathcal{D}\)-module is built out of an
+irreducible \(\mathcal{D}\)-module of generic rank one by finitely iterating
+the operations Fourier Transform, middle tensor with an irreducible
+object of generic rank one, and pullback by an automorphism of
+\(\mathbb{P}^1\).
+
+Another question we are unable to treat is the following. Given a rigid
+irreducible local system, say \(\mathcal{F}\), of rank \(n\), consider its
+geometric monodromy group \(G_{\mathrm{geom}}\), defined as the algebraic
+subgroup of \(\operatorname{GL}(n,\mathbb{C})\) which is the Zariski closure
+of the monodromy representation which \(\mathcal{F}\) ``is''. This group
+\(G_{\mathrm{geom}}\), and consequently its Lie algebra, is determined up
+to \(\operatorname{GL}(n,\mathbb{C})\)-conjugacy by \(\mathcal{F}\), and
+hence by the numerical data of \(\mathcal{F}\). How can we determine
+\(G_{\mathrm{geom}}\), or even its Lie algebra, as a function of the
+numerical data. Even in asking when \(G_{\mathrm{geom}}\) is finite, which
+we prove is equivalent to (the associated differential equation's) having
+\(p\)-curvature zero for almost all primes \(p\), we do not know how to
+read this from the numerical data.
+
+There is also a nagging technical point that is not treated in this book.
+In \hyperref[chap:1]{Chapter~1}, we show (\hyperref[thm:1.1.2]{Theorem~1.1.2}) that
+for complex irreducible local systems on
+\(\mathbb{P}^1-\{m\text{ points}\}\) over \(\mathbb{C}\), rigidity is
+equivalent to having index of rigidity equal to \(2\). And we show
+(\hyperref[thm:5.0.2]{Theorem~5.0.2}) that in any characteristic \(\ne\ell\),
+having index of rigidity equal to \(2\) is a sufficient condition for an
+irreducible \(\ell\)-adic local system to be rigid. However, we do not
+show, even over \(\mathbb{C}\), that for irreducible \(\ell\)-adic local
+systems, being rigid is in fact equivalent to having index of rigidity
+equal to \(2\).
+
+It is perhaps striking that although this book is concerned with problems
+that go back to Riemann, it depends for its very existence on a great deal
+of mathematics that did not exist until quite recently: Grothendieck's
+\'etale cohomology theory \cite{SGA}, Deligne's proof of his far-reaching
+generalization of the original Weil Conjectures \cite{De-WeilII}, the
+theory of perverse sheaves \cite{BBD}, Laumon's work on the \(\ell\)-adic
+Fourier Transform \cite{Lau-TF}, all these are indispensable ingredients.
+
+My interest in rigid local systems was first aroused by a conversation
+with Ofer Gabber some years ago, who told me about some lectures Deligne
+had given at I.H.E.S.\ on them. It was later re-aroused by conversations
+with Carlos Simpson, who was pursuing them from quite a different point
+of view than that used here. It is a pleasure to acknowledge helpful
+discussions with Deligne, Gabber and Simpson, and to thank Beilinson and
+Faltings for asking some incisive questions. I would also like to thank
+the referee, whose helpful comments and suggestions led to a number of
+corrections to and clarifications of the original manuscript.
+
+I gave a series of lectures on some of the material in this book in
+January, 1991 at the University of Minnesota as an Ordway Visitor. The
+material on middle convolution was presented in March of 1993 at Johns
+Hopkins, at a Symposium in honor of Professor Igusa. I also gave lectures
+on some of this book in May of 1993 in Berkeley as a Miller Visiting
+Fellow. It is a pleasure to thank all of those institutions for their
+support and hospitality.

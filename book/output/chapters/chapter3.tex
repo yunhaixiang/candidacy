@@ -1,0 +1,1700 @@
+\chapter{Fourier Transform and rigidity}
+\label{chap:3}
+\setcounter{section}{-1}
+
+\newcommand{\chthreethmthreezerothree}{\hyperref[thm:3.0.3]{Theorem~3.0.3}}
+\newcommand{\chthreethmthreezerofour}{\hyperref[thm:3.0.4]{Theorem~3.0.4}}
+
+\section{Fourier Transform and index of rigidity}\label{sec:3.0}
+
+\sourcepara{3.0.1}
+Let \(\ell\) be a prime number. On \(\mathbb{A}^1\) over an algebraically
+closed field of characteristic \(\ne \ell\), denote by
+\(k:\mathbb{A}^1\to\mathbb{P}^1\) the inclusion. Let
+\(K\) in \(\mathrm{D}^b_c(\mathbb{A}^1,\overline{\mathbb{Q}}_\ell)\) be a
+perverse sheaf which is a middle extension, i.e., \(K\) is
+\(j_*\mathcal{F}[1]\) for a nonempty open set
+\(j:U\to\mathbb{A}^1\), and a lisse
+\(\overline{\mathbb{Q}}_\ell\)-sheaf \(\mathcal{F}\) on \(U\). We define the
+index of rigidity of \(K\), \(\operatorname{rig}(K)\), to be the integer
+(compare \hyperref[par:2.0.3]{(2.0.3)}--\hyperref[par:2.0.6]{(2.0.6)})
+\[
+  \operatorname{rig}(K)
+  := \chi\bigl(\mathbb{P}^1,k_*j_*\operatorname{End}(\mathcal{F})\bigr).
+\]
+
+\sourceheading[thm:3.0.2]{Theorem 3.0.2}
+Let \(p\) and \(\ell\) be prime numbers, \(\ell\ne p\). On
+\(\mathbb{A}^1\) over an algebraically closed field of characteristic \(p\),
+let \(K\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1,\overline{\mathbb{Q}}_\ell)\) be a perverse
+irreducible such that neither \(K\) nor \(\operatorname{FT}(K)\) is punctual
+(i.e., \(K\) is neither a \(\delta_\alpha\) nor an
+\(\mathcal{L}_{\psi_\alpha}[1]\)). Then \(K\) and
+\(\operatorname{FT}(K)\) have the same index of rigidity:
+\[
+  \operatorname{rig}(K)=\operatorname{rig}(\operatorname{FT}(K)).
+\]
+
+This is a special case of the slightly more general
+
+\sourceheading[thm:3.0.3]{Theorem 3.0.3}
+Let \(p\) and \(\ell\) be prime numbers, \(\ell\ne p\). On
+\(\mathbb{A}^1\) over an algebraically closed field of characteristic \(p\),
+let \(K\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1,\overline{\mathbb{Q}}_\ell)\) be a perverse
+sheaf on \(\mathbb{A}^1\) such that both \(K\) and
+\(\operatorname{FT}(K)\) are middle extensions from any nonempty open set of
+\(\mathbb{A}^1\). Then
+\[
+  \operatorname{rig}(K)=\operatorname{rig}(\operatorname{FT}(K)).
+\]
+
+\begin{proof}[Proof of \chthreethmthreezerothree]
+Write \(K=j_*\mathcal{F}[1]\) and
+\(\operatorname{FT}(K)=j_*\mathcal{G}[1]\), for some dense open
+\(j:U\to\mathbb{A}^1\), and lisse sheaves \(\mathcal{F}\) and
+\(\mathcal{G}\) on \(U\). Denote by
+\(k:\mathbb{A}^1\to\mathbb{P}^1\) the inclusion. By definition,
+\[
+\begin{aligned}
+  \operatorname{rig}(K)
+  &:= \chi\bigl(\mathbb{P}^1,k_*j_*\operatorname{End}(\mathcal{F})\bigr) \\
+  &= \dim \operatorname{End}(\mathcal{F})^{I(\infty)}
+     + \chi\bigl(\mathbb{A}^1,j_*\operatorname{End}(\mathcal{F})\bigr).
+\end{aligned}
+\]
+The sheaf \(j_*\operatorname{End}(\mathcal{F})\) on \(\mathbb{A}^1\)
+contains the subsheaf \(j_*\mathcal{F}\otimes j_*(\mathcal{F}^{\vee})\);
+the quotient, supported in \(\mathbb{A}^1-U\), is punctual:
+\[
+  j_*\operatorname{End}(\mathcal{F})
+  \big/
+  \bigl(j_*\mathcal{F}\otimes j_*\mathcal{F}^{\vee}\bigr)
+  =
+  \bigoplus_{x\in\mathbb{A}^1}
+  \delta_x\otimes
+  \frac{\operatorname{End}(\mathcal{F})^{I(x)}}
+       {\mathcal{F}^{I(x)}\otimes(\mathcal{F}^{\vee})^{I(x)}}.
+\]
+So
+\[
+\begin{aligned}
+  \operatorname{rig}(K)
+  &:= \chi\bigl(\mathbb{A}^1,j_*\mathcal{F}\otimes
+       j_*(\mathcal{F}^{\vee})\bigr)
+     + \dim\bigl(\operatorname{End}(\mathcal{F})^{I(\infty)}\bigr) \\
+  &\quad
+     + \sum_{x\in\mathbb{A}^1}
+       \dim\left[
+       \frac{\operatorname{End}(\mathcal{F})^{I(x)}}
+            {\mathcal{F}^{I(x)}\otimes(\mathcal{F}^{\vee})^{I(x)}}\right].
+\end{aligned}
+\]
+Since \(K=j_*\mathcal{F}[1]\), \(\mathbb{D}K=j_*\mathcal{F}^{\vee}[1]\),
+and we have
+\[
+  j_*\mathcal{F}\otimes j_*\mathcal{F}^{\vee}
+  =
+  \mathbb{D}K\otimes K[-2].
+\]
+Thus
+\[
+\begin{aligned}
+  \operatorname{rig}(K)
+  &:= \chi\bigl(\mathbb{A}^1,\mathbb{D}K\otimes K\bigr)
+     + \dim\bigl(\operatorname{End}(\mathcal{F})^{I(\infty)}\bigr) \\
+  &\quad
+     + \sum_{x\in\mathbb{A}^1}
+       \dim\left[
+       \frac{\operatorname{End}(\mathcal{F})^{I(x)}}
+            {\mathcal{F}^{I(x)}\otimes(\mathcal{F}^{\vee})^{I(x)}}\right].
+\end{aligned}
+\]
+Now we break up the \(I(\infty)\)-representation \(\mathcal{F}(\infty)\)
+of \(\mathcal{F}\) according to whether slopes are \(\leq 1\) or \(>1\):
+\[
+  \mathcal{F}(\infty)
+  =
+  \mathcal{F}(\infty)(\leq 1)\oplus\mathcal{F}(\infty)(>1).
+\]
+Because there are no nonzero \(I(\infty)\)-equivariant maps between
+representations whose sets of slopes are disjoint, we have
+\[
+\begin{aligned}
+  \operatorname{End}(\mathcal{F})^{I(\infty)}
+  &:= \operatorname{End}_{I(\infty)}(\mathcal{F}(\infty)) \\
+  &=
+  \operatorname{End}_{I(\infty)}(\mathcal{F}(\infty)(\leq 1))
+  +
+  \operatorname{End}_{I(\infty)}(\mathcal{F}(\infty)(>1)).
+\end{aligned}
+\]
+Using this, rewrite the formula for \(\operatorname{rig}(K)\) as a sum of
+four terms
+\[
+\begin{aligned}
+  \operatorname{rig}(K)&=1(K)+2(K)+3(K)+4(K),\\
+  1(K)&:=\chi\bigl(\mathbb{A}^1,\mathbb{D}K\otimes K\bigr),\\
+  2(K)&:=\dim\operatorname{End}_{I(\infty)}
+        \bigl(\mathcal{F}(\infty)(>1)\bigr),\\
+  3(K)&:=\dim\operatorname{End}_{I(\infty)}
+        \bigl(\mathcal{F}(\infty)(\leq 1)\bigr),\\
+  4(K)&:=
+  \sum_{x\in\mathbb{A}^1}
+       \dim\left[
+       \frac{\operatorname{End}(\mathcal{F})^{I(x)}}
+            {\mathcal{F}^{I(x)}\otimes(\mathcal{F}^{\vee})^{I(x)}}\right].
+\end{aligned}
+\]
+With this breakup, the equality
+\(\operatorname{rig}(K)=\operatorname{rig}(\operatorname{FT}(K))\) results
+from
+
+\sourceheading[thm:3.0.4]{Theorem 3.0.4}
+In the situation of \hyperref[thm:3.0.3]{Theorem~3.0.3}, we have
+\[
+\begin{aligned}
+  1(K)&=1(\operatorname{FT}(K)),&
+  2(K)&=2(\operatorname{FT}(K)),\\
+  3(K)&=4(\operatorname{FT}(K)),&
+  4(K)&=3(\operatorname{FT}(K)).
+\end{aligned}
+\]
+\end{proof}
+
+\begin{proof}[Proof of \chthreethmthreezerofour]
+We begin with \((1)\), a form of Parseval's formula valid for any object
+\(K\) in \(\mathrm{D}^b_c\). We denote by \(\mathbb{D}_{-}K\) the object
+\([x\mapsto -x]^*(\mathbb{D}K)\). We have
+\[
+\begin{aligned}
+  1(K)
+  &:=\chi\bigl(\mathbb{A}^1,\mathbb{D}K\otimes K\bigr)
+   = \chi_c\bigl(\mathbb{A}^1,\mathbb{D}K\otimes K\bigr) \\
+  &=\operatorname{rank}_0\bigl(\mathbb{D}_{-}K*_{!+}K\bigr),
+\end{aligned}
+\]
+the last equality by using proper base change to calculate the stalk at zero
+of \(\mathbb{D}_{-}K*_{!+}K\). Applying this to \(\operatorname{FT}K\) gives
+\[
+\begin{aligned}
+  1(\operatorname{FT}K)
+  &= \operatorname{rank}_0
+     \bigl(\mathbb{D}_{-}\operatorname{FT}K*_{!+}\operatorname{FT}K\bigr) \\
+  &= \operatorname{rank}_0
+     \bigl(\operatorname{FT}(\mathbb{D}K)*_{!+}\operatorname{FT}K\bigr) \\
+  &= \operatorname{rank}_0
+     \bigl(\operatorname{FT}(\mathbb{D}K\otimes K)[-1]\bigr) \\
+  &= \chi\bigl(\mathbb{A}^1,\mathbb{D}K\otimes K\bigr)
+   := 1(K),
+\end{aligned}
+\]
+using \(\mathbb{D}_{-}\circ\operatorname{FT}=\operatorname{FT}\circ
+\mathbb{D}\), that \(\operatorname{FT}\) interchanges \(\otimes\) and
+\(*_{!+}\), the \(!\)-form of \(\operatorname{FT}\), and proper base change.
+
+Assertion \((2)\) follows from taking dimensions in the more precise equality
+\[
+  \operatorname{End}_{I(\infty)}(\mathcal{F}(\infty)(>1))
+  =
+  \operatorname{End}_{I(\infty)}(\mathcal{G}(\infty)(>1)).
+\]
+This holds because, in terms of Laumon's local Fourier Transform
+\(\operatorname{FTloc}(\infty,\infty)\), we have
+\[
+  \mathcal{G}(\infty)(>1)
+  =
+  \operatorname{FTloc}(\infty,\infty)(\mathcal{F}(\infty)(>1)),
+\]
+and one knows (cf. \cite{Lau-TF}, \cite{Ka-TL},
+\cite[7.4.1]{Ka-ESDE}) that \(\operatorname{FTloc}(\infty,\infty)\) is an
+autoequivalence of the category of \(I(\infty)\)-representations with all
+slopes \(>1\).
+
+The last two assertions,
+\[
+  3(K)=4(\operatorname{FT}(K)),\qquad
+  4(K)=3(\operatorname{FT}(K)),
+\]
+are in fact equivalent. (They are obtained from each other by replacing \(K\)
+by \(\operatorname{FT}K\), and noting that
+\(\operatorname{FT}(\operatorname{FT}K)\cong [x\mapsto -x]^*K\) up to a Tate
+twist, while visibly \(4(K)=4([x\mapsto -x]^*K)\).) We will prove that
+\[
+  4(K)=3(\operatorname{FT}(K)).
+\]
+For this, we recall the theory of Laumon's local Fourier Transforms
+\(\operatorname{FTloc}(x,\infty)\), for \(x\) in \(\mathbb{A}^1\). Each of
+these is an equivalence of categories
+\[
+  I(x)\text{-representations}
+  \cong
+  I(\infty)\text{-representations with all slopes }<1.
+\]
+By Laumon's theory of stationary phase \cite[7.4]{Ka-ESDE}, we know that
+\[
+  \mathcal{G}(\infty)(\leq 1)
+  =
+  \bigoplus_{x\in\mathbb{A}^1}
+  \mathcal{L}_{\psi_x}\otimes
+  \operatorname{FTloc}(x,\infty)
+  \bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr).
+\]
+(In \cite[7.4.1]{Ka-ESDE}, the functor
+\(M\mapsto
+\mathcal{L}_{\psi_x}\otimes\operatorname{FTloc}(x,\infty)(M)\) was called
+\(\operatorname{FTloc}(x,\infty)\).)
+There are no nonzero \(I(\infty)\)-equivariant maps between the distinct
+summands. (If \(M\) and \(N\) are any two \(I(\infty)\)-representations all
+of whose slopes are \(<1\), then for \(x\ne y\),
+\[
+\begin{aligned}
+  \operatorname{Hom}_{I(\infty)}
+  (\mathcal{L}_{\psi_x}\otimes M,\mathcal{L}_{\psi_y}\otimes N)
+  &=
+  \operatorname{Hom}_{I(\infty)}
+  (M,\mathcal{L}_{\psi_{y-x}}\otimes N)\\
+  &=0,
+\end{aligned}
+\]
+since \(\mathcal{L}_{\psi_{y-x}}\otimes N\) has all slopes \(=1\), while
+\(M\) has all slopes \(<1\).) Therefore
+\[
+  \operatorname{End}_{I(\infty)}(\mathcal{G}(\infty)(\leq 1))
+  =
+  \bigoplus_{x\in\mathbb{A}^1}
+  \operatorname{End}_{I(\infty)}
+  \left(
+  \operatorname{FTloc}(x,\infty)
+  \bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr)
+  \right).
+\]
+Because \(\operatorname{FTloc}(x,\infty)\) is an equivalence of categories
+\[
+  I(x)\text{-representations}
+  \cong
+  I(\infty)\text{-representations with all slopes }<1,
+\]
+we have
+\[
+  \operatorname{End}_{I(\infty)}
+  \left(
+  \operatorname{FTloc}(x,\infty)
+  \bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr)
+  \right)
+  =
+  \operatorname{End}_{I(x)}
+  \bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr).
+\]
+Thus we obtain
+\[
+  \operatorname{End}_{I(\infty)}(\mathcal{G}(\infty)(\leq 1))
+  =
+  \bigoplus_{x\in\mathbb{A}^1}
+  \operatorname{End}_{I(x)}
+  \bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr).
+\]
+To complete the proof, it remains only to check that
+\[
+  \dim\left[
+  \frac{\operatorname{End}_{I(x)}(\mathcal{F}(x))}
+       {\mathcal{F}^{I(x)}\otimes(\mathcal{F}^{\vee})^{I(x)}}\right]
+  =
+  \dim\operatorname{End}_{I(x)}
+  \bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr).
+\]
+This is proven in the following section,
+\hyperref[prop:3.1.8]{Proposition~3.1.8}.
+\end{proof}
+
+\section{Lemmas on representations of inertia groups}\label{sec:3.1}
+
+\sourcepara{3.1.1}
+Throughout this section, we fix a complete discrete valuation ring \(R\) with
+algebraically closed residue field \(k\) and with fraction field \(K\). We
+denote by \(I\) the Galois group
+\[
+  I:=\operatorname{Gal}(K^{\mathrm{sep}}/K).
+\]
+If \(\operatorname{char}(k)=p>0\), we denote by \(P\subset I\) the unique
+\(p\)-Sylow subgroup. If \(\operatorname{char}(k)=0\), we define
+\(P=\{e\}\). The quotient \(I/P\) is (noncanonically) the pro-cyclic group
+\(\prod_{\ell\ne p}\mathbb{Z}_{\ell}\).
+
+\sourcepara{3.1.2}
+We also fix a prime number \(\ell\ne\operatorname{char}(k)\). By an
+\(\ell\)-adic representation of \(I\), we mean a continuous
+\(\overline{\mathbb{Q}}_\ell\)-representation \(\rho\) of \(I\) on a
+finite-dimensional \(\overline{\mathbb{Q}}_\ell\)-vector space \(V\), with
+the property that there exists a finite extension \(E_\lambda\) of
+\(\mathbb{Q}_\ell\) with ring of integers \(\mathcal{O}_\lambda\), a free
+\(\mathcal{O}_\lambda\)-module \(V_0\), and a continuous
+\(\mathcal{O}_\lambda\)-representation \(\rho_0\) of \(I\) on \(V_0\) such
+that
+\[
+  (\rho_0,V_0)\otimes\overline{\mathbb{Q}}_\ell\cong(\rho,V).
+\]
+
+\sourcepara{3.1.3}
+An \(\ell\)-adic representation of \(I\) is said to be tame if it is trivial
+on \(P\). It is said to be unipotent if it is a successive extension of
+trivial representations of \(I\). Because the upper unipotent subgroup of
+\(\operatorname{GL}(n,\mathcal{O}_\lambda)\) is pro-\(\ell\), any unipotent
+representation of \(I\) is tame. If we fix a topological generator \(\gamma\)
+of \(I/P\), then isomorphism classes of \(n\)-dimensional unipotent
+representations of \(I\) are in bijective correspondence with conjugacy
+classes of unipotent elements in
+\(\operatorname{GL}(n,\overline{\mathbb{Q}}_\ell)\). By the theory of Jordan
+normal form, there is, up to isomorphism, a unique indecomposable unipotent
+representation of \(I\) of each dimension \(n\geq 1\), which we denote
+\(\operatorname{Unip}(n)\). We sometimes refer to \(\operatorname{Unip}(n)\)
+as the ``standard Jordan block of size \(n\)''.
+
+\sourceheading[lem:3.1.4]{Lemma 3.1.4}
+If \(M\) and \(N\) are inequivalent irreducible \(\ell\)-adic representations
+of \(I\), then \(\operatorname{Ext}^i_I(M,N)=0\) for all \(i\). In particular,
+\[
+  \operatorname{Hom}_I(M,N)=\operatorname{Ext}^1_I(M,N)=0.
+\]
+
+\begin{proof}
+\[
+\begin{aligned}
+  \operatorname{Ext}^i_I(M,N)
+  &= \mathrm{H}^i(I,M^{\vee}\otimes N)\\
+  &= \mathrm{H}^i(I/P,(M^{\vee}\otimes N)^P).
+\end{aligned}
+\]
+In terms of a topological generator \(\gamma\) of \(I/P\), we have
+\[
+\mathrm{H}^i(I/P,(M^{\vee}\otimes N)^P)
+=
+\begin{cases}
+  \operatorname{Ker}\bigl(1-\gamma\mid(M^{\vee}\otimes N)^P\bigr),
+    & i=0,\\
+  \operatorname{Coker}\bigl(1-\gamma\mid(M^{\vee}\otimes N)^P\bigr),
+    & i=1,\\
+  0, & i\geq 2.
+\end{cases}
+\]
+This explicit description shows that
+\(\chi(I,M^{\vee}\otimes N)=0\). Therefore we have
+\(\mathrm{h}^0(I,M^{\vee}\otimes N)=\mathrm{h}^1(I,M^{\vee}\otimes N)\),
+i.e.,
+\[
+  \dim\operatorname{Ext}^1_I(M,N)=\dim\operatorname{Hom}_I(M,N).
+\]
+Since \(M\) and \(N\) are irreducible and inequivalent,
+\(\operatorname{Hom}_I(M,N)=0\).
+\end{proof}
+
+\sourceheading[lem:3.1.5]{Lemma 3.1.5}
+If \(N\) is an irreducible nontrivial \(\ell\)-adic representation of \(I\),
+then \(\mathrm{H}^i(I,N)=0\) for all \(i\).
+
+\begin{proof}
+Take \(M\) to be the trivial representation in
+\hyperref[lem:3.1.4]{Lemma~3.1.4}.
+\end{proof}
+
+\sourceheading[lem:3.1.6]{Lemma 3.1.6}
+Any \(\ell\)-adic representation \(M\) of \(I\) has a canonical direct sum
+``isotypical'' decomposition, indexed by the equivalence classes \(\mathcal{A}\)
+of irreducible representations of \(I\), as
+\(\bigoplus_{\alpha\in\mathcal{A}} M_\alpha\), where \(M_\alpha\) is a
+successive extension of irreducible representations all of type \(\alpha\).
+
+\begin{proof}
+This is immediate from \hyperref[lem:3.1.4]{Lemma~3.1.4}.
+\end{proof}
+
+\sourceheading[lem:3.1.7]{Lemma 3.1.7}
+Let \(N\) be an irreducible \(\ell\)-adic representation of \(I\).
+\begin{enumerate}[label=(\arabic*)]
+\item Given any two unipotent representations \(U_1\) and \(U_2\) of \(I\),
+the natural map ``\(\otimes N\)'' defines isomorphisms
+\[
+\begin{aligned}
+  \operatorname{Hom}_I(U_1,U_2)
+  &\cong
+  \operatorname{Hom}_I(N\otimes U_1,N\otimes U_2),\\
+  \operatorname{Ext}^1_I(U_1,U_2)
+  &\cong
+  \operatorname{Ext}^1_I(N\otimes U_1,N\otimes U_2).
+\end{aligned}
+\]
+\item Given any \(\ell\)-adic representation \(M\) of \(I\) which is a
+successive extension of \(N\) by itself, there exists a unipotent
+representation \(U\) of \(I\) and an isomorphism
+\[
+  M\cong N\otimes U
+\]
+of \(I\)-representations. We can recover \(U\) intrinsically as the
+``\(1\)-isotypical'' component of \(N^{\vee}\otimes M\).
+\item Let \(M\) be an indecomposable \(\ell\)-adic representation \(M\) of
+\(I\) which is a successive extension of \(N\) by itself. If \(M\) has length
+\(m\) as \(\overline{\mathbb{Q}}_\ell[I]\)-module, then
+\[
+  M\cong N\otimes\operatorname{Unip}(m),
+\]
+where \(\operatorname{Unip}(m)\) is the standard Jordan block of size \(m\).
+\end{enumerate}
+
+\begin{proof}
+\((1)\) Given \(U_1\) and \(U_2\) unipotent,
+\[
+  \operatorname{Ext}^i_I(N\otimes U_1,N\otimes U_2)
+  =
+  \mathrm{H}^i(I,N^{\vee}\otimes N\otimes(U_1^{\vee}\otimes U_2)).
+\]
+Because \(N\) is irreducible, \(N^{\vee}\otimes N\) is semisimple, and
+\[
+  N^{\vee}\otimes N\cong \mathbf{1}\oplus R,
+\]
+with \(R\cong\bigoplus\) of nontrivial irreducibles. Because
+\(U_1^{\vee}\otimes U_2\) is unipotent,
+\(R\otimes(U_1^{\vee}\otimes U_2)\) is a successive extension of nontrivial
+irreducibles, and hence
+\[
+  \mathrm{H}^i(I,R\otimes(U_1^{\vee}\otimes U_2))=0
+\]
+for all \(i\), by \hyperref[lem:3.1.5]{Lemma~3.1.5}. Therefore the inclusion
+of \(\mathbf{1}\) into \(N^{\vee}\otimes N\) induces isomorphisms
+\[
+  \mathrm{H}^i(I,U_1^{\vee}\otimes U_2)
+  \cong
+  \mathrm{H}^i(I,N^{\vee}\otimes N\otimes(U_1^{\vee}\otimes U_2))
+\]
+for all \(i\). If we view these groups as \(\operatorname{Ext}\) groups, then
+this isomorphism is that induced by ``\(\otimes N\)''
+\[
+  \operatorname{Ext}^i_I(U_1,U_2)
+  \longrightarrow
+  \operatorname{Ext}^i_I(N\otimes U_1,N\otimes U_2)
+\]
+for all \(i\).
+
+\((2)\) Once we have \((1)\), the first assertion of \((2)\) is proven by
+induction on the length of \(M\). Once \(M\cong N\otimes U\), we have, just as
+above,
+\[
+  N^{\vee}\otimes M
+  =
+  N^{\vee}\otimes N\otimes U
+  =
+  (\mathbf{1}\oplus R)\otimes U
+  =
+  U\oplus R\otimes U,
+\]
+with \(R\otimes U\) a successive extension of nontrivial irreducibles.
+
+\((3)\) If \(N\otimes U\) is indecomposable of length \(m\), then \(U\) is
+indecomposable of length \(m\), hence is \(\operatorname{Unip}(m)\).
+\end{proof}
+
+\sourceheading[prop:3.1.8]{Proposition 3.1.8}
+Let \(M\) be an \(\ell\)-adic representation of \(I\). Then
+\[
+  \dim\left[
+  \frac{\operatorname{End}_I(M)}
+       {M^I\otimes(M^{\vee})^I}
+  \right]
+  =
+  \dim\operatorname{End}_I(M/M^I).
+\]
+
+This will be proven in a series of Lemmas.
+
+\sourceheading[lem:3.1.9]{Lemma 3.1.9}
+If \hyperref[prop:3.1.8]{Proposition~3.1.8} holds for all unipotent
+\(\ell\)-adic representations of \(I\), then it holds for all
+\(\ell\)-adic representations of \(I\).
+
+\begin{proof}
+Let \(M\) be an \(\ell\)-adic representation of \(I\). In terms of the
+``isotypical'' decomposition of \(M\) as
+\(\bigoplus_{\alpha\in\mathcal{A}}M_\alpha\), we have
+\[
+  \operatorname{End}_I(M)=
+  \bigoplus_{\alpha\in\mathcal{A}}\operatorname{End}_I(M_\alpha).
+\]
+Moreover, if we denote by \(\mathbf{1}\) the trivial representation of \(I\),
+and by \(M_{\mathbf{1}}\) the corresponding ``isotypical'' summand (thus
+\(M_{\mathbf{1}}\) is the maximal unipotent subrepresentation of \(M\)), then
+clearly
+\[
+  M^I=(M_{\mathbf{1}})^I,\qquad
+  (M^{\vee})^I=((M^{\vee})_{\mathbf{1}})^I
+  =((M_{\mathbf{1}})^{\vee})^I.
+\]
+Thus the ``isotypical'' decomposition of \(M/M^I\) is
+\[
+  M/M^I
+  =
+  \bigoplus_{\alpha\ne\mathbf{1}\text{ in }\mathcal{A}}M_\alpha
+  \oplus M_{\mathbf{1}}/(M_{\mathbf{1}})^I,
+\]
+and hence
+\[
+  \operatorname{End}_I(M/M^I)
+  =
+  \bigoplus_{\alpha\ne\mathbf{1}\text{ in }\mathcal{A}}\operatorname{End}_I(M_\alpha)
+  \oplus
+  \operatorname{End}_I(M_{\mathbf{1}}/(M_{\mathbf{1}})^I).
+\]
+On the other hand,
+\[
+  M^I\otimes(M^{\vee})^I
+  =
+  (M_{\mathbf{1}})^I\otimes((M^{\vee})_{\mathbf{1}})^I
+  =
+  (M_{\mathbf{1}})^I\otimes((M_{\mathbf{1}})^{\vee})^I,
+\]
+and hence
+\[
+\begin{aligned}
+  \frac{\operatorname{End}_I(M)}{M^I\otimes(M^{\vee})^I}
+  &=
+  \bigoplus_{\alpha\ne\mathbf{1}\text{ in }\mathcal{A}}
+  \operatorname{End}_I(M_\alpha)\\
+  &\quad\oplus
+  \frac{\operatorname{End}_I(M_{\mathbf{1}})}
+       {(M_{\mathbf{1}})^I\otimes((M_{\mathbf{1}})^{\vee})^I}.
+\end{aligned}
+\]
+Thus we see that \hyperref[prop:3.1.8]{Proposition~3.1.8} holds for \(M\) if
+and only if it holds for \(M_{\mathbf{1}}\).
+\end{proof}
+
+\sourcepara{3.1.10}
+We now study the case in which \(M\) is a unipotent \(\ell\)-adic
+representation \(U\) of \(I\), so a direct sum of standard Jordan blocks
+\(\bigoplus\operatorname{Unip}(n_i)\) of varying sizes \(n_i\geq 1\). Given a
+unipotent representation \(U\) of \(I\), we define a sequence of nonnegative
+integers \(e_i=e_i(U)\),
+\[
+  e_1\geq e_2\geq e_3\geq e_4\geq\cdots,\qquad e_r=0\text{ for }r\gg 0,
+\]
+by
+\[
+  e_i:=\text{the number of Jordan blocks of dimension }\geq i.
+\]
+It is obvious from this definition that given two unipotent representations
+\(U_1\) and \(U_2\) of \(I\), we have
+\[
+  e_i(U_1\oplus U_2)=e_i(U_1)+e_i(U_2).
+\]
+For a single unipotent block \(\operatorname{Unip}(n)\), we have
+\[
+\begin{aligned}
+  e_i&=1 &&\text{for }i\leq n,\\
+  e_i&=0 &&\text{for }i>n.
+\end{aligned}
+\]
+So for \(M=\bigoplus\operatorname{Unip}(n_i)\), the \(e_i(M)\) are the
+partition of \(\dim(M)\), written in decreasing order, which is dual to the
+partition of \(\dim(M)\) given by the block sizes \(n_i\). We call the sequence
+\((e_1,e_2,e_3,\ldots)\) attached to a unipotent \(M\) its ``dual partition''.
+
+\sourcepara{3.1.11}
+Clearly if \(M\) is unipotent, with dual partition
+\((e_1,e_2,e_3,e_4,\ldots)\), then \(M/M^I\) has dual partition
+\((e_2,e_3,e_4,\ldots)\), formed from that of \(M\) by discarding the leading
+term. (Indeed, if \(M=\operatorname{Unip}(n)\), then \(M/M^I\) is \(0\) if
+\(n=1\), and is \(\operatorname{Unip}(n-1)\) if \(n>1\).)
+
+\sourcepara{3.1.12}
+Notice that if \(M\) is a single Jordan block \(\operatorname{Unip}(n)\), then
+\(M^{\vee}\) is also a single Jordan block \(\operatorname{Unip}(n)\). So if
+\(M\cong\bigoplus\operatorname{Unip}(n_i)\), then also
+\(M^{\vee}\cong\bigoplus\operatorname{Unip}(n_i)\). From this we see that
+\[
+\begin{aligned}
+  \dim(M^I)&=\text{the number of Jordan blocks in }M:=e_1(M),\\
+  \dim((M^{\vee})^I)&=e_1(M^{\vee})=e_1(M).
+\end{aligned}
+\]
+
+\sourceheading[rem:3.1.13]{Remark 3.1.13}
+One could define the dual partition inductively by the properties
+\[
+  e_1(M)=\dim(M^I),\qquad e_{i+1}(M)=e_i(M/M^I),\quad\text{for }i\geq 1.
+\]
+
+\sourceheading[lem:3.1.14]{Lemma 3.1.14}
+If \(M\) and \(N\) are unipotent \(\ell\)-adic representations of \(I\), with
+dual partitions \((e_1,e_2,e_3,e_4,\ldots)\) and
+\((f_1,f_2,f_3,f_4,\ldots)\), then
+\[
+  \dim\operatorname{Hom}_I(M,N)=\sum_i e_i f_i.
+\]
+
+\begin{proof}
+Both sides are additive over direct sums, so it suffices to check in the case
+when \(M\) is \(\operatorname{Unip}(m)\) and \(N\) is
+\(\operatorname{Unip}(n)\). In this case the assertion is that
+\[
+  \dim\operatorname{Hom}_I(\operatorname{Unip}(m),\operatorname{Unip}(n))
+  =
+  \min(m,n).
+\]
+In terms of the action of
+\[
+  T:=(\text{a topological generator of }I/P)-1,
+\]
+this is the assertion that over any field \(E\), we have
+\[
+  \dim_E\operatorname{Hom}_{E[T]}(E[T]/(T^m),E[T]/(T^n))=\min(m,n).
+\]
+But by the map \(\varphi\mapsto\varphi(1)\),
+\[
+\begin{aligned}
+  \operatorname{Hom}_{E[T]}(E[T]/(T^m),E[T]/(T^n))
+  &\cong \text{kernel of }T^m\text{ in }E[T]/(T^n)\\
+  &=E[T]/(T^n), &&\text{if }m\geq n,\\
+  &=T^{n-m}E[T]/(T^n)\cong E[T]/(T^m), &&\text{if }n\geq m.
+\end{aligned}
+\]
+\end{proof}
+
+\sourceheading[lem:3.1.15]{Lemma 3.1.15}
+If \(M\) is a unipotent \(\ell\)-adic representation of \(I\), with dual
+partition \((e_1,e_2,e_3,e_4,\ldots)\), then
+\[
+  \dim\operatorname{End}_I(M)=\sum_i(e_i)^2.
+\]
+
+\begin{proof}
+Take \(N=M\) in \hyperref[lem:3.1.14]{Lemma~3.1.14}.
+\end{proof}
+
+\sourceheading[lem:3.1.16]{Lemma 3.1.16}
+If \(M\) is a unipotent \(\ell\)-adic representation of \(I\),
+\[
+  \dim\operatorname{End}_I(M/M^I)
+  =
+  \dim\left[
+  \frac{\operatorname{End}_I(M)}
+       {M^I\otimes(M^{\vee})^I}
+  \right].
+\]
+
+\begin{proof}
+If \(M\) has dual partition \((e_1,e_2,e_3,e_4,\ldots)\), then \(M/M^I\) has
+dual partition \((e_2,e_3,e_4,\ldots)\), and
+\(\dim(M^I\otimes(M^{\vee})^I)=(e_1)^2\), so both sides are equal to
+\(\sum_{i\geq 2}(e_i)^2\).
+\end{proof}
+
+In view of \hyperref[lem:3.1.9]{Lemma~3.1.9}, this completes the proof of
+\hyperref[prop:3.1.8]{Proposition~3.1.8}.
+
+\section{Interlude: the operation
+\texorpdfstring{\(\otimes_{\mathrm{mid}}\)}{tensor-mid}}\label{sec:3.2}
+
+\sourcepara{3.2.1}
+Let \(k\) be a field, \(X\) a separated \(k\)-scheme of finite type which is
+irreducible and smooth, everywhere of relative dimension \(n\). Let \(\ell\)
+be a prime number \(\ne\operatorname{char}(k)\). We look at the full
+subcategory \(\operatorname{ME}(X)\) of \((\ell\)-adic) \(\operatorname{Perv}(X)\)
+consisting of those objects which are middle extensions from every nonempty
+affine open set, i.e., those perverse objects \(K\) on \(X\) such that for
+every nonempty affine open set \(j:U\to X\), we have
+\[
+  K\cong j_{!*}j^*K.
+\]
+Given \(K\) in \(\operatorname{ME}\), we say that \(K\) has generic rank
+\(r\) if for some (or equivalently, for any) nonempty affine open set
+\(j:U\to X\) on which it is lisse, \(j^*K\) is \(\mathcal{F}[n]\), with
+\(\mathcal{F}\) a lisse sheaf on \(U\) of rank \(r\).
+
+\sourcepara{3.2.2}
+We define an operation
+\[
+  \otimes_{\mathrm{mid}}:\operatorname{ME}(X)\times\operatorname{ME}(X)
+  \longrightarrow \operatorname{ME}(X)
+\]
+as follows. Given any two objects \(K\) and \(L\) in \(\operatorname{ME}\), pick
+a common nonempty affine open set \(j:U\to X\) on which both \(K\) and \(L\)
+are lisse. Thus \(j^*K=\mathcal{F}[n]\) and \(j^*L=\mathcal{G}[n]\) for lisse
+sheaves \(\mathcal{F}\) and \(\mathcal{G}\) on \(U\). We define
+\[
+  K\otimes_{\mathrm{mid}}L
+  :=
+  j_{!*}\bigl((\mathcal{F}\otimes\mathcal{G})[n]\bigr)
+  =
+  j_{!*}\bigl((j^*K\otimes j^*L)[-n]\bigr).
+\]
+This is easily seen to be independent of the auxiliary choice of \(U\), using
+\hyperref[par:2.3.3.1]{(2.3.3.1)}.
+
+\sourceheading[lem:3.2.3]{Lemma 3.2.3}
+Let \(k\) be a field, \(X\) a separated \(k\)-scheme of finite type which is
+irreducible and smooth, everywhere of relative dimension \(n\). Let \(\ell\)
+be a prime number \(\ne\operatorname{char}(k)\).
+\begin{enumerate}[label=(\arabic*)]
+\item An object \(K\) in \(\operatorname{ME}\) is perverse irreducible if and
+only if it is irreducible in \(\operatorname{ME}\).
+\item Let \(L\) in \(\operatorname{ME}\) have generic rank one. Then
+\begin{enumerate}[label=(2\alph*)]
+\item The operation \(K\mapsto K\otimes_{\mathrm{mid}}L\) is an
+autoequivalence of \(\operatorname{ME}\) with
+itself, whose inverse is \(K\mapsto K\otimes_{\mathrm{mid}}\mathbb{D}L\).
+\item The operation \(K\mapsto K\otimes_{\mathrm{mid}}L\) induces an
+automorphism of the family of all irreducible perverse sheaves in
+\(\operatorname{ME}\), whose inverse is
+\(K\mapsto K\otimes_{\mathrm{mid}}\mathbb{D}L\).
+\end{enumerate}
+\end{enumerate}
+
+\begin{proof}
+\((1)\) Since \(\operatorname{ME}\) is a full subcategory of
+\(\operatorname{Perv}\), any perverse irreducible is an irreducible object of
+\(\operatorname{ME}\). Conversely, suppose that \(K\) in \(\operatorname{ME}\)
+is not perverse irreducible. Then there exists a perverse irreducible \(L\),
+and a nonzero element in \(\operatorname{Hom}_X(L,K)\). If \(L\) is in
+\(\operatorname{ME}\), \(K\) is not irreducible in \(\operatorname{ME}\). If
+not, then \(L\) is supported on a proper closed subvariety \(Y\) of \(X\). So
+there exists an affine open \(j:U\to X\) with \(j^*L=0\). But in
+\(\operatorname{Perv}(X)\), we have \(K=j_{!*}j^*K\subset \mathrm{R}j_*j^*K\),
+so
+\[
+  \operatorname{Hom}_X(L,K)
+  \subset
+  \operatorname{Hom}_X(L,\mathrm{R}j_*j^*K)
+  =
+  \operatorname{Hom}_U(j^*L,j^*K)
+  =
+  0,
+\]
+contradiction. \((2a)\) is obvious by \hyperref[par:2.3.3.1]{(2.3.3.1)}, and
+by \((1)\) it implies \((2b)\).
+\end{proof}
+
+\sourceheading[lem:3.2.4]{Lemma 3.2.4}
+Let \(\ell\) be a prime number. On \(\mathbb{A}^1\) over an algebraically
+closed field of characteristic \(\ne\ell\), let \(L\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1,\overline{\mathbb{Q}}_\ell)\) be a perverse
+sheaf on \(\mathbb{A}^1\) which lies in \(\operatorname{ME}\). Suppose that
+\(L\) has generic rank one. Then
+\begin{enumerate}[label=(\arabic*)]
+\item If \(K\) in \(\operatorname{ME}\) is perverse irreducible, so is
+\(K\otimes_{\mathrm{mid}}L\).
+\item For any \(K\) in \(\operatorname{ME}\),
+\[
+  \operatorname{rig}(K)=\operatorname{rig}(K\otimes_{\mathrm{mid}}L).
+\]
+\end{enumerate}
+
+\begin{proof}
+Assertion \((1)\) is part \((2b)\) of
+\hyperref[lem:3.2.3]{Lemma~3.2.3}. Assertion \((2)\) is obvious from the
+definitions: if \(j:U\to\mathbb{A}^1\) is any nonempty open set on which both
+\(K\) and \(L\) are lisse, say
+\(j^*K=\mathcal{F}[1]\) and \(j^*L=\mathcal{L}[1]\), with \(\mathcal{F}\)
+lisse of some rank \(r\), and \(\mathcal{L}\) lisse of rank one, then on \(U\)
+the sheaves \(\operatorname{End}(\mathcal{F})\) and
+\(\operatorname{End}(\mathcal{F}\otimes\mathcal{L})\) coincide.
+\end{proof}
+
+\section{Applications to middle additive convolution}\label{sec:3.3}
+
+\sourceheading[lem:3.3.1]{Lemma 3.3.1}
+Let \(p\) and \(\ell\) be prime numbers, \(\ell\ne p\). On \(\mathbb{A}^1\)
+over an algebraically closed field of characteristic \(p\), let \(K\) and
+\(L\) in \(\mathrm{D}^b_c(\mathbb{A}^1,\overline{\mathbb{Q}}_\ell)\) be
+perverse sheaves. Then
+\begin{enumerate}[label=(\arabic*)]
+\item \(K\) is in \(\mathcal{P}\) if and only if \(\operatorname{FT}K\) is in
+\(\operatorname{ME}\).
+\item If \(K\) and \(L\) are both in \(\mathcal{P}\), then
+\[
+  \operatorname{FT}(K*_{\mathrm{mid}+}L)
+  =
+  \operatorname{FT}K\otimes_{\mathrm{mid}}\operatorname{FT}L.
+\]
+\end{enumerate}
+
+\begin{proof}
+This was proven in \hyperref[lem:2.10.2]{Lemma~2.10.2} and
+\hyperref[thm:2.10.8]{Theorem~2.10.8} above.
+\end{proof}
+
+\sourceheading[lem:3.3.2]{Lemma 3.3.2}
+Let \(p\) and \(\ell\) be prime numbers, \(\ell\ne p\). On \(\mathbb{G}_m\)
+over an algebraically closed field of characteristic \(p>0\), let \(\chi\) be
+any continuous nontrivial \(\overline{\mathbb{Q}}_\ell^\times\)-valued
+character of \(\pi_1(\mathbb{G}_m)^{\mathrm{tame}}\), \(\mathcal{L}_\chi\) the
+corresponding Kummer sheaf on \(\mathbb{G}_m\), and \(j_*\mathcal{L}_\chi\)
+its extension by direct image to \(\mathbb{A}^1\). Then
+\[
+  \operatorname{FT}(j_*\mathcal{L}_{\chi}[1])
+  =
+  j_*\mathcal{L}_{\overline{\chi}}[1]
+\]
+(geometrically).
+
+\begin{proof}
+Direct calculation.
+\end{proof}
+
+\sourceheading[thm:3.3.3]{Theorem 3.3.3}
+Let \(p\) and \(\ell\) be prime numbers, \(\ell\ne p\). Over an algebraically
+closed field of characteristic \(p\), let \(\chi\) be any continuous nontrivial
+\(\overline{\mathbb{Q}}_\ell^\times\)-valued character of
+\(\pi_1(\mathbb{G}_m)^{\mathrm{tame}}\). Let \(K\) in
+\(\mathrm{D}^b_c(\mathbb{A}^1,\overline{\mathbb{Q}}_\ell)\) be perverse
+irreducible on \(\mathbb{A}^1\).
+\begin{enumerate}[label=(\arabic*)]
+\item If \(K\) is not in \(\mathcal{P}\), then
+\begin{enumerate}[label=(1\alph*)]
+\item If \(K\) is \(\overline{\mathbb{Q}}_\ell[1]\), then
+\[
+  K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]=0.
+\]
+\item If \(K\) is \(\mathcal{L}_{\psi_\alpha}[1]\) with \(\alpha\ne0\), then
+\[
+  K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]
+  =
+  \mathcal{L}_{\psi_\alpha}[1].
+\]
+\end{enumerate}
+\item If \(K\) is in \(\mathcal{P}\), then
+\begin{enumerate}[label=(2\alph*)]
+\item If \(K\) is punctual, say \(\delta_\alpha\),
+\[
+  K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]
+  =
+  j_*\mathcal{L}_{\chi}(x-\alpha)[1].
+\]
+\item If \(K\) is \(j_*\mathcal{L}_{\overline{\chi}}(x-\alpha)[1]\) for some
+\(\alpha\), then
+\[
+  K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]=\delta_\alpha.
+\]
+\item If \(K\) is \(j_*\mathcal{L}_{\rho}(x-\alpha)[1]\) for some \(\alpha\)
+and some \(\rho\ne\overline{\chi}\), then
+\[
+  K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]
+  =
+  j_*\mathcal{L}_{\rho\chi}(x-\alpha)[1].
+\]
+\item If \(K\) is a perverse irreducible in \(\mathcal{P}\) which is not of
+type \((2a)\), \((2b)\), or \((2c)\), then
+\[
+  K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]
+\]
+is a perverse irreducible in \(\mathcal{P}\) which is not of type \((2a)\),
+\((2b)\), or \((2c)\).
+\end{enumerate}
+\item If \(K\) is in \(\mathcal{P}\) and of type \((2d)\), then
+\[
+  \operatorname{rig}(K)
+  =
+  \operatorname{rig}(K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]).
+\]
+\end{enumerate}
+
+\begin{proof}
+Assertion \((1)\) is proven by direct calculation. Assertion \((2a)\) is
+proven by direct calculation. We know that middle convolution
+\(*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]\) with
+\(j_*\mathcal{L}_{\chi}[1]\) is an automorphism of the irreducibles in
+\(\mathcal{P}\), with inverse
+\(*_{\mathrm{mid}+}j_*\mathcal{L}_{\overline{\chi}}[1]\). Using this,
+\((2b)\) follows from \((2a)\). We also know that
+\[
+\begin{aligned}
+  j_*\mathcal{L}_{\chi}[1]*_{\mathrm{mid}+}j_*\mathcal{L}_{\rho}[1]
+  &=
+  j_*\mathcal{L}_{\chi\rho}[1] &&\text{if }\chi\rho\ne\mathbf{1},\\
+  &=\delta_0 &&\text{if }\chi\rho=\mathbf{1}.
+\end{aligned}
+\]
+Using the associativity of middle convolution, and \((2a)\), we get \((2c)\).
+
+To prove \((2d)\), observe first that for each \(\alpha\), the family of all
+those irreducibles in \(\mathcal{P}\) which are either \(\delta_\alpha\) or
+\(j_*\mathcal{L}_\rho(x-\alpha)[1]\) for some \(\rho\ne\mathbf{1}\) is simply
+the orbit of \(\delta_\alpha\) under the group of operators given by middle
+convolution with \(\delta_0\) and with any \(j_*\mathcal{L}_{\chi}[1]\), for
+any \(\chi\ne\mathbf{1}\). Since the family of all irreducibles in
+\(\mathcal{P}\) is also stable by this group of operators, the complement of
+a union of orbits is also stable.
+
+To prove \((3)\), we note that by \((2d)\), both sides are middle extensions.
+Since both sides are also in \(\mathcal{P}\), their Fourier Transforms are
+middle extensions. So by \hyperref[thm:3.0.2]{Theorem~3.0.2}, we have
+\[
+  \operatorname{rig}(K)=\operatorname{rig}(\operatorname{FT}K),
+\]
+and
+\[
+\begin{aligned}
+  \operatorname{rig}(K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1])
+  &=
+  \operatorname{rig}\bigl(\operatorname{FT}
+  (K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1])\bigr)\\
+  &=
+  \operatorname{rig}\bigl(\operatorname{FT}K\otimes_{\mathrm{mid}}
+  \operatorname{FT}(j_*\mathcal{L}_{\chi}[1])\bigr),
+  \quad\text{by \hyperref[lem:3.3.1]{Lemma~3.3.1}(2)}\\
+  &=
+  \operatorname{rig}\bigl(\operatorname{FT}K\otimes_{\mathrm{mid}}
+  j_*\mathcal{L}_{\overline{\chi}}[1]\bigr),
+  \quad\text{by \hyperref[lem:3.3.2]{Lemma~3.3.2}}\\
+  &=
+  \operatorname{rig}(\operatorname{FT}K),
+  \quad\text{by \hyperref[lem:3.2.4]{Lemma~3.2.4}(2)}.
+\end{aligned}
+\]
+\end{proof}
+
+\sourcepara{3.3.4}
+We now turn to a discussion of the monodromy of middle convolution with a
+\(j_*\mathcal{L}_{\chi}[1]\). For the convenience of the reader, we recall
+some of the basic facts about Laumon's local Fourier Transforms.
+
+\sourceheading[thm:3.3.5]{Theorem 3.3.5}
+Hypotheses and notations as in \hyperref[thm:3.3.3]{Theorem~3.3.3} above,
+suppose that \(K\) is a perverse irreducible in \(\mathcal{P}\) of type
+\((2d)\). Pick a nonempty open set \(j:U\to\mathbb{A}^1\) on which both \(K\)
+and \(K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]\) are lisse, say
+\[
+  K=j_{!*}\mathcal{F}[1],\qquad
+  K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]
+  =
+  j_{!*}\mathcal{G}[1],
+\]
+with \(\mathcal{F}\) and \(\mathcal{G}\) lisse sheaves on \(U\). Then the local
+monodromies of \(\mathcal{F}\) and of \(\mathcal{G}\) are related as follows:
+\begin{enumerate}[label=(\arabic*)]
+\item at \(s\) in \(\mathbb{A}^1-U\):
+\[
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr)
+  \otimes\mathcal{L}_{\overline{\chi}}
+  =
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{G}(s)/\mathcal{G}(s)^{I(s)}\bigr).
+\]
+\item[(1a)] In particular, \(\mathcal{F}\) is lisse at \(s\) if and only if
+\(\mathcal{G}\) is lisse at \(s\).
+\item at \(\infty\): decompose
+\[
+  \mathcal{F}(\infty)
+  =
+  \mathcal{F}(\infty)(\text{slopes }>1)
+  \oplus
+  \left(\bigoplus_{s\in\mathbb{A}^1}
+  \mathcal{L}_{\psi_s}\otimes\mathcal{F}(\infty,s)\right)
+\]
+with \(\mathcal{F}(\infty,s)\) an \(I(\infty)\)-representation with all slopes
+\(<1\), and similarly for \(\mathcal{G}\). Then
+\item[(2a)] We have the formula
+\[
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(\infty,\infty)
+  \bigl(\mathcal{F}(\infty)(\text{slopes }>1)\bigr)
+  \otimes\mathcal{L}_{\overline{\chi}}
+  =
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(\infty,\infty)
+  \bigl(\mathcal{G}(\infty)(\text{slopes }>1)\bigr).
+\]
+\item[(2b)] For each \(s\ne0\) in \(\mathbb{A}^1\),
+\[
+  \mathcal{F}(\infty,s)\cong\mathcal{G}(\infty,s).
+\]
+\item[(2c)] There exists an \(I(0)\)-representation \(M(0)\) with
+\[
+\begin{aligned}
+  \mathcal{F}(\infty,0)
+  &=
+  \operatorname{FT}_{\overline{\psi}}^{\mathrm{loc}}(0,\infty)
+  \bigl(M(0)/M(0)^{I(0)}\bigr),\\
+  \mathcal{G}(\infty,0)
+  &=
+  \operatorname{FT}_{\overline{\psi}}^{\mathrm{loc}}(0,\infty)
+  \bigl(M(0)\otimes\mathcal{L}_{\overline{\chi}}
+  /(M(0)\otimes\mathcal{L}_{\overline{\chi}})^{I(0)}\bigr).
+\end{aligned}
+\]
+\item[(2d)] In particular, cf. \cite[7.4.4]{Ka-ESDE}, \(\mathcal{F}\) is
+tame at \(\infty\) if and only if \(\mathcal{G}\) is tame at \(\infty\).
+\end{enumerate}
+
+\begin{proof}
+This is just the spelling out of identities
+\[
+\begin{aligned}
+  \operatorname{FT}_{\psi}(K*_{\mathrm{mid}+}L)
+  &=
+  \operatorname{FT}_{\psi}K\otimes_{\mathrm{mid}}\operatorname{FT}_{\psi}L,\\
+  \operatorname{FT}_{\overline{\psi}}
+  (\operatorname{FT}_{\psi}K\otimes_{\mathrm{mid}}\operatorname{FT}_{\psi}L)
+  &=
+  K*_{\mathrm{mid}+}L,\\
+  \operatorname{FT}_{\overline{\psi}}(\operatorname{FT}_{\psi}K)&=K,
+\end{aligned}
+\]
+with \(L=j_*\mathcal{L}_{\chi}[1]\), together with the effect of
+\(\operatorname{FT}\) upon local monodromies, as expressed via Laumon's
+\(\operatorname{FTloc}(s,\infty)\) and \(\operatorname{FTloc}(\infty,\infty)\)
+functors.
+
+Concretely, let us write
+\(\operatorname{FT}_{\psi}K=j_{!*}(\mathcal{A}[1])\), for some sufficiently
+small nonempty open set \(j:V\to\mathbb{A}^1\) and some lisse sheaf
+\(\mathcal{A}\) on \(V\). Then
+\(\operatorname{FT}_{\psi}(K*_{\mathrm{mid}+}L)=j_{!*}(\mathcal{B}[1])\), with
+\(\mathcal{B}=\mathcal{A}\otimes j^*\mathcal{L}_{\overline{\chi}}\). Their
+\(I(\infty)\)-representations are related by
+\(\mathcal{B}(\infty)=\mathcal{A}(\infty)\otimes\mathcal{L}_{\overline{\chi}}\),
+so decomposing them we find
+\[
+\begin{aligned}
+  \mathcal{B}(\infty)(\text{slope }>1)
+  &=
+  \mathcal{A}(\infty)(\text{slope }>1)\otimes
+  \mathcal{L}_{\overline{\chi}},\\
+  \mathcal{B}(\infty,s)
+  &=
+  \mathcal{A}(\infty,s)\otimes\mathcal{L}_{\overline{\chi}},
+  \quad\text{for every }s\text{ in }\mathbb{A}^1.
+\end{aligned}
+\]
+By Laumon (cf. \cite[7.4.2]{Ka-ESDE}) we know that
+\[
+\begin{aligned}
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr)
+  &=
+  \mathcal{A}(\infty,s),\\
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{G}(s)/\mathcal{G}(s)^{I(s)}\bigr)
+  &=
+  \mathcal{B}(\infty,s)
+  =
+  \mathcal{A}(\infty,s)\otimes\mathcal{L}_{\overline{\chi}},
+\end{aligned}
+\]
+whence
+\[
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr)
+  \otimes\mathcal{L}_{\overline{\chi}}
+  =
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{G}(s)/\mathcal{G}(s)^{I(s)}\bigr).
+\]
+By Laumon, we also know
+\[
+\begin{aligned}
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(\infty,\infty)
+  \bigl(\mathcal{F}(\infty)(\text{slope }>1)\bigr)
+  &=
+  \mathcal{A}(\infty)(\text{slope }>1),\\
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(\infty,\infty)
+  \bigl(\mathcal{G}(\infty)(\text{slope }>1)\bigr)
+  &=
+  \mathcal{B}(\infty)(\text{slope }>1)\\
+  &=
+  \mathcal{A}(\infty)(\text{slope }>1)\otimes
+  \mathcal{L}_{\overline{\chi}},
+\end{aligned}
+\]
+whence the asserted formula for the slope \(>1\) part.
+
+To prove the remaining assertions, we use the inversion formulas
+\[
+\begin{aligned}
+  \operatorname{FT}_{\overline{\psi}}
+  (\operatorname{FT}_{\psi}K\otimes_{\mathrm{mid}}\operatorname{FT}_{\psi}L)
+  &=
+  K*_{\mathrm{mid}+}L,\\
+  \operatorname{FT}_{\overline{\psi}}(\operatorname{FT}_{\psi}K)&=K.
+\end{aligned}
+\]
+Since our \(\operatorname{FT}L\) is lisse of rank one on \(\mathbb{G}_m\),
+\(\operatorname{FT}K\) and \(\operatorname{FT}K\otimes_{\mathrm{mid}}
+\operatorname{FT}L\) give isomorphic representations of \(I(s)\) for each
+\(s\ne0\) in \(\mathbb{A}^1\):
+\[
+  \mathcal{A}(s)\cong\mathcal{B}(s)\quad
+  \text{for }s\ne0\text{ in }\mathbb{A}^1.
+\]
+By stationary phase,
+\[
+\begin{aligned}
+  \mathcal{F}(\infty,s)
+  &=
+  \operatorname{FT}_{\overline{\psi}}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{A}(s)/\mathcal{A}(s)^{I(s)}\bigr),\\
+  \mathcal{G}(\infty,s)
+  &=
+  \operatorname{FT}_{\overline{\psi}}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{B}(s)/\mathcal{B}(s)^{I(s)}\bigr),
+  \quad\text{for every }s\text{ in }\mathbb{A}^1.
+\end{aligned}
+\]
+But \(\mathcal{A}(s)\cong\mathcal{B}(s)\) for \(s\ne0\), so
+\(\mathcal{F}(\infty,s)\cong\mathcal{G}(\infty,s)\) for \(s\ne0\). For \(s=0\),
+\[
+  \mathcal{A}(0)\otimes\mathcal{L}_{\overline{\chi}}\cong\mathcal{B}(0),
+\]
+so with \(M(0):=\mathcal{A}(0)\) we get
+\[
+\begin{aligned}
+  \mathcal{F}(\infty,0)
+  &=
+  \operatorname{FT}_{\overline{\psi}}^{\mathrm{loc}}(0,\infty)
+  \bigl(M(0)/M(0)^{I(0)}\bigr),\\
+  \mathcal{G}(\infty,0)
+  &=
+  \operatorname{FT}_{\overline{\psi}}^{\mathrm{loc}}(0,\infty)
+  \bigl(M(0)\otimes\mathcal{L}_{\overline{\chi}}
+  /(M(0)\otimes\mathcal{L}_{\overline{\chi}})^{I(0)}\bigr).
+\end{aligned}
+\]
+\end{proof}
+
+\sourceheading[cor:3.3.6]{Corollary 3.3.6}
+Hypotheses and notations as in \hyperref[thm:3.3.3]{Theorem~3.3.3} above,
+suppose in addition that \(K\) is tamely ramified everywhere. Then so is
+\(K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]\), and their local monodromies are
+related as follows:
+\begin{enumerate}[label=(\arabic*)]
+\item at \(s\) in \(\mathbb{A}^1-U\):
+\[
+  \bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr)
+  \otimes\mathcal{L}_{\chi(x-s)}
+  \cong
+  \mathcal{G}(s)/\mathcal{G}(s)^{I(s)}.
+\]
+\item at \(\infty\): there exists a tame \(I(\infty)\)-representation
+\(M(\infty)\) with
+\[
+\begin{aligned}
+  \mathcal{F}(\infty)
+  &=
+  M(\infty)/M(\infty)^{I(\infty)},\\
+  \mathcal{G}(\infty)
+  &=
+  M(\infty)\otimes\mathcal{L}_{\chi}/
+  (M(\infty)\otimes\mathcal{L}_{\chi})^{I(\infty)}.
+\end{aligned}
+\]
+\item \(M(\infty)\) is the unique \(I(\infty)\)-representation with these
+properties.
+\item We have the formulas
+\[
+\begin{aligned}
+  \operatorname{rank}M(\infty)
+  &=
+  \sum_{s\in\mathbb{A}^1-U}
+  \operatorname{rank}\bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr),\\
+  \operatorname{rank}M(\infty)
+  &=
+  \sum_{s\in\mathbb{A}^1-U}
+  \operatorname{rank}\bigl(\mathcal{G}(s)/\mathcal{G}(s)^{I(s)}\bigr).
+\end{aligned}
+\]
+\end{enumerate}
+
+\begin{proof}
+At \(s\) in \(\mathbb{A}^1-U\), we have
+\[
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr)
+  \otimes\mathcal{L}_{\overline{\chi}}
+  =
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)
+  \bigl(\mathcal{G}(s)/\mathcal{G}(s)^{I(s)}\bigr).
+\]
+Since \(\mathcal{F}(s)\) is tame, and
+\(\operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)\) and its quasi-inverse
+both carry tames to tames, we see that
+\(\mathcal{G}(s)/\mathcal{G}(s)^{I(s)}\) is tame, whence \(\mathcal{G}(s)\)
+itself is tame. Moreover, for \(M\) a tame \(I(s)\)-representation, we have
+\cite[7.4.1.3]{Ka-ESDE}
+\[
+\begin{aligned}
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)(M)
+  \otimes\mathcal{L}_{\overline{\chi}}
+  &=
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)
+  (M\otimes\mathcal{L}_{\chi(x-s)}),\\
+  \operatorname{FT}_{\psi}^{\mathrm{loc}}(s,\infty)(M)
+  &=
+  [x-s\mapsto 1/(x-s)]^*M
+\end{aligned}
+\]
+as \(I(\infty)\)-representations. So from the above isomorphism of
+\(I(\infty)\)-representations we infer
+\[
+  \bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr)
+  \otimes\mathcal{L}_{\chi(x-s)}
+  =
+  \mathcal{G}(s)/\mathcal{G}(s)^{I(s)}.
+\]
+We now turn to the situation at \(\infty\). Since \(K\) is tame at \(\infty\),
+we have \(\mathcal{F}(\infty)(\text{slopes }>1)=0\). Therefore
+\(\operatorname{FT}_{\psi}^{\mathrm{loc}}(\infty,\infty)
+(\mathcal{G}(\infty)(\text{slopes }>1))=0\), and hence
+\(\mathcal{G}(\infty)(\text{slopes }>1)=0\). For \(s\ne0\),
+\(\mathcal{F}(\infty,s)=0\), hence \(\mathcal{G}(\infty,s)=0\). For \(s=0\),
+any \(I(0)\)-representation \(M(0)\) with
+\[
+  \mathcal{F}(\infty,0)
+  =
+  \operatorname{FT}_{\overline{\psi}}^{\mathrm{loc}}(0,\infty)
+  \bigl(M(0)/M(0)^{I(0)}\bigr)
+\]
+must be tame \cite[7.4.4.4]{Ka-ESDE}. Moreover, for tame
+\(I(0)\)-representations, we have \cite[7.4.4.3]{Ka-ESDE}
+\[
+  \operatorname{FT}_{\overline{\psi}}^{\mathrm{loc}}(0,\infty)(M(0))
+  =
+  [x\mapsto 1/x]^*M(0)
+\]
+as \(I(\infty)\)-representations. We take our \(M(\infty)\) to be
+\([x\mapsto 1/x]^*M(0)\) for \(M(0)\) appearing in
+\hyperref[thm:3.3.5]{Theorem~3.3.5} (i.e., if
+\(\operatorname{FT}_{\psi}K=j_{!*}\mathcal{A}[1]\), for a sufficiently small
+nonempty open set \(j:V\to\mathbb{A}^1\) and a lisse sheaf \(\mathcal{A}\) on
+\(V\), then \(M(0)\) is \(\mathcal{A}(0)\)).
+
+To show that \(M(\infty)\) is uniquely determined as \(I(\infty)\)-
+representation by the two conditions
+\[
+\begin{aligned}
+  \mathcal{F}(\infty)&=M(\infty)/M(\infty)^{I(\infty)},\\
+  \mathcal{G}(\infty)&=
+  M(\infty)\otimes\mathcal{L}_{\chi}/
+  (M(\infty)\otimes\mathcal{L}_{\chi})^{I(\infty)},
+\end{aligned}
+\]
+write the ``isotypical decomposition'' of \(M(\infty)\), cf.
+\hyperref[lem:3.1.6]{Lemma~3.1.6}, say
+\[
+  M(\infty)=\bigoplus_{\alpha\in\mathcal{A}}M(\infty)_\alpha.
+\]
+By the first condition,
+\[
+  M(\infty)_\alpha\cong\mathcal{F}(\infty)_\alpha
+  \quad\text{for }\alpha\ne\mathbf{1}.
+\]
+By the second,
+\[
+  (M(\infty)\otimes\mathcal{L}_{\chi})_\alpha
+  \cong
+  \mathcal{G}(\infty)_\alpha\quad\text{for }\alpha\ne\mathbf{1},
+\]
+which we rewrite as
+\[
+  (M(\infty)\otimes\mathcal{L}_{\chi})_{\alpha\otimes\chi}
+  \cong
+  \mathcal{G}(\infty)_{\alpha\otimes\chi}
+  \quad\text{for }\alpha\otimes\chi\ne\mathbf{1},
+\]
+i.e.,
+\[
+  M(\infty)_\alpha
+  \cong
+  (\mathcal{G}(\infty)\otimes\mathcal{L}_{\overline{\chi}})_\alpha
+  \quad\text{for }\alpha\ne\overline{\chi}.
+\]
+In particular,
+\[
+  M(\infty)_{\mathbf{1}}
+  \cong
+  (\mathcal{G}(\infty)\otimes\mathcal{L}_{\overline{\chi}})_{\mathbf{1}}.
+\]
+Thus
+\[
+  M(\infty)
+  =
+  \bigoplus_{\alpha\ne\mathbf{1}}\mathcal{F}(\infty)_\alpha
+  \oplus
+  (\mathcal{G}(\infty)\otimes\mathcal{L}_{\overline{\chi}})_{\mathbf{1}}.
+\]
+To compute the rank of \(M(\infty)\), recall that if we write
+\(\operatorname{FT}_{\psi}K=j_{!*}(\mathcal{A}[1])\), for a sufficiently small
+nonempty open set \(j:V\to\mathbb{A}^1\) and a lisse sheaf \(\mathcal{A}\) on
+\(V\), then \(M(\infty)\) is \([x\mapsto 1/x]^*\mathcal{A}(0)\). By stationary
+phase,
+\[
+\begin{aligned}
+  \mathcal{A}(\infty)(\leq1)
+  &=
+  \bigoplus_{x\in\mathbb{A}^1}
+  \mathcal{L}_{\psi_x}\otimes
+  \operatorname{FTloc}(x,\infty)
+  \bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr),\\
+  \mathcal{A}(\infty)(>1)
+  &=
+  \operatorname{FTloc}(\infty,\infty)(\mathcal{F}(\infty)(>1))
+  =
+  0,
+\end{aligned}
+\]
+since \(\mathcal{F}(\infty)\) is tame. Since each \(\mathcal{F}(x)\) is tame,
+we have
+\[
+  \operatorname{rank}
+  \operatorname{FTloc}(x,\infty)
+  \bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr)
+  =
+  \operatorname{rank}\bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr).
+\]
+Thus
+\[
+\begin{aligned}
+  \operatorname{rank}M(\infty)
+  &=
+  \operatorname{rank}\mathcal{A}(0)
+  =
+  \operatorname{rank}\mathcal{A}
+  =
+  \operatorname{rank}\mathcal{A}(\infty)\\
+  &=
+  \sum_{x\in\mathbb{A}^1}
+  \operatorname{rank}\bigl(\mathcal{F}(x)/\mathcal{F}(x)^{I(x)}\bigr)
+  =
+  \sum_{s\in\mathbb{A}^1-U}
+  \operatorname{rank}\bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr).
+\end{aligned}
+\]
+The second formula for \(\operatorname{rank}M(\infty)\) is term by term equal
+to this one: equate ranks in the isomorphism of \(I(s)\)-representations
+\[
+  \bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr)
+  \otimes\mathcal{L}_{\chi(x-s)}
+  \cong
+  \mathcal{G}(s)/\mathcal{G}(s)^{I(s)}.
+\]
+\end{proof}
+
+\sourceheading[cor:3.3.7]{Corollary 3.3.7 (rank formula)}
+Hypotheses and notations as in \hyperref[thm:3.3.3]{Theorem~3.3.3} above,
+suppose in addition that \(K\) is tamely ramified everywhere. Then so is
+\(K*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1]\), and their ranks and local
+monodromies are related by the formulas
+\[
+\begin{aligned}
+  \operatorname{rank}\mathcal{F}
+  &=
+  \sum_{s\in\mathbb{A}^1-U}
+  \operatorname{rank}\bigl(\mathcal{G}(s)/\mathcal{G}(s)^{I(s)}\bigr)
+  -
+  \operatorname{rank}\bigl((\mathcal{G}(\infty)\otimes
+  \mathcal{L}_{\overline{\chi}})^{I(\infty)}\bigr),\\
+  \operatorname{rank}\mathcal{G}
+  &=
+  \sum_{s\in\mathbb{A}^1-U}
+  \operatorname{rank}\bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr)
+  -
+  \operatorname{rank}\bigl((\mathcal{F}(\infty)\otimes
+  \mathcal{L}_{\chi})^{I(\infty)}\bigr).
+\end{aligned}
+\]
+
+\begin{proof}
+These follow immediately from the formulas
+\[
+\begin{aligned}
+  \mathcal{F}(\infty)&=M(\infty)/M(\infty)^{I(\infty)},\\
+  \mathcal{G}(\infty)&=
+  M(\infty)\otimes\mathcal{L}_{\chi}/
+  (M(\infty)\otimes\mathcal{L}_{\chi})^{I(\infty)},
+\end{aligned}
+\]
+and
+\[
+\begin{aligned}
+  \operatorname{rank}M(\infty)
+  &=
+  \sum_{s\in\mathbb{A}^1-U}
+  \operatorname{rank}\bigl(\mathcal{F}(s)/\mathcal{F}(s)^{I(s)}\bigr),\\
+  \operatorname{rank}M(\infty)
+  &=
+  \sum_{s\in\mathbb{A}^1-U}
+  \operatorname{rank}\bigl(\mathcal{G}(s)/\mathcal{G}(s)^{I(s)}\bigr).
+\end{aligned}
+\]
+\end{proof}
+
+\section{Some open questions about local Fourier Transform}\label{sec:3.4}
+
+\sourcepara{3.4.1}
+We know that if \(M\) is an irreducible \(I(0)\)-representation with all slopes
+\(a/b\), and dimension \(b\), then \(\operatorname{FTloc}(0,\infty)M\) is an
+irreducible \(I(\infty)\)-representation with all slopes \(a/(a+b)\), and
+dimension \(a+b\). We also know that \(\operatorname{FTloc}(0,\infty)\) is an
+equivalence of categories
+\[
+  I(0)\text{-representations}
+  \cong
+  I(\infty)\text{-representations with all slopes }<1.
+\]
+Denote by \((\operatorname{FTloc}(0,\infty))^{-1}\) a quasi-inverse. Then for
+every nontrivial Kummer sheaf \(\mathcal{L}_{\chi}\), we get an
+autoequivalence of the category of \(I(0)\)-representations, defined by
+
+\sourcepara{3.4.1.1}
+\[
+  M\longmapsto
+  (\operatorname{FTloc}(0,\infty))^{-1}
+  \bigl(\mathcal{L}_{\overline{\chi}}\otimes
+  \operatorname{FTloc}(0,\infty)(M)\bigr).
+\]
+This autoequivalence preserves slopes and dimensions, and on tame \(M\) is
+given (cf. \cite[7.4.4.3]{Ka-ESDE}) by
+\(M\mapsto\mathcal{L}_{\chi}\otimes M\). What is it? Is there a simple formula
+for it?
+
+\sourcepara{3.4.2}
+The most naive hope is that this autoequivalence be given by
+\(M\mapsto\mathcal{L}_{\chi}\otimes M\) on all \(I(0)\)-representations, or
+equivalently that
+\[
+  \operatorname{FTloc}(0,\infty)(M\otimes\mathcal{L}_{\chi})
+  \cong
+  \mathcal{L}_{\overline{\chi}}\otimes
+  \operatorname{FTloc}(0,\infty)(M)
+\]
+as \(I(\infty)\)-representations. This hope is false. Here is a simple
+sequence of counterexamples. For each integer \(n\geq1\), take for \(M_n\) the
+\(I(0)\)-representation attached to
+\(\operatorname{inv}^*(\operatorname{Kl}_n(\psi;\rho_1,\ldots,\rho_n))\),
+where \(\operatorname{Kl}_n(\psi;\rho_1,\ldots,\rho_n)\) is any of the rank
+\(n\) Kloosterman sheaves discussed in \cite[7.4.1]{Ka-GKM}. By
+\cite[8.6.1]{Ka-GKM}, we have a geometric isomorphism
+\[
+  j^*\operatorname{FT}_{\psi}
+  \bigl(j_!\operatorname{inv}^*
+  (\operatorname{Kl}_n(\psi;\rho_1,\ldots,\rho_n))\bigr)
+  \cong
+  \operatorname{Kl}_{n+1}(\psi;\mathbf{1},\rho_1,\ldots,\rho_n).
+\]
+Because \(\operatorname{Kl}_{n+1}(\psi;\mathbf{1},\rho_1,\ldots,\rho_n)\) has
+all its \(\infty\)-slopes \(<1\) (they are all equal to \(1/(n+1)\)),
+stationary phase shows that
+\[
+  \operatorname{FTloc}(0,\infty)(M_n)
+  =
+  \operatorname{Kl}_{n+1}(\psi;\mathbf{1},\rho_1,\ldots,\rho_n)(\infty).
+\]
+If we replace \(M_n\) by \(M_n\otimes\mathcal{L}_{\chi}\), we are looking at
+\[
+  M_n\otimes\mathcal{L}_{\chi}
+  :=
+  \operatorname{inv}^*
+  (\operatorname{Kl}_n(\psi;\overline{\chi}\rho_1,\ldots,
+  \overline{\chi}\rho_n))
+\]
+as \(I(0)\)-representation, so by the above \(\operatorname{FT}\) formula we
+have
+\[
+  \operatorname{FTloc}(0,\infty)(M_n\otimes\mathcal{L}_{\chi})
+  =
+  \operatorname{Kl}_{n+1}(\psi;\mathbf{1},\overline{\chi}\rho_1,\ldots,
+  \overline{\chi}\rho_n)(\infty).
+\]
+We claim that
+\[
+  \operatorname{FTloc}(0,\infty)(M_n\otimes\mathcal{L}_{\chi})
+  \not\cong
+  \mathcal{L}_{\overline{\chi}}\otimes
+  \operatorname{FTloc}(0,\infty)(M_n)
+\]
+as \(I(\infty)\)-representations. This amounts to the statement that, as
+\(I(\infty)\)-representations,
+\[
+  \operatorname{Kl}_{n+1}(\psi;\mathbf{1},\overline{\chi}\rho_1,\ldots,
+  \overline{\chi}\rho_n)
+  \not\cong
+  \mathcal{L}_{\overline{\chi}}\otimes
+  \operatorname{Kl}_{n+1}(\psi;\mathbf{1},\rho_1,\ldots,\rho_n).
+\]
+Indeed, the two sides have nonisomorphic determinants. To see this, use the
+geometric isomorphism (\cite[7.4.1]{Ka-GKM})
+\[
+  \det(\operatorname{Kl}_n(\psi;\rho_1,\ldots,\rho_n))
+  \cong
+  \mathcal{L}_{\rho_1\cdots\rho_n+1},
+\]
+valid for \(n\geq2\). The ratio of the two determinants is thus
+\(\mathcal{L}_{\chi}\), which is nontrivial on \(I(\infty)\) so long as
+\(\chi\) is nontrivial.
+
+\sourcepara{3.4.3}
+There is a somewhat unsatisfactory ``formula'' for the autoequivalence
+\hyperref[par:3.4.1.1]{(3.4.1.1)}, in terms of middle convolution and the
+canonical extension. Let \(M\) be an irreducible nontame representation of
+\(I(0)\). By the theory of the canonical extension \cite{Ka-LG}, there exists
+a lisse sheaf \(\mathcal{F}_M\) on \(\mathbb{G}_m\) which is tame at
+\(\infty\), and whose \(I(0)\)-representation is \(M\). This sheaf
+\(\mathcal{F}_M\) is certainly irreducible on \(\mathbb{G}_m\), since already
+its \(I(0)\)-representation is irreducible. Denoting by
+\(j:\mathbb{G}_m\to\mathbb{A}^1\) the inclusion, the object
+\[
+  K_M:=j_*\mathcal{F}_M[1]
+\]
+is a perverse irreducible on \(\mathbb{A}^1\) which (being wild at \(0\)) is
+visibly of type \((2d)\), i.e., neither punctual nor an
+\(\mathcal{L}_{\psi_\alpha}[1]\) nor a translate of a
+\(j_*\mathcal{L}_{\chi}[1]\). Since \(K_M\) is tame at \(\infty\) and lisse on
+\(\mathbb{G}_m\), Laumon's stationary phase tells us that
+\(\operatorname{FT}K_M\) is lisse on \(\mathbb{G}_m\), say
+\(j^*\operatorname{FT}K_M=\mathcal{A}[1]\) with \(\mathcal{A}\) a lisse sheaf
+on \(\mathbb{G}_m\), and
+\[
+  \mathcal{A}(\infty)
+  =
+  \operatorname{FTloc}(0,\infty)(M)
+  =
+  \operatorname{FTloc}(0,\infty)(\mathcal{F}_M(0)).
+\]
+Now consider the object
+\[
+  L:=K_M*_{\mathrm{mid}+}j_*\mathcal{L}_{\chi}[1],
+\]
+whose \(\operatorname{FT}\) is also lisse on \(\mathbb{G}_m\), with
+\(j^*\operatorname{FT}L=\mathcal{A}\otimes\mathcal{L}_{\overline{\chi}}[1]\).
+The object \(L\) is lisse on \(\mathbb{G}_m\), and tame at \(\infty\) (by
+\hyperref[thm:3.3.5]{Theorem~3.3.5}, \((2d)\)), since \(K_M\) is lisse on
+\(\mathbb{G}_m\), and tame at \(\infty\). Say \(j^*L=\mathcal{N}[1]\), with
+\(\mathcal{N}\) a lisse sheaf on \(\mathbb{G}_m\). Then by stationary phase,
+\[
+  (\mathcal{A}\otimes\mathcal{L}_{\overline{\chi}})(\infty)
+  =
+  \operatorname{FTloc}(0,\infty)(\mathcal{N}(0)).
+\]
+Thus the autoequivalence
+\[
+  M\longmapsto
+  (\operatorname{FTloc}(0,\infty))^{-1}
+  \bigl(\mathcal{L}_{\overline{\chi}}\otimes
+  \operatorname{FTloc}(0,\infty)(M)\bigr)
+\]
+is given on nontame irreducibles \(M\) by
+\[
+  M\longmapsto\text{the }I(0)\text{-representation of }
+  (j_*\mathcal{F}_M[1])*_{\mathrm{mid}+}(j_*\mathcal{L}_{\chi}[1]).
+\]
+
+\sourcepara{3.4.4}
+We can also pose a similar question about \(\operatorname{FTloc}(\infty,\infty)\).
+If \(M\) is an irreducible \(I(\infty)\)-representation with all slopes
+\((a+b)/b>1\) and dimension \(b\), then \(\operatorname{FTloc}(\infty,\infty)(M)\)
+is an irreducible \(I(\infty)\)-representation with all slopes
+\((a+b)/a>1\) and dimension \(a\). We know that
+\(\operatorname{FTloc}(\infty,\infty)\) is an autoequivalence of
+\[
+  \{I(\infty)\text{-representations with all slopes }>1\},
+\]
+with quasi-inverse
+\([x\mapsto -x]^*\operatorname{FTloc}(\infty,\infty)\). For every nontrivial
+Kummer sheaf \(\mathcal{L}_{\chi}\), we get another autoequivalence by
+
+\sourcepara{3.4.4.1}
+\[
+  M\longmapsto
+  [x\mapsto -x]^*\operatorname{FTloc}(\infty,\infty)
+  \bigl(\mathcal{L}_{\overline{\chi}}\otimes
+  \operatorname{FTloc}(\infty,\infty)(M)\bigr).
+\]
+This autoequivalence preserves slopes and dimensions. What is it? Is there a
+simple formula for it?
+
+\sourcepara{3.4.5}
+The most naive hope is that the autoequivalence
+\hyperref[par:3.4.4.1]{(3.4.4.1)} be given by
+\(M\mapsto\mathcal{L}_{\chi}\otimes M\) on all \(I(\infty)\)-representations
+with all slopes \(>1\), or equivalently that
+\[
+  \operatorname{FTloc}(\infty,\infty)(M\otimes\mathcal{L}_{\chi})
+  \cong
+  \mathcal{L}_{\chi}\otimes\operatorname{FTloc}(\infty,\infty)(M)
+\]
+as \(I(\infty)\)-representations. This hope is false. Here is a simple
+sequence of counterexamples. For each \(n\geq3\) which is prime to \(p\), take
+for \(M_n\) the \(I(\infty)\)-representation attached to
+\(\mathcal{L}_{\psi(x^n)}\). For any Kummer sheaf \(\mathcal{L}_{\chi}\),
+\(\operatorname{FTloc}(\infty,\infty)(M_n\otimes\mathcal{L}_{\chi})\) has rank
+\(n-1\), and all slopes \(n/(n-1)\). We claim that
+
+\sourcepara{3.4.5.1}
+\[
+  \det\bigl(\operatorname{FTloc}(\infty,\infty)
+  (M_n\otimes\mathcal{L}_{\chi})\bigr)
+  =
+  \mathcal{L}_{\chi}
+\]
+as \(I(\infty)\)-representation. Admit this for a moment. Then
+\(\operatorname{FTloc}(\infty,\infty)(M_n)\) has rank \(n-1\) and trivial
+determinant for \(n\geq3\) prime to \(p\), so our naive hope would force
+\(\operatorname{FTloc}(\infty,\infty)(M_n\otimes\mathcal{L}_{\chi})\) to have
+determinant \(\mathcal{L}_{\chi}^{n-1}\) rather than \(\mathcal{L}_{\chi}\).
+To show that \hyperref[par:3.4.5.1]{(3.4.5.1)} holds, consider first the case
+of trivial \(\chi\). Then \(\operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)})\)
+is lisse on \(\mathbb{A}^1\) of rank \(n-1\), and has all \(\infty\)-slopes
+\(n/(n-1)\). As explained in \cite[9.2]{Ka-GKM}, its restriction to
+\(\mathbb{G}_m\) descends through the \(n\)th power map, to a Kloosterman sheaf
+of rank \(n-1\) on \(\mathbb{G}_m\). The determinant of this Kloosterman sheaf
+is tame on \(\mathbb{G}_m\), because \(n-1\geq2\), and hence
+\(\operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)})\) itself has a determinant
+which is tame on \(\mathbb{G}_m\). But as
+\(\operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)})\) is lisse on
+\(\mathbb{A}^1\), so is its determinant, and hence
+\(\det(\operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)}))=\mathbf{1}\) (being
+both tame on \(\mathbb{G}_m\) and trivial at zero). As
+\(\operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)})\) has all its
+\(\infty\)-slopes \(>1\),
+\[
+  \operatorname{FTloc}(\infty,\infty)(M_n)
+  =
+  \operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)})(\infty)
+\]
+as \(I(\infty)\)-representation, and hence
+\(\operatorname{FTloc}(\infty,\infty)(M_n)\) has trivial determinant, as
+asserted.
+
+Now consider the case when \(\chi\) is nontrivial. In this case,
+\(\operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)}\otimes\mathcal{L}_{\chi})\)
+is lisse on \(\mathbb{A}^1\) of rank \(n\), and its \(\infty\)-slopes are
+\(0\) once and \(n/(n-1)\) repeated \(n-1\) times. As explained in
+\cite[9.2.2]{Ka-GKM}, the restriction to \(\mathbb{G}_m\) of
+\(\operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)}\otimes\mathcal{L}_{\chi})\)
+descends through the \(n\)th power map to a hypergeometric sheaf of type
+\((n,1)\). The determinant of such a hypergeometric sheaf is necessarily tame
+on \(\mathbb{G}_m\) (because \(n\geq3\)), and hence
+\(\operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)}\otimes\mathcal{L}_{\chi})\)
+has trivial determinant (because this determinant is simultaneously lisse on
+\(\mathbb{A}^1\) and tame on \(\mathbb{G}_m\)). By stationary phase, the
+\(I(\infty)\)-representation of
+\(\operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)}\otimes\mathcal{L}_{\chi})\)
+is a direct sum
+\[
+  \operatorname{FT}_{\psi}(\mathcal{L}_{\psi(x^n)}\otimes\mathcal{L}_{\chi})(\infty)
+  =
+  \mathcal{L}_{\overline{\chi}}
+  \oplus
+  \operatorname{FTloc}(\infty,\infty)(M_n\otimes\mathcal{L}_{\chi}).
+\]
+Taking determinants, we find \hyperref[par:3.4.5.1]{(3.4.5.1)}, as required.
+
+\sourcepara{3.4.6}
+Just as in \hyperref[par:3.4.3]{(3.4.3)} above, we can give a somewhat
+unsatisfactory ``formula'' for the autoequivalence
+\hyperref[par:3.4.4.1]{(3.4.4.1)} in terms of canonical extensions. In terms
+of the canonical extension of an \(I(\infty)\)-representation \(M\) with all
+\(\infty\)-slopes \(>1\) to a lisse sheaf \(\mathcal{G}_M\) on
+\(\mathbb{G}_m\) which is tame at zero, we get a description of the
+autoequivalence \hyperref[par:3.4.4.1]{(3.4.4.1)} as
+\[
+  M\longmapsto
+  \text{the slope }>1\text{ part of the }I(\infty)\text{-representation of }
+  (j_*\mathcal{G}_M[1])*_{\mathrm{mid}+}(j_*\mathcal{L}_{\chi}[1]).
+\]
