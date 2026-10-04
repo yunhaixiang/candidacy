@@ -7,7 +7,7 @@
 \usepackage{microtype}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{enumitem}
-\usepackage{tabularx}
+\usepackage{xltabular}
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage{aliascnt}
@@ -77,7 +77,7 @@
 \crefname{subsubsection}{\S}{\S\S}
 \Crefname{subsubsection}{\S}{\S\S}
 
-% Centered, borderless tables, using their natural width up to the width limit.
+% Centered, page-breakable tables, using their natural width up to the width limit.
 % notationtable rows: symbol & type & description \\
 % Declarations have aligned colons and no surrounding brackets.
 % typetable rows: type & description \\
@@ -86,44 +86,58 @@
 \newcommand{\notationtablespace}{0.4\baselineskip}
 \newcommand{\notationtablewidth}{\linewidth}
 \newsavebox{\notationtablemeasure}
+% Emit a pending theorem/list heading before starting a vertical table.
+\makeatletter
+\newcommand{\notationtableflushheading}{\if@inlabel\leavevmode\fi}
+\makeatother
 \NewDocumentEnvironment{notationtable}{+b}{%
+  \notationtableflushheading
   \par\nobreak\addvspace{\notationtablespace}
   \begingroup
-  \centering
+  \setlength{\LTleft}{0pt plus 1fill}%
+  \setlength{\LTright}{0pt plus 1fill}%
+  \setlength{\LTpre}{0pt}%
+  \setlength{\LTpost}{0pt}%
   \renewcommand{\arraystretch}{1.2}%
   \sbox{\notationtablemeasure}{%
     \begin{tabular}{@{}>{$}r<{$}@{\hspace{0.4em}:\hspace{0.4em}}>{$}l<{$}@{\hspace{1.2em}}l@{}}
       #1
     \end{tabular}%
   }%
-  \noindent
   \ifdim\wd\notationtablemeasure>\notationtablewidth\relax
-    \begin{tabularx}{\notationtablewidth}{@{}>{$}r<{$}@{\hspace{0.4em}:\hspace{0.4em}}>{$}l<{$}@{\hspace{1.2em}}>{\raggedright\arraybackslash}X@{}}
+    \begin{xltabular}{\notationtablewidth}{@{}>{$}r<{$}@{\hspace{0.4em}:\hspace{0.4em}}>{$}l<{$}@{\hspace{1.2em}}>{\raggedright\arraybackslash}X@{}}
       #1
-    \end{tabularx}%
+    \end{xltabular}%
   \else
-    \usebox{\notationtablemeasure}%
+    \begin{longtable}{@{}>{$}r<{$}@{\hspace{0.4em}:\hspace{0.4em}}>{$}l<{$}@{\hspace{1.2em}}l@{}}
+      #1
+    \end{longtable}%
   \fi\par
   \endgroup
   \addvspace{\notationtablespace}
 }{}
 \NewDocumentEnvironment{typetable}{+b}{%
+  \notationtableflushheading
   \par\nobreak\addvspace{\notationtablespace}
   \begingroup
-  \centering
+  \setlength{\LTleft}{0pt plus 1fill}%
+  \setlength{\LTright}{0pt plus 1fill}%
+  \setlength{\LTpre}{0pt}%
+  \setlength{\LTpost}{0pt}%
   \renewcommand{\arraystretch}{1.2}%
   \sbox{\notationtablemeasure}{%
     \begin{tabular}{@{}>{$}c<{$}@{\hspace{1.2em}}l@{}}
       #1
     \end{tabular}%
   }%
-  \noindent
   \ifdim\wd\notationtablemeasure>\notationtablewidth\relax
-    \begin{tabularx}{\notationtablewidth}{@{}>{$}c<{$}@{\hspace{1.2em}}>{\raggedright\arraybackslash}X@{}}
+    \begin{xltabular}{\notationtablewidth}{@{}>{$}c<{$}@{\hspace{1.2em}}>{\raggedright\arraybackslash}X@{}}
       #1
-    \end{tabularx}%
+    \end{xltabular}%
   \else
-    \usebox{\notationtablemeasure}%
+    \begin{longtable}{@{}>{$}c<{$}@{\hspace{1.2em}}l@{}}
+      #1
+    \end{longtable}%
   \fi\par
   \endgroup
   \addvspace{\notationtablespace}
@@ -278,17 +292,24 @@ Motivated by the growing interest in the formalization of mathematics within the
   \mathsf{Set}^{\mathrm{fin}} & Finite sets \\
   \mathsf{Nat} & Natural numbers (including zero) \\
   \mathsf{Int} & Integers \\
-  \mathsf{Ab} & Abelian groups \\
+  \mathsf{Grp} & Groups \\
+  \mathsf{Grp}^{\mathrm{top}} & Topological groups \\
+  \mathsf{Grp}^{\mathrm{pro}} & Profinite groups \\
+  \mathsf{Grp}^{\mathrm{ab}} & Abelian groups \\
   \mathsf{Ring} & Rings (associative, unital, not necessarily commutative) \\
   \mathsf{Field} & Fields \\
+  \mathsf{Field}^{\mathrm{top}} & Topological fields \\
   \mathsf{Mod}_R & Left modules over \(R : \mathsf{Ring}\) \\
   \mathsf{Vect}_k & Vector spaces over \(k : \mathsf{Field}\) \\
   \mathsf{Vect}^{\mathrm{fin}}_k & Finite-dimensional vector spaces over \(k : \mathsf{Field}\) \\
+  \mathsf{Rep}_k(G) & Continuous representations of \(G : \mathsf{Grp}^{\mathrm{top}}\) over \(k : \mathsf{Field}^{\mathrm{top}}\) \\
+  \mathsf{Rep}^{\mathrm{fin}}_k(G) & Finite-dimensional continuous representations of \(G : \mathsf{Grp}^{\mathrm{top}}\) over \(k : \mathsf{Field}^{\mathrm{top}}\) \\
   \mathsf{Sch} & Schemes \\
   \mathsf{Sch}_S & Schemes over base scheme $S:\mathsf{Sch}$\\
   \mathsf{Var}_k & Varieties over \(k : \mathsf{Field}\), i.e. integral separated schemes of finite type over \(k\) \\
   \mathsf{Curv}_k & Curves over \(k : \mathsf{Field}\), i.e. one-dimensional varieties over \(k\) \\
   \mathsf{Curv}^{\mathrm{sm}}_k & Smooth curves over \(k : \mathsf{Field}\) \\
+  \mathsf{Man}_{\C} & Complex manifolds \\
   \mathsf{Riem} & Riemann surfaces, i.e. connected one-dimensional complex manifolds \\
   \mathsf{Site} & Sites, i.e. categories equipped with Grothendieck topologies \\
   \mathsf{Sh}(X,\mathsf A) & Sheaves on \(X : \mathsf{Site}\) with values in a category \(\mathsf A\) admitting small limits\\
@@ -298,7 +319,7 @@ Motivated by the growing interest in the formalization of mathematics within the
   X\rightarrow Y & Morphisms from $X : \mathsf{T}$ to $Y : \mathsf{T}$
 \end{typetable}
 
-\begin{custom}{Global Notations}Let \(X,Y : \mathsf{Site}\), \(k : \mathsf{Field}\), \(n : \mathsf{Int}\), \(V : \mathsf{Vect}_k\), and \(f : X\to Y\). The following notation will be used throughout the write-up.
+\begin{custom}{Global Notations}Let \(X,Y : \mathsf{Site}\), \(k : \mathsf{Field}\), \(n : \mathsf{Int}\), \(V : \mathsf{Vect}_k\), and \(f : X\to Y\). The following notations will be used throughout the write-up.
 \begin{notationtable}
   (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor \\
   {[n]} & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The cohomological shift functor by \(n\)\\
@@ -316,7 +337,9 @@ Motivated by the growing interest in the formalization of mathematics within the
 \end{custom}
 \subsection{Motivations}\label{subsec:motivations}
 
-\textit{Monodromy groups} are interesting mathematical objects that arise naturally in both geometric and arithmetic contexts. Controlling and understanding monodromy groups has been a central theme in both of these worlds, with significant applications.
+\textit{Monodromy groups} are interesting mathematical objects that arise naturally in both geometric and arithmetic contexts. 
+Controlling and understanding monodromy groups has been a central theme in both of these worlds, with significant applications.
+We will discuss both the geometric and arithmetic sides, but this write-up will primarily focus on the arithmetic side, with the geometric side serving as motivations and intuitions. 
 
 On the geometric side, investigation of monodromy goes back to Riemann. 
 
@@ -351,6 +374,11 @@ In \cref{sec:formalization}
 
 The author thanks his advisor, Prof. Chris Hall, for his guidance and advice.
 
+\begin{custom}[]{Typesetting}
+The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
+\end{custom}
+
+
 \begin{custom}[]{Declaration of AI Use}
 The use of generative AI in the preparation of this write-up was limited to the following purposes: 
 polishing wording, phrasing, spelling, grammar, and formatting; 
@@ -358,14 +386,12 @@ offering writing advices;
 answering mathematical questions from the author to help him learn the subject;
 searching and citing appropriate references; 
 translating reading materials in French into English; 
-retypesetting old references with archaic typesettings;
-providing emotional support for the author in his time of AI-induced existential crisis;
+retypesetting old references with archaic typesettings for ease of reading;
+providing emotional support for the author;
 providing fitness advice for the author to stay healthy and energetic while working on the write-up. 
 \end{custom}
 
-\begin{custom}[]{Typesetting}
-The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
-\end{custom}
+
 
 \section{Local Systems and Lisse Sheaves}\label{sec:local-systems}
 
