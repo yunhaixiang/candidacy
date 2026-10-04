@@ -298,19 +298,19 @@ Motivated by the growing interest in the formalization of mathematics within the
   X\rightarrow Y & Morphisms from $X : \mathsf{T}$ to $Y : \mathsf{T}$
 \end{typetable}
 
-\begin{custom}{Global Notations}The following terms will be used throughout the write-up
+\begin{custom}{Global Notations}Let \(X,Y : \mathsf{Site}\), \(k : \mathsf{Field}\), \(n : \mathsf{Int}\), \(V : \mathsf{Vect}_k\), and \(f : X\to Y\). The following notation will be used throughout the write-up.
 \begin{notationtable}
   (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor \\
-  {[n]} & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & Cohomological shift by \(n : \mathsf{Int}\), for \(X : \mathsf{Site}\)\\
-  \Gamma(X,-) & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(\mathsf{Vect}_k) & Derived global sections for \(X : \mathsf{Site}\)\\
-  \mathcal{H}^i & \mathsf D^{\mathrm b}(X,k)\to\mathsf{Sh}(X,\mathsf{Vect}_k) & The \(i\)-th cohomology sheaf, for \(i : \mathsf{Int}\) and \(X : \mathsf{Site}\) \\
-  \mathrm{H}^i(X,-) & \mathsf D^{\mathrm b}(X,k)\to\mathsf{Vect}_k & The \(i\)-th hypercohomology, for \(i : \mathsf{Int}\) and \(X : \mathsf{Site}\) \\
-  \underline{V}_X & \mathsf{Sh}(X,\mathsf{Vect}_k) & The constant sheaf associated with \(V : \mathsf{Vect}_k\) on \(X : \mathsf{Site}\) \\
-  f_* & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(Y,k) & Derived pushforward along \(f:X\to Y\) where $X,Y:\mathsf{Site}$ \\
-  f^* & \mathsf D^{\mathrm b}(Y,k)\to\mathsf D^{\mathrm b}(X,k) & Derived pullback along \(f:X\to Y\) where $X,Y:\mathsf{Site}$\\
-  \otimes_k & \mathsf D^{\mathrm b}(X,k)\times\mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & Derived tensor product for $X:\mathsf{Site}$ \\
-  \mathcal{H}om & \mathsf D^{\mathrm b}(X,k)^{\mathrm{op}}\times\mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & Derived sheaf Hom for $X:\mathsf{Site}$\\
-  \mathcal{E}nd & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & Derived sheaf End for \(X : \mathsf{Site}\) \\
+  {[n]} & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The cohomological shift functor by \(n\)\\
+  \Gamma(X,-) & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(\mathsf{Vect}_k) & The derived global sections functor\\
+  \mathcal{H}^n & \mathsf D^{\mathrm b}(X,k)\to\mathsf{Sh}(X,\mathsf{Vect}_k) & The \(n\)-th cohomology sheaf functor \\
+  \mathrm{H}^n(X,-) & \mathsf D^{\mathrm b}(X,k)\to\mathsf{Vect}_k & The \(n\)-th hypercohomology functor\\
+  \underline{V} & \mathsf{Sh}(X,\mathsf{Vect}_k) & The constant sheaf associated with \(V\) \\
+  f_* & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(Y,k) & The derived pushforward along \(f\) \\
+  f^* & \mathsf D^{\mathrm b}(Y,k)\to\mathsf D^{\mathrm b}(X,k) & The derived pullback along \(f\)\\
+  \otimes_k & \mathsf D^{\mathrm b}(X,k)\times\mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The derived tensor product \\
+  \mathcal{H}om & \mathsf D^{\mathrm b}(X,k)^{\mathrm{op}}\times\mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The derived sheaf Hom\\
+  \mathcal{E}nd & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The derived sheaf End \\
 \end{notationtable}
 \noindent where the derived functors are assumed to preserve boundedness.
 \end{custom}
@@ -354,13 +354,13 @@ The author thanks his advisor, Prof. Chris Hall, for his guidance and advice.
 \begin{custom}[]{Declaration of AI Use}
 The use of generative AI in the preparation of this write-up was limited to the following purposes: 
 polishing wording, phrasing, spelling, grammar, and formatting; 
-offering linguistic advice; 
+offering writing advices; 
 answering mathematical questions from the author to help him learn the subject;
 searching and citing appropriate references; 
 translating reading materials in French into English; 
-retypesetting old references with archaic typesetting for the author's sanity;
-providing emotional support for the author;
-providing fitness advice for the author to stay healthy and energetic. 
+retypesetting old references with archaic typesettings;
+providing emotional support for the author in his time of AI-induced existential crisis;
+providing fitness advice for the author to stay healthy and energetic while working on the write-up. 
 \end{custom}
 
 \begin{custom}[]{Typesetting}
@@ -372,7 +372,7 @@ The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
 
 
 
-\begin{notation}[Complex Geometric Setting]Define the following collection of notations
+\begin{notation}Define the following collection of notations
 \begin{notationtable}
   X & \mathsf{Curv}^{\mathrm{sm}}_{\C} & A smooth projective connected curve over \(\C\) \\
   S & \mathsf{Set}^{\mathrm{fin}} & A finite nonempty subset of closed points of \(X\) \\
