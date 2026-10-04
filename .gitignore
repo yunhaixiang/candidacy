@@ -1,4 +1,6 @@
 .DS_Store
+/README.md
+/book/backups/
 **/build/
 *.aux
 *.fdb_latexmk
