@@ -347,8 +347,14 @@ z_+&:U\rightarrow\mathbb C^\times\quad w\mapsto \sqrt{w}\\
 z_-&:U\rightarrow\mathbb C^\times\quad w\mapsto -\sqrt{w}\\
 \end{aligned}$$ 
 Hence the stalk $\mathcal F_{w_0}=\{z_+,z_-\}\cong f^{-1}(w_0)$ by evaluation, and therefore the aforementioned permutation representation can be rewritten as 
-$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow \mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0})\quad \gamma\mapsto [e\mapsto\widetilde{\gamma}_e(1)]$$
-where $\widetilde{\gamma}_e:[0,1]\rightarrow \mathbb C^\times$ is the unique lift of $\gamma:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)$ with $\widetilde{\gamma}_e(0)=e$. 
+$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow \mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0})\quad \gamma\mapsto [z\mapsto\widetilde{\gamma}_z(1)]$$
+where $\widetilde{\gamma}_z:[0,1]\rightarrow \mathbb C^\times$ is the unique lift of $\gamma:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)$ with $\widetilde{\gamma}_z(0)=z$. 
+More generally, let $\Pi_1(X)$ denote the fundamental groupoid of a topological space $X:\mathsf{Top}$, that is, the category where objects are points of $X$ and morphisms are homotopy classes of pathes with concatenation as composition, then we have a functor
+$$T: \Pi_1(\mathbb C^\times)\rightarrow \mathsf{Set}\quad w\mapsto \mathcal F_{w}\quad \gamma\mapsto T_\gamma$$
+where the \textit{transport map}
+$$T_\gamma:\mathcal F_{\gamma(0)}\rightarrow\mathcal F_{\gamma(1)}\quad z\mapsto \widetilde{\gamma}_z(1)$$
+where $\widetilde{\gamma}_z:[0,1]\rightarrow\mathbb C^\times$ is the unique lift of $\gamma:[0,1]\rightarrow \mathbb C^\times$ with $\widetilde{\gamma}_z(0)=z$. 
+
 
 We note that $\mathcal F$ is not a globally constant sheaf, since it has no global sections i.e. $\mathcal F(\mathbb C^\times)=\emptyset$. 
 
