@@ -291,6 +291,7 @@ Motivated by the growing interest in the formalization of mathematics within the
   \mathsf{Set} & Sets \\
   \mathsf{Set}^{\mathrm{fin}} & Finite sets \\
   \mathsf{Top} & Topological spaces \\
+  \mathsf{Open}(T) & Open subsets of \(T : \mathsf{Top}\) \\
   \mathsf{Grp} & Groups \\
   \mathsf{Grp}^{\mathrm{top}} & Topological groups \\
   \mathsf{Grp}^{\mathrm{pro}} & Profinite groups \\
@@ -309,7 +310,6 @@ Motivated by the growing interest in the formalization of mathematics within the
   \mathsf{Var}_k & Varieties over \(k : \mathsf{Field}\), i.e. integral separated schemes of finite type over \(k\) \\
   \mathsf{Curv}_k & Curves over \(k : \mathsf{Field}\), i.e. one-dimensional varieties over \(k\) \\
   \mathsf{Curv}^{\mathrm{sm}}_k & Smooth curves over \(k : \mathsf{Field}\) \\
-  \mathsf{Man}_{\C} & Complex manifolds \\
   \mathsf{Riem} & Riemann surfaces, i.e. connected one-dimensional complex manifolds \\
   \mathsf{Site} & Sites, i.e. categories equipped with Grothendieck topologies \\
   \mathsf{Sh}(X,\mathsf A) & Sheaves on \(X : \mathsf{Site}\) with values in a category \(\mathsf A\) admitting small limits\\
@@ -319,23 +319,6 @@ Motivated by the growing interest in the formalization of mathematics within the
   X\rightarrow Y & Morphisms from $X : \mathsf{T}$ to $Y : \mathsf{T}$
 \end{typetable}
 
-\begin{custom}{Global Notations}Let \(X,Y : \mathsf{Site}\), \(k : \mathsf{Field}\), \(n : \mathbb{Z}\), \(V : \mathsf{Vect}_k\), and \(f : X\to Y\). Also let \(T : \mathsf{Top}\) with base point \(t : T\). The following notations will be used throughout the write-up.
-\begin{notationtable}
-  (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor \\
-  {[n]} & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The cohomological shift functor by \(n\)\\
-  \Gamma(X,-) & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(\mathsf{Vect}_k) & The derived global sections functor\\
-  \mathcal{H}^n & \mathsf D^{\mathrm b}(X,k)\to\mathsf{Sh}(X,\mathsf{Vect}_k) & The \(n\)-th cohomology sheaf functor \\
-  \mathrm{H}^n(X,-) & \mathsf D^{\mathrm b}(X,k)\to\mathsf{Vect}_k & The \(n\)-th hypercohomology functor\\
-  \underline{V} & \mathsf{Sh}(X,\mathsf{Vect}_k) & The constant sheaf associated with \(V\) \\
-  f_* & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(Y,k) & The derived pushforward along \(f\) \\
-  f^* & \mathsf D^{\mathrm b}(Y,k)\to\mathsf D^{\mathrm b}(X,k) & The derived pullback along \(f\)\\
-  \otimes_k & \mathsf D^{\mathrm b}(X,k)\times\mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The derived tensor product \\
-  \mathcal{H}om & \mathsf D^{\mathrm b}(X,k)^{\mathrm{op}}\times\mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The derived sheaf Hom\\
-  \mathcal{E}nd & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The derived sheaf End \\
-  \pi_1^{\mathrm{top}}(T,t) & \mathsf{Grp}^{\mathrm{top}} & The topological fundamental group, equipped with the discrete topology \\
-\end{notationtable}
-\noindent where the derived functors are assumed to preserve boundedness.
-\end{custom}
 \subsection{Motivations}\label{subsec:motivations}
 
 \textit{Monodromy groups} are interesting mathematical objects that arise naturally in both geometric and arithmetic contexts. 
@@ -343,17 +326,36 @@ Roughly speaking, they describe how locally defined data change when transported
 Controlling and understanding monodromy groups has been a central theme in both of these worlds, with significant applications.
 We will discuss both the geometric and arithmetic sides, but this write-up will primarily focus on the arithmetic side, with the geometric side serving as motivations and intuitions. 
 
-Let $w:\mathbb C$ be nonzero, and consider the equation
+Let $w:\mathbb C^\times$, and consider the equation
 $$z^2=w$$
-Locally near each $w$, there are two solutions which we label as $z_{+}=\sqrt{w}$ and $z_{-}=-\sqrt{w}$. Suppose we move $w$ around the unit circle with 
-$$w(t)=e^{2\pi i t}\quad t:\mathbb R$$
-Then we have $z_{+}(t)=e^{\pi i t}$ and $z_{-}(t)=-e^{\pi i t}$. When $t$ goes from $0$ to $1$, the two solutions do not return to their original self, but swap places. 
-This induces a permutation $\mathrm{S}_2$ on the set of solutions $\{z_{+},z_{-}\}$. In other words, there is a permutation representation of the fundamental group $\pi^{\mathrm{top}}_1(\mathrm S^1,1)\cong\mathbb Z$
-$$\pi^{\mathrm{top}}_1(\mathrm S^1,1)\longrightarrow\mathrm{Aut}_{\mathsf{Set}}(\{z_+,z_-\})\quad n\mapsto (z_{+}\ z_{-})^{(-1)^{n+1}}$$
-We call this permutation representation the \textit{permutation monodromy representation}, and the image of this representation $\mathrm{S}_2$ the \textit{permutation monodromy group}, of the covering map 
-$$p:\mathbb C^\times\rightarrow\mathbb C^\times\quad z\mapsto z^2$$
+Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$. Near $w_0$, the equation has two holomorphic solution branches $z_+$ and $z_-$, uniquely specified by $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Suppose we move $w$ once around $0$ along the loop based at $w_0$ given by 
+$$w(t)=w_0e^{2\pi i t}\quad t:[0,1]$$
+Then we have $z_{+}(t)=z_0e^{\pi i t}$ and $z_{-}(t)=-z_0e^{\pi i t}$. When $t$ goes from $0$ to $1$, the two solutions do not return to their original self, but swap places. 
+In other words, there is a permutation representation of the fundamental group\footnote{with the discrete topology} $\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\cong\mathbb Z:\mathsf{Grp}^{\mathrm{top}}$
+$$\rho:\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\{z_+,z_-\})\quad n\mapsto (z_{+}\ z_{-})^n$$
+We call this permutation representation the \textit{permutation monodromy representation}, and the image of this representation $\mathrm{S}_2$ the \textit{permutation monodromy group} of the equation.
+
+Let's paraphrase the above in terms of sheaves. Consider the covering
+$$f:\mathbb C^\times\rightarrow\mathbb C^\times\quad z\mapsto z^2$$
+Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be the sheaf of sections of the above cover, i.e. for $U:\mathrm{Open}(\mathbb C^\times)$,
+$$\begin{aligned}\mathcal F(U)&=\{z:U\to\mathbb C^\times:(f\circ z)|^{U}=\mathrm{id}_U\}\\
+&=\{z:U\to\mathbb C^\times:z(w)^2=w,\,\text{for }w:U\}
+\end{aligned}$$
+This is a locally constant sheaf since for each $w_0 :\mathbb C^\times$, one can find an open neighborhood $U$ of it on which the sections are just the two square roots 
+$$\begin{aligned}
+z_+&:U\rightarrow\mathbb C^\times\quad w\mapsto \sqrt{w}\\
+z_-&:U\rightarrow\mathbb C^\times\quad w\mapsto -\sqrt{w}\\
+\end{aligned}$$ 
+Hence the stalk $\mathcal F_{w_0}=\{z_+,z_-\}\cong f^{-1}(w_0)$ by evaluation, and therefore the aforementioned permutation representation can be rewritten as 
+$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow \mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0})\quad \gamma\mapsto [e\mapsto\widetilde{\gamma}_e(1)]$$
+where $\widetilde{\gamma}_e:[0,1]\rightarrow \mathbb C^\times$ is the unique lift of $\gamma:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)$ with $\widetilde{\gamma}_e(0)=e$. 
+
+We note that $\mathcal F$ is not a globally constant sheaf, since it has no global sections i.e. $\mathcal F(\mathbb C^\times)=\emptyset$. 
+
+
 
 We can upgrade permutation monodromy representations into linear representations. 
+
 
 \begin{custom}[]{A Question in Arithmetic Geometry}
 Here is a 
@@ -408,14 +410,16 @@ providing fitness advice for the author to stay healthy and energetic while work
   S & \mathsf{Set}^{\mathrm{fin}} & A finite nonempty subset of closed points of \(X\) \\
   U & \mathsf{Curv}^{\mathrm{sm}}_{\C} & The open subvariety \(X\setminus S\)\\
   j & U\rightarrow X & The inclusion map \\
-  m & \mathbb{N} & The cardinality of \(S\)
+  m & \mathbb{N} & The cardinality of \(S\)\\
+  (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor
 \end{notationtable}
 \end{notation}
 
 \subsection{Local Systems in \texorpdfstring{$\ell$}{l}-adic Arithmetic Geometry}
 
 
-\section{Perverse Sheaves and the Six Functor Formalism}\label{sec:perverse-sheaves}
+\section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
+\subsection{Six Functor Formalism}
 \section{Middle Convolution and Monodromy Groups}\label{sec:middle-convolution}
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
 
