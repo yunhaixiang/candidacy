@@ -286,24 +286,24 @@
 \subsection{Notations}\label{subsec:notation-style}
 
 
-Motivated by the growing interest in the formalization of mathematics within the mathematical community, we adopt a style of notation inspired by type theory throughout this write-up, without committing to type-theoretic foundations (foundational questions lie outside the scope of this write-up). The symbols below denote types and/or categories depending on your philosophical inclination, where \(X:\mathsf{T}\) denotes that \(X\) is a term of type \(\mathsf{T}\), or an object of the category \(\mathsf{T}\).
+Motivated by the growing interest in the formalization of mathematics within the mathematical community, we adopt a style of notation inspired by type theory throughout this write-up, without committing to type-theoretic foundations. The symbols below denote types and/or categories depending on your philosophical inclination, where \(X:\mathsf{T}\) denotes that \(X\) is a term of type \(\mathsf{T}\), or an object of the category \(\mathsf{T}\).
 \begin{typetable}
   \mathsf{Set} & Sets \\
   \mathsf{Set}^{\mathrm{fin}} & Finite sets \\
-  \mathsf{Nat} & Natural numbers (including zero) \\
-  \mathsf{Int} & Integers \\
+  \mathsf{Top} & Topological spaces \\
   \mathsf{Grp} & Groups \\
   \mathsf{Grp}^{\mathrm{top}} & Topological groups \\
   \mathsf{Grp}^{\mathrm{pro}} & Profinite groups \\
   \mathsf{Grp}^{\mathrm{ab}} & Abelian groups \\
   \mathsf{Ring} & Rings (associative, unital, not necessarily commutative) \\
+  \mathsf{Ring}^{\mathrm{top}} & Topological rings \\
   \mathsf{Field} & Fields \\
   \mathsf{Field}^{\mathrm{top}} & Topological fields \\
   \mathsf{Mod}_R & Left modules over \(R : \mathsf{Ring}\) \\
   \mathsf{Vect}_k & Vector spaces over \(k : \mathsf{Field}\) \\
   \mathsf{Vect}^{\mathrm{fin}}_k & Finite-dimensional vector spaces over \(k : \mathsf{Field}\) \\
-  \mathsf{Rep}_k(G) & Continuous representations of \(G : \mathsf{Grp}^{\mathrm{top}}\) over \(k : \mathsf{Field}^{\mathrm{top}}\) \\
-  \mathsf{Rep}^{\mathrm{fin}}_k(G) & Finite-dimensional continuous representations of \(G : \mathsf{Grp}^{\mathrm{top}}\) over \(k : \mathsf{Field}^{\mathrm{top}}\) \\
+  \mathsf{Rep}_\Lambda(G) & Continuous \(\Lambda\)-linear representations of \(G : \mathsf{Grp}^{\mathrm{top}}\), where \(\Lambda : \mathsf{Ring}^{\mathrm{top}}\) \\
+  \mathsf{Rep}^{\mathrm{fin}}_\Lambda(G) & Continuous \(\Lambda\)-linear representations of \(G : \mathsf{Grp}^{\mathrm{top}}\), where \(\Lambda : \mathsf{Ring}^{\mathrm{top}}\), whose underlying topological \(\Lambda\)-modules are finitely generated \\
   \mathsf{Sch} & Schemes \\
   \mathsf{Sch}_S & Schemes over base scheme $S:\mathsf{Sch}$\\
   \mathsf{Var}_k & Varieties over \(k : \mathsf{Field}\), i.e. integral separated schemes of finite type over \(k\) \\
@@ -319,9 +319,10 @@ Motivated by the growing interest in the formalization of mathematics within the
   X\rightarrow Y & Morphisms from $X : \mathsf{T}$ to $Y : \mathsf{T}$
 \end{typetable}
 
-\begin{custom}{Global Notations}Let \(X,Y : \mathsf{Site}\), \(k : \mathsf{Field}\), \(n : \mathsf{Int}\), \(V : \mathsf{Vect}_k\), and \(f : X\to Y\). The following notations will be used throughout the write-up.
+\begin{custom}{Global Notations}Let \(X,Y : \mathsf{Site}\), \(k : \mathsf{Field}\), \(n : \mathbb{Z}\), \(V : \mathsf{Vect}_k\), and \(f : X\to Y\). Also let \(T : \mathsf{Top}\) with base point \(t : T\). The following notations will be used throughout the write-up.
 \begin{notationtable}
   (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor \\
+  \pi_1^{\mathrm{top}}(T,t) & \mathsf{Grp}^{\mathrm{top}} & The topological fundamental group, equipped with the discrete topology \\
   {[n]} & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(X,k) & The cohomological shift functor by \(n\)\\
   \Gamma(X,-) & \mathsf D^{\mathrm b}(X,k)\to\mathsf D^{\mathrm b}(\mathsf{Vect}_k) & The derived global sections functor\\
   \mathcal{H}^n & \mathsf D^{\mathrm b}(X,k)\to\mathsf{Sh}(X,\mathsf{Vect}_k) & The \(n\)-th cohomology sheaf functor \\
@@ -338,20 +339,14 @@ Motivated by the growing interest in the formalization of mathematics within the
 \subsection{Motivations}\label{subsec:motivations}
 
 \textit{Monodromy groups} are interesting mathematical objects that arise naturally in both geometric and arithmetic contexts. 
+Roughly speaking, they describe how locally defined data change when transported along a loop. 
 Controlling and understanding monodromy groups has been a central theme in both of these worlds, with significant applications.
 We will discuss both the geometric and arithmetic sides, but this write-up will primarily focus on the arithmetic side, with the geometric side serving as motivations and intuitions. 
 
-On the geometric side, investigation of monodromy goes back to Riemann. 
+Let $w:\mathbb C$ be nonzero, and consider the equation
+$$z^2=w$$
 
-
-\begin{custom}[]{A Question in Complex Geometry}
-Here is a 
-\end{custom}
-
-On the arithmetic side, 
-
-
-\begin{custom}[]{A Question in Number Theory}
+\begin{custom}[]{A Question in Arithmetic Geometry}
 Here is a 
 \end{custom}
 
@@ -396,7 +391,7 @@ providing fitness advice for the author to stay healthy and energetic while work
 \section{Local Systems and Lisse Sheaves}\label{sec:local-systems}
 
 
-
+\subsection{Local Systems in Topology}
 
 \begin{notation}Define the following collection of notations
 \begin{notationtable}
@@ -404,9 +399,12 @@ providing fitness advice for the author to stay healthy and energetic while work
   S & \mathsf{Set}^{\mathrm{fin}} & A finite nonempty subset of closed points of \(X\) \\
   U & \mathsf{Curv}^{\mathrm{sm}}_{\C} & The open subvariety \(X\setminus S\)\\
   j & U\rightarrow X & The inclusion map \\
-  m & \mathsf{Nat} & The cardinality of \(S\)
+  m & \mathbb{N} & The cardinality of \(S\)
 \end{notationtable}
 \end{notation}
+
+\subsection{Local Systems in the \texorpdfstring{$\ell$}{l}-adic Setting}
+\subsection{Local Systems in }
 
 \section{Perverse Sheaves and the Six Functor Formalism}\label{sec:perverse-sheaves}
 \section{Middle Convolution and Monodromy Groups}\label{sec:middle-convolution}
