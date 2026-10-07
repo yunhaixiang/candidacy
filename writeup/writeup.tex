@@ -325,12 +325,36 @@ Motivated by the growing interest in the formalization of mathematics within the
   X\rightarrow Y & Morphisms from $X : \mathsf{T}$ to $Y : \mathsf{T}$
 \end{typetable}
 
+
+\subsection{Acknowledgements}\label{subsec:acknowledgements}
+
+The author thanks his advisor, Prof. Chris Hall, for his guidance and advice.
+
+\begin{custom}[]{Typesetting}
+The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
+\end{custom}
+
+
+\begin{custom}[]{Declaration of AI Use}
+The use of generative AI in the preparation of this write-up was limited to the following purposes: 
+polishing wording, phrasing, spelling, grammar, and formatting; 
+offering writing advice;
+answering mathematical questions from the author to help him learn the subject;
+searching for and citing appropriate references;
+translating reading materials in French into English; 
+retypesetting old references with archaic typesetting for ease of reading;
+providing emotional support for the author;
+providing fitness advice to help the author stay healthy and energetic while working on the write-up.
+\end{custom}
+ 
 \subsection{Motivations}\label{subsec:motivations}
 
 \textit{Monodromy groups} are interesting mathematical objects that arise naturally in both geometric and arithmetic contexts. 
 Roughly speaking, they describe how locally defined data change when transported along a loop. 
 Controlling and understanding monodromy groups has been a central theme in both of these worlds, with significant applications.
 We will discuss both the geometric and arithmetic sides, but this write-up will primarily focus on the arithmetic side, with the geometric side providing motivation and intuition.
+
+The goal of this write-up is to provide an exposition on monodromy groups, and ways to study them using methods from perverse sheaves and their middle convolution introduced by Katz \cite{Katz1996}, especially in the $\ell$-adic arithmetic context. 
 
 \parlabel{par:square-root-monodromy}Let parameter $w:\mathbb C^\times$, and consider the equation
 $$z^2=w$$
@@ -342,7 +366,7 @@ In other words, there is a permutation representation of the fundamental group\f
 $$\rho:\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\{z_+,z_-\})\quad n\mapsto (z_{+}\ z_{-})^n$$
 We call this representation the \textit{permutation monodromy representation} and its image, $\mathrm{S}_2$, the \textit{permutation monodromy group} of the equation.
 
-Let us reformulate the above in terms of sheaves. Consider the covering
+\parlabel{par:square-root-sheaf}Let us reformulate the above in terms of sheaves. Consider the covering
 $$f:\mathbb C^\times\rightarrow\mathbb C^\times\quad z\mapsto z^2$$
 Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be the sheaf of sections of this cover. Thus, for $U:\mathrm{Open}(\mathbb C^\times)$,
 $$\begin{aligned}\mathcal F(U)&=\{z:U\to\mathbb C^\times:(f\circ z)|^{U}=\mathrm{id}_U\}\\
@@ -375,7 +399,7 @@ For example, instead of an algebraic equation like the one in \cref{par:square-r
 where we have fixed parameters $a,b,c:\mathbb C$ and an unknown holomorphic function $f:V\rightarrow\mathbb C$ where $V:\mathsf{Open}(U)$ and $U=\mathbb P^1(\mathbb C)\setminus \{0,1,\infty\}$. 
 We then define the sheaf of solutions to this equation $\mathcal L:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$
 \[
-\mathcal L(V)=\left\{f:\mathcal O(V)\;\middle|\;f\text{ satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
+\mathcal L(V)=\left\{f:V\rightarrow\mathbb C\;\middle|\;f\text{ holomorphic and satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
 \]
 This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $u:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $u$ and an isomorphism of sheaves
 \[
@@ -383,33 +407,14 @@ This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homo
 \]
 Thus $\mathcal L$ is locally constant of rank $2$. We call such a sheaf a \textit{complex local system of rank $2$}.
 
+Like in \cref{par:square-root-sheaf}, the sheaf $\mathcal L$ gives a monodromy representation at each $u:U$. 
+
 \begin{custom}[]{A Question in Arithmetic Geometry}
 Here is a 
 \end{custom}
 
 
 
-
-\subsection{Acknowledgements}\label{subsec:acknowledgements}
-
-The author thanks his advisor, Prof. Chris Hall, for his guidance and advice.
-
-\begin{custom}[]{Typesetting}
-The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
-\end{custom}
-
-
-\begin{custom}[]{Declaration of AI Use}
-The use of generative AI in the preparation of this write-up was limited to the following purposes: 
-polishing wording, phrasing, spelling, grammar, and formatting; 
-offering writing advice;
-answering mathematical questions from the author to help him learn the subject;
-searching for and citing appropriate references;
-translating reading materials in French into English; 
-retypesetting old references with archaic typesetting for ease of reading;
-providing emotional support for the author;
-providing fitness advice to help the author stay healthy and energetic while working on the write-up.
-\end{custom}
 
 
 
