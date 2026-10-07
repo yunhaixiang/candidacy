@@ -14,7 +14,7 @@
 \usepackage{xcolor}
 \definecolor{accent}{HTML}{176B70}
 \usepackage[colorlinks=true,linkcolor=accent,citecolor=accent,urlcolor=accent]{hyperref}
-\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage[nameinlink,noabbrev,capitalise]{cleveref}
 \usepackage{mathpazo}
 
 % Gaps scale with font size, independently of font weight.
@@ -63,11 +63,11 @@
 \RenewDocumentEnvironment{custom}{O{} m}
   {\renewcommand{\customheading}{#2}\customstart[#1]}
   {\customfinish}
-\crefname{custom}{item}{items}
+\crefname{custom}{Item}{Items}
 \Crefname{custom}{Item}{Items}
-\crefname{question}{question}{questions}
+\crefname{question}{Question}{Questions}
 \Crefname{question}{Question}{Questions}
-\crefname{notation}{notation}{notations}
+\crefname{notation}{Notation}{Notations}
 \Crefname{notation}{Notation}{Notations}
 % Section references use section symbols; nameinlink links symbol and number.
 \crefname{section}{\S}{\S\S}
@@ -147,8 +147,11 @@
 % A nonempty argument adds a bold run-in title. \paragraph* stays unnumbered.
 % Ordinary body paragraphs are also numbered automatically (see hooks below).
 \newaliascnt{numberedparagraph}{theorem}
-\crefname{numberedparagraph}{paragraph}{paragraphs}
-\Crefname{numberedparagraph}{Paragraph}{Paragraphs}
+% Paragraph references show only the linked number, without a type name.
+\crefname{numberedparagraph}{}{}
+\Crefname{numberedparagraph}{}{}
+\crefformat{numberedparagraph}{#2#1#3}
+\Crefformat{numberedparagraph}{#2#1#3}
 % Ignore source whitespace even when one or more labels precede the body.
 % A plain \ignorespaces stops at \label, leaving its following newline visible.
 \makeatletter
@@ -286,7 +289,7 @@
 \subsection{Notations}\label{subsec:notation-style}
 
 
-Motivated by the growing interest in the formalization of mathematics within the mathematical community, we adopt a style of notation inspired by type theory throughout this write-up, without committing to type-theoretic foundations. The symbols below denote types and/or categories depending on your philosophical inclination, where \(X:\mathsf{T}\) denotes that \(X\) is a term of type \(\mathsf{T}\), or an object of the category \(\mathsf{T}\).
+Motivated by the growing interest in the formalization of mathematics within the mathematical community, we adopt a style of notation inspired by type theory throughout this write-up, without committing to type-theoretic foundations. The symbols below denote types and/or categories, depending on your philosophical inclination. The notation \(X:\mathsf{T}\) means that \(X\) is a term of type \(\mathsf{T}\) or an object of the category \(\mathsf{T}\).
 \begin{typetable}
   \mathsf{Set} & Sets \\
   \mathsf{Set}^{\mathrm{fin}} & Finite sets \\
@@ -306,7 +309,7 @@ Motivated by the growing interest in the formalization of mathematics within the
   \mathsf{Rep}_\Lambda(G) & Continuous \(\Lambda\)-linear representations of \(G : \mathsf{Grp}^{\mathrm{top}}\), where \(\Lambda : \mathsf{Ring}^{\mathrm{top}}\) \\
   \mathsf{Rep}^{\mathrm{fin}}_\Lambda(G) & Continuous \(\Lambda\)-linear representations of \(G : \mathsf{Grp}^{\mathrm{top}}\), where \(\Lambda : \mathsf{Ring}^{\mathrm{top}}\), whose underlying topological \(\Lambda\)-modules are finitely generated \\
   \mathsf{Sch} & Schemes \\
-  \mathsf{Sch}_S & Schemes over base scheme $S:\mathsf{Sch}$\\
+  \mathsf{Sch}_S & Schemes over a base scheme $S:\mathsf{Sch}$\\
   \mathsf{Var}_k & Varieties over \(k : \mathsf{Field}\), i.e. integral separated schemes of finite type over \(k\) \\
   \mathsf{Curv}_k & Curves over \(k : \mathsf{Field}\), i.e. one-dimensional varieties over \(k\) \\
   \mathsf{Curv}^{\mathrm{sm}}_k & Smooth curves over \(k : \mathsf{Field}\) \\
@@ -324,24 +327,25 @@ Motivated by the growing interest in the formalization of mathematics within the
 \textit{Monodromy groups} are interesting mathematical objects that arise naturally in both geometric and arithmetic contexts. 
 Roughly speaking, they describe how locally defined data change when transported along a loop. 
 Controlling and understanding monodromy groups has been a central theme in both of these worlds, with significant applications.
-We will discuss both the geometric and arithmetic sides, but this write-up will primarily focus on the arithmetic side, with the geometric side serving as motivations and intuitions. 
+We will discuss both the geometric and arithmetic sides, but this write-up will primarily focus on the arithmetic side, with the geometric side providing motivation and intuition.
 
-Let $w:\mathbb C^\times$, and consider the equation
+\parlabel{par:square-root-monodromy}Let $w:\mathbb C^\times$, and consider the equation
 $$z^2=w$$
-Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$. Near $w_0$, the equation has two holomorphic solution branches $z_+$ and $z_-$, uniquely specified by $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Suppose we move $w$ once around $0$ along the loop based at $w_0$ given by 
+Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$. 
+Near $w_0$, the equation has two holomorphic solution branches $z_+=\sqrt{w}$ and $z_-=-\sqrt{w}$, uniquely specified by $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Suppose we move $w$ once around $0$ along the loop based at $w_0$ given by 
 $$w(t)=w_0e^{2\pi i t}\quad t:[0,1]$$
-Then we have $z_{+}(t)=z_0e^{\pi i t}$ and $z_{-}(t)=-z_0e^{\pi i t}$. When $t$ goes from $0$ to $1$, the two solutions do not return to their original self, but swap places. 
+Then we have $z_{+}(t)=z_0e^{\pi i t}$ and $z_{-}(t)=-z_0e^{\pi i t}$. As $t$ goes from $0$ to $1$, the two solution branches swap rather than return to themselves.
 In other words, there is a permutation representation of the fundamental group\footnote{with the discrete topology} $\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\cong\mathbb Z:\mathsf{Grp}^{\mathrm{top}}$
 $$\rho:\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\{z_+,z_-\})\quad n\mapsto (z_{+}\ z_{-})^n$$
-We call this permutation representation the \textit{permutation monodromy representation}, and the image of this representation $\mathrm{S}_2$ the \textit{permutation monodromy group} of the equation.
+We call this representation the \textit{permutation monodromy representation} and its image, $\mathrm{S}_2$, the \textit{permutation monodromy group} of the equation.
 
-Let's paraphrase the above in terms of sheaves. Consider the covering
+Let us reformulate the above in terms of sheaves. Consider the covering
 $$f:\mathbb C^\times\rightarrow\mathbb C^\times\quad z\mapsto z^2$$
-Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be the sheaf of sections of the above cover, i.e. for $U:\mathrm{Open}(\mathbb C^\times)$,
+Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be the sheaf of sections of this cover. Thus, for $U:\mathrm{Open}(\mathbb C^\times)$,
 $$\begin{aligned}\mathcal F(U)&=\{z:U\to\mathbb C^\times:(f\circ z)|^{U}=\mathrm{id}_U\}\\
 &=\{z:U\to\mathbb C^\times:z(w)^2=w,\,\text{for }w:U\}
 \end{aligned}$$
-This is a locally constant sheaf since for each $w_0 :\mathbb C^\times$, one can find an open neighborhood $U$ of it on which the sections are just the two square roots 
+This is a locally constant sheaf: for each $w_0 :\mathbb C^\times$, one can find an open neighborhood $U$ of $w_0$ on which the sections are precisely the two square-root branches
 $$\begin{aligned}
 z_+&:U\rightarrow\mathbb C^\times\quad w\mapsto \sqrt{w}\\
 z_-&:U\rightarrow\mathbb C^\times\quad w\mapsto -\sqrt{w}\\
@@ -349,16 +353,14 @@ z_-&:U\rightarrow\mathbb C^\times\quad w\mapsto -\sqrt{w}\\
 Hence the stalk $\mathcal F_{w_0}=\{z_+,z_-\}\cong f^{-1}(w_0)$ by evaluation, and therefore the aforementioned permutation representation can be rewritten as 
 $$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow \mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0})\quad \gamma\mapsto [z\mapsto\widetilde{\gamma}_z(1)]$$
 where $\widetilde{\gamma}_z:[0,1]\rightarrow \mathbb C^\times$ is the unique lift of $\gamma:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)$ with $\widetilde{\gamma}_z(0)=z$. 
-More generally, let $\Pi_1(X)$ denote the fundamental groupoid of a topological space $X:\mathsf{Top}$, that is, the category where objects are points of $X$ and morphisms are homotopy classes of pathes with concatenation as composition, then we have a functor
+More generally, let $\Pi_1(X)$ denote the fundamental groupoid of a topological space $X:\mathsf{Top}$, that is, the category whose objects are points of $X$ and whose morphisms are homotopy classes of paths, with concatenation as composition. We have a functor
 $$T: \Pi_1(\mathbb C^\times)\rightarrow \mathsf{Set}\quad w\mapsto \mathcal F_{w}\quad \gamma\mapsto T_\gamma$$
-where the \textit{transport map}
+whose mapping on morphisms is given by the \textit{transport map}
 $$T_\gamma:\mathcal F_{\gamma(0)}\rightarrow\mathcal F_{\gamma(1)}\quad z\mapsto \widetilde{\gamma}_z(1)$$
 where $\widetilde{\gamma}_z:[0,1]\rightarrow\mathbb C^\times$ is the unique lift of $\gamma:[0,1]\rightarrow \mathbb C^\times$ with $\widetilde{\gamma}_z(0)=z$. 
 
-
-We note that $\mathcal F$ is not a globally constant sheaf, since it has no global sections i.e. $\mathcal F(\mathbb C^\times)=\emptyset$. 
-
-
+The sheaf $\mathcal F$ is locally constant but not constant: a global section would determine a germ at $w_0$ fixed by all monodromy, whereas transport once around $0$ exchanges the two square-root germs, as demonstrated in \cref{par:square-root-monodromy}. Thus $\mathcal F(\mathbb C^\times)=\emptyset$.
+Locally constant (but not necessarily constant) sheaves of sets, such as this one, are known as \textit{local systems (of sets)}.
 
 We can upgrade permutation monodromy representations into linear representations. 
 
@@ -394,13 +396,13 @@ The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
 \begin{custom}[]{Declaration of AI Use}
 The use of generative AI in the preparation of this write-up was limited to the following purposes: 
 polishing wording, phrasing, spelling, grammar, and formatting; 
-offering writing advices; 
+offering writing advice;
 answering mathematical questions from the author to help him learn the subject;
-searching and citing appropriate references; 
+searching for and citing appropriate references;
 translating reading materials in French into English; 
-retypesetting old references with archaic typesettings for ease of reading;
+retypesetting old references with archaic typesetting for ease of reading;
 providing emotional support for the author;
-providing fitness advice for the author to stay healthy and energetic while working on the write-up. 
+providing fitness advice to help the author stay healthy and energetic while working on the write-up.
 \end{custom}
 
 
@@ -410,7 +412,7 @@ providing fitness advice for the author to stay healthy and energetic while work
 
 \subsection{Local Systems in Topology}
 
-\begin{notation}Define the following collection of notations
+\begin{notation}We use the following notation:
 \begin{notationtable}
   X & \mathsf{Curv}^{\mathrm{sm}}_{\C} & A smooth projective connected curve over \(\C\) \\
   S & \mathsf{Set}^{\mathrm{fin}} & A finite nonempty subset of closed points of \(X\) \\
@@ -425,7 +427,7 @@ providing fitness advice for the author to stay healthy and energetic while work
 
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
-\subsection{Six Functor Formalism}
+\subsection{Six-Functor Formalism}
 \section{Middle Convolution and Monodromy Groups}\label{sec:middle-convolution}
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
 
