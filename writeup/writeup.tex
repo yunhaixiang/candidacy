@@ -11,6 +11,7 @@
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usepackage{aliascnt}
+\usepackage[nottoc,notlof,notlot]{tocbibind}
 \usepackage{xcolor}
 \definecolor{accent}{HTML}{176B70}
 \usepackage[colorlinks=true,linkcolor=accent,citecolor=accent,urlcolor=accent]{hyperref}
@@ -28,7 +29,6 @@
 }
 \makeatother
 
-\numberwithin{equation}{subsection}
 % One sequence per subsection: section.subsection.index.
 % The period belongs after the environment title, before the optional name.
 \newtheoremstyle{numberfirstplain}
@@ -39,6 +39,9 @@
   {\thmnumber{#2}\thmname{\hspace{\headingnumbersep}#1.}\thmnote{\hspace{\headingpunctsep}{\normalfont(#3)}}}
 \theoremstyle{numberfirstplain}
 \newtheorem{theorem}{Theorem}[subsection]
+% Equations are numbered within each paragraph or theorem-style item.
+\numberwithin{equation}{theorem}
+\renewcommand{\theHequation}{\theHtheorem.\arabic{equation}}
 % Alias counters preserve each environment's name in \cref references.
 \newcommand{\sharedtheorem}[2]{%
   \newaliascnt{#1}{theorem}%
@@ -329,9 +332,9 @@ Roughly speaking, they describe how locally defined data change when transported
 Controlling and understanding monodromy groups has been a central theme in both of these worlds, with significant applications.
 We will discuss both the geometric and arithmetic sides, but this write-up will primarily focus on the arithmetic side, with the geometric side providing motivation and intuition.
 
-\parlabel{par:square-root-monodromy}Let $w:\mathbb C^\times$, and consider the equation
+\parlabel{par:square-root-monodromy}Let parameter $w:\mathbb C^\times$, and consider the equation
 $$z^2=w$$
-Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$. 
+for the unknown $z:\mathbb C^\times$. Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$. 
 Near $w_0$, the equation has two holomorphic solution branches $z_+=\sqrt{w}$ and $z_-=-\sqrt{w}$, uniquely specified by $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Suppose we move $w$ once around $0$ along the loop based at $w_0$ given by 
 $$w(t)=w_0e^{2\pi i t}\quad t:[0,1]$$
 Then we have $z_{+}(t)=z_0e^{\pi i t}$ and $z_{-}(t)=-z_0e^{\pi i t}$. As $t$ goes from $0$ to $1$, the two solution branches swap rather than return to themselves.
@@ -362,8 +365,23 @@ where $\widetilde{\gamma}_z:[0,1]\rightarrow\mathbb C^\times$ is the unique lift
 The sheaf $\mathcal F$ is locally constant but not constant: a global section would determine a germ at $w_0$ fixed by all monodromy, whereas transport once around $0$ exchanges the two square-root germs, as demonstrated in \cref{par:square-root-monodromy}. Thus $\mathcal F(\mathbb C^\times)=\emptyset$.
 Locally constant (but not necessarily constant) sheaves of sets, such as this one, are known as \textit{local systems (of sets)}.
 
-We can upgrade permutation monodromy representations into linear representations. 
-
+We have looked at permutation monodromy, but permutation actions do not capture all the situations we wish to study, since a lot of times in nature we encounter actions on vector spaces instead of sets. 
+For example, instead of an algebraic equation like the one in \cref{par:square-root-monodromy}, we consider a differential equation, which is known as \textit{Gauss's hypergeometric equation}
+\begin{equation}\label{eq:gauss-hypergeometric}
+\lambda(1-\lambda)\frac{\mathrm d^2 f}{\mathrm d\lambda^2}
++\bigl(c-(a+b+1)\lambda\bigr)\frac{\mathrm d f}{\mathrm d\lambda}
+-abf=0
+\end{equation}
+where we have fixed parameters $a,b,c:\mathbb C$ and an unknown holomorphic function $f:V\rightarrow\mathbb C$ where $V:\mathsf{Open}(U)$ and $U=\mathbb P^1(\mathbb C)\setminus \{0,1,\infty\}$. 
+We then define the sheaf of solutions to this equation $\mathcal L:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$
+\[
+\mathcal L(V)=\left\{f:\mathcal O(V)\;\middle|\;f\text{ satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
+\]
+This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $u:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $u$ and an isomorphism of sheaves
+\[
+\underline{\mathbb C}_V^2\xrightarrow{\sim}\mathcal L|_V
+\]
+Thus $\mathcal L$ is locally constant of rank $2$. We call such a sheaf a \textit{complex local system of rank $2$}.
 
 \begin{custom}[]{A Question in Arithmetic Geometry}
 Here is a 
@@ -410,15 +428,18 @@ providing fitness advice to help the author stay healthy and energetic while wor
   (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor
 \end{notationtable}
 \end{notation}
+\subsection{Local Systems in Complex Algebraic Geometry}
 
-\subsection{Local Systems in \texorpdfstring{$\ell$}{l}-adic Arithmetic Geometry}
+\subsection{Local Systems in \texorpdfstring{$\ell$}{l}-adic Arithmetic Geometry: Lisse Sheaves}
 
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
 \subsection{Six-Functor Formalism}
+\subsection{Middle Extension Sheaves}
+\subsection{Middle Convolution}
+
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
 
-\section{Formalization in Lean}\label{sec:formalization}
 
 % Bibliography entries live in references.bib.
 \bibliographystyle{alpha}

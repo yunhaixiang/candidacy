@@ -1,4 +1,9 @@
-\begin{thebibliography}{Kat88}
+\begin{thebibliography}{HTT08}
+
+\bibitem[HTT08]{HottaTakeuchiTanisaki2008}
+Ryoshi Hotta, Kiyoshi Takeuchi, and Toshiyuki Tanisaki.
+\newblock {\em {$D$-Modules, Perverse Sheaves, and Representation Theory}}, volume 236 of {\em Progress in Mathematics}.
+\newblock Birkh\"auser, 2008.
 
 \bibitem[Kat88]{Katz1988GKM}
 Nicholas~M. Katz.
