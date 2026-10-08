@@ -343,6 +343,7 @@ The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
 
 \begin{custom}[]{Declaration of AI Use}
 The use of generative AI in the preparation of this write-up was limited to the following purposes: 
+proofreading;
 polishing wording, phrasing, grammar, and formatting; 
 offering writing advices;
 answering mathematical questions from the author to help him learn the subject;
@@ -378,12 +379,12 @@ $$f:\mathbb C^\times\rightarrow\mathbb C^\times,\qquad \zeta\mapsto\zeta^2.$$
 Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be its sheaf of holomorphic sections. Equivalently, this is the sheaf of solutions to the equation \eqref{eq:square-root},
 \[
 \begin{aligned}
-\mathcal F(V)&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }(f\circ z)|^V=\mathrm{id}_V\}\\
+\mathcal F(V)&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }(f\circ z)|^V=\mathrm{id}_U\}\\
 &=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }z(w)^2=w\text{ for every }w:V\}.
 \end{aligned}
 \]
 As in \cref{par:square-root-monodromy}, on a sufficiently small disc $V$ containing $w_0$, the sections are precisely the two holomorphic solution branches $z_+$ and $z_-$, identifying 
-$$\mathcal F|_V\cong\underline{\{+,-\}}_V.$$
+$$\mathcal F|_U\cong\underline{\{+,-\}}_U.$$
 Hence $\mathcal F$ is locally constant, with stalk at $w_0$
 $$\mathcal F_{w_0}=\{[z_+]_{w_0},[z_-]_{w_0}\}\cong f^{-1}(w_0)$$ 
 identified by evaluation. 
@@ -391,7 +392,7 @@ However, the sheaf is not constant: $\mathcal F(\mathbb C^\times)=\emptyset$. A 
 Locally constant (but not necessarily constant) sheaves of sets, such as this one, are known as \textit{local systems of sets}. 
 
 
-\parlabel{par:square-root-transport}For a path $\gamma:[0,1]\to\mathbb C^\times$ from $w_0=\gamma(0)$ to $w_1=\gamma(1)$ and a point $\zeta:f^{-1}(w_0)$ in the fibre, let $\widetilde\gamma_\zeta$ be the unique lift through $f$ satisfying $\widetilde\gamma_\zeta(0)=\zeta$. 
+\parlabel{par:square-root-transport}For a path $\gamma:[0,1]\to\mathbb C^\times$ from $w_0=\gamma(0)$ to $w_1=\gamma(1)$ and a point $\zeta:f^{-1}(w_0)$ in the fibre, let $\widetilde\gamma_\zeta$ be the unique lift through $f$ satisfying $\widetilde\gamma_\zeta(0)=\zeta$.
 We have the \textit{transport map}
 \[
 T_\gamma:\mathcal F_{w_0}\xrightarrow{\sim}\mathcal F_{w_1},\qquad \zeta\longmapsto\widetilde\gamma_\zeta(1).
@@ -418,16 +419,7 @@ When $X=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separabl
 
 \subsection{Local Systems in Topology}
 
-\begin{notation}We use the following notation:
-\begin{notationtable}
-  X & \mathsf{Curv}^{\mathrm{sm}}_{\C} & A smooth projective connected curve over \(\C\) \\
-  S & \mathsf{Set}^{\mathrm{fin}} & A finite nonempty subset of closed points of \(X\) \\
-  U & \mathsf{Curv}^{\mathrm{sm}}_{\C} & The open subvariety \(X\setminus S\)\\
-  j & U\rightarrow X & The inclusion map \\
-  m & \mathbb{N} & The cardinality of \(S\)\\
-  (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor
-\end{notationtable}
-\end{notation}
+
 
 We have looked at permutation monodromy, but permutation actions do not capture all the situations we wish to study, since a lot of times in nature we encounter actions on vector spaces instead of sets. 
 For example, instead of an algebraic equation like the one in \cref{par:square-root-monodromy}, we consider a differential equation, which is known as \textit{Gauss's hypergeometric equation}
@@ -443,19 +435,33 @@ We then define the sheaf of solutions to this equation $\mathcal L:\mathsf{Sh}(U
 \]
 This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $\lambda_0:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $\lambda_0$ and an isomorphism of sheaves
 \[
-\underline{\mathbb C}_V^2\xrightarrow{\sim}\mathcal L|_V
+\underline{\mathbb C}_U^2\xrightarrow{\sim}\mathcal L|_U
 \]
 Thus $\mathcal L$ is locally constant of rank $2$. We call such a sheaf a \textit{complex local system of rank $2$}.
 
-Similarly, analytic continuation (\cref{par:analytic-continuation}) gives a \textit{transport functor}
+As in \cref{par:square-root-transport}, we have a \textit{transport functor}
 $$T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}},\qquad \lambda\mapsto\mathcal L_\lambda,\qquad [\gamma]\mapsto T_\gamma,$$
 where, for a path $\gamma:[0,1]\to U$,
-$$T_\gamma:\mathcal L_{\gamma(0)}\rightarrow\mathcal L_{\gamma(1)},\qquad [f]_{\gamma(0)}\mapsto[f^\gamma]_{\gamma(1)}.$$
-Here $[f^\gamma]_{\gamma(1)}$ is the solution germ obtained by analytically continuing $[f]_{\gamma(0)}$ along $\gamma$. Restricting transport to loops at a base point $\lambda_0:U$ gives the \textit{monodromy representation}
+
+
+Restricting transport to loops at a base point $\lambda_0:U$ gives the \textit{monodromy representation}
 $$\rho:\pi_1^{\mathrm{top}}(U,\lambda_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal L_{\lambda_0}),\qquad [\gamma]\mapsto T_\gamma.$$
 and its image is called the \textit{monodromy group}.
 
 Like in \cref{par:square-root-sheaf}, $\mathcal L$ is also a sheaf of sections of a cover.
+
+
+\begin{notation}We use the following notation:
+\begin{notationtable}
+  X & \mathsf{Curv}^{\mathrm{sm}}_{\C} & A smooth projective connected curve over \(\C\) \\
+  S & \mathsf{Set}^{\mathrm{fin}} & A finite nonempty subset of closed points of \(X\) \\
+  U & \mathsf{Curv}^{\mathrm{sm}}_{\C} & The open subvariety \(X\setminus S\)\\
+  j & U\rightarrow X & The inclusion map \\
+  m & \mathbb{N} & The cardinality of \(S\)\\
+  (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor
+\end{notationtable}
+\end{notation}
+
 
 \subsection{Local Systems in Complex Algebraic Geometry}
 
