@@ -42,11 +42,25 @@
 % Equations are numbered within each paragraph or theorem-style item.
 \numberwithin{equation}{theorem}
 \renewcommand{\theHequation}{\theHtheorem.\arabic{equation}}
-% Alias counters preserve each environment's name in \cref references.
+% References to mathematical items show only linked numbers, not type names.
+\newcommand{\numberonlycref}[1]{%
+  \crefname{#1}{}{}%
+  \Crefname{#1}{}{}%
+  \crefformat{#1}{##2##1##3}%
+  \Crefformat{#1}{##2##1##3}%
+  \crefrangeformat{#1}{##3##1##4--##5##2##6}%
+  \Crefrangeformat{#1}{##3##1##4--##5##2##6}%
+  \crefmultiformat{#1}{##2##1##3}{ and~##2##1##3}{, ##2##1##3}{, and~##2##1##3}%
+  \Crefmultiformat{#1}{##2##1##3}{ and~##2##1##3}{, ##2##1##3}{, and~##2##1##3}%
+}
+\numberonlycref{theorem}
+\numberonlycref{equation}
+% Alias counters let each environment inherit the same reference formatting.
 \newcommand{\sharedtheorem}[2]{%
   \newaliascnt{#1}{theorem}%
   \newtheorem{#1}[#1]{#2}%
   \aliascntresetthe{#1}%
+  \numberonlycref{#1}%
 }
 \sharedtheorem{proposition}{Proposition}
 \sharedtheorem{lemma}{Lemma}
@@ -66,12 +80,6 @@
 \RenewDocumentEnvironment{custom}{O{} m}
   {\renewcommand{\customheading}{#2}\customstart[#1]}
   {\customfinish}
-\crefname{custom}{Item}{Items}
-\Crefname{custom}{Item}{Items}
-\crefname{question}{Question}{Questions}
-\Crefname{question}{Question}{Questions}
-\crefname{notation}{Notation}{Notations}
-\Crefname{notation}{Notation}{Notations}
 % Section references use section symbols; nameinlink links symbol and number.
 \crefname{section}{\S}{\S\S}
 \Crefname{section}{\S}{\S\S}
@@ -151,10 +159,7 @@
 % Ordinary body paragraphs are also numbered automatically (see hooks below).
 \newaliascnt{numberedparagraph}{theorem}
 % Paragraph references show only the linked number, without a type name.
-\crefname{numberedparagraph}{}{}
-\Crefname{numberedparagraph}{}{}
-\crefformat{numberedparagraph}{#2#1#3}
-\Crefformat{numberedparagraph}{#2#1#3}
+\numberonlycref{numberedparagraph}
 % Ignore source whitespace even when one or more labels precede the body.
 % A plain \ignorespaces stops at \label, leaving its following newline visible.
 \makeatletter
@@ -307,6 +312,7 @@ Motivated by the growing interest in the formalization of mathematics within the
   \mathsf{Field} & Fields \\
   \mathsf{Field}^{\mathrm{top}} & Topological fields \\
   \mathsf{Mod}_R & Left modules over \(R : \mathsf{Ring}\) \\
+  \mathsf{Mod}^{\mathrm{top}}_R & Topological left modules over \(R : \mathsf{Ring}^{\mathrm{top}}\) \\
   \mathsf{Vect}_k & Vector spaces over \(k : \mathsf{Field}\) \\
   \mathsf{Vect}^{\mathrm{fin}}_k & Finite-dimensional vector spaces over \(k : \mathsf{Field}\) \\
   \mathsf{Rep}_\Lambda(G) & Continuous \(\Lambda\)-linear representations of \(G : \mathsf{Grp}^{\mathrm{top}}\), where \(\Lambda : \mathsf{Ring}^{\mathrm{top}}\) \\
@@ -359,16 +365,16 @@ The goal of this write-up is to provide an exposition on monodromy groups as wel
 \begin{equation}\label{eq:square-root}
 z(w)^2=w
 \end{equation}
-for an unknown holomorphic function $z:V\rightarrow\mathbb C^\times$, where $V:\mathsf{Open}(\mathbb C^\times)$ and $w:V$ is the independent variable. Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$.
-On a sufficiently small disc $V$ containing $w_0$, the equation has two holomorphic solution branches $z_+(w)=\sqrt{w}$ and $z_-(w)=-\sqrt{w}$, defined by $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Move $w$ once around $0$ along the loop
-$$\gamma(t)=w_0e^{2\pi i t}\quad t:[0,1].$$
-The continued values of the two branches along this loop are $\widetilde\gamma_+(t)=z_0e^{\pi i t}$ and $\widetilde\gamma_-(t)=-z_0e^{\pi i t}$. At $t=1$, they have exchanged their initial values, so analytic continuation exchanges the solution germs $[z_+]_{w_0}$ and $[z_-]_{w_0}$.
+for the unknown holomorphic function $z:V\rightarrow\mathbb C^\times$, where $V:\mathsf{Open}(\mathbb C^\times)$ and $w:V$ is the independent variable. Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$.
+On a sufficiently small disc $V$ containing $w_0$, the equation has two holomorphic solution branches $z_+(w)=\sqrt{w}$ and $z_-(w)=-\sqrt{w}$ with $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Move $w$ once around $0$ along the loop
+$$\gamma:[0,1]\rightarrow\mathbb C^\times,\qquad t\mapsto w_0e^{2\pi i t}.$$
+Along this loop, the values of the two solution branches vary continuously as $\widetilde\gamma_+(t)=z_0e^{\pi i t}$ and $\widetilde\gamma_-(t)=-z_0e^{\pi i t}$, until they eventually swap places at $t=1$.  
 In other words, there is a permutation representation of the fundamental group\footnote{with the discrete topology} $\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\cong\mathbb Z:\mathsf{Grp}^{\mathrm{top}}$
-$$\rho:\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\{[z_+]_{w_0},[z_-]_{w_0}\})\quad n\mapsto \bigl([z_+]_{w_0}\ [z_-]_{w_0}\bigr)^n.$$
-We call this representation the \textit{permutation monodromy representation} and its image, $\mathrm{S}_2$, the \textit{permutation monodromy group} of the equation.
+$$\rho:\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\{[z_+]_{w_0},[z_-]_{w_0}\}),\qquad n\mapsto \bigl([z_+]_{w_0}\ [z_-]_{w_0}\bigr)^n.$$
+We call this representation the \textit{permutation monodromy representation}, and we call its image, isomorphic to $\mathrm{S}_2$, the \textit{permutation monodromy group}, of the equation (\cref{eq:square-root}).
 
-\parlabel{par:square-root-sheaf}Let us reformulate the above in terms of sheaves. Consider the covering
-$$f:\mathbb C^\times\rightarrow\mathbb C^\times\quad \zeta\mapsto\zeta^2.$$
+\parlabel{par:square-root-sheaf}We reformulate the above with sheaves. Consider the covering
+$$f:\mathbb C^\times\rightarrow\mathbb C^\times,\qquad \zeta\mapsto\zeta^2.$$
 Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be its sheaf of holomorphic sections. Equivalently, this is the sheaf of solutions to the equation \eqref{eq:square-root},
 \[
 \begin{aligned}
@@ -381,49 +387,26 @@ $$\mathcal F|_V\cong\underline{\{+,-\}}_V.$$
 Hence $\mathcal F$ is locally constant, with stalk at $w_0$
 $$\mathcal F_{w_0}=\{[z_+]_{w_0},[z_-]_{w_0}\}\cong f^{-1}(w_0)$$ 
 identified by evaluation. 
-
-The sheaf $\mathcal F$ is locally constant but not constant: a global section would determine a germ at $w_0$ fixed by all monodromy, whereas transport once around $0$ exchanges the two square-root germs, as demonstrated in \cref{par:square-root-monodromy}. Thus $\mathcal F(\mathbb C^\times)=\emptyset$.
-Locally constant (but not necessarily constant) sheaves of sets, such as this one, are known as \textit{local systems (of sets)}.
-
-Let $\Pi_1(X)$ denote the fundamental groupoid of a topological space $X:\mathsf{Top}$, whose objects are points of $X$ and whose morphisms are homotopy classes of paths relative to their endpoints, with concatenation as composition. We have a \textit{transport functor}
-$$T:\Pi_1(\mathbb C^\times)\rightarrow\mathsf{Set}\quad w\mapsto\mathcal F_w\quad [\gamma]\mapsto T_\gamma,$$
-where, for a path $\gamma:[0,1]\to\mathbb C^\times$, the \textit{transport map} is
-$$T_\gamma:\mathcal F_{\gamma(0)}\rightarrow\mathcal F_{\gamma(1)}\quad [z]_{\gamma(0)}\mapsto[z^\gamma]_{\gamma(1)}.$$
-Here $[z^\gamma]_{\gamma(1)}$ is the solution germ obtained by analytically continuing $[z]_{\gamma(0)}$ along $\gamma$. 
-This is precisely path lifting through $f$: the lift starting at $z(\gamma(0))$ ends at $z^\gamma(\gamma(1))$.
-Restricting transport to loops at $w_0$ gives the permutation monodromy representation in \cref{par:square-root-monodromy}
-$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0})\quad [\gamma]\mapsto T_\gamma.$$
+However, the sheaf is not constant: $\mathcal F(\mathbb C^\times)=\emptyset$. A global section would determine a germ at $w_0$ fixed by all monodromy, whereas transport once around $0$ exchanges the two square-root germs, as demonstrated in \cref{par:square-root-monodromy}. 
+Locally constant (but not necessarily constant) sheaves of sets, such as this one, are known as \textit{local systems of sets}. 
 
 
-
-We have looked at permutation monodromy, but permutation actions do not capture all the situations we wish to study, since a lot of times in nature we encounter actions on vector spaces instead of sets. 
-For example, instead of an algebraic equation like the one in \cref{par:square-root-monodromy}, we consider a differential equation, which is known as \textit{Gauss's hypergeometric equation}
-\begin{equation}\label{eq:gauss-hypergeometric}
-\lambda(1-\lambda)\frac{\mathrm d^2 f}{\mathrm d\lambda^2}
-+\bigl(c-(a+b+1)\lambda\bigr)\frac{\mathrm d f}{\mathrm d\lambda}
--abf=0
-\end{equation}
-where $a,b,c:\mathbb C$ are fixed parameters and $f:V\rightarrow\mathbb C$ is an unknown holomorphic function, with $V:\mathsf{Open}(U)$, $U=\mathbb P^1(\mathbb C)\setminus\{0,1,\infty\}$, and independent variable $\lambda:V$.
-We then define the sheaf of solutions to this equation $\mathcal L:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$
+\parlabel{par:square-root-transport}For a path $\gamma:[0,1]\to\mathbb C^\times$ from $w_0=\gamma(0)$ to $w_1=\gamma(1)$ and a point $\zeta:f^{-1}(w_0)$ in the fibre, let $\widetilde\gamma_\zeta$ be the unique lift through $f$ satisfying $\widetilde\gamma_\zeta(0)=\zeta$. 
+We have the \textit{transport map}
 \[
-\mathcal L(V)=\left\{f:V\rightarrow\mathbb C\;\middle|\;f\text{ holomorphic and satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
+T_\gamma:\mathcal F_{w_0}\xrightarrow{\sim}\mathcal F_{w_1},\qquad \zeta\longmapsto\widetilde\gamma_\zeta(1).
 \]
-This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $\lambda_0:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $\lambda_0$ and an isomorphism of sheaves
+with the evaluation identifications $\mathcal F_w\cong f^{-1}(w)$.
+Thus we obtain a \textit{transport functor}\footnote{Here $\Pi_1(X)$ denotes the fundamental groupoid of some $X:\mathsf{Top}$, that is, a category whose objects are points of $X$ and whose morphisms are homotopy classes of paths relative to their endpoints, with concatenation as composition.}
 \[
-\underline{\mathbb C}_V^2\xrightarrow{\sim}\mathcal L|_V
+T:\Pi_1(\mathbb C^\times)\longrightarrow\mathsf{Set},\qquad w\longmapsto\mathcal F_w,\qquad [\gamma]\longmapsto T_\gamma.
 \]
-Thus $\mathcal L$ is locally constant of rank $2$. We call such a sheaf a \textit{complex local system of rank $2$}.
+Restricting transport to loops at $w_0$ gives the same representation in \cref{par:square-root-monodromy}
+$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0}),\qquad [\gamma]\mapsto T_\gamma.$$
 
-As in \cref{par:square-root-sheaf}, analytic continuation gives a \textit{transport functor}
-$$T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}}\quad \lambda\mapsto\mathcal L_\lambda\quad [\gamma]\mapsto T_\gamma,$$
-where, for a path $\gamma:[0,1]\to U$,
-$$T_\gamma:\mathcal L_{\gamma(0)}\rightarrow\mathcal L_{\gamma(1)}\quad [f]_{\gamma(0)}\mapsto[f^\gamma]_{\gamma(1)}.$$
-Here $[f^\gamma]_{\gamma(1)}$ is the solution germ obtained by analytically continuing $[f]_{\gamma(0)}$ along $\gamma$. Since continuation preserves linear combinations, each $T_\gamma$ is a linear isomorphism. Restricting transport to loops at a base point $\lambda_0:U$ gives the \textit{linear monodromy representation}
-$$\rho:\pi_1^{\mathrm{top}}(U,\lambda_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal L_{\lambda_0})\quad [\gamma]\mapsto T_\gamma.$$
-
-\begin{custom}[]{A Question in Arithmetic Geometry}
-Here is a 
-\end{custom}
+In \cref{sec:local-systems}, we will see how to upgrade permutation monodromy representations into linear monodromy representations, which we will just call monodromy representations. 
+Moreover, one can use this machinery to talk about monodromy in the $\ell$-adic arithmetic context, by replacing $\pi_1^{\mathrm{top}}$ with the étale fundamental group $\pi_1^{\text{ét}}$. 
+When $X=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separable closure $k^{\mathrm{sep}}$, then $\pi_1(X,\overline{x})=\mathrm{Gal}(k^{\mathrm{sep}}/k)$, where $x=\mathrm{Spec}(k^{\mathrm{sep}})$, is the absolute Galois group of $k$. Hence, a monodromy representation in this case degenerates into a Galois representation, a ubiquitous arithmetic object. 
 
 
 
@@ -445,6 +428,35 @@ Here is a
   (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor
 \end{notationtable}
 \end{notation}
+
+We have looked at permutation monodromy, but permutation actions do not capture all the situations we wish to study, since a lot of times in nature we encounter actions on vector spaces instead of sets. 
+For example, instead of an algebraic equation like the one in \cref{par:square-root-monodromy}, we consider a differential equation, which is known as \textit{Gauss's hypergeometric equation}
+\begin{equation}\label{eq:gauss-hypergeometric}
+\lambda(1-\lambda)\frac{\mathrm d^2 f}{\mathrm d\lambda^2}
++\bigl(c-(a+b+1)\lambda\bigr)\frac{\mathrm d f}{\mathrm d\lambda}
+-abf=0
+\end{equation}
+where $a,b,c:\mathbb C$ are fixed parameters and $f:V\rightarrow\mathbb C$ is an unknown holomorphic function, with $V:\mathsf{Open}(U)$, $U=\mathbb P^1(\mathbb C)\setminus\{0,1,\infty\}$, and independent variable $\lambda:V$.
+We then define the sheaf of solutions to this equation $\mathcal L:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$
+\[
+\mathcal L(V)=\left\{f:V\rightarrow\mathbb C\;\middle|\;f\text{ holomorphic and satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
+\]
+This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $\lambda_0:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $\lambda_0$ and an isomorphism of sheaves
+\[
+\underline{\mathbb C}_V^2\xrightarrow{\sim}\mathcal L|_V
+\]
+Thus $\mathcal L$ is locally constant of rank $2$. We call such a sheaf a \textit{complex local system of rank $2$}.
+
+Similarly, analytic continuation (\cref{par:analytic-continuation}) gives a \textit{transport functor}
+$$T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}},\qquad \lambda\mapsto\mathcal L_\lambda,\qquad [\gamma]\mapsto T_\gamma,$$
+where, for a path $\gamma:[0,1]\to U$,
+$$T_\gamma:\mathcal L_{\gamma(0)}\rightarrow\mathcal L_{\gamma(1)},\qquad [f]_{\gamma(0)}\mapsto[f^\gamma]_{\gamma(1)}.$$
+Here $[f^\gamma]_{\gamma(1)}$ is the solution germ obtained by analytically continuing $[f]_{\gamma(0)}$ along $\gamma$. Restricting transport to loops at a base point $\lambda_0:U$ gives the \textit{monodromy representation}
+$$\rho:\pi_1^{\mathrm{top}}(U,\lambda_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal L_{\lambda_0}),\qquad [\gamma]\mapsto T_\gamma.$$
+and its image is called the \textit{monodromy group}.
+
+Like in \cref{par:square-root-sheaf}, $\mathcal L$ is also a sheaf of sections of a cover.
+
 \subsection{Local Systems in Complex Algebraic Geometry}
 
 \subsection{Local Systems in \texorpdfstring{$\ell$}{l}-adic Arithmetic Geometry: Lisse Sheaves}
@@ -457,6 +469,16 @@ Here is a
 
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
 
+
+\appendix
+\refstepcounter{section}
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+
+\subsection{Analytic Continuation}\label{app:analytic-continuation}
+
+\paragraph{Definition of Analytic Continuation}\label{par:analytic-continuation}
+% To be completed: definition and existence of analytic continuation.
 
 % Bibliography entries live in references.bib.
 \bibliographystyle{alpha}
