@@ -337,7 +337,7 @@ The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
 
 \begin{custom}[]{Declaration of AI Use}
 The use of generative AI in the preparation of this write-up was limited to the following purposes: 
-proofreading; 
+polishing wording, phrasing, grammar, and formatting; 
 offering writing advices;
 answering mathematical questions from the author to help him learn the subject;
 searching for and citing appropriate references;
@@ -355,35 +355,34 @@ Controlling and understanding monodromy groups has been a central theme in both 
 
 The goal of this write-up is to provide an exposition on monodromy groups as well as ways to study them using methods from perverse sheaves and their middle convolution introduced by Katz \cite{Katz1996}, especially in the $\ell$-adic arithmetic context. 
 
-\parlabel{par:square-root-monodromy}Let parameter $w:\mathbb C^\times$, and consider the equation
-$$z^2=w$$
-for the unknown $z:\mathbb C^\times$. Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$. 
-Near $w_0$, the equation has two holomorphic solution branches $z_+=\sqrt{w}$ and $z_-=-\sqrt{w}$, uniquely specified by $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Suppose we move $w$ once around $0$ along the loop based at $w_0$ given by 
-$$w(t)=w_0e^{2\pi i t}\quad t:[0,1]$$
-Then we have $z_{+}(t)=z_0e^{\pi i t}$ and $z_{-}(t)=-z_0e^{\pi i t}$. As $t$ goes from $0$ to $1$, the two solution branches swap rather than return to themselves.
+\parlabel{par:square-root-monodromy}Consider the equation
+$$z(w)^2=w$$
+for an unknown holomorphic function $z:V\rightarrow\mathbb C^\times$, where $V:\mathsf{Open}(\mathbb C^\times)$ and $w:V$ is the independent variable. Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$.
+On a sufficiently small disc $V$ containing $w_0$, the equation has two holomorphic solution branches $z_+$ and $z_-$, uniquely specified by $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Move $w$ once around $0$ along the loop
+$$\gamma(t)=w_0e^{2\pi i t}\quad t:[0,1].$$
+The continued values of the two branches along this loop are $\widetilde\gamma_+(t)=z_0e^{\pi i t}$ and $\widetilde\gamma_-(t)=-z_0e^{\pi i t}$. At $t=1$, they have exchanged their initial values, so analytic continuation exchanges the solution germs $[z_+]_{w_0}$ and $[z_-]_{w_0}$.
 In other words, there is a permutation representation of the fundamental group\footnote{with the discrete topology} $\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\cong\mathbb Z:\mathsf{Grp}^{\mathrm{top}}$
-$$\rho:\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\{z_+,z_-\})\quad n\mapsto (z_{+}\ z_{-})^n$$
+$$\rho:\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\{[z_+]_{w_0},[z_-]_{w_0}\})\quad n\mapsto \bigl([z_+]_{w_0}\ [z_-]_{w_0}\bigr)^n.$$
 We call this representation the \textit{permutation monodromy representation} and its image, $\mathrm{S}_2$, the \textit{permutation monodromy group} of the equation.
 
 \parlabel{par:square-root-sheaf}Let us reformulate the above in terms of sheaves. Consider the covering
-$$f:\mathbb C^\times\rightarrow\mathbb C^\times\quad z\mapsto z^2$$
-Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be the sheaf of sections of this cover. Thus, for $U:\mathrm{Open}(\mathbb C^\times)$,
-$$\begin{aligned}\mathcal F(U)&=\{z:U\to\mathbb C^\times:(f\circ z)|^{U}=\mathrm{id}_U\}\\
-&=\{z:U\to\mathbb C^\times:z(w)^2=w,\,\text{for }w:U\}
-\end{aligned}$$
-This is a locally constant sheaf: for each $w_0 :\mathbb C^\times$, one can find an open neighborhood $U$ of $w_0$ on which the sections are precisely the two square-root branches
-$$\begin{aligned}
-z_+&:U\rightarrow\mathbb C^\times\quad w\mapsto \sqrt{w}\\
-z_-&:U\rightarrow\mathbb C^\times\quad w\mapsto -\sqrt{w}\\
-\end{aligned}$$ 
-Hence the stalk $\mathcal F_{w_0}=\{z_+,z_-\}\cong f^{-1}(w_0)$ by evaluation, and therefore the aforementioned permutation representation can be rewritten as 
-$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow \mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0})\quad \gamma\mapsto [z\mapsto\widetilde{\gamma}_z(1)]$$
-where $\widetilde{\gamma}_z:[0,1]\rightarrow \mathbb C^\times$ is the unique lift of $\gamma:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)$ with $\widetilde{\gamma}_z(0)=z$. 
-More generally, let $\Pi_1(X)$ denote the fundamental groupoid of a topological space $X:\mathsf{Top}$, that is, the category whose objects are points of $X$ and whose morphisms are homotopy classes of paths, with concatenation as composition. We have a functor
-$$T: \Pi_1(\mathbb C^\times)\rightarrow \mathsf{Set}\quad w\mapsto \mathcal F_{w}\quad \gamma\mapsto T_\gamma$$
-whose mapping on morphisms is given by the \textit{transport map}
-$$T_\gamma:\mathcal F_{\gamma(0)}\rightarrow\mathcal F_{\gamma(1)}\quad z\mapsto \widetilde{\gamma}_z(1)$$
-where $\widetilde{\gamma}_z:[0,1]\rightarrow\mathbb C^\times$ is the unique lift of $\gamma:[0,1]\rightarrow \mathbb C^\times$ with $\widetilde{\gamma}_z(0)=z$. 
+$$f:\mathbb C^\times\rightarrow\mathbb C^\times\quad \zeta\mapsto\zeta^2.$$
+Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be its sheaf of holomorphic sections. Equivalently, this is the solution sheaf of $z(w)^2=w$: for $V:\mathsf{Open}(\mathbb C^\times)$,
+\[
+\begin{aligned}
+\mathcal F(V)&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }f\circ z=1_V\}\\
+&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }z(w)^2=w\text{ for every }w:V\}.
+\end{aligned}
+\]
+Here $f\circ z=1_V$ means that the composite takes values in $V$ and, regarded as a map $V\to V$, is the identity.
+On a sufficiently small disc $V$ containing $w_0$, the two branches $z_+,z_-$ give an isomorphism $\mathcal F|_V\cong\underline{\{+,-\}}_V$, so $\mathcal F$ is locally constant. Its stalk is $\mathcal F_{w_0}=\{[z_+]_{w_0},[z_-]_{w_0}\}\cong f^{-1}(w_0)$, with the last identification given by evaluation.
+Let $\Pi_1(X)$ denote the fundamental groupoid of a topological space $X:\mathsf{Top}$, whose objects are points of $X$ and whose morphisms are homotopy classes of paths relative to their endpoints, with concatenation as composition. Analytic continuation gives a \textit{transport functor}
+$$T:\Pi_1(\mathbb C^\times)\rightarrow\mathsf{Set}\quad w\mapsto\mathcal F_w\quad [\gamma]\mapsto T_\gamma,$$
+where, for a path $\gamma:[0,1]\to\mathbb C^\times$, the \textit{transport map} is
+$$T_\gamma:\mathcal F_{\gamma(0)}\rightarrow\mathcal F_{\gamma(1)}\quad [z]_{\gamma(0)}\mapsto[z^\gamma]_{\gamma(1)}.$$
+Here $[z^\gamma]_{\gamma(1)}$ is the solution germ obtained by continuing $[z]_{\gamma(0)}$ along $\gamma$. Under evaluation, this is precisely path lifting through $f$: the lift starting at $z(\gamma(0))$ ends at $z^\gamma(\gamma(1))$.
+Restricting transport to loops at $w_0$ gives the permutation monodromy representation
+$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0})\quad [\gamma]\mapsto T_\gamma.$$
 
 The sheaf $\mathcal F$ is locally constant but not constant: a global section would determine a germ at $w_0$ fixed by all monodromy, whereas transport once around $0$ exchanges the two square-root germs, as demonstrated in \cref{par:square-root-monodromy}. Thus $\mathcal F(\mathbb C^\times)=\emptyset$.
 Locally constant (but not necessarily constant) sheaves of sets, such as this one, are known as \textit{local systems (of sets)}.
@@ -395,19 +394,23 @@ For example, instead of an algebraic equation like the one in \cref{par:square-r
 +\bigl(c-(a+b+1)\lambda\bigr)\frac{\mathrm d f}{\mathrm d\lambda}
 -abf=0
 \end{equation}
-where we have fixed parameters $a,b,c:\mathbb C$ and an unknown holomorphic function $f:V\rightarrow\mathbb C$ where $V:\mathsf{Open}(U)$ and $U=\mathbb P^1(\mathbb C)\setminus \{0,1,\infty\}$. 
+where $a,b,c:\mathbb C$ are fixed parameters and $f:V\rightarrow\mathbb C$ is an unknown holomorphic function, with $V:\mathsf{Open}(U)$, $U=\mathbb P^1(\mathbb C)\setminus\{0,1,\infty\}$, and independent variable $\lambda:V$.
 We then define the sheaf of solutions to this equation $\mathcal L:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$
 \[
 \mathcal L(V)=\left\{f:V\rightarrow\mathbb C\;\middle|\;f\text{ holomorphic and satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
 \]
-This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $u:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $u$ and an isomorphism of sheaves
+This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $\lambda_0:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $\lambda_0$ and an isomorphism of sheaves
 \[
 \underline{\mathbb C}_V^2\xrightarrow{\sim}\mathcal L|_V
 \]
 Thus $\mathcal L$ is locally constant of rank $2$. We call such a sheaf a \textit{complex local system of rank $2$}.
 
-Like in \cref{par:square-root-sheaf}, the sheaf $\mathcal L$ gives a monodromy representation at each $u:U$
-$$\rho:\pi_1^{\mathrm{top}}(U,u)\rightarrow \mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal L_u)\quad \gamma\mapsto $$
+As in \cref{par:square-root-sheaf}, analytic continuation gives a \textit{transport functor}
+$$T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}}\quad \lambda\mapsto\mathcal L_\lambda\quad [\gamma]\mapsto T_\gamma,$$
+where, for a path $\gamma:[0,1]\to U$,
+$$T_\gamma:\mathcal L_{\gamma(0)}\rightarrow\mathcal L_{\gamma(1)}\quad [f]_{\gamma(0)}\mapsto[f^\gamma]_{\gamma(1)}.$$
+Here $[f^\gamma]_{\gamma(1)}$ is the solution germ obtained by continuing $[f]_{\gamma(0)}$ along $\gamma$. Since continuation preserves linear combinations, each $T_\gamma$ is a linear isomorphism. Restricting transport to loops at a base point $\lambda_0:U$ gives the \textit{linear monodromy representation}
+$$\rho:\pi_1^{\mathrm{top}}(U,\lambda_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal L_{\lambda_0})\quad [\gamma]\mapsto T_\gamma.$$
 
 \begin{custom}[]{A Question in Arithmetic Geometry}
 Here is a 
