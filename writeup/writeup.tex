@@ -356,9 +356,11 @@ Controlling and understanding monodromy groups has been a central theme in both 
 The goal of this write-up is to provide an exposition on monodromy groups as well as ways to study them using methods from perverse sheaves and their middle convolution introduced by Katz \cite{Katz1996}, especially in the $\ell$-adic arithmetic context. 
 
 \parlabel{par:square-root-monodromy}Consider the equation
-$$z(w)^2=w$$
+\begin{equation}\label{eq:square-root}
+z(w)^2=w
+\end{equation}
 for an unknown holomorphic function $z:V\rightarrow\mathbb C^\times$, where $V:\mathsf{Open}(\mathbb C^\times)$ and $w:V$ is the independent variable. Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$.
-On a sufficiently small disc $V$ containing $w_0$, the equation has two holomorphic solution branches $z_+$ and $z_-$, uniquely specified by $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Move $w$ once around $0$ along the loop
+On a sufficiently small disc $V$ containing $w_0$, the equation has two holomorphic solution branches $z_+(w)=\sqrt{w}$ and $z_-(w)=-\sqrt{w}$, defined by $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Move $w$ once around $0$ along the loop
 $$\gamma(t)=w_0e^{2\pi i t}\quad t:[0,1].$$
 The continued values of the two branches along this loop are $\widetilde\gamma_+(t)=z_0e^{\pi i t}$ and $\widetilde\gamma_-(t)=-z_0e^{\pi i t}$. At $t=1$, they have exchanged their initial values, so analytic continuation exchanges the solution germs $[z_+]_{w_0}$ and $[z_-]_{w_0}$.
 In other words, there is a permutation representation of the fundamental group\footnote{with the discrete topology} $\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\cong\mathbb Z:\mathsf{Grp}^{\mathrm{top}}$
@@ -367,25 +369,32 @@ We call this representation the \textit{permutation monodromy representation} an
 
 \parlabel{par:square-root-sheaf}Let us reformulate the above in terms of sheaves. Consider the covering
 $$f:\mathbb C^\times\rightarrow\mathbb C^\times\quad \zeta\mapsto\zeta^2.$$
-Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be its sheaf of holomorphic sections. Equivalently, this is the solution sheaf of $z(w)^2=w$: for $V:\mathsf{Open}(\mathbb C^\times)$,
+Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be its sheaf of holomorphic sections. Equivalently, this is the sheaf of solutions to the equation \eqref{eq:square-root},
 \[
 \begin{aligned}
-\mathcal F(V)&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }f\circ z=1_V\}\\
+\mathcal F(V)&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }(f\circ z)|^V=\mathrm{id}_V\}\\
 &=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }z(w)^2=w\text{ for every }w:V\}.
 \end{aligned}
 \]
-Here $f\circ z=1_V$ means that the composite takes values in $V$ and, regarded as a map $V\to V$, is the identity.
-On a sufficiently small disc $V$ containing $w_0$, the two branches $z_+,z_-$ give an isomorphism $\mathcal F|_V\cong\underline{\{+,-\}}_V$, so $\mathcal F$ is locally constant. Its stalk is $\mathcal F_{w_0}=\{[z_+]_{w_0},[z_-]_{w_0}\}\cong f^{-1}(w_0)$, with the last identification given by evaluation.
-Let $\Pi_1(X)$ denote the fundamental groupoid of a topological space $X:\mathsf{Top}$, whose objects are points of $X$ and whose morphisms are homotopy classes of paths relative to their endpoints, with concatenation as composition. Analytic continuation gives a \textit{transport functor}
-$$T:\Pi_1(\mathbb C^\times)\rightarrow\mathsf{Set}\quad w\mapsto\mathcal F_w\quad [\gamma]\mapsto T_\gamma,$$
-where, for a path $\gamma:[0,1]\to\mathbb C^\times$, the \textit{transport map} is
-$$T_\gamma:\mathcal F_{\gamma(0)}\rightarrow\mathcal F_{\gamma(1)}\quad [z]_{\gamma(0)}\mapsto[z^\gamma]_{\gamma(1)}.$$
-Here $[z^\gamma]_{\gamma(1)}$ is the solution germ obtained by continuing $[z]_{\gamma(0)}$ along $\gamma$. Under evaluation, this is precisely path lifting through $f$: the lift starting at $z(\gamma(0))$ ends at $z^\gamma(\gamma(1))$.
-Restricting transport to loops at $w_0$ gives the permutation monodromy representation
-$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0})\quad [\gamma]\mapsto T_\gamma.$$
+As in \cref{par:square-root-monodromy}, on a sufficiently small disc $V$ containing $w_0$, the sections are precisely the two holomorphic solution branches $z_+$ and $z_-$, identifying 
+$$\mathcal F|_V\cong\underline{\{+,-\}}_V.$$
+Hence $\mathcal F$ is locally constant, with stalk at $w_0$
+$$\mathcal F_{w_0}=\{[z_+]_{w_0},[z_-]_{w_0}\}\cong f^{-1}(w_0)$$ 
+identified by evaluation. 
 
 The sheaf $\mathcal F$ is locally constant but not constant: a global section would determine a germ at $w_0$ fixed by all monodromy, whereas transport once around $0$ exchanges the two square-root germs, as demonstrated in \cref{par:square-root-monodromy}. Thus $\mathcal F(\mathbb C^\times)=\emptyset$.
 Locally constant (but not necessarily constant) sheaves of sets, such as this one, are known as \textit{local systems (of sets)}.
+
+Let $\Pi_1(X)$ denote the fundamental groupoid of a topological space $X:\mathsf{Top}$, whose objects are points of $X$ and whose morphisms are homotopy classes of paths relative to their endpoints, with concatenation as composition. We have a \textit{transport functor}
+$$T:\Pi_1(\mathbb C^\times)\rightarrow\mathsf{Set}\quad w\mapsto\mathcal F_w\quad [\gamma]\mapsto T_\gamma,$$
+where, for a path $\gamma:[0,1]\to\mathbb C^\times$, the \textit{transport map} is
+$$T_\gamma:\mathcal F_{\gamma(0)}\rightarrow\mathcal F_{\gamma(1)}\quad [z]_{\gamma(0)}\mapsto[z^\gamma]_{\gamma(1)}.$$
+Here $[z^\gamma]_{\gamma(1)}$ is the solution germ obtained by analytically continuing $[z]_{\gamma(0)}$ along $\gamma$. 
+This is precisely path lifting through $f$: the lift starting at $z(\gamma(0))$ ends at $z^\gamma(\gamma(1))$.
+Restricting transport to loops at $w_0$ gives the permutation monodromy representation in \cref{para:square-root-monodromy}
+$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0})\quad [\gamma]\mapsto T_\gamma.$$
+
+
 
 We have looked at permutation monodromy, but permutation actions do not capture all the situations we wish to study, since a lot of times in nature we encounter actions on vector spaces instead of sets. 
 For example, instead of an algebraic equation like the one in \cref{par:square-root-monodromy}, we consider a differential equation, which is known as \textit{Gauss's hypergeometric equation}
