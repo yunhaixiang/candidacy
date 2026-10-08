@@ -281,7 +281,7 @@
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\rig}{rig}
 
-\title{Middle Convolution of $\ell$-adic Perverse Sheaves\\[0.4em]\small Submitted for the Ph.D. Candidacy Examination at Western University}
+\title{Middle Convolution of $\ell$-adic Perverse Sheaves\\[0.4em]\small Submitted for Ph.D. Candidacy Examination}
 \author{Yunhai Xiang}
 \date{\today}
 
@@ -297,10 +297,9 @@
 \subsection{Notations}\label{subsec:notation-style}
 
 
-Motivated by the growing interest in the formalization of mathematics within the mathematical community, we adopt a style of notation inspired by type theory throughout this write-up, without committing to type-theoretic foundations. The symbols below denote types and/or categories, depending on your philosophical inclination. The notation \(X:\mathsf{T}\) means that \(X\) is a term of type \(\mathsf{T}\) or an object of the category \(\mathsf{T}\).
+Motivated by the growing interest in the formalization of mathematics within the mathematical community, we adopt a style of notation inspired by type theory throughout this report, without committing to type-theoretic foundations. The symbols below denote types and/or categories, depending on your philosophical inclination. The notation \(X:\mathsf{T}\) means that \(X\) is a term of type \(\mathsf{T}\) or an object of the category \(\mathsf{T}\).
 \begin{typetable}
   \mathsf{Set} & Sets \\
-  \mathsf{Set}^{\mathrm{fin}} & Finite sets \\
   \mathsf{Top} & Topological spaces \\
   \mathsf{Open}(T) & Open subsets of \(T : \mathsf{Top}\) \\
   \mathsf{Grp} & Groups \\
@@ -337,12 +336,12 @@ Motivated by the growing interest in the formalization of mathematics within the
 The author thanks his advisor, Prof. Chris Hall, for his guidance and advice.
 
 \begin{custom}[]{Typesetting}
-The typesetting style of this write-up is inspired by \cite{Katz1988GKM}.
+The typesetting style of this report is inspired by \cite{Katz1988GKM}.
 \end{custom}
 
 
 \begin{custom}[]{Declaration of AI Use}
-The use of generative AI in the preparation of this write-up was limited to the following purposes: 
+The use of generative AI in the preparation of this report was limited to the following purposes: 
 proofreading;
 polishing wording, phrasing, grammar, and formatting; 
 offering writing advices;
@@ -351,7 +350,7 @@ searching for and citing appropriate references;
 translating reading materials in French into English; 
 retypesetting old references with archaic typesetting for ease of reading;
 providing emotional support for the author;
-providing fitness advice to help the author stay healthy and energetic while working on the write-up.
+providing fitness advice to help the author stay healthy and energetic while working on the report.
 \end{custom}
  
 \subsection{Motivations}\label{subsec:motivations}
@@ -360,7 +359,7 @@ providing fitness advice to help the author stay healthy and energetic while wor
 Roughly speaking, they describe how locally defined data change when transported along a loop. 
 Controlling and understanding monodromy groups has been a central theme in both of these worlds, with significant applications.
 
-The goal of this write-up is to provide an exposition on monodromy groups as well as ways to study them using methods from perverse sheaves and their middle convolution introduced by Katz \cite{Katz1996}, especially in the $\ell$-adic arithmetic context. 
+The goal of this report is to provide an exposition on monodromy groups as well as ways to study them using methods from perverse sheaves and their middle convolution introduced by Katz \cite{Katz1996}, especially in the $\ell$-adic arithmetic context.
 
 \parlabel{par:square-root-monodromy}Consider the equation
 \begin{equation}\label{eq:square-root}
@@ -379,12 +378,12 @@ $$f:\mathbb C^\times\rightarrow\mathbb C^\times,\qquad \zeta\mapsto\zeta^2.$$
 Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be its sheaf of holomorphic sections. Equivalently, this is the sheaf of solutions to the equation \eqref{eq:square-root},
 \[
 \begin{aligned}
-\mathcal F(V)&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }(f\circ z)|^V=\mathrm{id}_U\}\\
+\mathcal F(V)&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }(f\circ z)|^V=\mathrm{id}_V\}\\
 &=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }z(w)^2=w\text{ for every }w:V\}.
 \end{aligned}
 \]
 As in \cref{par:square-root-monodromy}, on a sufficiently small disc $V$ containing $w_0$, the sections are precisely the two holomorphic solution branches $z_+$ and $z_-$, identifying 
-$$\mathcal F|_U\cong\underline{\{+,-\}}_U.$$
+$$\mathcal F|_V\cong\underline{\{+,-\}}_V.$$
 Hence $\mathcal F$ is locally constant, with stalk at $w_0$
 $$\mathcal F_{w_0}=\{[z_+]_{w_0},[z_-]_{w_0}\}\cong f^{-1}(w_0)$$ 
 identified by evaluation. 
@@ -417,7 +416,7 @@ When $X=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separabl
 \section{Local Systems and Lisse Sheaves}\label{sec:local-systems}
 
 
-\subsection{Local Systems in Topology}
+\subsection{Complex Local Systems}
 
 
 
@@ -429,26 +428,26 @@ For example, instead of an algebraic equation like the one in \cref{par:square-r
 -abf=0
 \end{equation}
 where $a,b,c:\mathbb C$ are fixed parameters and $f:V\rightarrow\mathbb C$ is an unknown holomorphic function, with $V:\mathsf{Open}(U)$, $U=\mathbb P^1(\mathbb C)\setminus\{0,1,\infty\}$, and independent variable $\lambda:V$.
-We then define the sheaf of solutions to this equation $\mathcal L:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$
+We then define the sheaf of solutions to this equation $\mathcal F:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$
 \[
-\mathcal L(V)=\left\{f:V\rightarrow\mathbb C\;\middle|\;f\text{ holomorphic and satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
+\mathcal F(V)=\left\{f:V\rightarrow\mathbb C\;\middle|\;f\text{ holomorphic and satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
 \]
 This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $\lambda_0:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $\lambda_0$ and an isomorphism of sheaves
 \[
-\underline{\mathbb C}_U^2\xrightarrow{\sim}\mathcal L|_U
+\mathcal F|_V\xrightarrow{\sim}\underline{\mathbb C}_V^2
 \]
-Thus $\mathcal L$ is locally constant of rank $2$. We call such a sheaf a \textit{complex local system of rank $2$}.
+Thus $\mathcal F$ is locally constant of rank $2$. We call such a sheaf a \textit{complex local system of rank $2$}.
 
 As in \cref{par:square-root-transport}, we have a \textit{transport functor}
-$$T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}},\qquad \lambda\mapsto\mathcal L_\lambda,\qquad [\gamma]\mapsto T_\gamma,$$
-where, for a path $\gamma:[0,1]\to U$,
-
+$$T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}},\qquad \lambda\mapsto\mathcal F_\lambda,\qquad [\gamma]\mapsto T_\gamma,$$
+where the \textit{transport map} for a path $\gamma:[0,1]\to U$ is defined as follows. 
+Pick 
 
 Restricting transport to loops at a base point $\lambda_0:U$ gives the \textit{monodromy representation}
-$$\rho:\pi_1^{\mathrm{top}}(U,\lambda_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal L_{\lambda_0}),\qquad [\gamma]\mapsto T_\gamma.$$
-and its image is called the \textit{monodromy group}.
+$$\rho:\pi_1^{\mathrm{top}}(U,\lambda_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal F_{\lambda_0}),\qquad [\gamma]\mapsto T_\gamma.$$
+and its image, the \textit{monodromy group}, of the equation (\cref{eq:gauss-hypergeometric}).
 
-Like in \cref{par:square-root-sheaf}, $\mathcal L$ is also a sheaf of sections of a cover.
+Like in \cref{par:square-root-sheaf}, $\mathcal F$ is also a sheaf of sections of a cover.
 
 
 \begin{notation}We use the following notation:
@@ -463,9 +462,8 @@ Like in \cref{par:square-root-sheaf}, $\mathcal L$ is also a sheaf of sections o
 \end{notation}
 
 
-\subsection{Local Systems in Complex Algebraic Geometry}
 
-\subsection{Local Systems in \texorpdfstring{$\ell$}{l}-adic Arithmetic Geometry: Lisse Sheaves}
+\subsection{\texorpdfstring{$\ell$}{l}-adic Local Systems}
 
 \subsection{Rigidity of Local Systems}
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
