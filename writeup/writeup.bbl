@@ -15,4 +15,10 @@ Nicholas~M. Katz.
 \newblock {\em Rigid Local Systems}, volume 139 of {\em Annals of Mathematics Studies}.
 \newblock Princeton University Press, 1996.
 
+\bibitem[Sch11]{Schapira2011AlgebraTopology}
+Pierre Schapira.
+\newblock Algebra and topology.
+\newblock Lecture notes, course at Paris VI University, 2007--2008, version 2, 2011.
+\newblock \url{https://www.math.univ-paris13.fr/~ginot/AT/Schapira_Notes_AlTo.pdf}.
+
 \end{thebibliography}

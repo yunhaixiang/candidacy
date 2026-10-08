@@ -305,7 +305,6 @@ Motivated by the growing interest in the formalization of mathematics within the
   \mathsf{Grp} & Groups \\
   \mathsf{Grp}^{\mathrm{top}} & Topological groups \\
   \mathsf{Grp}^{\mathrm{pro}} & Profinite groups \\
-  \mathsf{Grp}^{\mathrm{ab}} & Abelian groups \\
   \mathsf{Ring} & Rings (associative, unital, not necessarily commutative) \\
   \mathsf{Ring}^{\mathrm{top}} & Topological rings \\
   \mathsf{Field} & Fields \\
@@ -321,6 +320,7 @@ Motivated by the growing interest in the formalization of mathematics within the
   \mathsf{Var}_k & Varieties over \(k : \mathsf{Field}\), i.e. integral separated schemes of finite type over \(k\) \\
   \mathsf{Curv}_k & Curves over \(k : \mathsf{Field}\), i.e. one-dimensional varieties over \(k\) \\
   \mathsf{Curv}^{\mathrm{sm}}_k & Smooth curves over \(k : \mathsf{Field}\) \\
+  \mathsf{Man}_{\mathbb C} & Complex manifolds \\
   \mathsf{Riem} & Riemann surfaces, i.e. connected one-dimensional complex manifolds \\
   \mathsf{Site} & Sites, i.e. categories equipped with Grothendieck topologies \\
   \mathsf{Sh}(X,\mathsf A) & Sheaves on \(X : \mathsf{Site}\) with values in a category \(\mathsf A\) admitting small limits\\
@@ -363,14 +363,14 @@ The goal of this report is to provide an exposition on monodromy groups as well 
 
 \parlabel{par:square-root-monodromy}Consider the equation
 \begin{equation}\label{eq:square-root}
-z(w)^2=w
+z(u)^2=u
 \end{equation}
-for the unknown holomorphic function $z:V\rightarrow\mathbb C^\times$, where $V:\mathsf{Open}(\mathbb C^\times)$ and $w:V$ is the independent variable. Fix a base point $w_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=w_0$.
-On a sufficiently small disc $V$ containing $w_0$, the equation has two holomorphic solution branches $z_+(w)=\sqrt{w}$ and $z_-(w)=-\sqrt{w}$ with $z_+(w_0)=z_0$ and $z_-(w_0)=-z_0$. Move $w$ once around $0$ along the loop
-$$\gamma:[0,1]\rightarrow\mathbb C^\times,\qquad t\mapsto w_0e^{2\pi i t}.$$
+for the unknown holomorphic function $z:V\rightarrow\mathbb C^\times$, where $V:\mathsf{Open}(\mathbb C^\times)$ and $u:V$ is the independent variable. Fix a base point $u_0:\mathbb C^\times$ and choose $z_0:\mathbb C^\times$ with $z_0^2=u_0$.
+On a sufficiently small disc $V$ containing $u_0$, the equation has two holomorphic solution branches $z_+(u)=\sqrt{u}$ and $z_-(u)=-\sqrt{u}$ with $z_+(u_0)=z_0$ and $z_-(u_0)=-z_0$. Move $u$ once around $0$ along the loop
+$$\gamma:[0,1]\rightarrow\mathbb C^\times,\qquad t\mapsto u_0e^{2\pi i t}.$$
 Along this loop, the values of the two solution branches vary continuously as $\widetilde\gamma_+(t)=z_0e^{\pi i t}$ and $\widetilde\gamma_-(t)=-z_0e^{\pi i t}$, until they eventually swap places at $t=1$.  
-In other words, there is a permutation representation of the fundamental group\footnote{with the discrete topology} $\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\cong\mathbb Z:\mathsf{Grp}^{\mathrm{top}}$
-$$\rho:\pi^{\mathrm{top}}_1(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\{[z_+]_{w_0},[z_-]_{w_0}\}),\qquad n\mapsto \bigl([z_+]_{w_0}\ [z_-]_{w_0}\bigr)^n.$$
+In other words, there is a permutation representation of the fundamental group\footnote{with the discrete topology} $\pi^{\mathrm{top}}_1(\mathbb C^\times,u_0)\cong\mathbb Z:\mathsf{Grp}^{\mathrm{top}}$
+$$\rho:\pi^{\mathrm{top}}_1(\mathbb C^\times,u_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\{[z_+]_{u_0},[z_-]_{u_0}\}),\qquad n\mapsto \bigl([z_+]_{u_0}\ [z_-]_{u_0}\bigr)^n.$$
 We call this representation the \textit{permutation monodromy representation}, and we call its image, isomorphic to $\mathrm{S}_2$, the \textit{permutation monodromy group}, of the equation (\cref{eq:square-root}).
 
 \parlabel{par:square-root-sheaf}We reformulate the above with sheaves. Consider the covering
@@ -379,34 +379,34 @@ Let $\mathcal F:\mathsf{Sh}(\mathbb C^\times,\mathsf{Set})$ be its sheaf of holo
 \[
 \begin{aligned}
 \mathcal F(V)&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }(f\circ z)|^V=\mathrm{id}_V\}\\
-&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }z(w)^2=w\text{ for every }w:V\}.
+&=\{z:V\to\mathbb C^\times\mid z\text{ holomorphic and }z(u)^2=u\text{ for every }u:V\}.
 \end{aligned}
 \]
-As in \cref{par:square-root-monodromy}, on a sufficiently small disc $V$ containing $w_0$, the sections are precisely the two holomorphic solution branches $z_+$ and $z_-$, identifying 
+As in \cref{par:square-root-monodromy}, on a sufficiently small disc $V$ containing $u_0$, the sections are precisely the two holomorphic solution branches $z_+$ and $z_-$, identifying 
 $$\mathcal F|_V\cong\underline{\{+,-\}}_V.$$
-Hence $\mathcal F$ is locally constant, with stalk at $w_0$
-$$\mathcal F_{w_0}=\{[z_+]_{w_0},[z_-]_{w_0}\}\cong f^{-1}(w_0)$$ 
+Hence $\mathcal F$ is locally constant, with stalk at $u_0$
+$$\mathcal F_{u_0}=\{[z_+]_{u_0},[z_-]_{u_0}\}\cong f^{-1}(u_0)$$ 
 identified by evaluation. 
-However, the sheaf is not constant: $\mathcal F(\mathbb C^\times)=\emptyset$. A global section would determine a germ at $w_0$ fixed by all monodromy, whereas transport once around $0$ exchanges the two square-root germs, as demonstrated in \cref{par:square-root-monodromy}. 
+However, the sheaf is not constant: $\mathcal F(\mathbb C^\times)=\emptyset$. A global section would determine a germ at $u_0$ fixed by all monodromy, whereas transport once around $0$ exchanges the two square-root germs, as demonstrated in \cref{par:square-root-monodromy}. 
 Locally constant (but not necessarily constant) sheaves of sets, such as this one, are known as \textit{local systems of sets}. 
 
 
-\parlabel{par:square-root-transport}For a path $\gamma:[0,1]\to\mathbb C^\times$ from $w_0=\gamma(0)$ to $w_1=\gamma(1)$ and a point $\zeta:f^{-1}(w_0)$ in the fibre, let $\widetilde\gamma_\zeta$ be the unique lift through $f$ satisfying $\widetilde\gamma_\zeta(0)=\zeta$.
+\parlabel{par:square-root-transport}For a path $\gamma:[0,1]\to\mathbb C^\times$ from $u_0=\gamma(0)$ to $u_1=\gamma(1)$ and a point $\zeta:f^{-1}(u_0)$ in the fibre, let $\widetilde\gamma_\zeta$ be the unique lift through $f$ satisfying $\widetilde\gamma_\zeta(0)=\zeta$.
 We have the \textit{transport map}
 \[
-T_\gamma:\mathcal F_{w_0}\xrightarrow{\sim}\mathcal F_{w_1},\qquad \zeta\longmapsto\widetilde\gamma_\zeta(1).
+T_\gamma:\mathcal F_{u_0}\xrightarrow{\sim}\mathcal F_{u_1},\qquad \zeta\longmapsto\widetilde\gamma_\zeta(1).
 \]
-with the evaluation identifications $\mathcal F_w\cong f^{-1}(w)$.
+with the evaluation identifications $\mathcal F_u\cong f^{-1}(u)$.
 Thus we obtain a \textit{transport functor}\footnote{Here $\Pi_1(X)$ denotes the fundamental groupoid of some $X:\mathsf{Top}$, that is, a category whose objects are points of $X$ and whose morphisms are homotopy classes of paths relative to their endpoints, with concatenation as composition.}
 \[
-T:\Pi_1(\mathbb C^\times)\longrightarrow\mathsf{Set},\qquad w\longmapsto\mathcal F_w,\qquad [\gamma]\longmapsto T_\gamma.
+T:\Pi_1(\mathbb C^\times)\longrightarrow\mathsf{Set},\qquad u\longmapsto\mathcal F_u,\qquad [\gamma]\longmapsto T_\gamma.
 \]
-Restricting transport to loops at $w_0$ gives the same representation in \cref{par:square-root-monodromy}
-$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,w_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{w_0}),\qquad [\gamma]\mapsto T_\gamma.$$
+Restricting transport to loops at $u_0$ gives the same representation in \cref{par:square-root-monodromy}
+$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,u_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{u_0}),\qquad [\gamma]\mapsto T_\gamma.$$
 
-In \cref{sec:local-systems}, we will see how to upgrade permutation monodromy representations into linear monodromy representations, which we will just call monodromy representations. 
+In \cref{sec:local-systems}, we will see how to upgrade permutation monodromy representations into linear monodromy representations, which we will just call monodromy representations.
 Moreover, one can use this machinery to talk about monodromy in the $\ell$-adic arithmetic context, by replacing $\pi_1^{\mathrm{top}}$ with the étale fundamental group $\pi_1^{\text{ét}}$. 
-When $X=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separable closure $k^{\mathrm{sep}}$, then $\pi_1(X,\overline{x})=\mathrm{Gal}(k^{\mathrm{sep}}/k)$, where $x=\mathrm{Spec}(k^{\mathrm{sep}})$, is the absolute Galois group of $k$. Hence, a monodromy representation in this case degenerates into a Galois representation, a ubiquitous arithmetic object. 
+When $U=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separable closure $k^{\mathrm{sep}}$, then $\pi_1(U,\overline{u_0})=\mathrm{Gal}(k^{\mathrm{sep}}/k)$, where $\overline{u_0}=\mathrm{Spec}(k^{\mathrm{sep}})$, is the absolute Galois group of $k$. Hence, a monodromy representation in this case degenerates into a Galois representation, a ubiquitous arithmetic object. 
 
 
 
@@ -423,29 +423,52 @@ When $X=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separabl
 We have looked at permutation monodromy, but permutation actions do not capture all the situations we wish to study, since a lot of times in nature we encounter actions on vector spaces instead of sets. 
 For example, instead of an algebraic equation like the one in \cref{par:square-root-monodromy}, we consider a differential equation, which is known as \textit{Gauss's hypergeometric equation}
 \begin{equation}\label{eq:gauss-hypergeometric}
-\lambda(1-\lambda)\frac{\mathrm d^2 f}{\mathrm d\lambda^2}
-+\bigl(c-(a+b+1)\lambda\bigr)\frac{\mathrm d f}{\mathrm d\lambda}
+u(1-u)\frac{\mathrm d^2 f}{\mathrm d u^2}
++\bigl(c-(a+b+1)u\bigr)\frac{\mathrm d f}{\mathrm d u}
 -abf=0
 \end{equation}
-where $a,b,c:\mathbb C$ are fixed parameters and $f:V\rightarrow\mathbb C$ is an unknown holomorphic function, with $V:\mathsf{Open}(U)$, $U=\mathbb P^1(\mathbb C)\setminus\{0,1,\infty\}$, and independent variable $\lambda:V$.
+where $a,b,c:\mathbb C$ are fixed parameters and $f:V\rightarrow\mathbb C$ is an unknown holomorphic function, with $V:\mathsf{Open}(U)$, $U=\mathbb P^1(\mathbb C)\setminus\{0,1,\infty\}$, and independent variable $u:V$.
 We then define the sheaf of solutions to this equation $\mathcal F:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$
 \[
 \mathcal F(V)=\left\{f:V\rightarrow\mathbb C\;\middle|\;f\text{ holomorphic and satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
 \]
-This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $\lambda_0:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $\lambda_0$ and an isomorphism of sheaves
+This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $u_0:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $u_0$ and an isomorphism of sheaves
 \[
 \mathcal F|_V\xrightarrow{\sim}\underline{\mathbb C}_V^2
 \]
 Thus $\mathcal F$ is locally constant of rank $2$. We call such a sheaf a \textit{complex local system of rank $2$}.
 
-As in \cref{par:square-root-transport}, we have a \textit{transport functor}
-$$T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}},\qquad \lambda\mapsto\mathcal F_\lambda,\qquad [\gamma]\mapsto T_\gamma,$$
-where the \textit{transport map} for a path $\gamma:[0,1]\to U$ is defined as follows. 
-Pick 
+\begin{definition}[Complex Local System]\label{def:complex-local-system}
+Let $U:\mathsf{Man}_{\mathbb C}$ be connected. 
+A \textit{complex local system} on $U$ is a locally constant sheaf $\mathcal F:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$ with finite-dimensional stalks. Explicitly, every $u:U$ has an open neighbourhood $V:\mathsf{Open}(U)$ and an isomorphism
+\[
+\varphi_V:\mathcal F|_V\xrightarrow{\sim}\underline{\mathbb C}_V^n
+\]
+called a \textit{local trivialization} at $u$, for some $n:\mathbb N$ called the \textit{rank} of $\mathcal F$. 
+\end{definition}
+\begin{definition}[Transport]\label{def:complex-transport}
+Let $\mathcal F$ be a complex local system of rank $n$ on a connected $U:\mathsf{Man}_{\mathbb C}$. We define the \textit{transport functor}
+\[
+T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}},\qquad u\mapsto\mathcal F_u,\qquad [\gamma]\mapsto T_\gamma.
+\]
+where the \textit{transport map} $T_{\gamma}:\mathcal F_{\gamma(0)}\xrightarrow{\sim}\mathcal F_{\gamma(1)}$ for a path $\gamma:[0,1]\to U$ is defined as follows. 
+By compactness of closed intervals, we can choose a subdivision $0=t_0<\cdots<t_N=1$ and open sets $V_i:\mathsf{Open}(U)$ containing $\gamma([t_{i-1},t_i])$, with local trivializations
+\[
+\varphi_i:\mathcal F|_{V_i}\xrightarrow{\sim}\underline{\mathbb C}_{V_i}^n.
+\]
+Put $v_i=\gamma(t_i)$ for each $i=0,\dots,N$, then the trivializations induce stalk isomorphisms $\varphi_{i,v_i}:\mathcal F_{v_i}\xrightarrow{\sim}\mathbb C^n$. 
+The transport map along $\gamma$ is then defined as the composite
+\[
+T_\gamma=\bigl(\varphi_{N,v_N}^{-1}\circ\varphi_{N,v_{N-1}}\bigr)\circ\cdots\circ\bigl(\varphi_{1,v_1}^{-1}\circ\varphi_{1,v_0}\bigr):\mathcal F_{\gamma(0)}\xrightarrow{\sim}\mathcal F_{\gamma(1)}.
+\]
+which is independent of the subdivision and trivializations and depends only on the homotopy class of $\gamma$ relative to its endpoints, by monodromy theorem \cite[Lemma~7.2.7]{Schapira2011AlgebraTopology}.
+\end{definition}
 
-Restricting transport to loops at a base point $\lambda_0:U$ gives the \textit{monodromy representation}
-$$\rho:\pi_1^{\mathrm{top}}(U,\lambda_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal F_{\lambda_0}),\qquad [\gamma]\mapsto T_\gamma.$$
-and its image, the \textit{monodromy group}, of the equation (\cref{eq:gauss-hypergeometric}).
+\begin{definition}[Monodromy]\label{def:monodromy}
+Let $\mathcal F$ be a complex local system of rank $n$ on a connected $U:\mathsf{Man}_{\mathbb C}$, and fix a base point $u_0:U$. Restricting its transport functor to loops at $u_0$ gives the \textit{monodromy representation} of $\mathcal F$ at $u_0$
+$$\rho:\pi_1^{\mathrm{top}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal F_{u_0}),\qquad [\gamma]\mapsto T_\gamma,$$
+whose image is the \textit{monodromy group} of $\mathcal F$ at $u_0$.
+\end{definition}
 
 Like in \cref{par:square-root-sheaf}, $\mathcal F$ is also a sheaf of sections of a cover.
 
