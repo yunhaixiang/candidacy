@@ -10,6 +10,7 @@
 \usepackage{xltabular}
 \usepackage{graphicx}
 \usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,decorations.markings}
 \usepackage{aliascnt}
 \usepackage[nottoc,notlof,notlot]{tocbibind}
 \usepackage{xcolor}
@@ -345,10 +346,11 @@ The use of generative AI in the preparation of this report was limited to the fo
 proofreading;
 polishing wording, phrasing, grammar, and formatting; 
 offering writing advices;
-answering mathematical questions from the author to help him learn the subject;
-searching for and citing appropriate references;
+answering mathematical questions from the author;
+searching for and citing references;
 translating reading materials in French into English; 
 retypesetting old references with archaic typesetting for ease of reading;
+generating the TikZ figure \cref{fig:surface-fundamental-group-generators};
 providing emotional support for the author;
 providing fitness advice to help the author stay healthy and energetic while working on the report.
 \end{custom}
@@ -388,7 +390,7 @@ Hence $\mathcal F$ is locally constant, with stalk at $u_0$
 $$\mathcal F_{u_0}=\{[z_+]_{u_0},[z_-]_{u_0}\}\cong f^{-1}(u_0)$$ 
 identified by evaluation. 
 However, the sheaf is not constant: $\mathcal F(\mathbb C^\times)=\emptyset$. A global section would determine a germ at $u_0$ fixed by all monodromy at $u_0$, whereas transport once around $0$ exchanges the two square-root germs, as demonstrated in \cref{par:square-root-monodromy}. 
-Locally constant (but not necessarily constant) sheaves of sets, such as this one, are known as \textit{local systems of sets}. 
+Locally constant (but not necessarily constant) sheaves of sets, such as this, are known as \textit{local systems of sets}. 
 
 
 \parlabel{par:square-root-transport}For a path $\gamma:[0,1]\to\mathbb C^\times$ from $u_0=\gamma(0)$ to $u_1=\gamma(1)$ and a point $\zeta:f^{-1}(u_0)$ in the fibre, let $\widetilde\gamma_\zeta$ be the unique lift through $f$ satisfying $\widetilde\gamma_\zeta(0)=\zeta$.
@@ -401,8 +403,8 @@ Thus we obtain a \textit{transport functor}\footnote{Here $\Pi_1(X)$ denotes the
 \[
 T:\Pi_1(\mathbb C^\times)\longrightarrow\mathsf{Set},\qquad u\longmapsto\mathcal F_u,\qquad [\gamma]\longmapsto T_\gamma.
 \]
-Restricting transport to loops at $u_0$ gives the same monodromy representation of $\mathcal F$ at $u_0$ as in \cref{par:square-root-monodromy}
-$$\rho:\pi_1^{\mathrm{top}}(\mathbb C^\times,u_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{u_0}),\qquad [\gamma]\mapsto T_\gamma.$$
+Restricting transport to loops at $u_0$ gives the permutation monodromy representation of $\mathcal F$ at $u_0$, the same permutation monodromy representation as in \cref{par:square-root-monodromy}
+$$\rho_{\mathcal F,u_0}:\pi_1^{\mathrm{top}}(\mathbb C^\times,u_0)\rightarrow\mathrm{Aut}_{\mathsf{Set}}(\mathcal F_{u_0}),\qquad [\gamma]\mapsto T_\gamma.$$
 
 In \cref{sec:local-systems}, we will see how to upgrade permutation monodromy representations into linear monodromy representations, which we will just call monodromy representations.
 Moreover, one can use this machinery to talk about monodromy in the $\ell$-adic arithmetic context, by replacing $\pi_1^{\mathrm{top}}$ with the étale fundamental group $\pi_1^{\text{ét}}$. 
@@ -420,17 +422,17 @@ When $U=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separabl
 
 
 
-We have looked at permutation monodromy, but permutation actions do not capture all the situations we wish to study, since a lot of times in nature we encounter actions on vector spaces instead of sets. 
+\parlabel{par:hypergeometric-local-system}We have looked at permutation monodromy, but permutation actions do not capture all the situations we wish to study, since a lot of times in nature we encounter actions on vector spaces instead of sets. 
 For example, instead of an algebraic equation like the one in \cref{par:square-root-monodromy}, we consider a differential equation, which is known as \textit{Gauss's hypergeometric equation}
 \begin{equation}\label{eq:gauss-hypergeometric}
-u(1-u)\frac{\mathrm d^2 f}{\mathrm d u^2}
-+\bigl(c-(a+b+1)u\bigr)\frac{\mathrm d f}{\mathrm d u}
--abf=0
+u(1-u)\frac{\mathrm d^2 z}{\mathrm d u^2}
++\bigl(c-(a+b+1)u\bigr)\frac{\mathrm d z}{\mathrm d u}
+-abz=0
 \end{equation}
-where $a,b,c:\mathbb C$ are fixed parameters and $f:V\rightarrow\mathbb C$ is an unknown holomorphic function, with $V:\mathsf{Open}(U)$, $U=\mathbb P^1(\mathbb C)\setminus\{0,1,\infty\}$, and independent variable $u:V$.
+where $a,b,c:\mathbb C$ are fixed parameters and $z:V\rightarrow\mathbb C$ is an unknown holomorphic function, with $V:\mathsf{Open}(U)$, $U=\widehat{\mathbb C}\setminus\{0,1,\infty\}$, and independent variable $u:V$.
 We then define the sheaf of solutions to this equation $\mathcal F:\mathsf{Sh}(U,\mathsf{Vect}_{\mathbb C})$
 \[
-\mathcal F(V)=\left\{f:V\rightarrow\mathbb C\;\middle|\;f\text{ holomorphic and satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
+\mathcal F(V)=\left\{z:V\rightarrow\mathbb C\;\middle|\;z\text{ holomorphic and satisfies \eqref{eq:gauss-hypergeometric} on }V\right\}.
 \]
 This is a sheaf of vector spaces since \eqref{eq:gauss-hypergeometric} is a homogeneous linear differential equation. For each $u_0:U$, the existence-and-uniqueness theorem \cite[Theorem~4.3.1]{HottaTakeuchiTanisaki2008} gives a sufficiently small open disc $V:\mathsf{Open}(U)$ containing $u_0$ and an isomorphism of sheaves
 \[
@@ -447,7 +449,7 @@ A \textit{complex local system} on $U$ is a locally constant sheaf $\mathcal F:\
 called a \textit{local trivialization} at $u$, for some $n:\mathbb N$ called the \textit{rank} of $\mathcal F$. 
 \end{definition}
 \begin{definition}[Transport]\label{def:complex-transport}
-Let $\mathcal F$ be a complex local system of rank $n$ on a connected $U:\mathsf{Man}_{\mathbb C}$. We define the \textit{transport functor}
+Let $\mathcal F$ be a complex local system of rank $n$ on a connected $U:\mathsf{Man}_{\mathbb C}$. We define the \textit{transport functor} using analytic continuation (see Appendix \cref{par:analytic-continuation})
 \[
 T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}},\qquad u\mapsto\mathcal F_u,\qquad [\gamma]\mapsto T_\gamma.
 \]
@@ -466,9 +468,11 @@ which is independent of the subdivision and trivializations and depends only on 
 
 \begin{definition}[Monodromy]\label{def:monodromy}
 Let $\mathcal F$ be a complex local system of rank $n$ on a connected $U:\mathsf{Man}_{\mathbb C}$, and fix a base point $u_0:U$. Restricting its transport functor to loops at $u_0$ gives the \textit{monodromy representation} of $\mathcal F$ at $u_0$
-$$\rho:\pi_1^{\mathrm{top}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal F_{u_0}),\qquad [\gamma]\mapsto T_\gamma,$$
+$$\rho_{\mathcal F,u_0}:\pi_1^{\mathrm{top}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathsf{Vect}_{\mathbb C}}(\mathcal F_{u_0}),\qquad [\gamma]\mapsto T_\gamma,$$
 whose image is the \textit{monodromy group} of $\mathcal F$ at $u_0$.
 \end{definition}
+
+We compute the monodromy representation of the sheaf $\mathcal F$ in \cref{par:hypergeometric-local-system}. 
 
 Like in \cref{par:square-root-sheaf}, $\mathcal F$ is also a sheaf of sections of a cover.
 
@@ -506,6 +510,142 @@ Like in \cref{par:square-root-sheaf}, $\mathcal F$ is also a sheaf of sections o
 
 \paragraph{Definition of Analytic Continuation}\label{par:analytic-continuation}
 % To be completed: definition and existence of analytic continuation.
+
+\subsection{Fundamental Groups of Punctured Riemann Surfaces}\label{app:surface-fundamental-groups}
+
+\begin{proposition}\label{prop:surface-fundamental-group}
+Let $X:\mathsf{Riem}$ be compact of genus $g:\mathbb N$, let $S=\{s_1,\dots,s_m\}$ be a set of $m$ distinct points of $X$, and put $U=X\setminus S$. For a base point $u_0:U$, we have
+\[
+\pi_1^{\mathrm{top}}(U,u_0)\cong
+\left\langle a_1,b_1,\dots,a_g,b_g,\gamma_1,\dots,\gamma_m
+\;\middle|\;
+\prod_{i=1}^{g}[a_i,b_i]\,\gamma_1\cdots\gamma_m=1
+\right\rangle,
+\]
+where $[a,b]:=aba^{-1}b^{-1}$, and the generators are:
+\begin{enumerate}
+  \item the loops running around the $i$-th handle $a_1,\dots,a_g$;
+  \item the loops passing through the $i$-th handle $b_1,\dots,b_g$;
+  \item the loops $\gamma_1,\dots,\gamma_m$ encircling the puncture $s_1,\dots,s_m$ once counterclockwise.
+\end{enumerate}
+
+\begin{figure}[htbp]
+\centering
+\normalfont
+\begin{tikzpicture}[
+  scale=1.28,
+  line cap=round,line join=round,
+  directed/.style={line width=0.95pt,postaction={decorate},decoration={markings,mark=at position 0.23 with {\arrow{Stealth[length=4pt,width=3pt]}}}},
+  every node/.style={font=\small,inner sep=2pt}
+]
+  \definecolor{surfaceblue}{RGB}{125,155,174}
+  \definecolor{meridian}{RGB}{171,86,53}
+  \def\surfaceoutline{
+    (-5.15,0.05)
+    .. controls (-5.15,1.15) and (-4.05,1.92) .. (-2.65,1.92)
+    .. controls (-1.28,1.92) and (-1.02,1.35) .. (0,1.35)
+    .. controls (1.02,1.35) and (1.28,1.92) .. (2.65,1.92)
+    .. controls (4.05,1.92) and (5.15,1.15) .. (5.15,0.05)
+    .. controls (5.15,-1.08) and (4.02,-1.75) .. (2.65,-1.75)
+    .. controls (1.32,-1.75) and (1.04,-1.25) .. (0,-1.25)
+    .. controls (-1.04,-1.25) and (-1.32,-1.75) .. (-2.65,-1.75)
+    .. controls (-4.02,-1.75) and (-5.15,-1.08) .. cycle
+  }
+  % A connected sum of two tori, drawn in oblique projection.
+  \shade[top color=surfaceblue!10,bottom color=surfaceblue!85,middle color=surfaceblue!22]
+    \surfaceoutline;
+  \begin{scope}
+    \clip \surfaceoutline;
+    \draw[white,opacity=0.55,line width=1.2pt]
+      (-4.87,0.63) .. controls (-4.05,2.10) and (-2.24,1.90) .. (-1.15,1.46)
+      .. controls (-0.40,1.17) and (0.40,1.17) .. (1.15,1.46)
+      .. controls (2.24,1.90) and (4.05,2.10) .. (4.87,0.63);
+  \end{scope}
+  \draw[black!65,line width=0.6pt] \surfaceoutline;
+  % The darker inner walls and the white openings make the handles visible.
+  \foreach \x in {-2.6,2.6} {
+    \begin{scope}[shift={(\x,0)}]
+      \shade[top color=surfaceblue!85,bottom color=surfaceblue!25]
+        (-1.15,0.42)
+        .. controls (-0.78,1.13) and (0.78,1.13) .. (1.15,0.42)
+        .. controls (0.70,-0.17) and (-0.70,-0.17) .. cycle;
+      \fill[white]
+        (-1.15,0.42)
+        .. controls (-0.65,0.78) and (0.65,0.78) .. (1.15,0.42)
+        .. controls (0.70,-0.17) and (-0.70,-0.17) .. cycle;
+      \draw[black!65,line width=0.55pt]
+        (-1.15,0.42)
+        .. controls (-0.78,1.13) and (0.78,1.13) .. (1.15,0.42);
+      \draw[black!55,line width=0.45pt]
+        (-1.15,0.42)
+        .. controls (-0.65,0.78) and (0.65,0.78) .. (1.15,0.42)
+        .. controls (0.70,-0.17) and (-0.70,-0.17) .. cycle;
+    \end{scope}
+  }
+  \coordinate (base) at (0,0.95);
+  % Each coloured cycle starts and ends at the base point: no access stems.
+  \foreach \sgn/\j in {-1/1,1/2} {
+    \begin{scope}[xscale=\sgn]
+      \draw[directed,accent] (base)
+        .. controls (0.78,1.37) and (1.70,1.47) .. (2.75,1.47)
+        .. controls (3.76,1.47) and (4.52,0.94) .. (4.52,0.20)
+        .. controls (4.52,-0.52) and (3.72,-0.94) .. (2.75,-0.94)
+        .. controls (1.70,-0.94) and (1.42,-0.77) .. (1.15,-0.25)
+        .. controls (0.88,0.27) and (0.64,0.31) .. (base);
+      % Front meridians, with distinct visible paths from and to the base point.
+      \draw[directed,meridian] (base)
+        .. controls (0.92,1.03) and (1.27,0.24) .. (1.55,-0.04)
+        .. controls (1.83,-0.32) and (2.26,-0.27) .. (2.60,-0.025);
+      \draw[meridian!80,dash pattern=on 2pt off 2pt,line width=0.85pt]
+        (2.60,-0.025)
+        .. controls (2.26,-0.38) and (2.25,-1.748) .. (2.80,-1.748);
+      \draw[meridian,line width=0.95pt]
+        (2.80,-1.748)
+        .. controls (3.35,-1.748) and (3.57,-0.58) .. (2.90,-0.46)
+        .. controls (2.23,-0.34) and (1.75,-0.62) .. (1.43,-0.23)
+        .. controls (1.11,0.16) and (0.85,0.59) .. (base);
+    \end{scope}
+    \node[accent] at ({\sgn*4.25},-1.03) {$a_\j$};
+    \node[meridian] at ({\sgn*3.62},-0.48) {$b_\j$};
+  }
+  % Counterclockwise petals, each enclosing exactly one puncture.
+  % Narrow the petals without shortening them or scaling their labels.
+  \begin{scope}[xscale=0.70]
+  \draw[directed,black!80] (base)
+    .. controls (-0.40,0.29) and (-0.82,0.18) .. (-0.86,-0.06)
+    .. controls (-0.88,-0.45) and (-0.33,-0.47) .. (-0.32,-0.06)
+    .. controls (-0.29,0.20) and (-0.17,0.32) .. (base);
+  \draw[directed,black!80] (base)
+    .. controls (-0.045,0.28) and (-0.22,-0.39) .. (-0.21,-0.77)
+    .. controls (-0.20,-1.16) and (0.20,-1.16) .. (0.21,-0.77)
+    .. controls (0.22,-0.39) and (0.045,0.28) .. (base);
+  \draw[directed,black!80] (base)
+    .. controls (0.17,0.32) and (0.29,0.20) .. (0.32,-0.06)
+    .. controls (0.33,-0.47) and (0.88,-0.45) .. (0.86,-0.06)
+    .. controls (0.82,0.18) and (0.40,0.29) .. (base);
+  \foreach \x/\y/\j in {-0.59/-0.06/1,0/-0.77/2,0.59/-0.06/3} {
+    \draw[black!80,fill=white,line width=0.6pt] (\x,\y) circle[radius=0.035];
+  }
+  \node[below,font=\footnotesize] at (-0.59,-0.10) {$s_1$};
+  \node[above,font=\footnotesize] at (0,-0.73) {$s_2$};
+  \node[below,font=\footnotesize] at (0.59,-0.10) {$s_3$};
+  \node at (-0.53,-0.53) {$\gamma_1$};
+  \node at (0,-1.43) {$\gamma_2$};
+  \node at (0.53,-0.53) {$\gamma_3$};
+  \end{scope}
+  \fill[white] (base) circle[radius=0.105];
+  \fill (base) circle[radius=0.045];
+  \node[above] at (0,1.05) {$u_0$};
+\end{tikzpicture}
+\caption{Example for $g=2$, $m=3$. Generated by GPT-6 Astra. }
+\label{fig:surface-fundamental-group-generators}
+\end{figure}
+
+\end{proposition}
+
+\begin{proof}
+See \cite[Theorem~3.6.3 and Remark~3.6.4]{Szamuely2009}.
+\end{proof}
 
 % Bibliography entries live in references.bib.
 \bibliographystyle{alpha}

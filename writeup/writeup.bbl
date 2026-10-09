@@ -2,23 +2,34 @@
 
 \bibitem[HTT08]{HottaTakeuchiTanisaki2008}
 Ryoshi Hotta, Kiyoshi Takeuchi, and Toshiyuki Tanisaki.
-\newblock {\em {$D$-Modules, Perverse Sheaves, and Representation Theory}}, volume 236 of {\em Progress in Mathematics}.
+\newblock {\em {$D$-Modules, Perverse Sheaves, and Representation Theory}},
+  volume 236 of {\em Progress in Mathematics}.
 \newblock Birkh\"auser, 2008.
 
 \bibitem[Kat88]{Katz1988GKM}
 Nicholas~M. Katz.
-\newblock {\em {Gauss Sums, Kloosterman Sums, and Monodromy Groups}}, volume 116 of {\em Annals of Mathematics Studies}.
+\newblock {\em {Gauss Sums, Kloosterman Sums, and Monodromy Groups}}, volume
+  116 of {\em Annals of Mathematics Studies}.
 \newblock Princeton University Press, 1988.
 
 \bibitem[Kat96]{Katz1996}
 Nicholas~M. Katz.
-\newblock {\em Rigid Local Systems}, volume 139 of {\em Annals of Mathematics Studies}.
+\newblock {\em Rigid Local Systems}, volume 139 of {\em Annals of Mathematics
+  Studies}.
 \newblock Princeton University Press, 1996.
 
 \bibitem[Sch11]{Schapira2011AlgebraTopology}
 Pierre Schapira.
 \newblock Algebra and topology.
-\newblock Lecture notes, course at Paris VI University, 2007--2008, version 2, 2011.
-\newblock \url{https://www.math.univ-paris13.fr/~ginot/AT/Schapira_Notes_AlTo.pdf}.
+\newblock Lecture notes, course at Paris VI University, 2007--2008, version 2,
+  2011.
+\newblock
+  \url{https://www.math.univ-paris13.fr/~ginot/AT/Schapira_Notes_AlTo.pdf}.
+
+\bibitem[Sza09]{Szamuely2009}
+Tam\'as Szamuely.
+\newblock {\em Galois Groups and Fundamental Groups}, volume 117 of {\em
+  Cambridge Studies in Advanced Mathematics}.
+\newblock Cambridge University Press, 2009.
 
 \end{thebibliography}
