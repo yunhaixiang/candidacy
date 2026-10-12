@@ -489,16 +489,31 @@ Define a right $\pi_1^{\mathrm{top}}(U,u_0)$ action on $\widetilde{U}\times W_{\
 $$(\widetilde{u}, w) \cdot g=(\widetilde{u} \cdot g, \rho(g)^{-1} w) .$$
 where $\widetilde{u} \cdot g$ is the action by the deck transformation determined by $\widetilde{u_0}$. Form the orbit space
 $$E_{\rho}=(\widetilde{U}\times W_{\mathrm{disc}})/\pi_1^{\mathrm{top}}(U,u_0)$$
-We note that $E_{\rho}$ inherits a complex structure. 
-It has an associated covering 
+We note that $E_{\rho}$ inherits a complex structure induced by its associated covering 
 $$f_\rho:E_{\rho}\rightarrow U,\qquad [\widetilde{u},w]\mapsto q(\widetilde{u})$$
-This is a local biholomorphism. These recover the espace étalé of our desired local system and its associated cover. 
-We take its sheaf of sections $\mathcal F_\rho$ where for each $V:\mathsf{Open}(U)$
+for which it is a local biholomorphism i.e. étale cover. These recover the espace étalé of our desired local system and its associated cover. 
+Therefore, we can take its sheaf of sections $\mathcal F_\rho$ to obtain our desired local system, where for each $V:\mathsf{Open}(U)$
 \[
-\mathcal F_\rho(V)=\{s:V\to E_\rho\mid s\text{ continuous and }(f_\rho\circ s)|^V=\mathrm{id}_V\}.
+\mathcal F_\rho(V)=\{s:V\to E_\rho\mid s\text{ holomorphic\footnotemark \ and }(f_\rho\circ s)|^V=\mathrm{id}_V\}.
 \]
+\footnotetext{Continuity alone suffices: since $f_\rho$ is a local biholomorphism, every continuous section is locally a holomorphic inverse of $f_\rho$, and hence is holomorphic.}
 
-In other words, there is an equivalence of monoidal categories
+In other words, there are equivalences of categories
+\[
+\begin{aligned}
+\left\{\begin{array}{c}
+\text{Étale covers of }U\text{ with }\\
+\text{compatible linear structure}
+\end{array}\right\}
+\simeq\mathsf{LocSys}_{\mathbb C}(U)
+\simeq^{\otimes}\mathsf{Rep}_{\mathbb C}^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{top}}(U,u_0)\bigr).
+\end{aligned}
+\]
+Here 
+\begin{itemize}
+  \item a
+\end{itemize}
+Moreover 
 
 \begin{example}Braid representations
 \end{example}
@@ -506,6 +521,16 @@ In other words, there is an equivalence of monoidal categories
 \begin{example}Families of curves, derived pushforward
 \end{example}
 
+
+
+\begin{theorem}[Euler-Poincaré]
+\end{theorem}
+
+\subsection{\texorpdfstring{$\ell$}{l}-adic Local Systems}
+\subsection{The Tannakian Category Perspective}
+
+\section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
+\subsection{Six-Functor Formalism}
 \begin{notation}Define the collection of notations:
 \begin{notationtable}
   X & \mathsf{Curv}^{\mathrm{sm}}_{\C} & A smooth projective connected curve over \(\C\) \\
@@ -516,15 +541,6 @@ In other words, there is an equivalence of monoidal categories
   (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor
 \end{notationtable}
 \end{notation}
-
-\begin{theorem}[Euler-Poincaré]
-\end{theorem}
-
-\subsection{\texorpdfstring{$\ell$}{l}-adic Local Systems}
-\subsection{The Tannakian Category Perspective}
-
-\section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
-\subsection{Six-Functor Formalism}
 \subsection{Middle Extension Sheaves}
 \subsection{Middle Convolution}
 
