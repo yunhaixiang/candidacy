@@ -504,8 +504,18 @@ $$f_\rho:E_{\rho}\rightarrow U,\qquad [\widetilde{u},w]\mapsto q(\widetilde{u})$
 for which it is a local biholomorphism i.e. étale cover. These recover the espace étalé of our desired local system and its associated cover. 
 Therefore, we can take its sheaf of sections $\mathcal F_\rho$ to obtain our desired local system, where for each $V:\mathsf{Open}(U)$
 \[
-\mathcal F_\rho(V)=\{s:V\to E_\rho\mid s\text{ holomorphic\footnotemark \ and }(f_\rho\circ s)|^V=\mathrm{id}_V\}.
+\begin{aligned}
+\mathcal F_\rho(V)
+&=\{s:V\to E_\rho\mid s\text{ holomorphic\footnotemark \ and }(f_\rho\circ s)|^V=\mathrm{id}_V\}\\
+&\cong\left\{a:q^{-1}(V)\to W_{\mathrm{disc}}\;\middle|\;
+\begin{array}{l}
+a\text{ locally constant},\\
+a(\widetilde u\cdot g)=\rho(g)^{-1}a(\widetilde u)
+\end{array}
+\right\}.
+\end{aligned}
 \]
+where the last identification is via 
 \footnotetext{Continuity alone suffices: since $f_\rho$ is a local biholomorphism, every continuous section is locally a holomorphic inverse of $f_\rho$, and hence is holomorphic.}
 
 \begin{definition}[Linear Étale Cover]\label{def:linear-etale-cover}
@@ -532,8 +542,10 @@ Moreover the right most equivalence is an equivalence of symmetric monoidal cate
 Another rich source of local systems is smooth and proper families. Let
 $$f:E\rightarrow U$$
 be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. The higher direct image sheaves
-$$\mathbf R^q f_{*}\underline{\mathbb C}\quad\text{where}\quad\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\underline{\mathbb C})$$
-are complex local systems for each $q:\mathbb N$ \cite[Example~2.5.13, p.~55]{Dimca2004}. 
+$$\mathbf R^q f_{*}\underline{\mathbb C}$$
+are complex local systems for each $q:\mathbb N$ \cite[Example~2.5.13, p.~55]{Dimca2004}, where we note
+$$\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\underline{\mathbb C})$$
+by base change theorems. 
 
 
 \begin{definition}[Constructible Sheaves]
