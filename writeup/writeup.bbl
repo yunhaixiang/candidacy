@@ -1,10 +1,5 @@
 \begin{thebibliography}{HTT08}
 
-\bibitem[Dim04]{Dimca2004}
-Alexandru Dimca.
-\newblock {\em Sheaves in Topology}.
-\newblock Universitext. Springer-Verlag, 2004.
-
 \bibitem[HTT08]{HottaTakeuchiTanisaki2008}
 Ryoshi Hotta, Kiyoshi Takeuchi, and Toshiyuki Tanisaki.
 \newblock {\em {$D$-Modules, Perverse Sheaves, and Representation Theory}}, volume 236 of {\em Progress in Mathematics}.
@@ -36,5 +31,11 @@ Pierre Schapira.
 Tam\'as Szamuely.
 \newblock {\em Galois Groups and Fundamental Groups}, volume 117 of {\em Cambridge Studies in Advanced Mathematics}.
 \newblock Cambridge University Press, 2009.
+
+\bibitem[Voi02]{Voisin2002HodgeI}
+Claire Voisin.
+\newblock {\em {Hodge Theory and Complex Algebraic Geometry I}}, volume~76 of {\em Cambridge Studies in Advanced Mathematics}.
+\newblock Cambridge University Press, 2002.
+\newblock Translated by Leila Schneps.
 
 \end{thebibliography}

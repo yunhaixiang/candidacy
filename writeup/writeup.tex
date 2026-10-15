@@ -415,7 +415,7 @@ $$\rho_{\mathcal F,u_0}:\pi_1^{\mathrm{top}}(\mathbb C^\times,u_0)\rightarrow\ma
 
 In \cref{sec:local-systems}, we will see how to upgrade permutation monodromy representations into linear monodromy representations, which we will just call monodromy representations.
 Moreover, one can use this machinery to talk about monodromy in the $\ell$-adic arithmetic context, by replacing $\pi_1^{\mathrm{top}}$ with the étale fundamental group $\pi_1^{\text{ét}}$. 
-When $U=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separable closure $k^{\mathrm{sep}}$, then $\pi_1(U,\overline{u_0})=\mathrm{Gal}(k^{\mathrm{sep}}/k)$, where $\overline{u_0}=\mathrm{Spec}(k^{\mathrm{sep}})$, is the absolute Galois group of $k$. Hence, a monodromy representation at $\overline{u_0}$ in this case degenerates into a Galois representation, a ubiquitous arithmetic object. 
+When $U=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separable closure $k^{\mathrm{sep}}$, then $\pi_1(U,u_0)=\mathrm{Gal}(k^{\mathrm{sep}}/k)$, where $u_0=\mathrm{Spec}(k^{\mathrm{sep}})$, is the absolute Galois group of $k$. Hence, a monodromy representation at $u_0$ in this case degenerates into a Galois representation, a ubiquitous arithmetic object. 
 
 
 
@@ -515,7 +515,7 @@ a(\widetilde u\cdot g)=\rho(g)^{-1}a(\widetilde u)
 \right\}.
 \end{aligned}
 \]
-where the last identification is via 
+where the last identification is given by $s(q(\widetilde{u}))=[\widetilde{u},a(\widetilde{u})]$ for every $\widetilde{u}:q^{-1}(V)$. 
 \footnotetext{Continuity alone suffices: since $f_\rho$ is a local biholomorphism, every continuous section is locally a holomorphic inverse of $f_\rho$, and hence is holomorphic.}
 
 \begin{definition}[Linear Étale Cover]\label{def:linear-etale-cover}
@@ -541,23 +541,29 @@ Moreover the right most equivalence is an equivalence of symmetric monoidal cate
 
 Another rich source of local systems is smooth and proper families. Let
 $$f:E\rightarrow U$$
-be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. The higher direct image sheaves
+be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. 
+The higher direct image sheaves
 $$\mathbf R^q f_{*}\underline{\mathbb C}$$
-are complex local systems for each $q:\mathbb N$ \cite[Example~2.5.13, p.~55]{Dimca2004}, where we note
-$$\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\underline{\mathbb C})$$
-by base change theorems. 
+are complex local systems for each $q:\mathbb N$ by Ehresmann's fibration theorem \cite[Theorem~9.3]{Voisin2002HodgeI}.
+Explicitly, at $u_0:U$, there exists open neighborhood $V:\mathsf{Open}(U)$ of $u_0$ with 
+$$\mathbf R^qf_*\underline{\mathbb C}|_V\cong \underline{\mathrm H^q(E_{u_0},\underline{\mathbb C})}_V$$
+In particular on the level of stalks 
+$\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\underline{\mathbb C})$. 
 
 
-\begin{definition}[Constructible Sheaves]
+\subsection{\texorpdfstring{$\ell$}{l}-adic Local Systems}
+
+We develop everything in 
+\subsection{The Tannakian Category Perspective}
+
+\section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
+\subsection{Constructible Sheaves}
+
+\begin{definition}[Algebraically Constructible Sheaves]
 \end{definition}
 
 \begin{theorem}[Euler-Poincaré]
 \end{theorem}
-
-\subsection{\texorpdfstring{$\ell$}{l}-adic Local Systems}
-\subsection{The Tannakian Category Perspective}
-
-\section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
 \subsection{Six-Functor Formalism}
 \begin{notation}Define the collection of notations:
 \begin{notationtable}
