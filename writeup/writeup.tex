@@ -546,7 +546,7 @@ which is linear on each fibre, for some $W:\mathsf{Vect}_{\mathbb C}^{\mathrm{fi
 Denote by $\mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)$ the category of these covers, with fibrewise linear holomorphic maps over $U$ as morphisms.
 \end{definition}
 
-For each $U:\mathsf{Man}_{\mathbb C}$ and $u_0:U$, there are equivalences of categories \cite[\S~7.2]{MacPherson1990}
+\parlabel{par:complex-monodromy-equivalence}For each $U:\mathsf{Man}_{\mathbb C}$ and $u_0:U$, there are equivalences of categories \cite[\S~7.2]{MacPherson1990}
 \[
 \begin{aligned}
 \mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)
@@ -557,7 +557,7 @@ For each $U:\mathsf{Man}_{\mathbb C}$ and $u_0:U$, there are equivalences of cat
 Moreover, the last equivalence is of symmetric monoidal $\mathbb C$-linear categories.
 
 
-Another rich source of local systems is smooth and proper families. Let
+\begin{example}A rich source of local systems is smooth and proper families. Let
 $$f:E\rightarrow U$$
 be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. 
 The higher direct image sheaves
@@ -567,7 +567,7 @@ Explicitly, at $u_0:U$, there exists open neighborhood $V:\mathsf{Open}(U)$ of $
 $$\mathbf R^qf_*\underline{\mathbb C}|_V\cong \underline{\mathrm H^q(E_{u_0},\underline{\mathbb C})}_V$$
 In particular on the level of stalks 
 $\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\underline{\mathbb C})$. 
-
+\end{example}
 
 \subsection{\texorpdfstring{$\ell$}{l}-adic Local Systems}
 
@@ -593,11 +593,20 @@ In addition, the Tate module also contains information about reduction types (c.
 \end{notationtable}
 \end{notation}
 
+\begin{definition}[Mod-$\ell^n$ Sheaf]
+  For each $n:\mathbb N$, a \textit{mod-$\ell^n$ sheaf} on $U$ is a sheaf of $\mathbb Z/\ell^n\mathbb Z$-modules on $U_{\mathrm{\acute{e}t}}$. Denote their (symmetric monoidal $\mathbb Z/\ell^n\mathbb Z$-linear) category as
+  \[
+  \mathsf{Sh}(U,\mathbb Z/\ell^n\mathbb Z)
+  :=\mathsf{Sh}(U_{\mathrm{\acute{e}t}},\mathsf{Mod}_{\mathbb Z/\ell^n\mathbb Z}).
+  \]
+  A mod-$\ell^n$ sheaf is \textit{lisse} if it is locally constant with finite geometric stalks. We denote by $\mathsf{LocSys}_{\mathbb Z/\ell^n\mathbb Z}(U)$ the (symmetric monoidal $\mathbb Z/\ell^n\mathbb Z$-linear) full subcategory of lisse sheaves. 
+\end{definition}
+
 \begin{definition}[$\ell$-adic Sheaf]
-  An \textit{(integral) $\ell$-adic sheaf} on $U$ is a family $\mathcal F$ of sheaves $$\mathcal F_n:\mathsf{Sh}(U_{\mathrm{\acute{e}t}}, \mathsf{Mod}_{\mathbb Z/\ell^n\mathbb Z})$$ equipped with maps $r_n:\mathcal F_{n+1}\rightarrow \mathcal F_n$ in $\mathsf{Sh}(U_{\mathrm{\acute{e}t}},\mathsf{Mod}_{\mathbb Z/\ell^{n+1}\mathbb Z})$, such that 
+  An \textit{(integral) $\ell$-adic sheaf} on $U$ is a family $\mathcal F$ of sheaves $$\mathcal F_n:\mathsf{Sh}(U,\mathbb Z/\ell^n\mathbb Z)$$ equipped with maps $r_n:\mathcal F_{n+1}\rightarrow \mathcal F_n$ in $\mathsf{Sh}(U,\mathbb Z/\ell^{n+1}\mathbb Z)$, such that 
   $$\overline{r_n}:\mathcal F_{n+1}/\ell^n\mathcal F_{n+1}\xrightarrow{\sim}\mathcal F_n$$
-  factoring through $r_n$ is an isomorphism in $\mathsf{Sh}(U_{\mathrm{\acute{e}t}},\mathsf{Mod}_{\mathbb Z/\ell^{n+1}\mathbb Z})$, for each $n:\mathbb N$. 
-  Moreover, we say that $\mathcal F$ is \textit{lisse} if each $\mathcal F_n$ is locally constant with finite stalks. 
+  factoring through $r_n$ is an isomorphism in $\mathsf{Sh}(U,\mathbb Z/\ell^{n+1}\mathbb Z)$, for each $n:\mathbb N$. 
+  Moreover, we say that $\mathcal F$ is \textit{lisse} if each $\mathcal F_n$ is lisse. 
   Denote by $\mathsf{Sh}(U,\mathbb Z_\ell)$ the (symmetric monoidal $\mathbb Z_\ell$-linear) category of $\ell$-adic sheaves on $U$, and $\mathsf{LocSys}_{\mathbb Z_\ell}(U)$ the (symmetric monoidal $\mathbb Z_\ell$-linear) full subcategory of lisse sheaves. 
 \end{definition}
 \begin{definition}[Rational $\ell$-adic Sheaf]
@@ -605,7 +614,7 @@ In addition, the Tate module also contains information about reduction types (c.
   $$\mathrm{Hom}_{\mathsf{Sh}(U,\mathbb Q_\ell)}(\mathcal F,\mathcal G):=\mathrm{Hom}_{\mathsf{Sh}(U,\mathbb Z_\ell)}(\mathcal F,\mathcal G)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$$
   considered as tensoring of $\mathbb Z_\ell$-modules. 
   An object of this category is a rational $\ell$-adic sheaf on $U$. There is a canonical functor called \textit{rationalization}
-  $$(-)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell:\mathsf{Sh}(U,\mathbb Z_\ell)\rightarrow \mathsf{Sh}(U,\mathbb Q_\ell),\qquad \mathcal F\mapsto\mathcal F,\qquad f\mapsto f\otimes 1.$$
+  $$(-)_{\mathbb Q_\ell}=(-)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell:\mathsf{Sh}(U,\mathbb Z_\ell)\rightarrow \mathsf{Sh}(U,\mathbb Q_\ell),\qquad \mathcal F\mapsto\mathcal F,\qquad f\mapsto f\otimes 1.$$
   A rational $\ell$-adic sheaf $\mathcal F$ on $U$ is \textit{lisse} if there exists a lisse integral $\ell$-adic sheaf $\mathcal L$ and an isomorphism
   $\mathcal F\cong\mathcal L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell.$ 
   Denote by $\mathsf{LocSys}_{\mathbb Q_\ell}(U)$ the (symmetric monoidal $\mathbb Q_\ell$-linear) full subcategory of lisse sheaves of $\mathsf{Sh}(U,\mathbb Q_\ell)$. 
@@ -655,19 +664,107 @@ Sheaf cohomology
   & $q:\mathbb N$\\
 \addlinespace
 Morphism modules
-  & $\displaystyle\mathrm{Hom}_{\mathsf{Sh}(U,\mathbb Z_\ell)}(\mathcal F,\mathcal G)\cong\varprojlim_n\mathrm{Hom}_{\mathbb Z/\ell^n\mathbb Z}(\mathcal F_n,\mathcal G_n)$
+  & $\displaystyle\mathrm{Hom}(\mathcal F,\mathcal G)\cong\varprojlim_n\mathrm{Hom}_{\mathsf{Sh}(U,\mathbb Z/\ell^n\mathbb Z)}(\mathcal F_n,\mathcal G_n)$
   & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
 \end{xltabular}
 \endgroup
 \end{unnumberedparagraphs}
 
-\parlabel{para:clunkiness3}Rational $\ell$-adic sheaves require even further corrections. 
+\parlabel{para:clunkiness3}Rational $\ell$-adic sheaves require corrections by rationalizing the integral constructions. 
+For a rational $\ell$-adic sheaf $\mathcal F_{\mathbb Q_\ell}=\mathcal F\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$ with $\mathcal F$ an integral $\ell$-adic sheaf, constructions of $\mathcal F_{\mathbb Q_\ell}$ are usually done by first applying the corresponding (corrected) constructions for $\mathcal F$, and then rationalizing. For example: 
+\begin{unnumberedparagraphs}
+\begingroup
+\small
+\setlength{\LTleft}{0pt plus 1fill}
+\setlength{\LTright}{0pt plus 1fill}
+\setlength{\LTpre}{\notationtablespace}
+\setlength{\LTpost}{\notationtablespace}
+\renewcommand{\arraystretch}{1.2}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}p{0.46\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Geometric stalks
+  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})_{\bar u}:=\mathcal F_{\bar u}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $\begin{aligned}[t]
+       \bar u&:\operatorname{Spec}(\Omega)\to U\\
+       \Omega&:\mathsf{Field},\ \text{separably closed}
+     \end{aligned}$ \\
+\addlinespace
+Sections
+  & $\displaystyle\Gamma(V,\mathcal F_{\mathbb Q_\ell}):=\Gamma(V,\mathcal F)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $V:U_{\mathrm{\acute{e}t}}$ \\
+\addlinespace
+Sheaf cohomology
+  & $\displaystyle\mathrm H^q(U,\mathcal F_{\mathbb Q_\ell}):=\mathrm H^q(U,\mathcal F)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $q:\mathbb N$ \\
+\addlinespace
+Kernel
+  & $\displaystyle\operatorname{Ker}(f\otimes 1):=(\operatorname{Ker}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Image
+  & $\displaystyle\operatorname{Im}(f\otimes 1):=(\operatorname{Im}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Cokernel
+  & $\displaystyle\operatorname{Coker}(f\otimes 1):=(\operatorname{Coker}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Coimage
+  & $\displaystyle\operatorname{Coim}(f\otimes 1):=(\operatorname{Coim}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Pullback
+  & $\displaystyle g^*(\mathcal F_{\mathbb Q_\ell}):=(g^*\mathcal F)_{\mathbb Q_\ell}$
+  & $\begin{aligned}[t]
+       g&:V\to U\\
+       V&:\mathsf{Sch}_{\operatorname{Spec}(k)},\ \text{Noetherian}
+     \end{aligned}$ \\
+\addlinespace
+Direct sum
+  & $\displaystyle\mathcal F_{\mathbb Q_\ell}\oplus\mathcal G_{\mathbb Q_\ell}:=(\mathcal F\oplus\mathcal G)_{\mathbb Q_\ell}$
+  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Tensor product
+  & $\displaystyle\mathcal F_{\mathbb Q_\ell}\otimes_{\mathbb Q_\ell}\mathcal G_{\mathbb Q_\ell}:=(\mathcal F\otimes_{\mathbb Z_\ell}\mathcal G)_{\mathbb Q_\ell}$
+  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Sheaf Hom
+  & $\displaystyle\mathcal{H}om_{\mathbb Q_\ell}(\mathcal F_{\mathbb Q_\ell},\mathcal G_{\mathbb Q_\ell}):=(\mathcal{H}om_{\mathbb Z_\ell}(\mathcal F,\mathcal G))_{\mathbb Q_\ell}$
+  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Dual
+  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})^\vee:=(\mathcal F^\vee)_{\mathbb Q_\ell}$
+  & $\mathcal F^\vee:=\mathcal{H}om_{\mathbb Z_\ell}(\mathcal F,\mathbb Z_\ell)$ \\
+\end{xltabular}
+\endgroup
+\end{unnumberedparagraphs}
 
-We note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of pro-étale sites, allowing $\ell$-adic sheaves to be  bona fide sheaves on the pro-étale site and removing much of the clunkiness we had to deal with in \cref{para:clunkiness}, \cref{para:clunkiness2}, and \cref{para:clunkiness3}. 
+We note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of \textit{pro-étale sites}, allowing $\ell$-adic sheaves to be considered as bona fide sheaves on the pro-étale site $U_{\mathrm{pro\text{-}\acute{e}t}}$, which removes the clunkiness we had to deal with in \cref{para:clunkiness}, \cref{para:clunkiness2}, and \cref{para:clunkiness3}. 
 
-Like in the complex setting there are equivalences of categories
+Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geometric base point $\bar u_0:\operatorname{Spec}(\Omega)\to U$, we have a symmetric monoidal equivalence of categories
+\[
+\mathsf{LocSys}_\Lambda(U)
+\simeq^{\otimes}
+\mathsf{Rep}_\Lambda^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{\acute{e}t}}(U,\bar u_0)\bigr),
+\qquad \mathcal F\longmapsto\mathcal F_{\bar u_0},
+\]
+where $\Lambda$ is one of $\mathbb Z/\ell^n\mathbb Z$, $\mathbb Z_\ell$, or $\mathbb Q_\ell$, with $n:\mathbb N$, and the stalk is equipped with its monodromy action. The coefficient modules carry the discrete topology in the first case and their $\ell$-adic topology otherwise.
 
-\begin{example}
+\begin{example}smooth proper family
+\end{example}
+
+\begin{example}from covers and torsors (Kummer, Artin–Shreier)
+\end{example}
+\begin{example}Tate twists
 \end{example}
 \subsection{The Tannakian Category Perspective}
 
