@@ -325,6 +325,7 @@
 Motivated by the growing interest in the formalization of mathematics within the mathematical community, we adopt a style of notation inspired by type theory throughout this report, without committing to type-theoretic foundations. The symbols below denote types and/or categories, depending on your philosophical inclination. The notation \(X:\mathsf{T}\) means that \(X\) is a term of type \(\mathsf{T}\) or an object of the category \(\mathsf{T}\).
 \begin{typetable}
   \mathsf{Set} & Sets \\
+  \mathsf{Set}^{\mathrm{fin}} & Finite sets \\
   \mathsf{Top} & Topological spaces \\
   \mathsf{Open}(T) & Open subsets of \(T : \mathsf{Top}\) \\
   \mathsf{Grp} & Groups \\
@@ -351,7 +352,6 @@ Motivated by the growing interest in the formalization of mathematics within the
   \mathsf{Sh}(X,\mathsf A) & Sheaves on \(X : \mathsf{Site}\) with values in a category \(\mathsf A\) admitting small limits\\
   \mathsf{Mod}(X,\mathcal R) & Sheaves of left \(\mathcal R\)-modules on \(X : \mathsf{Site}\), where \(\mathcal R : \mathsf{Sh}(X,\mathsf{Ring})\) \\
   \mathsf D^{\mathrm b}(\mathsf A) & Bounded derived objects of an abelian category \(\mathsf A\) \\
-  \mathsf D^{\mathrm b}(X,k) & Bounded derived objects of \(\mathsf{Sh}(X,\mathsf{Vect}_k)\), where \(X : \mathsf{Site}\) and \(k : \mathsf{Field}\) \\
   X\rightarrow Y & Morphisms from $X : \mathsf{T}$ to $Y : \mathsf{T}$
 \end{typetable}
 
@@ -750,16 +750,19 @@ Dual
 
 We note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of \textit{pro-étale sites}, allowing $\ell$-adic sheaves to be considered as bona fide sheaves on the pro-étale site $U_{\mathrm{pro\text{-}\acute{e}t}}$, which removes the clunkiness we had to deal with in \cref{para:clunkiness}, \cref{para:clunkiness2}, and \cref{para:clunkiness3}. 
 
-Recall étale fundamental group
+Recall the étale fundamental group of a connected $U$ at a geometric base point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$ is the profinite group defined by the inverse limit
+$$\pi_1^{\mathrm{\acute{e}t}}(U,u_0):=\lim_{\substack{\longleftarrow\\(X,x_0)\to(U,u_0)}}\mathrm{Aut}_U(X):\mathsf{Grp}^{\mathrm{pro}}$$
+where the limit is taken over connected finite étale Galois covers $X\rightarrow U$ with $x_0$ a lift of $u_0$, and the transition map $\varphi:\mathrm{Aut}_U(Y)\rightarrow\mathrm{Aut}_U(X) $ for a pointed map $h:(Y,y_0)\rightarrow (X,x_0)$ between conneced finite étale Galois covers is given by $h\circ \sigma=\varphi(\sigma)\circ h$, for $\sigma:\mathrm{Aut}_U(Y)$. 
 
-Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geometric base point $u_0:\operatorname{Spec}(\Omega)\to U$, we have a symmetric monoidal equivalence of categories
+Explicitly, one can construct the étale fundamental group 
+
+Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$, a geometric base point $u_0:\operatorname{Spec}(\Omega)\to U$, and a coefficient ring $\Lambda:\mathsf{Ring}^{\mathrm{top}}$, being one of $\mathbb Z_\ell$, $\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for some $n:\mathbb N$, we have a symmetric monoidal equivalence of categories
 \[
 \mathsf{LocSys}_\Lambda(U)
 \simeq^{\otimes}
-\mathsf{Rep}_\Lambda^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\bigr),
-\qquad \mathcal F\longmapsto\mathcal F_{u_0},
+\mathsf{Rep}_\Lambda^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\bigr)
 \]
-where $\Lambda$ is one of $\mathbb Z/\ell^n\mathbb Z$, $\mathbb Z_\ell$, or $\mathbb Q_\ell$, with $n:\mathbb N$, and the stalk is equipped with its monodromy action. The coefficient modules carry the discrete topology in the first case and their $\ell$-adic topology otherwise.
+
 
 \begin{example}smooth proper family
 \end{example}
