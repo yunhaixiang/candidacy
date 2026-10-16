@@ -369,10 +369,10 @@ The typesetting style of this report is inspired by \cite{Katz1988GKM}.
 The use of generative AI in the preparation of this report was limited to the following purposes: 
 proofreading;
 polishing wording, phrasing, grammar, and formatting; 
-offering writing advices;
 helping with LaTeX typesettings;
-answering mathematical questions from the author;
 searching for and citing references;
+suggesting writing advices;
+answering mathematical questions from the author;
 translating reading materials in French into English; 
 retypesetting old references with archaic typesettings for ease of reading;
 generating the TikZ figure \cref{fig:surface-fundamental-group-generators};
@@ -649,9 +649,9 @@ Constructions that require such corrections include kernels, images, sheaf Hom, 
 \bottomrule
 \endfoot
 Geometric stalks
-  & $\displaystyle\mathcal F_{\bar u}:=\varprojlim_n(\mathcal F_n)_{\bar u}$
+  & $\displaystyle\mathcal F_u:=\varprojlim_n(\mathcal F_n)_u$
   & $\begin{aligned}[t]
-       \bar u&:\operatorname{Spec}(\Omega)\to U\\
+       u&:\operatorname{Spec}(\Omega)\to U\\
        \Omega&:\mathsf{Field},\ \text{separably closed}
      \end{aligned}$ \\
 \addlinespace
@@ -692,9 +692,9 @@ For a rational $\ell$-adic sheaf $\mathcal F_{\mathbb Q_\ell}=\mathcal F\otimes_
 \bottomrule
 \endfoot
 Geometric stalks
-  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})_{\bar u}:=\mathcal F_{\bar u}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})_u:=\mathcal F_u\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
   & $\begin{aligned}[t]
-       \bar u&:\operatorname{Spec}(\Omega)\to U\\
+       u&:\operatorname{Spec}(\Omega)\to U\\
        \Omega&:\mathsf{Field},\ \text{separably closed}
      \end{aligned}$ \\
 \addlinespace
@@ -750,12 +750,14 @@ Dual
 
 We note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of \textit{pro-étale sites}, allowing $\ell$-adic sheaves to be considered as bona fide sheaves on the pro-étale site $U_{\mathrm{pro\text{-}\acute{e}t}}$, which removes the clunkiness we had to deal with in \cref{para:clunkiness}, \cref{para:clunkiness2}, and \cref{para:clunkiness3}. 
 
-Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geometric base point $\bar u_0:\operatorname{Spec}(\Omega)\to U$, we have a symmetric monoidal equivalence of categories
+Recall étale fundamental group
+
+Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geometric base point $u_0:\operatorname{Spec}(\Omega)\to U$, we have a symmetric monoidal equivalence of categories
 \[
 \mathsf{LocSys}_\Lambda(U)
 \simeq^{\otimes}
-\mathsf{Rep}_\Lambda^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{\acute{e}t}}(U,\bar u_0)\bigr),
-\qquad \mathcal F\longmapsto\mathcal F_{\bar u_0},
+\mathsf{Rep}_\Lambda^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\bigr),
+\qquad \mathcal F\longmapsto\mathcal F_{u_0},
 \]
 where $\Lambda$ is one of $\mathbb Z/\ell^n\mathbb Z$, $\mathbb Z_\ell$, or $\mathbb Q_\ell$, with $n:\mathbb N$, and the stalk is equipped with its monodromy action. The coefficient modules carry the discrete topology in the first case and their $\ell$-adic topology otherwise.
 
