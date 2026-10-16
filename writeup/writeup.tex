@@ -19,6 +19,23 @@
 \usepackage[nameinlink,noabbrev,capitalise]{cleveref}
 \usepackage{mathpazo}
 
+% Use volume names as citation labels for keys such as EGA2 and SGA5.
+% Preserve alpha-style labels for all other references.
+\ExplSyntaxOn
+\AddToHook{begindocument/end}{
+  \cs_new_eq:NN \candidacy_original_bibitem \bibitem
+  \RenewDocumentCommand{\bibitem}{o m}{
+    \regex_match:nnTF { \A (EGA|SGA) [0-9IVX]+ ([.\-][0-9IVX]+)* \Z } {#2}
+      { \candidacy_original_bibitem[#2]{#2} }
+      {
+        \IfNoValueTF{#1}
+          { \candidacy_original_bibitem{#2} }
+          { \candidacy_original_bibitem[#1]{#2} }
+      }
+  }
+}
+\ExplSyntaxOff
+
 % Gaps scale with font size, independently of font weight.
 % Number-to-title and punctuation spacing both use half the font size.
 \makeatletter
@@ -456,7 +473,7 @@ Explicitly, every $u:U$ has an open neighbourhood $V:\mathsf{Open}(U)$ and an is
 \varphi_V:\mathcal F|_V\xrightarrow{\sim}\underline{\mathbb C}_V^n
 \]
 called a \textit{local trivialization} at $u$, for some $n:\mathbb N$ called the \textit{rank} of $\mathcal F$. 
-Denote by $\mathsf{LocSys}_{\mathbb C}(U)$ the (symmetric monoidal) category of complex local systems on $U$. 
+Denote by $\mathsf{LocSys}_{\mathbb C}(U)$ the (symmetric monoidal $\mathbb C$-linear) category of complex local systems on $U$. 
 \end{definition}
 \begin{definition}[Transport]\label{def:complex-transport}
 Let $\mathcal F$ be a complex local system of rank $n$ on a connected $U:\mathsf{Man}_{\mathbb C}$. We define the \textit{transport functor} using analytic continuation (see Appendix \cref{par:analytic-continuation})
@@ -536,7 +553,7 @@ For each $U:\mathsf{Man}_{\mathbb C}$ and $u_0:U$, there are equivalences of cat
 \simeq^{\otimes}\mathsf{Rep}_{\mathbb C}^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{top}}(U,u_0)\bigr).
 \end{aligned}
 \]
-Moreover the right most equivalence is an equivalence of symmetric monoidal categories.
+Moreover, the last equivalence is of symmetric monoidal $\mathbb C$-linear categories.
 
 
 Another rich source of local systems is smooth and proper families. Let
@@ -562,7 +579,7 @@ where $\Gamma_k=\mathrm{Gal}(k^{\mathrm{sep}}/k)$. In other words, it is an (con
 $$\rho_{E,\ell}:\Gamma_k\rightarrow\mathrm{Aut}_{\mathbb Z_\ell}(\mathrm{T}_\ell (E))$$
 Theorems of Faltings and Zarhin–Mori show that the rationalized Tate module
 $$\mathrm{V}_\ell(E):=\mathrm{T}_\ell(E)\otimes_{\mathbb Z_\ell} \mathbb Q_\ell$$
-as a $\mathbb Q_\ell [\Gamma_k]$-module determines the elliptic curve up to $k$-isogeny, assuming if $k$ is finitely generated over its prime field \cite{Faltings1983,Zarhin1976,Mori1978}. 
+as a $\mathbb Q_\ell [\Gamma_k]$-module determines the elliptic curve up to $k$-isogeny, assuming $k$ is finitely generated over its prime field \cite{Faltings1983,Zarhin1976,Mori1978}. 
 In addition, the Tate module also contains information about reduction types (c.f. Néron–Ogg–Shafarevich criterion \cite[Theorem~VII.7.1]{Silverman2009} and Serre–Tate theorem \cite[Theorem~1]{SerreTate1968}), endomorphisms (c.f. Tate's theorem \cite[Main Theorem]{Tate1966}), point counts over finite fields (c.f. Grothendieck–Lefschetz trace formula \cite[Theorem~29.4]{Milne2013EtaleCohomology}), and many more. 
 
 
@@ -575,9 +592,34 @@ In addition, the Tate module also contains information about reduction types (c.
 \end{notationtable}
 \end{notation}
 
-\begin{definition}
-  An $\ell$-adic sheaf on $U$ is a family $\mathcal F$ of sheaves $\mathcal F_n:\mathsf{Sh}(U_{\mathrm{\acute{e}t}}, \mathsf{Mod}_{\mathbb Z/\ell^n\mathbb Z})$ for each $n:\mathbb N$
+\begin{definition}[$\ell$-adic Sheaf]
+  An \textit{(integral) $\ell$-adic sheaf} on $U$ is a family $\mathcal F$ of sheaves $$\mathcal F_n:\mathsf{Sh}(U_{\mathrm{\acute{e}t}}, \mathsf{Mod}_{\mathbb Z/\ell^n\mathbb Z})$$ equipped with maps $r_n:\mathcal F_{n+1}\rightarrow \mathcal F_n$ in $\mathsf{Sh}(U_{\mathrm{\acute{e}t}},\mathsf{Mod}_{\mathbb Z/\ell^{n+1}\mathbb Z})$, such that 
+  $$\overline{r_n}:\mathcal F_{n+1}/\ell^n\mathcal F_{n+1}\xrightarrow{\sim}\mathcal F_n$$
+  factoring through $r_n$ is an isomorphism in $\mathsf{Sh}(U_{\mathrm{\acute{e}t}},\mathsf{Mod}_{\mathbb Z/\ell^{n+1}\mathbb Z})$, for each $n:\mathbb N$. 
+  Moreover, we say that $\mathcal F$ is \textit{lisse} if each $\mathcal F_n$ is locally constant with finite stalks. 
+  Denote by $\mathsf{Sh}(U,\mathbb Z_\ell)$ the (symmetric monoidal $\mathbb Z_\ell$-linear) category of $\ell$-adic sheaves on $U$, and $\mathsf{LocSys}_{\mathbb Z_\ell}(U)$ the (symmetric monoidal $\mathbb Z_\ell$-linear) full subcategory of lisse sheaves. 
 \end{definition}
+\begin{definition}[Rational $\ell$-adic Sheaf]
+  Define the category of \textit{rational $\ell$-adic sheaves} on $U$, denoted $\mathsf{Sh}(U,\mathbb Q_\ell)$, as the (symmetric monoidal $\mathbb Q_\ell$-linear) category where the objects are the same as $\mathsf{Sh}(U,\mathbb Z_\ell)$ but the morphisms between two objects $\mathcal F,\mathcal G:\mathsf{Sh}(U,\mathbb Q_\ell)$ are 
+  $$\mathrm{Hom}_{\mathsf{Sh}(U,\mathbb Q_\ell)}(\mathcal F,\mathcal G):=\mathrm{Hom}_{\mathsf{Sh}(U,\mathbb Z_\ell)}(\mathcal F,\mathcal G)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$$
+  considered as tensoring of $\mathbb Z_\ell$-modules. 
+  An object of this category is a rational $\ell$-adic sheaf on $U$. There is a canonical functor called \textit{rationalization}
+  $$(-)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell:\mathsf{Sh}(U,\mathbb Z_\ell)\rightarrow \mathsf{Sh}(U,\mathbb Q_\ell),\qquad \mathcal F\mapsto\mathcal F,\qquad f\mapsto f\otimes 1.$$
+  A rational $\ell$-adic sheaf $\mathcal F$ on $U$ is \textit{lisse} if there exists a lisse integral $\ell$-adic sheaf $\mathcal L$ and an isomorphism
+  $\mathcal F\cong\mathcal L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell.$ 
+  Denote by $\mathsf{LocSys}_{\mathbb Q_\ell}(U)$ the (symmetric monoidal $\mathbb Q_\ell$-linear) full subcategory of lisse sheaves of $\mathsf{Sh}(U,\mathbb Q_\ell)$. 
+\end{definition}
+
+\parlabel{para:clunkiness}Many common sheaf constructions for integral and rational $\ell$-adic sheaves can be taken level-wise such as pullbacks, direct sums, and tensor products, but unfortunately there are also many common sheaf constructions that require corrections, since an operation could produce a family $\mathcal A$ that does not satisfy 
+$$\mathcal A_{n+1}/\ell \mathcal A_{n+1}\cong \mathcal A_n$$
+In such cases, we replace the family with an object that does satisfy this condition and is isomorphic to it in the Artin–Rees category \cite[Exp.~V]{SGA5}. 
+
+We note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of pro-étale sites, allowing $\ell$-adic sheaves to be  bona fide sheaves on the pro-étale site and removing much of the clunkiness we had to deal with in \cref{para:clunkiness}. 
+
+Like in the complex setting there are equivalences of categories
+
+\begin{example}
+\end{example}
 \subsection{The Tannakian Category Perspective}
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}

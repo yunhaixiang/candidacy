@@ -1,36 +1,42 @@
 \begin{thebibliography}{HTT08}
 
+\bibitem[BS15]{BhattScholze2015}
+Bhargav Bhatt and Peter Scholze.
+\newblock The pro-\'{e}tale topology for schemes.
+\newblock {\em Ast\'{e}risque}, (369):99--201, 2015.
+
 \bibitem[Fal83]{Faltings1983}
 Gerd Faltings.
-\newblock Endlichkeitss{\"a}tze f{\"u}r abelsche variet{\"a}ten {\"u}ber
-  zahlk{\"o}rpern.
+\newblock Endlichkeitss{\"a}tze f{\"u}r abelsche variet{\"a}ten {\"u}ber zahlk{\"o}rpern.
 \newblock {\em Inventiones Mathematicae}, 73(3):349--366, 1983.
 \newblock Erratum: Inventiones Mathematicae 75 (1984), p.~381.
 
+\bibitem[Gro77]{SGA5}
+Alexander Grothendieck.
+\newblock {\em Cohomologie $\ell$-adique et fonctions {L}: S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie 1965--1966 ({SGA} 5)}, volume 589 of {\em Lecture Notes in Mathematics}.
+\newblock Springer-Verlag, 1977.
+\newblock Edited by Luc Illusie.
+
 \bibitem[HTT08]{HottaTakeuchiTanisaki2008}
 Ryoshi Hotta, Kiyoshi Takeuchi, and Toshiyuki Tanisaki.
-\newblock {\em {$D$-Modules, Perverse Sheaves, and Representation Theory}},
-  volume 236 of {\em Progress in Mathematics}.
+\newblock {\em {$D$-Modules, Perverse Sheaves, and Representation Theory}}, volume 236 of {\em Progress in Mathematics}.
 \newblock Birkh\"auser, 2008.
 
 \bibitem[Kat88]{Katz1988GKM}
 Nicholas~M. Katz.
-\newblock {\em {Gauss Sums, Kloosterman Sums, and Monodromy Groups}}, volume
-  116 of {\em Annals of Mathematics Studies}.
+\newblock {\em {Gauss Sums, Kloosterman Sums, and Monodromy Groups}}, volume 116 of {\em Annals of Mathematics Studies}.
 \newblock Princeton University Press, 1988.
 
 \bibitem[Kat96]{Katz1996}
 Nicholas~M. Katz.
-\newblock {\em Rigid Local Systems}, volume 139 of {\em Annals of Mathematics
-  Studies}.
+\newblock {\em Rigid Local Systems}, volume 139 of {\em Annals of Mathematics Studies}.
 \newblock Princeton University Press, 1996.
 
 \bibitem[Mac90]{MacPherson1990}
 Robert MacPherson.
 \newblock Intersection homology and perverse sheaves.
 \newblock Unpublished lecture notes, 1990.
-\newblock
-  \url{https://www.math.ru.nl/~bmoonen/Seminars/IntersectionHomology.pdf}.
+\newblock \url{https://www.math.ru.nl/~bmoonen/Seminars/IntersectionHomology.pdf}.
 
 \bibitem[Mil13]{Milne2013EtaleCohomology}
 James~S. Milne.
@@ -41,21 +47,17 @@ James~S. Milne.
 \bibitem[Mor78]{Mori1978}
 Shigefumi Mori.
 \newblock On {Tate} conjecture concerning endomorphisms of abelian varieties.
-\newblock In {\em Proceedings of the International Symposium on Algebraic
-  Geometry (Kyoto, 1977)}, pages 219--230, Tokyo, 1978. Kinokuniya Book Store.
+\newblock In {\em Proceedings of the International Symposium on Algebraic Geometry (Kyoto, 1977)}, pages 219--230, Tokyo, 1978. Kinokuniya Book Store.
 
 \bibitem[Sch11]{Schapira2011AlgebraTopology}
 Pierre Schapira.
 \newblock Algebra and topology.
-\newblock Lecture notes, course at Paris VI University, 2007--2008, version 2,
-  2011.
-\newblock
-  \url{https://www.math.univ-paris13.fr/~ginot/AT/Schapira_Notes_AlTo.pdf}.
+\newblock Lecture notes, course at Paris VI University, 2007--2008, version 2, 2011.
+\newblock \url{https://www.math.univ-paris13.fr/~ginot/AT/Schapira_Notes_AlTo.pdf}.
 
 \bibitem[Sil09]{Silverman2009}
 Joseph~H. Silverman.
-\newblock {\em The Arithmetic of Elliptic Curves}, volume 106 of {\em Graduate
-  Texts in Mathematics}.
+\newblock {\em The Arithmetic of Elliptic Curves}, volume 106 of {\em Graduate Texts in Mathematics}.
 \newblock Springer, New York, 2 edition, 2009.
 
 \bibitem[ST68]{SerreTate1968}
@@ -65,8 +67,7 @@ Jean-Pierre Serre and John Tate.
 
 \bibitem[Sza09]{Szamuely2009}
 Tam\'as Szamuely.
-\newblock {\em Galois Groups and Fundamental Groups}, volume 117 of {\em
-  Cambridge Studies in Advanced Mathematics}.
+\newblock {\em Galois Groups and Fundamental Groups}, volume 117 of {\em Cambridge Studies in Advanced Mathematics}.
 \newblock Cambridge University Press, 2009.
 
 \bibitem[Tat66]{Tate1966}
@@ -76,8 +77,7 @@ John Tate.
 
 \bibitem[Voi02]{Voisin2002HodgeI}
 Claire Voisin.
-\newblock {\em {Hodge Theory and Complex Algebraic Geometry I}}, volume~76 of
-  {\em Cambridge Studies in Advanced Mathematics}.
+\newblock {\em {Hodge Theory and Complex Algebraic Geometry I}}, volume~76 of {\em Cambridge Studies in Advanced Mathematics}.
 \newblock Cambridge University Press, 2002.
 \newblock Translated by Leila Schneps.
 
