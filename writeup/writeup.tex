@@ -8,6 +8,7 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{enumitem}
 \usepackage{xltabular}
+\usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{tikz-cd}
 \usetikzlibrary{arrows.meta,decorations.markings}
@@ -610,11 +611,59 @@ In addition, the Tate module also contains information about reduction types (c.
   Denote by $\mathsf{LocSys}_{\mathbb Q_\ell}(U)$ the (symmetric monoidal $\mathbb Q_\ell$-linear) full subcategory of lisse sheaves of $\mathsf{Sh}(U,\mathbb Q_\ell)$. 
 \end{definition}
 
-\parlabel{para:clunkiness}Many common sheaf constructions for integral and rational $\ell$-adic sheaves can be taken level-wise such as pullbacks, direct sums, and tensor products, but unfortunately there are also many common sheaf constructions that require corrections, since an operation could produce a family $\mathcal A$ that does not satisfy 
-$$\mathcal A_{n+1}/\ell \mathcal A_{n+1}\cong \mathcal A_n$$
-In such cases, we replace the family with an object that does satisfy this condition and is isomorphic to it in the Artin–Rees category \cite[Exp.~V]{SGA5}. 
+\parlabel{para:clunkiness}Many common sheaf constructions for integral $\ell$-adic sheaves can be taken level-wise such as pullbacks, direct sums, and tensor products, but unfortunately there are also many common sheaf constructions that require corrections, since an operation could produce a family $\mathcal A$ that does not satisfy 
+$$\mathcal A_{n+1}/\ell^n \mathcal A_{n+1}\cong \mathcal A_n$$
+Whenever such a representative exists, we replace the family with an object that does satisfy this condition and is isomorphic to it in the Artin–Rees category \cite[Exp.~V]{SGA5}. 
+Explicitly, we replace $\mathcal A$ with $\mathcal A^\prime$ where 
+$$\mathcal A^\prime_n=\mathcal B_N/\ell^n\mathcal B_N,\qquad\text{where}\qquad \mathcal B_n:=\bigcap_{m\ge n}\mathrm{Im}(\mathcal A_m\longrightarrow\mathcal A_n),$$
+for each $n:\mathbb N$, with $N:\mathbb N$ sufficiently large, dependent on $n$.
+Constructions that require such corrections include kernels, images, sheaf Hom, and duals. 
 
-We note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of pro-étale sites, allowing $\ell$-adic sheaves to be  bona fide sheaves on the pro-étale site and removing much of the clunkiness we had to deal with in \cref{para:clunkiness}. 
+\parlabel{para:clunkiness2}Some constructions of integral $\ell$-adic sheaves require taking inverse limits. For an integral $\ell$-adic sheaf $\mathcal F$, these include:
+\begin{unnumberedparagraphs}
+\begingroup
+\small
+\setlength{\LTleft}{0pt plus 1fill}
+\setlength{\LTright}{0pt plus 1fill}
+\setlength{\LTpre}{\notationtablespace}
+\setlength{\LTpost}{\notationtablespace}
+\renewcommand{\arraystretch}{1.2}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}p{0.46\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Geometric stalks
+  & $\displaystyle\mathcal F_{\bar u}:=\varprojlim_n(\mathcal F_n)_{\bar u}$
+  & $\begin{aligned}[t]
+       \bar u&:\operatorname{Spec}(\Omega)\to U\\
+       \Omega&:\mathsf{Field},\ \text{separably closed}
+     \end{aligned}$ \\
+\addlinespace
+Sections
+  & $\displaystyle\Gamma(V,\mathcal F):=\varprojlim_n\Gamma(V,\mathcal F_n)$
+  & $V:U_{\mathrm{\acute{e}t}}$ \\
+\addlinespace
+Sheaf cohomology
+  & $\displaystyle\mathrm H^q(U,\mathcal F):=\varprojlim_n\mathrm H^q(U_{\mathrm{\acute{e}t}},\mathcal F_n)$
+  & $q:\mathbb N$\\
+\addlinespace
+Morphism modules
+  & $\displaystyle\mathrm{Hom}_{\mathsf{Sh}(U,\mathbb Z_\ell)}(\mathcal F,\mathcal G)\cong\varprojlim_n\mathrm{Hom}_{\mathbb Z/\ell^n\mathbb Z}(\mathcal F_n,\mathcal G_n)$
+  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\end{xltabular}
+\endgroup
+\end{unnumberedparagraphs}
+
+\parlabel{para:clunkiness3}Rational $\ell$-adic sheaves require even further corrections. 
+
+We note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of pro-étale sites, allowing $\ell$-adic sheaves to be  bona fide sheaves on the pro-étale site and removing much of the clunkiness we had to deal with in \cref{para:clunkiness}, \cref{para:clunkiness2}, and \cref{para:clunkiness3}. 
 
 Like in the complex setting there are equivalences of categories
 
