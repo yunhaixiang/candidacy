@@ -760,7 +760,7 @@ where $\mathsf{\acute{E}t}^{\mathrm{fin}}(U)$ is the category of finite étale c
 We can then construct the étale fundamental group as 
 $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)=\mathrm{Aut}(\omega_{u_0}):\mathsf{Grp}^{\mathrm{pro}}$$
 with topology given by the subspace topology induced by
-$$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\hookrightarrow \prod_{E:\mathsf{\acute{E}t}^{\mathrm{fin}}(U)}\mathrm{Sym}(\omega_{u_0}(E))$$
+$$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\hookrightarrow \prod_{E\,:\,\mathsf{\acute{E}t}^{\mathrm{fin}}(U)}\mathrm{Sym}(\omega_{u_0}(E))$$
 where each symmetric group is given the discrete topology. 
 
 Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$, a geometric base point $u_0:\operatorname{Spec}(\Omega)\to U$, and a coefficient ring $\Lambda:\mathsf{Ring}^{\mathrm{top}}$, being one of $\mathbb Z_\ell$, $\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for some $n:\mathbb N$, we have a symmetric monoidal $\Lambda$-linear equivalence of categories
@@ -786,8 +786,17 @@ $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\twoheadrightarrow G\xlongrightarrow{\overli
 By Grothendieck's Galois theory (see \cref{app:grothendieck-galois-theory}), the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-set $G$ corresponds to a finite étale cover $f:Y\rightarrow U$ with $\omega_{u_0}(Y)\cong G$ as $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-sets, where $Y$ is connected by transitivity of $G$. Thus get a pointed cover $f:(Y,y_0)\rightarrow (U,u_0)$ by letting $y_0:\omega_{u_0}(Y)$ correspond to $1_G$. 
 By the identification we have a free transitive right $G$-action on $\omega_{u_0}(Y)$ equivariant with the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-action. 
 By Grothendieck's Galois theory, this corresponds to a deck transformation of $Y$ transitive and free on each geometric fibre, which makes $Y$ an étale $G$-torsor. 
-By finiteness of $M$, we can form the cover
-$$E_{\rho}:=$$
+By finiteness of $M$, set $M_U:=(\coprod_{m\,:\, M}U\rightarrow U):\mathsf{Sch}_U$ and form 
+$$E_{\rho}:=\left.\left(Y\times_U M_U\right)\middle/G\right.\cong\left.\left(\coprod_{m\,:\, M}Y\right)\middle/G\right.$$ 
+where $G$ acts by $(y,m)\cdot g=(yg,\overline{\rho}(g)^{-1}m)$. There is a unique map $$p:E_{\rho}\rightarrow U$$ factoring through the composite
+$$Y\times_U M_U\xlongrightarrow{\mathrm{pr}_Y}Y\xlongrightarrow{f}U$$
+which is $G$-invariant. Thus we found a finite étale cover 
+$$(E_\rho\xlongrightarrow{p}U):\mathsf{\acute{E}t}^{\mathrm{fin}}(U)$$
+Moreover, the module operations on $M$ are $G$-equivariant and descend to addition, zero, and scalar-multiplication morphisms over $U$, making $E_\rho$ a $\Lambda$-module scheme over $U$.
+By taking its sheaf of sections 
+$$\mathcal F_{\rho}(V):=\mathrm{Hom}_U(V,E_{\rho})=\{s:V\rightarrow E_{\rho}\mid p\circ s=q\}:\mathsf{Mod}_{\Lambda},$$
+for $q:V\rightarrow U$ étale, we obtain our desired lisse sheaf. 
+To see local constantcy, 
 
 \begin{example}from covers and torsors (Kummer, Artin–Shreier)
 \end{example}
