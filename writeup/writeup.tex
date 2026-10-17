@@ -777,26 +777,35 @@ with the action by $\sigma:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$ induced by
 $$\sigma_E:\omega_{u_0}(E)\rightarrow \omega_{u_0}(E)$$
 under the canonical identification 
 $$\mathcal F_{u_0}=\varinjlim_{\substack{q\,:\,V\to U\ \text{étale}\\v\,:\,\operatorname{Spec}(\Omega)\to V\ \text{geo. pt.}\\q\,\circ \,v\,=\,u_0}}\mathcal F(V)\xlongrightarrow{\sim}\omega_{u_0}(E),\qquad [(V,v),s]\mapsto s\circ v$$
-where $s:V\rightarrow E$ is representing a section. 
+where $(s:V\rightarrow E):\mathrm{Hom}_U(V,E)=\mathcal F(V)$ is representing a section. 
 
 Conversely, given a (continuous) representation in $\mathsf{Rep}^{\mathrm{fin}}_{\Lambda}(\pi_1^{\mathrm{\acute{e}t}}(U,u_0))$
 $$\rho:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathsf{Mod}_{\Lambda}}(M)$$
 Let $N=\mathrm{Ker}(\rho)$, which is open by continuity, so $G=\pi_1^{\mathrm{\acute{e}t}}(U,u_0)/N$ is finite and $\rho$ factorizes
 $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\twoheadrightarrow G\xlongrightarrow{\overline{\rho}}\mathrm{Aut}_{\mathsf{Mod}_{\Lambda}}(M).$$
-By Grothendieck's Galois theory (see \cref{app:grothendieck-galois-theory}), the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-set $G$ corresponds to a finite étale cover $f:Y\rightarrow U$ with $\omega_{u_0}(Y)\cong G$ as $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-sets, where $Y$ is connected by transitivity of $G$. Thus get a pointed cover $f:(Y,y_0)\rightarrow (U,u_0)$ by letting $y_0:\omega_{u_0}(Y)$ correspond to $1_G$. 
+By Grothendieck's Galois theory (see \cref{app:grothendieck-galois-theory}), the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-set $G$ corresponds to a finite étale cover $f:Y\rightarrow U$ with $\omega_{u_0}(Y)\cong G$ as $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-sets. 
 By the identification we have a free transitive right $G$-action on $\omega_{u_0}(Y)$ equivariant with the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-action. 
 By Grothendieck's Galois theory, this corresponds to a deck transformation of $Y$ transitive and free on each geometric fibre, which makes $Y$ an étale $G$-torsor. 
 By finiteness of $M$, set $M_U:=(\coprod_{m\,:\, M}U\rightarrow U):\mathsf{Sch}_U$ and form 
 $$E_{\rho}:=\left.\left(Y\times_U M_U\right)\middle/G\right.\cong\left.\left(\coprod_{m\,:\, M}Y\right)\middle/G\right.$$ 
-where $G$ acts by $(y,m)\cdot g=(yg,\overline{\rho}(g)^{-1}m)$. There is a unique map $$p:E_{\rho}\rightarrow U$$ factoring through the composite
-$$Y\times_U M_U\xlongrightarrow{\mathrm{pr}_Y}Y\xlongrightarrow{f}U$$
-which is $G$-invariant. Thus we found a finite étale cover 
+where $G$ acts by $(y,m)\cdot g=(yg,\overline{\rho}(g)^{-1}m)$. 
+There is a unique map $p:E_{\rho}\rightarrow U$ factoring through the $G$-invariant composite map
+\[
+\begin{tikzcd}[column sep=large, row sep=1.8em]
+  & E_\rho \arrow[dr, "p", bend left=15] & \\
+  Y\times_U M_U \arrow[ur, two heads, "q", bend left=15]
+    \arrow[r, "\mathrm{pr}_Y"'] & Y \arrow[r, "f"'] & U
+\end{tikzcd}
+\]
+where $q$ is the quotient map. Thus we found a finite étale cover 
 $$(E_\rho\xlongrightarrow{p}U):\mathsf{\acute{E}t}^{\mathrm{fin}}(U)$$
 Moreover, the module operations on $M$ are $G$-equivariant and descend to addition, zero, and scalar-multiplication morphisms over $U$, making $E_\rho$ a $\Lambda$-module scheme over $U$.
 By taking its sheaf of sections 
 $$\mathcal F_{\rho}(V):=\mathrm{Hom}_U(V,E_{\rho})=\{s:V\rightarrow E_{\rho}\mid p\circ s=q\}:\mathsf{Mod}_{\Lambda},$$
-for $q:V\rightarrow U$ étale, we obtain our desired lisse sheaf. 
-To see local constantcy, 
+for $q:V\rightarrow U$ étale, we obtain our desired lisse sheaf $\mathcal F_\rho:\mathsf{LocSys}_{\Lambda}(U)$. 
+To see that $\mathcal F_\rho$ is étale-locally constant, note that pulling back by $f:Y\rightarrow U$ gives
+$$\mathcal F_\rho|_Y\cong f^*\mathcal F_\rho\cong\mathrm{Hom}_Y(-,Y\times_U E_\rho)\cong\mathrm{Hom}_Y\left(-,\coprod_{m\,:\,M}Y\right)\cong\underline{M}_Y.$$
+
 
 \begin{example}from covers and torsors (Kummer, Artin–Shreier)
 \end{example}
