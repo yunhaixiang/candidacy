@@ -771,34 +771,37 @@ Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$, a geomet
 \]
 It suffice to construct this for $\Lambda=\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$, and the integral and rational $\ell$-adic cases follow from assembling each $n$ and rationalization respectively. 
 
-Let $\Lambda=\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$, and $\mathcal F:\mathsf{LocSys}_{\Lambda}(U)$. Let $E\rightarrow U$ be the finite étale cover representing the underlying sheaf of sets of $\mathcal F$, we have a representation
+Let $\Lambda=\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$, and $\mathcal F:\mathsf{LocSys}_{\Lambda}(U)$. Let $E\rightarrow U$ be the finite étale cover representing the underlying sheaf of sets of $\mathcal F$, we have a (continuous) representation
 $$\rho_{\mathcal F}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow \mathrm{Aut}_{\mathsf{Mod}_{\Lambda}}(\mathcal F_{u_0})$$
 with the action by $\sigma:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$ induced by 
 $$\sigma_E:\omega_{u_0}(E)\rightarrow \omega_{u_0}(E)$$
 under the canonical identification 
-$$\mathcal F_{u_0}=\varinjlim_{\substack{q\,:\,V\to U\ \text{étale}\\v\,:\,\operatorname{Spec}(\Omega)\to V\ \text{geo. pt.}\\q\,\circ \,v\,=\,u_0}}\mathcal F(V)\xrightarrow{\sim}\omega_{u_0}(E),\qquad [(V,v),s]\mapsto s\circ v$$
+$$\mathcal F_{u_0}=\varinjlim_{\substack{q\,:\,V\to U\ \text{étale}\\v\,:\,\operatorname{Spec}(\Omega)\to V\ \text{geo. pt.}\\q\,\circ \,v\,=\,u_0}}\mathcal F(V)\xlongrightarrow{\sim}\omega_{u_0}(E),\qquad [(V,v),s]\mapsto s\circ v$$
 where $s:V\rightarrow E$ is representing a section. 
 
-Conversely, given a representation
+Conversely, given a (continuous) representation in $\mathsf{Rep}^{\mathrm{fin}}_{\Lambda}(\pi_1^{\mathrm{\acute{e}t}}(U,u_0))$
+$$\rho:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathsf{Mod}_{\Lambda}}(M)$$
+Let $N=\mathrm{Ker}(\rho)$, which is open by continuity, so $G=\pi_1^{\mathrm{\acute{e}t}}(U,u_0)/N$ is finite and $\rho$ factorizes
+$$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\twoheadrightarrow G\xlongrightarrow{\overline{\rho}}\mathrm{Aut}_{\mathsf{Mod}_{\Lambda}}(M).$$
+By Grothendieck's Galois theory (see \cref{app:grothendieck-galois-theory}), the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-set $G$ corresponds to a finite étale cover $f:Y\rightarrow U$ with $\omega_{u_0}(Y)\cong G$ as $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-sets, where $Y$ is connected by transitivity of $G$. Thus get a pointed cover $f:(Y,y_0)\rightarrow (U,u_0)$ by letting $y_0:\omega_{u_0}(Y)$ correspond to $1_G$. 
+By the identification we have a free transitive right $G$-action on $\omega_{u_0}(Y)$ equivariant with the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-action. 
+By Grothendieck's Galois theory, this corresponds to a deck transformation of $Y$ transitive and free on each geometric fibre, which makes $Y$ an étale $G$-torsor. 
+By finiteness of $M$, we can form the cover
+$$E_{\rho}:=$$
+
+\begin{example}from covers and torsors (Kummer, Artin–Shreier)
+\end{example}
+
+\begin{example}Tate twists
+\end{example}
 
 \begin{example}smooth proper family
 \end{example}
 
-\begin{example}from covers and torsors (Kummer, Artin–Shreier)
-\end{example}
-\begin{example}Tate twists
-\end{example}
 \subsection{The Tannakian Category Perspective}
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
 \subsection{Constructible Sheaves}
-
-\begin{definition}[Algebraically Constructible Sheaves]
-\end{definition}
-
-\begin{theorem}[Euler–Poincaré]
-\end{theorem}
-\subsection{Six-Functor Formalism}
 \begin{notation}Define the collection of notations:
 \begin{notationtable}
   X & \mathsf{Curv}^{\mathrm{sm}}_{\C} & A smooth projective connected curve over \(\C\) \\
@@ -809,6 +812,13 @@ Conversely, given a representation
   (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor
 \end{notationtable}
 \end{notation}
+\begin{definition}[Algebraically Constructible Sheaves]
+\end{definition}
+
+\begin{theorem}[Euler–Poincaré]
+\end{theorem}
+\subsection{Six-Functor Formalism}
+
 \subsection{Middle Extension Sheaves}
 \subsection{Middle Convolution}
 
@@ -957,6 +967,9 @@ where $[a,b]:=aba^{-1}b^{-1}$, and the generators are:
 \begin{proof}
 See \cite[Theorem~3.6.3 and Remark~3.6.4]{Szamuely2009}.
 \end{proof}
+
+\subsection{Grothendieck's Galois Theory}\label{app:grothendieck-galois-theory}
+% To be completed: the correspondence between finite étale covers and finite continuous fundamental-group sets.
 
 % Bibliography entries live in references.bib.
 \bibliographystyle{alpha}
