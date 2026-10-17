@@ -754,15 +754,32 @@ Recall the étale fundamental group of a connected $U$ at a geometric base point
 $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0):=\lim_{\substack{\longleftarrow\\(X,x_0)\to(U,u_0)}}\mathrm{Aut}_U(X):\mathsf{Grp}^{\mathrm{pro}}$$
 where the limit is taken over connected finite étale Galois covers $X\rightarrow U$ with $x_0$ a lift of $u_0$, and the transition map $\varphi:\mathrm{Aut}_U(Y)\rightarrow\mathrm{Aut}_U(X) $ for a pointed map $h:(Y,y_0)\rightarrow (X,x_0)$ between conneced finite étale Galois covers is given by $h\circ \sigma=\varphi(\sigma)\circ h$, for $\sigma:\mathrm{Aut}_U(Y)$. 
 
-Explicitly, one can construct the étale fundamental group 
+Alternatively, one can construct the étale fundamental group via the \textit{fibre functor}
+$$\omega_{u_0}:\mathsf{\acute{E}t}^{\mathrm{fin}}(U)\rightarrow\mathsf{Set}^{\mathrm{fin}},\qquad E\mapsto \mathrm{Hom}_U(\mathrm{Spec}(\Omega),E)$$
+where $\mathsf{\acute{E}t}^{\mathrm{fin}}(U)$ is the category of finite étale covers $X\rightarrow U$ with morphisms over $U$. 
+We can then construct the étale fundamental group as 
+$$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)=\mathrm{Aut}(\omega_{u_0}):\mathsf{Grp}^{\mathrm{pro}}$$
+with topology given by the subspace topology induced by
+$$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\hookrightarrow \prod_{E:\mathsf{\acute{E}t}^{\mathrm{fin}}(U)}\mathrm{Sym}(\omega_{u_0}(E))$$
+where each symmetric group is given the discrete topology. 
 
-Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$, a geometric base point $u_0:\operatorname{Spec}(\Omega)\to U$, and a coefficient ring $\Lambda:\mathsf{Ring}^{\mathrm{top}}$, being one of $\mathbb Z_\ell$, $\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for some $n:\mathbb N$, we have a symmetric monoidal equivalence of categories
+Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$, a geometric base point $u_0:\operatorname{Spec}(\Omega)\to U$, and a coefficient ring $\Lambda:\mathsf{Ring}^{\mathrm{top}}$, being one of $\mathbb Z_\ell$, $\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for some $n:\mathbb N$, we have a symmetric monoidal $\Lambda$-linear equivalence of categories
 \[
 \mathsf{LocSys}_\Lambda(U)
 \simeq^{\otimes}
 \mathsf{Rep}_\Lambda^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\bigr)
 \]
+It suffice to construct this for $\Lambda=\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$, and the integral and rational $\ell$-adic cases follow from assembling each $n$ and rationalization respectively. 
 
+Let $\Lambda=\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$, and $\mathcal F:\mathsf{LocSys}_{\Lambda}(U)$. Let $E\rightarrow U$ be the finite étale cover representing the underlying sheaf of sets of $\mathcal F$, we have a representation
+$$\rho_{\mathcal F}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow \mathrm{Aut}_{\mathsf{Mod}_{\Lambda}}(\mathcal F_{u_0})$$
+with the action by $\sigma:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$ induced by 
+$$\sigma_E:\omega_{u_0}(E)\rightarrow \omega_{u_0}(E)$$
+under the canonical identification 
+$$\mathcal F_{u_0}=\varinjlim_{\substack{q\,:\,V\to U\ \text{étale}\\v\,:\,\operatorname{Spec}(\Omega)\to V\ \text{geo. pt.}\\q\,\circ \,v\,=\,u_0}}\mathcal F(V)\xrightarrow{\sim}\omega_{u_0}(E),\qquad [(V,v),s]\mapsto s\circ v$$
+where $s:V\rightarrow E$ is representing a section. 
+
+Conversely, given a representation
 
 \begin{example}smooth proper family
 \end{example}
