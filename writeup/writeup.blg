@@ -4,45 +4,45 @@ The top-level auxiliary file: writeup.aux
 The style file: alpha.bst
 Database file #1: references.bib
 Warning--there's a number but no volume in BhattScholze2015
-You've used 16 entries,
+You've used 17 entries,
             2543 wiz_defined-function locations,
-            680 strings with 6952 characters,
-and the built_in function-call counts, 5383 in all, are:
-= -- 527
-> -- 167
-< -- 21
-+ -- 49
-- -- 47
-* -- 364
-:= -- 873
-add.period$ -- 55
-call.type$ -- 16
-change.case$ -- 78
-chr.to.int$ -- 16
-cite$ -- 17
-duplicate$ -- 251
-empty$ -- 449
-format.name$ -- 76
-if$ -- 1105
+            687 strings with 7080 characters,
+and the built_in function-call counts, 5677 in all, are:
+= -- 553
+> -- 175
+< -- 23
++ -- 51
+- -- 49
+* -- 386
+:= -- 920
+add.period$ -- 58
+call.type$ -- 17
+change.case$ -- 83
+chr.to.int$ -- 17
+cite$ -- 18
+duplicate$ -- 268
+empty$ -- 475
+format.name$ -- 80
+if$ -- 1165
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 20
-newline$ -- 89
-num.names$ -- 48
-pop$ -- 102
+missing$ -- 22
+newline$ -- 94
+num.names$ -- 51
+pop$ -- 109
 preamble$ -- 1
-purify$ -- 100
+purify$ -- 106
 quote$ -- 0
-skip$ -- 176
+skip$ -- 186
 stack$ -- 0
-substring$ -- 268
-swap$ -- 39
-text.length$ -- 21
-text.prefix$ -- 13
+substring$ -- 275
+swap$ -- 42
+text.length$ -- 23
+text.prefix$ -- 14
 top$ -- 0
-type$ -- 100
+type$ -- 104
 warning$ -- 1
-while$ -- 48
-width$ -- 22
-write$ -- 223
+while$ -- 50
+width$ -- 23
+write$ -- 237
 (There was 1 warning)
