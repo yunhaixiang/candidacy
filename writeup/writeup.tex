@@ -836,11 +836,28 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
   \end{enumerate}
 \end{example}
 
-\begin{example}We give some concrete implementations of \cref{ex:torsor}. 
+\begin{example}Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb Z_\ell,\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$. We give some concrete examples of \cref{ex:torsor}. 
   \begin{enumerate}
-    \item Kummer 
-    \item Artin–Shreier
-    \item Lang sheaves
+    \item Let $N:\mathbb N$ be invertible in $k$, and assume that $k$ contains all $N$-th roots of unity. 
+    Let $Y=U=\mathbb G_m/k$, $G=\mu_N(k)$, and the $G$-torsor $f:Y\rightarrow U$ by $z\mapsto z^N$ with the right multiplication action $z\cdot\zeta=z\zeta$ for $\zeta:\mu_N(k)$. 
+    Let $K/\mathbb Q_\ell$ be a finite field extension, and let $M=K$ if $\Lambda=\mathbb Q_\ell$, $M=\mathcal O_K$ if $\Lambda=\mathbb Z_\ell$, and $M=\mathcal O_K/\ell^n\mathcal O_K$ if $\Lambda=\mathbb Z/\ell^n\mathbb Z$. 
+    Choose a character $\chi:\mu_N(k)\rightarrow M^\times$; then we get the representation
+    $$\rho_\chi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\chi(\zeta)(m):=\chi(\zeta)m.$$
+    The lisse sheaf we obtain from these data, denoted $\mathcal L_\chi$, is the \textit{Kummer sheaf} of $\chi$. 
+    \item Assume positive characteristic $\mathrm{Char}(k)=p\ne \ell$. Let $Y=U=\mathbb G_a/k$, $G=\mathbb F_p$, and let $f:Y\rightarrow U$ be the $G$-torsor $z\mapsto z^p-z$ under the translation action $z\cdot a=z+a$.
+    Let $K/\mathbb Q_\ell$ be a finite field extension containing a primitive $p$-th root of unity, and let $M=K$ if $\Lambda=\mathbb Q_\ell$, $M=\mathcal O_K$ if $\Lambda=\mathbb Z_\ell$, and $M=\mathcal O_K/\ell^n\mathcal O_K$ if $\Lambda=\mathbb Z/\ell^n\mathbb Z$.
+    Choose a (additive) character $\psi:\mathbb F_p\rightarrow M^\times$; then we get the representation
+    $$\rho_\psi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\psi(a)(m):=\psi(a)m.$$
+    The lisse sheaf we obtain from these data, denoted $\mathcal L_\psi$, is the \textit{Artin--Schreier sheaf} of $\psi$. 
+    \item We can generalize the above. 
+    Let $k=\mathbb F_q$ and $H/k$ a smooth connected commutative algebraic group with $q$-power Frobenius $F:H\rightarrow H$. 
+    Let $Y=U=H$ and $G=H(\mathbb F_q)$. By Lang's theorem, there is a $G$-torsor 
+    $$f:H\rightarrow H,\qquad h\mapsto F(h)h^{-1}$$
+    with action given by right multiplication $h\cdot g=hg$ for $g:G$.
+    Let $K/\mathbb Q_\ell$ be a finite field extension, and let $M=K$ if $\Lambda=\mathbb Q_\ell$, $M=\mathcal O_K$ if $\Lambda=\mathbb Z_\ell$, and $M=\mathcal O_K/\ell^n\mathcal O_K$ if $\Lambda=\mathbb Z/\ell^n\mathbb Z$.
+    Choose a character $\chi:G\rightarrow M^\times$; then we get the representation
+    $$\rho_\chi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\chi(g)(m):=\chi(g)m.$$
+    The lisse sheaf we obtain from these data, denoted $\mathcal L_\chi$, is the \textit{Lang sheaf} of $\chi$.
   \end{enumerate}
 \end{example}
 
@@ -850,7 +867,7 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
 \begin{example}smooth proper family, Kloostermann
 \end{example}
 
-\subsection{The Tannakian Category Perspective}
+\subsection{Tannakian Formalism}
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
 \subsection{Constructible Sheaves}
