@@ -649,9 +649,9 @@ Constructions that require such corrections include kernels, images, sheaf Hom, 
 \bottomrule
 \endfoot
 Geometric stalks
-  & $\displaystyle\mathcal F_u:=\varprojlim_n(\mathcal F_n)_u$
+  & $\displaystyle\mathcal F_{u_0}:=\varprojlim_n(\mathcal F_n)_{u_0}$
   & $\begin{aligned}[t]
-       u&:\operatorname{Spec}(\Omega)\to U\\
+       u_0&:\operatorname{Spec}(\Omega)\to U\\
        \Omega&:\mathsf{Field},\ \text{separably closed}
      \end{aligned}$ \\
 \addlinespace
@@ -692,9 +692,9 @@ For a rational $\ell$-adic sheaf $\mathcal F_{\mathbb Q_\ell}=\mathcal F\otimes_
 \bottomrule
 \endfoot
 Geometric stalks
-  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})_u:=\mathcal F_u\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})_{u_0}:=\mathcal F_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
   & $\begin{aligned}[t]
-       u&:\operatorname{Spec}(\Omega)\to U\\
+       u_0&:\operatorname{Spec}(\Omega)\to U\\
        \Omega&:\mathsf{Field},\ \text{separably closed}
      \end{aligned}$ \\
 \addlinespace
@@ -806,9 +806,17 @@ for $q:V\rightarrow U$ étale, we obtain our desired lisse sheaf $\mathcal F_\rh
 To see that $\mathcal F_\rho$ is étale-locally constant, note that pulling back by $f:Y\rightarrow U$ gives
 $$\mathcal F_\rho|_Y\cong f^*\mathcal F_\rho\cong\mathrm{Hom}_Y(-,Y\times_U E_\rho)\cong\mathrm{Hom}_Y\left(-,\coprod_{m\,:\,M}Y\right)\cong\underline{M}_Y.$$
 
-\parlabel{para:Zell}Let $\Lambda=\mathbb Z_\ell$, 
+\parlabel{para:Zell}Let $\Lambda=\mathbb Z_\ell$. Given a continuous representation 
+$$\rho:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathbb Z_\ell}(M)$$ on a finitely generated $\mathbb Z_\ell$-module $M:\mathsf{Mod}_{\Lambda}^{\mathrm{top}}$ with its $\ell$-adic topology, apply \cref{par:etale-representation-local-system} to the induced representations $\rho_n$ on $M_n:=M/\ell^nM$ for $n\ge1$, obtaining sheaves $\mathcal F_n$. 
+The reductions $M_{n+1}\twoheadrightarrow M_n$ are equivariant, and, by Grothendieck's Galois theory, they induce transition maps $r_n:\mathcal F_{n+1}\rightarrow\mathcal F_n$ satisfying
+$$\mathcal F_{n+1}/\ell^n\mathcal F_{n+1}\cong\mathcal F_n,$$
+Thus we obtain the integral lisse $\ell$-adic sheaf $\mathcal F$. 
+Conversely, for a lisse sheaf $\mathcal F$, the stalk $\mathcal F_{u_0}$ has a natural $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-action by taking the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-action with the induce map on each level, and assembling them together. 
 
-\parlabel{para:Qell}Let $\Lambda=\mathbb Q_\ell$, 
+\parlabel{para:Qell}Let $\Lambda=\mathbb Q_\ell$. Given a continuous representation $\rho:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathbb Q_\ell}(M)$ on a finite-dimensional $\mathbb Q_\ell$-vector space $M$, choose a $\rho$-stable $\mathbb Z_\ell$-lattice $L\subset M$, which exists because the image of $\rho$ is compact. Apply \cref{para:Zell} to the action on $L$, obtaining an integral lisse sheaf $\mathcal F_L$, and set $\mathcal F_\rho:=\mathcal F_L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$.
+Conversely, choose an integral lisse model $\mathcal G$ of a rational lisse sheaf $\mathcal F\cong\mathcal G\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$. Extend the stalk action from \cref{para:Zell} by scalars:
+$$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad \rho_{\mathcal F}(\gamma):=\rho_{\mathcal G}(\gamma)\otimes\mathrm{id}_{\mathbb Q_\ell}.$$
+
 
 \begin{example}[Local Systems from Torsors]
   Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb Z_\ell,\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$. 
