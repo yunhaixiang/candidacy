@@ -335,7 +335,7 @@ Motivated by the growing interest in the formalization of mathematics within the
   \mathsf{Ring} & Rings (associative, unital, not necessarily commutative) \\
   \mathsf{Ring}^{\mathrm{top}} & Topological rings \\
   \mathsf{Field} & Fields \\
-  \mathsf{Field}^{\mathrm{top}} & Topological fields \\
+  \mathsf{Alg}_k & Commutative unital algebras over \(k : \mathsf{Field}\) \\
   \mathsf{Mod}_R & Left modules over \(R : \mathsf{Ring}\) \\
   \mathsf{Mod}^{\mathrm{top}}_R & Topological left modules over \(R : \mathsf{Ring}^{\mathrm{top}}\) \\
   \mathsf{Vect}_k & Vector spaces over \(k : \mathsf{Field}\) \\
@@ -770,7 +770,7 @@ Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geo
 \simeq^{\otimes}
 \mathsf{Rep}_\Lambda^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\bigr)
 \]
-We first construct this for $\Lambda=\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$, and then the integral and rational $\ell$-adic cases follow from assembling each $n$ and then rationalizing. 
+If $\Lambda$ is $\mathbb Q_\ell$ or $\mathbb F_\ell$, the \textit{algebraic monodromy group} of a lisse sheaf $\mathcal F$ at $u_0$ is the Zariski closure of the image of its associated representation in the algebraic group $\operatorname{GL}(\mathcal F_{u_0})$.
 
 Let $\Lambda=\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$, and $\mathcal F:\mathsf{LocSys}_{\Lambda}(U)$. Let $E\rightarrow U$ be the finite étale cover representing the underlying sheaf of sets of $\mathcal F$, we have a (continuous) representation
 $$\rho_{\mathcal F}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow \mathrm{Aut}_{\mathsf{Mod}_{\Lambda}}(\mathcal F_{u_0})$$
@@ -902,7 +902,19 @@ Tannaka showed that compact groups can be recovered from their finite-dimensiona
   and is such that the scalar map $k\xrightarrow{\sim}\mathrm{End}(\mathbf 1)$ is isomorphic. 
 \end{definition}
 
-\begin{definition}
+Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb C$, $\mathbb Q_\ell$, or $\mathbb F_\ell$  with $\ell\ne \mathrm{char}(k)$ for $k:\mathsf{Field}$. 
+The category $\mathsf{LocSys}_{\Lambda}(U)$ of local systems or lisse sheaves on $U$, a complex manifold or smooth variety over $k$, is a neutral tannakian category. 
+Moreover, it has fibre functor
+$$\omega_{u_0}:\mathsf{LocSys}_{\Lambda}(U)\rightarrow \mathsf{Vect}_{k}^{\mathrm{fin}},\qquad \mathcal F\mapsto \mathcal F_{u_0}$$
+at a base point $u_0:U$. 
+
+
+\begin{definition}Let $\mathsf C$ be a neutral Tannakian category over a $k:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_k^{\mathrm{fin}}$, then its \textit{Tannakian group} is the affine group scheme $G:\mathsf{Alg}_k\rightarrow\mathsf{Grp}$
+  $$G(R)=\mathrm{Aut}^{\otimes}(\omega_R),\qquad \omega_R(\mathcal F):=\omega(\mathcal F)\otimes_k R,\qquad {\mathcal F:\mathsf C}$$
+  where $\mathrm{Aut}^\otimes$ denotes the automorphisms compatible with tensor products and the tensor unit. 
+  Moreover, the \textit{monodromy group} of $\mathcal F:\mathsf C$ is the affine group scheme $G_\mathcal{F}:\mathsf{Alg}_k\rightarrow\mathsf{Grp}$
+  $$G_{\mathcal F}(R)=\mathrm{Aut}^\otimes(\omega_R\mid_{\langle\mathcal F\rangle_\otimes})$$
+  where $\langle\mathcal F\rangle_\otimes$ is the strictly full subcategory of $\mathsf C$ consisting of subquotients of finite direct sums of tensor products of $\mathcal F$ and $\mathcal F^\vee$, including the empty tensor product $\mathbf1$. 
 \end{definition}
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
