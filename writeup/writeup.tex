@@ -589,6 +589,7 @@ In addition, the Tate module also contains information about reduction types (c.
   k & \mathsf{Field} & A field \\
   U & \mathsf{Sch}_{\operatorname{Spec}(k)} & A Noetherian scheme over \(k\) \\
   \ell & \mathbb N & A prime with \(\ell\ne\operatorname{char}(k)\) \\
+  \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of \(\mathbb Z_\ell\), \(\mathbb Q_\ell\), or \(\mathbb Z/\ell^n\mathbb Z\) for \(n:\mathbb N\) \\
   U_{\mathrm{\acute{e}t}} & \mathsf{Site} & The small étale site of \(U\)
 \end{notationtable}
 \end{notation}
@@ -763,7 +764,7 @@ with topology given by the subspace topology induced by
 $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\hookrightarrow \prod_{E\,:\,\mathsf{\acute{E}t}^{\mathrm{fin}}(U)}\mathrm{Sym}(\omega_{u_0}(E))$$
 where each symmetric group is given the discrete topology. 
 
-Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$, a geometric base point $u_0:\operatorname{Spec}(\Omega)\to U$, and a coefficient ring $\Lambda:\mathsf{Ring}^{\mathrm{top}}$, being one of $\mathbb Z_\ell$, $\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for some $n:\mathbb N$, we have a symmetric monoidal $\Lambda$-linear equivalence of categories
+Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geometric base point $u_0:\operatorname{Spec}(\Omega)\to U$, we have a symmetric monoidal $\Lambda$-linear equivalence of categories
 \[
 \mathsf{LocSys}_\Lambda(U)
 \simeq^{\otimes}
@@ -819,7 +820,6 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
 
 
 \begin{example}[Local Systems from Torsors]\label{ex:torsor}
-  Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb Z_\ell,\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$. 
   Given a finite group $G:\mathsf{Grp}^{\mathrm{fin}}$, a finitely generated $\Lambda$-module $M:\mathsf{Mod}^{\mathrm{top}}_{\Lambda}$, a continuous representation $\rho:G\rightarrow\mathrm{Aut}_\Lambda(M)$ with $G$ given the discrete topology, and a finite étale right $G$-torsor $f:Y\rightarrow U$, we construct a local system $\mathcal L_\rho:\mathsf{LocSys}_\Lambda(U)$ by following the same procedure in \cref{par:etale-representation-local-system}, \cref{para:Zell}, and \cref{para:Qell}. 
   In other words, the following. 
   \begin{enumerate}
@@ -836,7 +836,7 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
   \end{enumerate}
 \end{example}
 
-\begin{example}Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb Z_\ell,\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$. We give some concrete examples of \cref{ex:torsor}. 
+\begin{example}We give some concrete examples of \cref{ex:torsor}. 
   \begin{enumerate}
     \item Let $N:\mathbb N$ be invertible in $k$, and assume that $k$ contains all $N$-th roots of unity. 
     Let $Y=U=\mathbb G_m/k$, $G=\mu_N(k)$, and the $G$-torsor $f:Y\rightarrow U$ by $z\mapsto z^N$ with the right multiplication action $z\cdot\zeta=z\zeta$ for $\zeta:\mu_N(k)$. 
@@ -844,7 +844,7 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
     Choose a character $\chi:\mu_N(k)\rightarrow M^\times$; then we get the representation
     $$\rho_\chi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\chi(\zeta)(m):=\chi(\zeta)m.$$
     The lisse sheaf we obtain from these data, denoted $\mathcal L_\chi$, is the \textit{Kummer sheaf} of $\chi$. 
-    \item Assume positive characteristic $\mathrm{Char}(k)=p\ne \ell$. Let $Y=U=\mathbb G_a/k$, $G=\mathbb F_p$, and let $f:Y\rightarrow U$ be the $G$-torsor $z\mapsto z^p-z$ under the translation action $z\cdot a=z+a$.
+    \item Assume positive characteristic $\operatorname{char}(k)=p\ne \ell$. Let $Y=U=\mathbb G_a/k$, $G=\mathbb F_p$, and let $f:Y\rightarrow U$ be the $G$-torsor $z\mapsto z^p-z$ under the translation action $z\cdot a=z+a$.
     Let $K/\mathbb Q_\ell$ be a finite field extension containing a primitive $p$-th root of unity, and let $M=K$ if $\Lambda=\mathbb Q_\ell$, $M=\mathcal O_K$ if $\Lambda=\mathbb Z_\ell$, and $M=\mathcal O_K/\ell^n\mathcal O_K$ if $\Lambda=\mathbb Z/\ell^n\mathbb Z$.
     Choose a (additive) character $\psi:\mathbb F_p\rightarrow M^\times$; then we get the representation
     $$\rho_\psi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\psi(a)(m):=\psi(a)m.$$
@@ -861,7 +861,7 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
   \end{enumerate}
 \end{example}
 
-\begin{example}[Tate Twists]Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb Z_\ell,\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$ with $n\ge1$. 
+\begin{example}[Tate Twists]
   Define the lisse sheaf $\Lambda(1):\mathsf{LocSys}_{\Lambda}(U)$ as
 $$\Lambda(1):=
 \begin{cases}
@@ -884,7 +884,7 @@ where $m:\mathbb N$, which is lisse iff $\mathcal F$ is lisse.
 \begin{example}\label{ex:etale-smooth-proper-families}A rich source of lisse sheaves is smooth proper families, as in \cref{ex:complex-smooth-proper-families}. Let
 $$f:E\rightarrow U$$
 be a smooth proper morphism of $k$-schemes. The geometric fibres $E_{u_0}:=E\times_U\operatorname{Spec}\Omega$ at geometric points $u_0:\operatorname{Spec}\Omega\rightarrow U$ are smooth proper $\Omega$-schemes.
-Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb Z/\ell^n\mathbb Z$, $\mathbb Z_\ell$, or $\mathbb Q_\ell$, with $n:\mathbb N$. The higher direct image sheaves
+The higher direct image 
 $$\mathbf R^q f_*\underline{\Lambda}_E$$
 are lisse on $U$ for each $q:\mathbb N$ by smooth proper base change \cite[Theorem~20.2 and \S19]{Milne2013EtaleCohomology}, i.e. for $\Lambda=\mathbb Z/\ell^n\mathbb Z$, every geometric point $u_0$ has an \'{e}tale neighbourhood $(V,v_0)$ with
 $$\left.(\mathbf R^q f_*\underline{\Lambda}_E)\right|_V\cong\underline{\mathrm H^q_{\mathrm{\acute{e}t}}(E_{u_0},\underline{\Lambda})}_V.$$
@@ -894,6 +894,8 @@ $$\bigl(\mathbf R^q f_*\underline{\Lambda}_E\bigr)_{u_0}\cong\mathrm H^q_{\mathr
 \end{example}
 
 \subsection{Tannakian Formalism}
+
+Tannaka has a formalism 
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
 \subsection{Constructible Sheaves}
