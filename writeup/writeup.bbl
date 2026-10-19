@@ -44,6 +44,12 @@ James~S. Milne.
 \newblock Lecture notes, version 2.21, 2013.
 \newblock \url{https://www.jmilne.org/math/CourseNotes/LEC.pdf}.
 
+\bibitem[Mil25]{Milne2025TannakianOrigins}
+James~S. Milne.
+\newblock Tannakian categories: origins and summary.
+\newblock arXiv:2502.10945, 2025.
+\newblock \url{https://arxiv.org/abs/2502.10945}.
+
 \bibitem[Mor78]{Mori1978}
 Shigefumi Mori.
 \newblock On {Tate} conjecture concerning endomorphisms of abelian varieties.
@@ -74,6 +80,11 @@ Jean-Pierre Serre and John Tate.
 Tam\'as Szamuely.
 \newblock {\em Galois Groups and Fundamental Groups}, volume 117 of {\em Cambridge Studies in Advanced Mathematics}.
 \newblock Cambridge University Press, 2009.
+
+\bibitem[Tan39]{Tannaka1939}
+Tadao Tannaka.
+\newblock {{\"U}ber den Dualit{\"a}tssatz der nichtkommutativen topologischen Gruppen}.
+\newblock {\em T\^ohoku Mathematical Journal, First Series}, 45:1--12, 1939.
 
 \bibitem[Tat66]{Tate1966}
 John Tate.
