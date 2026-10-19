@@ -557,7 +557,7 @@ Denote by $\mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)$ the category of th
 Moreover, the last equivalence is of symmetric monoidal $\mathbb C$-linear categories.
 
 
-\begin{example}A rich source of local systems is smooth and proper families. Let
+\begin{example}\label{ex:complex-smooth-proper-families}A rich source of local systems is smooth and proper families. Let
 $$f:E\rightarrow U$$
 be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. 
 The higher direct image sheaves
@@ -861,10 +861,36 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
   \end{enumerate}
 \end{example}
 
-\begin{example}Tate twists
+\begin{example}[Tate Twists]Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb Z_\ell,\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$ with $n\ge1$. 
+  Define the lisse sheaf $\Lambda(1):\mathsf{LocSys}_{\Lambda}(U)$ as
+$$\Lambda(1):=
+\begin{cases}
+  \mu_{\ell^n}, & \Lambda=\mathbb Z/\ell^n\mathbb Z,\\[4pt]
+  ((\mathbb Z/\ell^n\mathbb Z)(1))_{j\,:\,\mathbb N}, & \Lambda=\mathbb Z_\ell,\\[4pt]
+  \mathbb Z_\ell(1)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell, & \Lambda=\mathbb Q_\ell,
+\end{cases}$$
+For $m:\mathbb Z$, define the lisse sheaf $\Lambda(m):\mathsf{LocSys}_{\Lambda}(U)$ as
+$$\Lambda(m):=
+\begin{cases}
+  \Lambda(1)^{\otimes m}, & m>0,\\[4pt]
+  \underline{\Lambda}, & m=0,\\[4pt]
+  \bigl(\Lambda(1)^{\otimes(-m)}\bigr)^\vee, & m<0,
+\end{cases}$$
+where $(-)^\vee$ denotes the $\Lambda$-linear dual. The \textit{Tate twist} of an $\ell$-adic sheaf $\mathcal F:\mathsf{Sh}(U,\Lambda)$ is 
+$$\mathcal F(m):=\mathcal F\otimes_{\Lambda} \Lambda(m)$$
+where $m:\mathbb N$, which is lisse iff $\mathcal F$ is lisse. 
 \end{example}
 
-\begin{example}smooth proper family
+\begin{example}\label{ex:etale-smooth-proper-families}A rich source of lisse sheaves is smooth proper families, as in \cref{ex:complex-smooth-proper-families}. Let
+$$f:E\rightarrow U$$
+be a smooth proper morphism of $k$-schemes. The geometric fibres $E_{u_0}:=E\times_U\operatorname{Spec}\Omega$ at geometric points $u_0:\operatorname{Spec}\Omega\rightarrow U$ are smooth proper $\Omega$-schemes.
+Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb Z/\ell^n\mathbb Z$, $\mathbb Z_\ell$, or $\mathbb Q_\ell$, with $n:\mathbb N$. The higher direct image sheaves
+$$\mathbf R^q f_*\underline{\Lambda}_E$$
+are lisse on $U$ for each $q:\mathbb N$ by smooth proper base change \cite[Theorem~20.2 and \S19]{Milne2013EtaleCohomology}, i.e. for $\Lambda=\mathbb Z/\ell^n\mathbb Z$, every geometric point $u_0$ has an \'{e}tale neighbourhood $(V,v_0)$ with
+$$\left.(\mathbf R^q f_*\underline{\Lambda}_E)\right|_V\cong\underline{\mathrm H^q_{\mathrm{\acute{e}t}}(E_{u_0},\underline{\Lambda})}_V.$$
+Proper base change identifies the geometric stalks as
+$$\bigl(\mathbf R^q f_*\underline{\Lambda}_E\bigr)_{u_0}\cong\mathrm H^q_{\mathrm{\acute{e}t}}(E_{u_0},\underline{\Lambda}).$$
+
 \end{example}
 
 \subsection{Tannakian Formalism}
