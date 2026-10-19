@@ -897,25 +897,34 @@ $$\bigl(\mathbf R^q f_*\underline{\Lambda}_E\bigr)_{u_0}\cong\mathrm H^q_{\mathr
 
 Tannaka showed that compact groups can be recovered from their finite-dimensional unitary representations \cite{Tannaka1939}. Grothendieck later introduced the Tannakian formalism \cite[\S1]{Milne2025TannakianOrigins}, which provides a general framework for what was discussed in \cref{subsec:complex-local-systems} and \cref{subsec:ell-adic-local-systems}.
 
-\begin{definition}[Neutral Tannakian Category]A \textit{neutral tannakian category} $\mathsf{C}$ over $k:\mathsf{Field}$ is a rigid symmetric monoidal abelian $k$-linear category, equipped with an exact faithful $k$-linear symmetric monoidal functor called the \textit{fibre functor}
-  $$\omega:\mathsf{C}\rightarrow \mathsf{Vect}_k^{\mathrm{fin}}$$
-  and is such that the scalar map $k\xrightarrow{\sim}\mathrm{End}(\mathbf 1)$ is isomorphic. 
+\begin{definition}[Neutral Tannakian Category]A \textit{neutral tannakian category} $\mathsf{C}$ over $\Lambda:\mathsf{Field}$ is a rigid symmetric monoidal abelian $\Lambda$-linear category, equipped with an exact faithful $\Lambda$-linear symmetric monoidal functor called the \textit{fibre functor}
+  $$\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$$
+  and is such that the scalar map $\Lambda\xrightarrow{\sim}\mathrm{End}(\mathbf 1)$ is an isomorphism. 
 \end{definition}
 
-Let $\Lambda:\mathsf{Ring}^{\mathrm{top}}$ be one of $\mathbb C$, $\mathbb Q_\ell$, or $\mathbb F_\ell$  with $\ell\ne \mathrm{char}(k)$ for $k:\mathsf{Field}$. 
-The category $\mathsf{LocSys}_{\Lambda}(U)$ of local systems or lisse sheaves on $U$, a complex manifold or smooth variety over $k$, is a neutral tannakian category. 
-Moreover, it has fibre functor
-$$\omega_{u_0}:\mathsf{LocSys}_{\Lambda}(U)\rightarrow \mathsf{Vect}_{k}^{\mathrm{fin}},\qquad \mathcal F\mapsto \mathcal F_{u_0}$$
-at a base point $u_0:U$. 
+Let $\Lambda:\mathsf{Field}$ be one of $\mathbb C$, $\mathbb Q_\ell$, or $\mathbb F_\ell$  with $\ell\ne \mathrm{char}(k)$ for $k:\mathsf{Field}$, then
+the category $\mathsf{LocSys}_{\Lambda}(U)$ of local systems or lisse sheaves on $U:\mathsf{Man}_{\mathbb C}$ or $U:\mathsf{Var}_{k}$ is a neutral tannakian category. 
+Its fibre functor is 
+$$\omega_{u_0}:\mathsf{LocSys}_{\Lambda}(U)\rightarrow \mathsf{Vect}_{\Lambda}^{\mathrm{fin}},\qquad \mathcal F\mapsto \mathcal F_{u_0}$$
+at a base point $u_0:U$ or geometric point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$. 
 
 
-\begin{definition}Let $\mathsf C$ be a neutral Tannakian category over a $k:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_k^{\mathrm{fin}}$, then its \textit{Tannakian group} is the affine group scheme $G:\mathsf{Alg}_k\rightarrow\mathsf{Grp}$
-  $$G(R)=\mathrm{Aut}^{\otimes}(\omega_R),\qquad \omega_R(\mathcal F):=\omega(\mathcal F)\otimes_k R,\qquad {\mathcal F:\mathsf C}$$
-  where $\mathrm{Aut}^\otimes$ denotes the automorphisms compatible with tensor products and the tensor unit. 
-  Moreover, the \textit{monodromy group} of $\mathcal F:\mathsf C$ is the affine group scheme $G_\mathcal{F}:\mathsf{Alg}_k\rightarrow\mathsf{Grp}$
+\begin{definition}Let $\mathsf C$ be a neutral Tannakian category over $\Lambda:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$, then its \textit{Tannakian group} is the functor $G:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
+  $$G(R)=\mathrm{Aut}^{\otimes}(\omega_R),\qquad \omega_R(\mathcal F):=\omega(\mathcal F)\otimes_\Lambda R,\qquad {\mathcal F:\mathsf C}$$
+  where $\mathrm{Aut}^\otimes$ denotes the natural automorphisms compatible with tensor products and the tensor unit. 
+  Moreover, the \textit{monodromy group} of $\mathcal F:\mathsf C$ is the functor $G_\mathcal{F}:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
   $$G_{\mathcal F}(R)=\mathrm{Aut}^\otimes(\omega_R\mid_{\langle\mathcal F\rangle_\otimes})$$
   where $\langle\mathcal F\rangle_\otimes$ is the strictly full subcategory of $\mathsf C$ consisting of subquotients of finite direct sums of tensor products of $\mathcal F$ and $\mathcal F^\vee$, including the empty tensor product $\mathbf1$. 
+  We remark that this subcategory is also neutral Tannakian over the same field. 
 \end{definition}
+
+\begin{theorem}[Tannakian Reconstruction Theorem]
+  Let $\mathsf C$ be a neutral Tannakian category over $\Lambda:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$, then its Tannakian group $G:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$ is representable as an affine group scheme. Moreover $\omega$ induces a $\Lambda$-linear symmetric monoidal equivalence of categories
+  $$\mathsf{C}\simeq^{\otimes}\mathsf{Rep}^{\mathrm{alg},\mathrm{fin}}_\Lambda(G)$$
+  where the right hand side is the category of algebraic representations of an affine group scheme. 
+\end{theorem}
+
+We remark that this formalism is useful in helping to define monodromy groups in the context of the $p$-adic analogue of lisse $\ell$-adic sheaves, where monodromy representations might be unavailable; see \cite[\S2]{Crew1992Isocrystals}. 
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
 \subsection{Constructible Sheaves}
