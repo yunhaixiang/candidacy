@@ -928,16 +928,34 @@ We remark that this formalism is useful in helping to define monodromy groups in
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
 \subsection{Constructible Sheaves}
-\begin{notation}Define the collection of notations:
+
+We return to our example in \cref{par:square-root-sheaf} of the double cover, but with the origin included
+$$f:\mathbb C\rightarrow \mathbb C,\qquad z\mapsto z^2$$
+Its sheaf of sections $\mathcal F:\mathsf{Sh}(\mathbb C,\mathsf{Set})$ is no longer a local system of sets due to the ramification at $0$. 
+Indeed the fibres at $0$ have cardinality $1$ where the fibres at a nonzero point have cardinality $2$. 
+However, we can stratify the space $\mathbb C$ into 
+$$\mathbb C=\mathbb C^\times \sqcup \{0\}$$
+Then $\mathcal F$ is a local system of sets when restricted to each stratum. This is essentially the idea behind constructible sheaves, we want to allow sheaves that are not necessarily locally constant, but are locally constant when restricted to each stratum of a stratification. 
+This way, we can allow for mild failures of local constancy such as ramification. 
+
+\begin{notation}We use the following notation
 \begin{notationtable}
-  X & \mathsf{Curv}^{\mathrm{sm}}_{\C} & A smooth projective connected curve over \(\C\) \\
-  S & \mathsf{Set} & A finite nonempty subset of closed points of \(X\) \\
-  U & \mathsf{Curv}^{\mathrm{sm}}_{\C} & The open subvariety \(X\setminus S\)\\
+  \ell & \mathbb N & A prime number \\
+  k & \mathsf{Field} & A field of characteristic not $\ell$\\
+  X & \mathsf{Sch}_{\mathrm{Spec}(k)} & A Noetherian scheme over \(k\) \\
+  S & \mathsf{Set} & A finite set of closed points of \(X\) \\
+  U & \mathsf{Sch}_{\mathrm{Spec}(k)} & The complement open subscheme \(X\setminus S\)\\
   j & U\rightarrow X & The inclusion map \\
   m & \mathbb{N} & The cardinality of \(S\)\\
-  (-)^{\mathrm{an}} & \mathsf{Curv}^{\mathrm{sm}}_{\C}\to\mathsf{Riem} & The complex analytification functor
 \end{notationtable}
 \end{notation}
+\begin{definition}[Stratification]
+  A \textit{stratification} of $X$ is a family of nonempty locally closed subscheme $i_\alpha:X_{\alpha}\hookrightarrow X$ indexed by some $i: I$ such that 
+  \begin{enumerate}
+    \item $X_\alpha\times_X X_\beta =\emptyset$, for $\alpha,\beta:I$ with $\alpha\ne \beta$,
+    \item the induced map $\coprod_{\alpha : I}X_\alpha\rightarrow X$ is surjective. 
+  \end{enumerate}
+\end{definition}
 \begin{definition}[Algebraically Constructible Sheaves]
 \end{definition}
 
