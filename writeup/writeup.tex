@@ -943,6 +943,7 @@ This way, we can allow for mild failures of local constancy such as ramification
   \ell & \mathbb N & A prime with $\ell\ne \mathrm{char}(k)$ \\
   \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of \(\mathbb Z_\ell\), \(\mathbb Q_\ell\), or \(\mathbb Z/\ell^n\mathbb Z\) for \(n:\mathbb N\) \\
   X,Y & \mathsf{Sch}_{\mathrm{Spec}(k)} & Separated schemes of finite type over \(k\) \\
+  \pi & X\to\mathrm{Spec}(k) & The structure morphism \\
   S & \mathsf{Set} & A finite set of closed points of \(X\) \\
   U & \mathsf{Sch}_{\mathrm{Spec}(k)} & The complement open subscheme \(X\setminus S\)\\
   j & U\hookrightarrow X & The inclusion map \\
@@ -970,10 +971,9 @@ $$
   0, & u=0,
 \end{cases}
 \qquad u:\mathbb C,
-$$
-where $j_!$ is called the compactly-supported pushforward of the inclusion $j: U\hookrightarrow X$.  
+$$ 
 
-\begin{definition}[Compactly-Supported Pushforward]
+\begin{definition}[Compactly-supported Pushforward]
 Let $f:X\to Y$ be a morphism. 
 For a constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm{c}}(X,\Lambda)$, we define the \textit{compactly-supported pushforward} $f_!\mathcal F:\mathsf{Sh}_{\mathrm{c}}(Y,\Lambda)$ along $f$, for each coefficient $\Lambda$ as follows.
 \begin{enumerate}
@@ -987,6 +987,11 @@ $$
   \item For $\Lambda=\mathbb Z_\ell$, write $\mathcal F=(\mathcal F_n)_n$ and define $f_!\mathcal F$ by applying \cref{para:clunkiness} to $(f_!\mathcal F_n)_n$,
   \item For $\Lambda=\mathbb Q_\ell$, let $\mathcal L:\mathsf{Sh}(X,\mathbb Z_\ell)$ with $\mathcal F\cong\mathcal L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$, and set $f_!\mathcal F:=(f_!\mathcal L)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$. 
 \end{enumerate}
+Define the \textit{compactly-supported sections} of $\mathcal F$
+$$
+\Gamma_c(X,\mathcal F):=\Gamma(\mathrm{Spec}(k),\pi_!\mathcal F):\mathsf{Mod}_{\Lambda}
+$$
+If $f$ is proper then $f_!=f_*$ and $\Gamma_c(X,-)=\Gamma(X,-)$. 
 \end{definition}
 
 In the case of the inclusion $j:U\hookrightarrow X$, for $\mathcal F:\mathsf{Sh}_{\mathrm{c}}(U,\Lambda)$ we have
