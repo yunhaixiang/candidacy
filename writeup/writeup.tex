@@ -535,25 +535,14 @@ a(\widetilde u\cdot g)=\rho(g)^{-1}a(\widetilde u)
 where the last identification is given by $s(q(\widetilde{u}))=[\widetilde{u},a(\widetilde{u})]$ for every $\widetilde{u}:q^{-1}(V)$. 
 \footnotetext{Continuity alone suffices: since $f_\rho$ is a local biholomorphism, every continuous section is locally a holomorphic inverse of $f_\rho$, and hence is holomorphic.}
 
-\begin{definition}[Linear Étale Cover]\label{def:linear-etale-cover}
-Let $U:\mathsf{Man}_{\mathbb C}$ be connected.
-A \textit{linear étale cover} of $U$ is a complex manifold $E:\mathsf{Man}_{\mathbb C}$ equipped with a holomorphic covering map $f:E\to U$ and a finite-dimensional complex vector-space structure on each fibre, such that every $u:U$ has an open neighbourhood $V:\mathsf{Open}(U)$ and a biholomorphism over $V$
-\[
-\varphi_V:f^{-1}(V)\xrightarrow{\sim}V\times W_{\mathrm{disc}}
-\]
-which is linear on each fibre, for some $W:\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}}$ with $W_{\mathrm{disc}}$ given the discrete topology.
-Denote by $\mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)$ the category of these covers, with fibrewise linear holomorphic maps over $U$ as morphisms.
-\end{definition}
-
-\parlabel{par:complex-monodromy-equivalence}For each $U:\mathsf{Man}_{\mathbb C}$ and $u_0:U$, there are equivalences of categories \cite[\S~7.2]{MacPherson1990}
+\parlabel{par:complex-monodromy-equivalence}From \cref{par:representation-local-system}, we see that for each $U:\mathsf{Man}_{\mathbb C}$ and $u_0:U$, there are symmetric monoidal $\mathbb C$-linear equivalences of categories \cite[\S~7.2]{MacPherson1990}
 \[
 \begin{aligned}
-\mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)
-\simeq\mathsf{LocSys}_{\mathbb C}(U)
+\mathsf{LocSys}_{\mathbb C}(U)
 \simeq^{\otimes}\mathsf{Rep}_{\mathbb C}^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{top}}(U,u_0)\bigr).
 \end{aligned}
 \]
-Moreover, the last equivalence is of symmetric monoidal $\mathbb C$-linear categories.
+The category of linear étale covers from \cref{app:linear-etale-cover} is also equivalent to both. 
 
 
 \begin{example}\label{ex:complex-smooth-proper-families}A rich source of local systems is smooth and proper families. Let
@@ -620,135 +609,10 @@ In addition, the Tate module also contains information about reduction types (c.
   Denote by $\mathsf{LocSys}_{\mathbb Q_\ell}(U)$ the (symmetric monoidal $\mathbb Q_\ell$-linear) full subcategory of lisse sheaves of $\mathsf{Sh}(U,\mathbb Q_\ell)$. 
 \end{definition}
 
-\parlabel{para:clunkiness}Many common sheaf constructions for integral $\ell$-adic sheaves can be taken level-wise such as pullbacks, direct sums, and tensor products, but unfortunately there are also many common sheaf constructions that require corrections, since an operation could produce a family $\mathcal A$ that does not satisfy 
-$$\mathcal A_{n+1}/\ell^n \mathcal A_{n+1}\cong \mathcal A_n$$
-Whenever such a representative exists, we replace the family with an object that does satisfy this condition and is isomorphic to it in the Artin–Rees category \cite[Exp.~V]{SGA5}. 
-Explicitly, we replace $\mathcal A$ with $\mathcal A^\prime$ where 
-$$\mathcal A^\prime_n=\mathcal B_N/\ell^n\mathcal B_N,\qquad\text{where}\qquad \mathcal B_n:=\bigcap_{m\ge n}\mathrm{Im}(\mathcal A_m\longrightarrow\mathcal A_n),$$
-for each $n:\mathbb N$, with $N:\mathbb N$ sufficiently large, dependent on $n$.
-Constructions that require such corrections include kernels, images, sheaf Hom, and duals. 
+Unfortunately a lot of usual sheaf theoretic constructions do not work for integral and rational $\ell$-adic sheaves and require corrections, see \cref{app:corrections}. 
+However, we note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of \textit{pro-étale sites}, allowing $\ell$-adic sheaves to be considered as bona fide sheaves on the pro-étale site $U_{\mathrm{pro\text{-}\acute{e}t}}$, which removes most of the clunkiness we had to deal with in the classical setting. 
+For this report, though, we will stick with the classical setting. 
 
-\parlabel{para:clunkiness2}Some constructions of integral $\ell$-adic sheaves require taking inverse limits. For an integral $\ell$-adic sheaf $\mathcal F$, these include:
-\begin{unnumberedparagraphs}
-\begingroup
-\small
-\setlength{\LTleft}{0pt plus 1fill}
-\setlength{\LTright}{0pt plus 1fill}
-\setlength{\LTpre}{\notationtablespace}
-\setlength{\LTpost}{\notationtablespace}
-\renewcommand{\arraystretch}{1.2}
-\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}p{0.46\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}X@{}}
-\toprule
-\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
-\midrule
-\endfirsthead
-\toprule
-\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-Geometric stalks
-  & $\displaystyle\mathcal F_{u_0}:=\varprojlim_n(\mathcal F_n)_{u_0}$
-  & $\begin{aligned}[t]
-       u_0&:\operatorname{Spec}(\Omega)\to U\\
-       \Omega&:\mathsf{Field},\ \text{separably closed}
-     \end{aligned}$ \\
-\addlinespace
-Sections
-  & $\displaystyle\Gamma(V,\mathcal F):=\varprojlim_n\Gamma(V,\mathcal F_n)$
-  & $V:U_{\mathrm{\acute{e}t}}$ \\
-\addlinespace
-Sheaf cohomology
-  & $\displaystyle\mathrm H^q(U,\mathcal F):=\varprojlim_n\mathrm H^q(U_{\mathrm{\acute{e}t}},\mathcal F_n)$
-  & $q:\mathbb N$\\
-\addlinespace
-Morphism modules
-  & $\displaystyle\mathrm{Hom}(\mathcal F,\mathcal G)\cong\varprojlim_n\mathrm{Hom}_{\mathsf{Sh}(U,\mathbb Z/\ell^n\mathbb Z)}(\mathcal F_n,\mathcal G_n)$
-  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
-\end{xltabular}
-\endgroup
-\end{unnumberedparagraphs}
-
-\parlabel{para:clunkiness3}Rational $\ell$-adic sheaves require corrections by rationalizing the integral constructions. 
-For a rational $\ell$-adic sheaf $\mathcal F_{\mathbb Q_\ell}=\mathcal F\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$ with $\mathcal F$ an integral $\ell$-adic sheaf, constructions of $\mathcal F_{\mathbb Q_\ell}$ are usually done by first applying the corresponding (corrected) constructions for $\mathcal F$, and then rationalizing. For example: 
-\begin{unnumberedparagraphs}
-\begingroup
-\small
-\setlength{\LTleft}{0pt plus 1fill}
-\setlength{\LTright}{0pt plus 1fill}
-\setlength{\LTpre}{\notationtablespace}
-\setlength{\LTpost}{\notationtablespace}
-\renewcommand{\arraystretch}{1.2}
-\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}p{0.46\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}X@{}}
-\toprule
-\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
-\midrule
-\endfirsthead
-\toprule
-\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-Geometric stalks
-  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})_{u_0}:=\mathcal F_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
-  & $\begin{aligned}[t]
-       u_0&:\operatorname{Spec}(\Omega)\to U\\
-       \Omega&:\mathsf{Field},\ \text{separably closed}
-     \end{aligned}$ \\
-\addlinespace
-Sections
-  & $\displaystyle\Gamma(V,\mathcal F_{\mathbb Q_\ell}):=\Gamma(V,\mathcal F)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
-  & $V:U_{\mathrm{\acute{e}t}}$ \\
-\addlinespace
-Sheaf cohomology
-  & $\displaystyle\mathrm H^q(U,\mathcal F_{\mathbb Q_\ell}):=\mathrm H^q(U,\mathcal F)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
-  & $q:\mathbb N$ \\
-\addlinespace
-Kernel
-  & $\displaystyle\operatorname{Ker}(f\otimes 1):=(\operatorname{Ker}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
-  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
-\addlinespace
-Image
-  & $\displaystyle\operatorname{Im}(f\otimes 1):=(\operatorname{Im}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
-  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
-\addlinespace
-Cokernel
-  & $\displaystyle\operatorname{Coker}(f\otimes 1):=(\operatorname{Coker}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
-  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
-\addlinespace
-Coimage
-  & $\displaystyle\operatorname{Coim}(f\otimes 1):=(\operatorname{Coim}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
-  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
-\addlinespace
-Pullback
-  & $\displaystyle g^*(\mathcal F_{\mathbb Q_\ell}):=(g^*\mathcal F)_{\mathbb Q_\ell}$
-  & $\begin{aligned}[t]
-       g&:V\to U\\
-       V&:\mathsf{Sch}_{\operatorname{Spec}(k)},\ \text{Noetherian}
-     \end{aligned}$ \\
-\addlinespace
-Direct sum
-  & $\displaystyle\mathcal F_{\mathbb Q_\ell}\oplus\mathcal G_{\mathbb Q_\ell}:=(\mathcal F\oplus\mathcal G)_{\mathbb Q_\ell}$
-  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
-\addlinespace
-Tensor product
-  & $\displaystyle\mathcal F_{\mathbb Q_\ell}\otimes_{\mathbb Q_\ell}\mathcal G_{\mathbb Q_\ell}:=(\mathcal F\otimes_{\mathbb Z_\ell}\mathcal G)_{\mathbb Q_\ell}$
-  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
-\addlinespace
-Sheaf Hom
-  & $\displaystyle\mathcal{H}om_{\mathbb Q_\ell}(\mathcal F_{\mathbb Q_\ell},\mathcal G_{\mathbb Q_\ell}):=(\mathcal{H}om_{\mathbb Z_\ell}(\mathcal F,\mathcal G))_{\mathbb Q_\ell}$
-  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
-\addlinespace
-Dual
-  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})^\vee:=(\mathcal F^\vee)_{\mathbb Q_\ell}$
-  & $\mathcal F^\vee:=\mathcal{H}om_{\mathbb Z_\ell}(\mathcal F,\mathbb Z_\ell)$ \\
-\end{xltabular}
-\endgroup
-\end{unnumberedparagraphs}
-
-We note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of \textit{pro-étale sites}, allowing $\ell$-adic sheaves to be considered as bona fide sheaves on the pro-étale site $U_{\mathrm{pro\text{-}\acute{e}t}}$, which removes the clunkiness we had to deal with in \cref{para:clunkiness}, \cref{para:clunkiness2}, and \cref{para:clunkiness3}. 
 
 Recall the étale fundamental group of a connected $U$ at a geometric base point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$ is the profinite group defined by the inverse limit
 $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0):=\lim_{\substack{\longleftarrow\\(X,x_0)\to(U,u_0)}}\mathrm{Aut}_U(X):\mathsf{Grp}^{\mathrm{pro}}$$
@@ -806,33 +670,15 @@ for $q:V\rightarrow U$ étale, we obtain our desired lisse sheaf $\mathcal F_\rh
 To see that $\mathcal F_\rho$ is étale-locally constant, note that pulling back by $f:Y\rightarrow U$ gives
 $$\mathcal F_\rho|_Y\cong f^*\mathcal F_\rho\cong\mathrm{Hom}_Y(-,Y\times_U E_\rho)\cong\mathrm{Hom}_Y\left(-,\coprod_{m\,:\,M}Y\right)\cong\underline{M}_Y.$$
 
-\parlabel{para:Zell}Let $\Lambda=\mathbb Z_\ell$. Given a continuous representation 
-$$\rho:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathbb Z_\ell}(M)$$ on a finitely generated $\mathbb Z_\ell$-module $M:\mathsf{Mod}_{\Lambda}^{\mathrm{top}}$ with its $\ell$-adic topology, apply \cref{par:etale-representation-local-system} to the induced representations $\rho_n$ on $M_n:=M/\ell^nM$ for $n\ge1$, obtaining sheaves $\mathcal F_n$. 
-The reductions $M_{n+1}\twoheadrightarrow M_n$ are equivariant, and, by Grothendieck's Galois theory, they induce transition maps $r_n:\mathcal F_{n+1}\rightarrow\mathcal F_n$ satisfying
-$$\mathcal F_{n+1}/\ell^n\mathcal F_{n+1}\cong\mathcal F_n,$$
-Thus we obtain the integral lisse $\ell$-adic sheaf $\mathcal F$. 
-Conversely, for a lisse sheaf $\mathcal F$, the stalk $\mathcal F_{u_0}$ has a natural $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-action by taking the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-action with the induce map on each level, and assembling them together. 
-
-\parlabel{para:Qell}Let $\Lambda=\mathbb Q_\ell$. Given a continuous representation $\rho:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathbb Q_\ell}(M)$ on a finite-dimensional $\mathbb Q_\ell$-vector space $M$, choose a $\rho$-stable $\mathbb Z_\ell$-lattice $L\subset M$, which exists because the image of $\rho$ is compact \cite[Part~II, Ch.~IV, Appendix~1, Theorem~1]{Serre1992Lie}. Apply \cref{para:Zell} to the action on $L$, obtaining an integral lisse sheaf $\mathcal F_L$, and set $\mathcal F_\rho:=\mathcal F_L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$.
-Conversely, choose an integral lisse model $\mathcal G$ of a rational lisse sheaf $\mathcal F\cong\mathcal G\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$. Extend the stalk action from \cref{para:Zell} by scalars:
-$$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad \rho_{\mathcal F}(\gamma):=\rho_{\mathcal G}(\gamma)\otimes\mathrm{id}_{\mathbb Q_\ell}.$$
-
+The case for $\Lambda=\mathbb Z_\ell$ is achieved by applying the construction for $\Lambda=\mathbb Z/\ell^n\mathbb Z$ and assembling each $n:\mathbb N$, and the case for $\Lambda=\mathbb Q_\ell$ is by rationalizing, see \cref{para:Zell} and \cref{para:Qell}.
 
 \begin{example}[Lisse Sheaves from Torsors]\label{ex:torsor}
   Given a finite group $G:\mathsf{Grp}^{\mathrm{fin}}$, a finitely generated $\Lambda$-module $M:\mathsf{Mod}^{\mathrm{top}}_{\Lambda}$, a continuous representation $\rho:G\rightarrow\mathrm{Aut}_\Lambda(M)$ with $G$ given the discrete topology, and a finite étale right $G$-torsor $f:Y\rightarrow U$, we construct a local system $\mathcal L_\rho:\mathsf{LocSys}_\Lambda(U)$ by following the same procedure in \cref{par:etale-representation-local-system}, \cref{para:Zell}, and \cref{para:Qell}. 
-  In other words, the following. 
-  \begin{enumerate}
-  \item For $\Lambda=\mathbb Z/\ell^n\mathbb Z$, as in \cref{par:etale-representation-local-system}, form the cover 
+  For $\Lambda=\mathbb Z/\ell^n\mathbb Z$, as in \cref{par:etale-representation-local-system}, form the cover 
   $$E_\rho:=Y\times^G M=\left.\left(Y\times_U M_U\right)\middle/G\right.\xlongrightarrow{p}U,$$
   where $M_U:=(\coprod_{m\,:\,M}U\rightarrow U):\mathsf{Sch}_U$ and $G$ acts by $(y,m)\cdot g=(yg,\rho(g)^{-1}m)$, then take the sheaf of sections to obtain the lisse sheaf
   $$\mathcal L_\rho:=\mathrm{Hom}_U(-,E_\rho):\mathsf{LocSys}_\Lambda(U).$$
-  
-  \item For $\Lambda=\mathbb Z_\ell$, as in \cref{para:Zell}, apply the finite-coefficient construction to $M_n:=M/\ell^nM$ with its induced $G$-action to obtain $\mathcal L_n$. The $G$-equivariant reductions $M_{n+1}\twoheadrightarrow M_n$ induce maps of associated covers and hence transition maps $r_n:\mathcal L_{n+1}\rightarrow\mathcal L_n$ by composition of sections. These satisfy $\mathcal L_{n+1}/\ell^n\mathcal L_{n+1}\cong\mathcal L_n$, giving
-  $\mathcal L_\rho:\mathsf{LocSys}_{\mathbb Z_\ell}(U).$
-
-  \item For $\Lambda=\mathbb Q_\ell$, as in \cref{para:Qell}, choose a $G$-stable $\mathbb Z_\ell$-lattice $L\subset M$ and apply the integral construction $L$ to obtain $\mathcal L_L$, then rationalize:
-  $\mathcal L_\rho:=\mathcal L_L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell:\mathsf{LocSys}_{\mathbb Q_\ell}(U).$
-  \end{enumerate}
+  Assembling and rationalizing gives the cases $\Lambda=\mathbb Z_\ell$ (see \cref{para:Zelltorsor}) and $\Lambda=\mathbb Q_\ell$ (see \cref{para:Qelltorsor}). 
 \end{example}
 
 \begin{example}We give some concrete examples of \cref{ex:torsor}. 
@@ -848,16 +694,8 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
     Choose a (additive) character $\psi:\mathbb F_p\rightarrow M^\times$; then we get the representation
     $$\rho_\psi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\psi(a)(m):=\psi(a)m.$$
     The lisse sheaf we obtain from these data, denoted $\mathcal L_\psi$, is the \textit{Artin--Schreier sheaf} of $\psi$. 
-    \item We can generalize the above. 
-    Let $k=\mathbb F_q$ and $H/k$ a smooth connected commutative algebraic group with $q$-power Frobenius $F:H\rightarrow H$. 
-    Let $Y=U=H$ and $G=H(\mathbb F_q)$. By Lang's theorem, there is a $G$-torsor 
-    $$f:H\rightarrow H,\qquad h\mapsto F(h)h^{-1}$$
-    with action given by right multiplication $h\cdot g=hg$ for $g:G$.
-    Let $K/\mathbb Q_\ell$ be a finite field extension, and let $M=K$ if $\Lambda=\mathbb Q_\ell$, $M=\mathcal O_K$ if $\Lambda=\mathbb Z_\ell$, and $M=\mathcal O_K/\ell^n\mathcal O_K$ if $\Lambda=\mathbb Z/\ell^n\mathbb Z$.
-    Choose a character $\chi:G\rightarrow M^\times$; then we get the representation
-    $$\rho_\chi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\chi(g)(m):=\chi(g)m.$$
-    The lisse sheaf we obtain from these data, denoted $\mathcal L_\chi$, is the \textit{Lang sheaf} of $\chi$.
   \end{enumerate}
+  Lang sheaves generalize both Kummer and Artin--Schreier sheaves; see \cref{app:lang-sheaves}.
 \end{example}
 
 \begin{example}[Tate Twists]
@@ -1005,7 +843,7 @@ $$
 $$
 for $x:\mathrm{Spec}(\Omega)\rightarrow X$ a geometric point. We call $j_!\mathcal F$ the \textit{extension by zero} of $\mathcal F$.
 
-\begin{lemma}Canonical exact sequence
+\begin{lemma}Canonical exact sequence for constructible sheaves. 
 \end{lemma}
 
 Euler–Poincaré
@@ -1169,8 +1007,198 @@ See \cite[Theorem~3.6.3 and Remark~3.6.4]{Szamuely2009}.
 \end{proof}
 \fi
 
+\subsection{Linear Étale Cover}\label{app:linear-etale-cover}
+
+\begin{definition}[Linear Étale Cover]\label{def:linear-etale-cover}
+Let $U:\mathsf{Man}_{\mathbb C}$ be connected.
+A \textit{linear étale cover} of $U$ is a complex manifold $E:\mathsf{Man}_{\mathbb C}$ equipped with a holomorphic covering map $f:E\to U$ and a finite-dimensional complex vector-space structure on each fibre, such that every $u:U$ has an open neighbourhood $V:\mathsf{Open}(U)$ and a biholomorphism over $V$
+\[
+\varphi_V:f^{-1}(V)\xrightarrow{\sim}V\times W_{\mathrm{disc}}
+\]
+which is linear on each fibre, for some $W:\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}}$ with $W_{\mathrm{disc}}$ given the discrete topology.
+Denote by $\mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)$ the category of these covers, with fibrewise linear holomorphic maps over $U$ as morphisms.
+\end{definition}
+
+Taking the sheaf of sections gives an equivalence
+\[
+\mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)
+\simeq
+\mathsf{LocSys}_{\mathbb C}(U),
+\qquad
+(E\xrightarrow{f}U)\longmapsto
+\bigl(V\longmapsto\operatorname{Hom}_U(V,E)\bigr).
+\]
+The inverse sends a local system to its espace étalé, as in \cref{par:local-system-etale-space}.
+
+\subsection{\texorpdfstring{$\ell$}{l}-adic Corrections: General Constructions}\label{app:corrections}
+
+\parlabel{para:clunkiness}Many common sheaf constructions for integral $\ell$-adic sheaves can be taken level-wise such as pullbacks, direct sums, and tensor products, but unfortunately there are also many common sheaf constructions that require corrections, since an operation could produce a family $\mathcal A$ that does not satisfy 
+$$\mathcal A_{n+1}/\ell^n \mathcal A_{n+1}\cong \mathcal A_n$$
+Whenever such a representative exists, we replace the family with an object that does satisfy this condition and is isomorphic to it in the Artin–Rees category \cite[Exp.~V]{SGA5}. 
+Explicitly, we replace $\mathcal A$ with $\mathcal A^\prime$ where 
+$$\mathcal A^\prime_n=\mathcal B_N/\ell^n\mathcal B_N,\qquad\text{where}\qquad \mathcal B_n:=\bigcap_{m\ge n}\mathrm{Im}(\mathcal A_m\longrightarrow\mathcal A_n),$$
+for each $n:\mathbb N$, with $N:\mathbb N$ sufficiently large, dependent on $n$.
+Constructions that require such corrections include kernels, images, sheaf Hom, and duals. 
+
+\parlabel{para:clunkiness2}Some constructions of integral $\ell$-adic sheaves require taking inverse limits. For an integral $\ell$-adic sheaf $\mathcal F$, these include:
+\begin{unnumberedparagraphs}
+\begingroup
+\small
+\setlength{\LTleft}{0pt plus 1fill}
+\setlength{\LTright}{0pt plus 1fill}
+\setlength{\LTpre}{\notationtablespace}
+\setlength{\LTpost}{\notationtablespace}
+\renewcommand{\arraystretch}{1.2}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}p{0.46\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Geometric stalks
+  & $\displaystyle\mathcal F_{u_0}:=\varprojlim_n(\mathcal F_n)_{u_0}$
+  & $\begin{aligned}[t]
+       u_0&:\operatorname{Spec}(\Omega)\to U\\
+       \Omega&:\mathsf{Field},\ \text{separably closed}
+     \end{aligned}$ \\
+\addlinespace
+Sections
+  & $\displaystyle\Gamma(V,\mathcal F):=\varprojlim_n\Gamma(V,\mathcal F_n)$
+  & $V:U_{\mathrm{\acute{e}t}}$ \\
+\addlinespace
+Sheaf cohomology
+  & $\displaystyle\mathrm H^q(U,\mathcal F):=\varprojlim_n\mathrm H^q(U_{\mathrm{\acute{e}t}},\mathcal F_n)$
+  & $q:\mathbb N$\\
+\addlinespace
+Morphism modules
+  & $\displaystyle\mathrm{Hom}(\mathcal F,\mathcal G)\cong\varprojlim_n\mathrm{Hom}_{\mathsf{Sh}(U,\mathbb Z/\ell^n\mathbb Z)}(\mathcal F_n,\mathcal G_n)$
+  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\end{xltabular}
+\endgroup
+\end{unnumberedparagraphs}
+
+\parlabel{para:clunkiness3}Rational $\ell$-adic sheaves require corrections by rationalizing the integral constructions. 
+For a rational $\ell$-adic sheaf $\mathcal F_{\mathbb Q_\ell}=\mathcal F\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$ with $\mathcal F$ an integral $\ell$-adic sheaf, constructions of $\mathcal F_{\mathbb Q_\ell}$ are usually done by first applying the corresponding (corrected) constructions for $\mathcal F$, and then rationalizing. For example: 
+\begin{unnumberedparagraphs}
+\begingroup
+\small
+\setlength{\LTleft}{0pt plus 1fill}
+\setlength{\LTright}{0pt plus 1fill}
+\setlength{\LTpre}{\notationtablespace}
+\setlength{\LTpost}{\notationtablespace}
+\renewcommand{\arraystretch}{1.2}
+\begin{xltabular}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}p{0.46\linewidth}@{\hspace{1em}}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Assumptions} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Geometric stalks
+  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})_{u_0}:=\mathcal F_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $\begin{aligned}[t]
+       u_0&:\operatorname{Spec}(\Omega)\to U\\
+       \Omega&:\mathsf{Field},\ \text{separably closed}
+     \end{aligned}$ \\
+\addlinespace
+Sections
+  & $\displaystyle\Gamma(V,\mathcal F_{\mathbb Q_\ell}):=\Gamma(V,\mathcal F)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $V:U_{\mathrm{\acute{e}t}}$ \\
+\addlinespace
+Sheaf cohomology
+  & $\displaystyle\mathrm H^q(U,\mathcal F_{\mathbb Q_\ell}):=\mathrm H^q(U,\mathcal F)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $q:\mathbb N$ \\
+\addlinespace
+Kernel
+  & $\displaystyle\operatorname{Ker}(f\otimes 1):=(\operatorname{Ker}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Image
+  & $\displaystyle\operatorname{Im}(f\otimes 1):=(\operatorname{Im}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Cokernel
+  & $\displaystyle\operatorname{Coker}(f\otimes 1):=(\operatorname{Coker}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Coimage
+  & $\displaystyle\operatorname{Coim}(f\otimes 1):=(\operatorname{Coim}f)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
+  & $f:\mathcal F\to\mathcal G$ in $\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Pullback
+  & $\displaystyle g^*(\mathcal F_{\mathbb Q_\ell}):=(g^*\mathcal F)_{\mathbb Q_\ell}$
+  & $\begin{aligned}[t]
+       g&:V\to U\\
+       V&:\mathsf{Sch}_{\operatorname{Spec}(k)},\ \text{Noetherian}
+     \end{aligned}$ \\
+\addlinespace
+Direct sum
+  & $\displaystyle\mathcal F_{\mathbb Q_\ell}\oplus\mathcal G_{\mathbb Q_\ell}:=(\mathcal F\oplus\mathcal G)_{\mathbb Q_\ell}$
+  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Tensor product
+  & $\displaystyle\mathcal F_{\mathbb Q_\ell}\otimes_{\mathbb Q_\ell}\mathcal G_{\mathbb Q_\ell}:=(\mathcal F\otimes_{\mathbb Z_\ell}\mathcal G)_{\mathbb Q_\ell}$
+  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Sheaf Hom
+  & $\displaystyle\mathcal{H}om_{\mathbb Q_\ell}(\mathcal F_{\mathbb Q_\ell},\mathcal G_{\mathbb Q_\ell}):=(\mathcal{H}om_{\mathbb Z_\ell}(\mathcal F,\mathcal G))_{\mathbb Q_\ell}$
+  & $\mathcal G:\mathsf{Sh}(U,\mathbb Z_\ell)$ \\
+\addlinespace
+Dual
+  & $\displaystyle(\mathcal F_{\mathbb Q_\ell})^\vee:=(\mathcal F^\vee)_{\mathbb Q_\ell}$
+  & $\mathcal F^\vee:=\mathcal{H}om_{\mathbb Z_\ell}(\mathcal F,\mathbb Z_\ell)$ \\
+\end{xltabular}
+\endgroup
+\end{unnumberedparagraphs}
+
+\subsection{\texorpdfstring{$\ell$}{l}-adic Corrections: Lisse Sheaves}
+
+\parlabel{para:Zell}Let $\Lambda=\mathbb Z_\ell$. 
+Given a continuous representation 
+$$\rho:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathbb Z_\ell}(M)$$ on a finitely generated $\mathbb Z_\ell$-module $M:\mathsf{Mod}_{\Lambda}^{\mathrm{top}}$ with its $\ell$-adic topology, apply \cref{par:etale-representation-local-system} to the induced representations $\rho_n$ on $M_n:=M/\ell^nM$ for $n\ge1$, obtaining sheaves $\mathcal F_n$. 
+The reductions $M_{n+1}\twoheadrightarrow M_n$ are equivariant, and, by Grothendieck's Galois theory, they induce transition maps $r_n:\mathcal F_{n+1}\rightarrow\mathcal F_n$ satisfying
+$$\mathcal F_{n+1}/\ell^n\mathcal F_{n+1}\cong\mathcal F_n,$$
+Thus we obtain the integral lisse $\ell$-adic sheaf $\mathcal F$. 
+Conversely, for a lisse sheaf $\mathcal F$, the stalk $\mathcal F_{u_0}$ has a natural $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-action by taking the $\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$-action with the induce map on each level, and assembling them together. 
+
+\parlabel{para:Qell}Let $\Lambda=\mathbb Q_\ell$. 
+Given a continuous representation $\rho:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathbb Q_\ell}(M)$ on a finite-dimensional $\mathbb Q_\ell$-vector space $M$, choose a $\rho$-stable $\mathbb Z_\ell$-lattice $L\subset M$, which exists because the image of $\rho$ is compact \cite[Part~II, Ch.~IV, Appendix~1, Theorem~1]{Serre1992Lie}. Apply \cref{para:Zell} to the action on $L$, obtaining an integral lisse sheaf $\mathcal F_L$, and set $\mathcal F_\rho:=\mathcal F_L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$.
+Conversely, choose an integral lisse model $\mathcal G$ of a rational lisse sheaf $\mathcal F\cong\mathcal G\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$. Extend the stalk action from \cref{para:Zell} by scalars:
+$$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad \rho_{\mathcal F}(\gamma):=\rho_{\mathcal G}(\gamma)\otimes\mathrm{id}_{\mathbb Q_\ell}.$$
+
+\subsection{\texorpdfstring{$\ell$}{l}-adic Corrections: Lisse Sheaves from Torsors}
+
+\parlabel{para:Zelltorsor}For $\Lambda=\mathbb Z_\ell$, as in \cref{para:Zell}, apply the finite-coefficient construction to $M_n:=M/\ell^nM$ with its induced $G$-action to obtain $\mathcal L_n$. The $G$-equivariant reductions $M_{n+1}\twoheadrightarrow M_n$ induce maps of associated covers and hence transition maps $r_n:\mathcal L_{n+1}\rightarrow\mathcal L_n$ by composition of sections. These satisfy $\mathcal L_{n+1}/\ell^n\mathcal L_{n+1}\cong\mathcal L_n$, giving $\mathcal L_\rho:\mathsf{LocSys}_{\mathbb Z_\ell}(U).$
+
+\parlabel{para:Qelltorsor}For $\Lambda=\mathbb Q_\ell$, as in \cref{para:Qell}, choose a $G$-stable $\mathbb Z_\ell$-lattice $L\subset M$ and apply the integral construction $L$ to obtain $\mathcal L_L$, then rationalize:
+  $\mathcal L_\rho:=\mathcal L_L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell:\mathsf{LocSys}_{\mathbb Q_\ell}(U).$
+
+\subsection{Lang Sheaves}\label{app:lang-sheaves}
+
+Let $k=\mathbb F_q$ and $H/k$ a smooth connected commutative algebraic group with $q$-power Frobenius $F:H\rightarrow H$.
+Let $Y=U=H$ and $G=H(\mathbb F_q)$. By Lang's theorem, there is a $G$-torsor
+$$f:H\rightarrow H,\qquad h\mapsto F(h)h^{-1}$$
+with action given by right multiplication $h\cdot g=hg$ for $g:G$.
+Let $K/\mathbb Q_\ell$ be a finite field extension, and let $M=K$ if $\Lambda=\mathbb Q_\ell$, $M=\mathcal O_K$ if $\Lambda=\mathbb Z_\ell$, and $M=\mathcal O_K/\ell^n\mathcal O_K$ if $\Lambda=\mathbb Z/\ell^n\mathbb Z$.
+Choose a character $\chi:G\rightarrow M^\times$; then we get the representation
+$$\rho_\chi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\chi(g)(m):=\chi(g)m.$$
+The lisse sheaf we obtain from these data, denoted $\mathcal L_\chi$, is the \textit{Lang sheaf} of $\chi$.
+
 \subsection{Grothendieck's Galois Theory}\label{app:grothendieck-galois-theory}
 % To be completed: the correspondence between finite étale covers and finite continuous fundamental-group sets.
+
+
+
+
 
 % Bibliography entries live in references.bib.
 \bibliographystyle{alpha}
