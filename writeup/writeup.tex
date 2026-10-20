@@ -375,7 +375,6 @@ suggesting writing advices;
 answering mathematical questions from the author;
 translating reading materials in French into English; 
 retypesetting old references with archaic typesettings for ease of reading;
-generating the TikZ figure \cref{fig:surface-fundamental-group-generators};
 providing emotional support for the author;
 providing fitness advice to help the author stay healthy and energetic while working on his candidacy exam.
 \end{custom}
@@ -961,10 +960,16 @@ This way, we can allow for mild failures of local constancy such as ramification
   A \textit{(algebraically) constructible} sheaf on $X$ is a sheaf $\mathcal F:\mathsf{Sh}(X,\Lambda)$ such that there exists a stratification $i_{\alpha}:X_{\alpha}\rightarrow X$ indexed by $\alpha:I$ with the restriction $\mathcal F|_{X_{\alpha}}$ lisse for all $\alpha:I$. 
 \end{definition}
 
-In the situation in \cref{par:revisit}, suppose we have $\mathcal F:\mathsf{LocSys}_{\mathbb C}(\mathbb C^\times)$ that we wish to generalize to the whole space $\mathbb C$. 
-The simplest way to do so is to set 
-$$j_{!}\mathcal F$$
-where $j:\mathbb C^\times\hookrightarrow C$ is the inclusion. 
+In the situation in \cref{par:revisit}, suppose we have $\mathcal F:\mathsf{LocSys}_{\mathbb C}(\mathbb C^\times)$ that we wish to extend to a constructible sheaf on the whole space $\mathbb C$ in the simplest way. One way to do so is set
+$$
+(j_{!}\mathcal F)_u\cong
+\begin{cases}
+  \mathcal F_u, & u\ne 0,\\
+  0, & u=0,
+\end{cases}
+\qquad u:\mathbb C,
+$$
+where $j:\mathbb C^\times\hookrightarrow\mathbb C$ denotes the inclusion. 
 
 \begin{definition}[Extension by Zero]
 \end{definition}
@@ -1000,6 +1005,8 @@ verdier duality
 \section*{Appendix}
 \addcontentsline{toc}{section}{Appendix}
 
+% Hidden for now; retain the subsection and figure for possible reuse.
+\iffalse
 \subsection{Fundamental Groups of Punctured Riemann Surfaces}\label{app:surface-fundamental-groups}
 
 \begin{proposition}\label{prop:surface-fundamental-group}
@@ -1132,6 +1139,7 @@ where $[a,b]:=aba^{-1}b^{-1}$, and the generators are:
 \begin{proof}
 See \cite[Theorem~3.6.3 and Remark~3.6.4]{Szamuely2009}.
 \end{proof}
+\fi
 
 \subsection{Grothendieck's Galois Theory}\label{app:grothendieck-galois-theory}
 % To be completed: the correspondence between finite étale covers and finite continuous fundamental-group sets.
