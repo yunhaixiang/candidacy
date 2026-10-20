@@ -477,7 +477,7 @@ called a \textit{local trivialization} at $u$, for some $n:\mathbb N$ called the
 Denote by $\mathsf{LocSys}_{\mathbb C}(U)$ the (symmetric monoidal $\mathbb C$-linear) category of complex local systems on $U$. 
 \end{definition}
 \begin{definition}[Transport]\label{def:complex-transport}
-Let $\mathcal F$ be a complex local system of rank $n$ on a connected $U:\mathsf{Man}_{\mathbb C}$. We define the \textit{transport functor} using analytic continuation (see Appendix \cref{par:analytic-continuation})
+Let $\mathcal F$ be a complex local system of rank $n$ on a connected $U:\mathsf{Man}_{\mathbb C}$. We define the \textit{transport functor} using analytic continuation
 \[
 T:\Pi_1(U)\rightarrow\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}},\qquad u\mapsto\mathcal F_u,\qquad [\gamma]\mapsto T_\gamma.
 \]
@@ -927,9 +927,9 @@ at a base point $u_0:U$ or geometric point $u_0:\mathrm{Spec}(\Omega)\rightarrow
 We remark that this formalism is useful in helping to define monodromy groups in the context of the $p$-adic analogue of lisse $\ell$-adic sheaves, where monodromy representations might be unavailable; see \cite[\S2]{Crew1992Isocrystals}. 
 
 \section{Perverse Sheaves and Middle Convolution}\label{sec:perverse-sheaves}
-\subsection{Constructible Sheaves}
+\subsection{Constructible Sheaves and Compact Support}
 
-We return to our example in \cref{par:square-root-sheaf} of the double cover, but with the origin included
+\label{par:revisit}We return to our example in \cref{par:square-root-sheaf} of the double cover, but with the origin included
 $$f:\mathbb C\rightarrow \mathbb C,\qquad z\mapsto z^2$$
 Its sheaf of sections $\mathcal F:\mathsf{Sh}(\mathbb C,\mathsf{Set})$ is no longer a local system of sets due to the ramification at $0$. 
 Indeed the fibres at $0$ have cardinality $1$ where the fibres at a nonzero point have cardinality $2$. 
@@ -940,8 +940,9 @@ This way, we can allow for mild failures of local constancy such as ramification
 
 \begin{notation}We use the following notation
 \begin{notationtable}
-  \ell & \mathbb N & A prime number \\
-  k & \mathsf{Field} & A field of characteristic not $\ell$\\
+  k & \mathsf{Field} & A field \\
+  \ell & \mathbb N & A prime with $\ell\ne \mathrm{char}(k)$ \\
+  \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of \(\mathbb Z_\ell\), \(\mathbb Q_\ell\), or \(\mathbb Z/\ell^n\mathbb Z\) for \(n:\mathbb N\) \\
   X & \mathsf{Sch}_{\mathrm{Spec}(k)} & A Noetherian scheme over \(k\) \\
   S & \mathsf{Set} & A finite set of closed points of \(X\) \\
   U & \mathsf{Sch}_{\mathrm{Spec}(k)} & The complement open subscheme \(X\setminus S\)\\
@@ -950,23 +951,45 @@ This way, we can allow for mild failures of local constancy such as ramification
 \end{notationtable}
 \end{notation}
 \begin{definition}[Stratification]
-  A \textit{stratification} of $X$ is a family of nonempty locally closed subscheme $i_\alpha:X_{\alpha}\hookrightarrow X$ indexed by some $i: I$ such that 
+  A \textit{stratification} of $X$ is a finite family of nonempty locally closed subschemes $i_\alpha:X_{\alpha}\hookrightarrow X$ indexed by $\alpha: I$ such that they are 
   \begin{enumerate}
-    \item $X_\alpha\times_X X_\beta =\emptyset$, for $\alpha,\beta:I$ with $\alpha\ne \beta$,
-    \item the induced map $\coprod_{\alpha : I}X_\alpha\rightarrow X$ is surjective. 
+    \item disjoint: $X_\alpha\times_X X_\beta =\emptyset$, for $\alpha,\beta:I$ with $\alpha\ne \beta$,
+    \item jointly surjective: the induced map $\coprod_{\alpha : I}X_\alpha\rightarrow X$ is surjective. 
   \end{enumerate}
 \end{definition}
 \begin{definition}[Algebraically Constructible Sheaves]
-  A constructible sheaf $\mathcal F:\mathrm{}$
+  A \textit{(algebraically) constructible} sheaf on $X$ is a sheaf $\mathcal F:\mathsf{Sh}(X,\Lambda)$ such that there exists a stratification $i_{\alpha}:X_{\alpha}\rightarrow X$ indexed by $\alpha:I$ with the restriction $\mathcal F|_{X_{\alpha}}$ lisse for all $\alpha:I$. 
 \end{definition}
+
+In the situation in \cref{par:revisit}, suppose we have $\mathcal F:\mathsf{LocSys}_{\mathbb C}(\mathbb C^\times)$ that we wish to generalize to the whole space $\mathbb C$. 
+The simplest way to do so is to set 
+$$j_{!}\mathcal F$$
+where $j:\mathbb C^\times\hookrightarrow C$ is the inclusion. 
+
+\begin{definition}[Extension by Zero]
+\end{definition}
+
+\begin{definition}[Compact Support]
+\end{definition}
+
+\begin{lemma}Canonical exact sequence
+\end{lemma}
 
 Euler–Poincaré
 
-\begin{theorem}[Grothendieck–Ogg–Shafarevich formula]
+\begin{theorem}[Grothendieck–Ogg–Shafarevich]
 \end{theorem}
-\subsection{Six-Functor Formalism}
 
-\subsection{Middle Extension Sheaves}
+
+
+\subsection{Six-Functor Formalism and Verdier Duality}
+
+derived category
+
+verdier duality
+
+\subsection{Perverse Sheaves and Middle Extension Sheaves}
+
 \subsection{Middle Convolution}
 
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
@@ -976,11 +999,6 @@ Euler–Poincaré
 \refstepcounter{section}
 \section*{Appendix}
 \addcontentsline{toc}{section}{Appendix}
-
-\subsection{Analytic Continuation}\label{app:analytic-continuation}
-
-\paragraph{Definition of Analytic Continuation}\label{par:analytic-continuation}
-% To be completed: definition and existence of analytic continuation.
 
 \subsection{Fundamental Groups of Punctured Riemann Surfaces}\label{app:surface-fundamental-groups}
 
