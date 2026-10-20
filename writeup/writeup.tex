@@ -908,7 +908,7 @@ $$\omega_{u_0}:\mathsf{LocSys}_{\Lambda}(U)\rightarrow \mathsf{Vect}_{\Lambda}^{
 at a base point $u_0:U$ or geometric point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$. 
 
 
-\begin{definition}Let $\mathsf C$ be a neutral Tannakian category over $\Lambda:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$, then its \textit{Tannakian group} is the functor $G:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
+\begin{definition}[Tannakian Group]Let $\mathsf C$ be a neutral Tannakian category over $\Lambda:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$, then its \textit{Tannakian group} is the functor $G:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
   $$G(R)=\mathrm{Aut}^{\otimes}(\omega_R),\qquad \omega_R(\mathcal F):=\omega(\mathcal F)\otimes_\Lambda R,\qquad {\mathcal F:\mathsf C}$$
   where $\mathrm{Aut}^\otimes$ denotes the natural automorphisms compatible with tensor products and the tensor unit. 
   Moreover, the \textit{monodromy group} of $\mathcal F:\mathsf C$ is the functor $G_\mathcal{F}:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
@@ -930,7 +930,7 @@ We remark that this formalism is useful in helping to define monodromy groups in
 
 \label{par:revisit}We return to our example in \cref{par:square-root-sheaf} of the double cover, but with the origin included
 $$f:\mathbb C\rightarrow \mathbb C,\qquad z\mapsto z^2$$
-Its sheaf of sections $\mathcal F:\mathsf{Sh}(\mathbb C,\mathsf{Set})$ is no longer a local system of sets due to the ramification at $0$. 
+Its sheaf of sections $\mathcal F:\mathsf{Sh}(\mathbb C,\mathsf{Set})$  is no longer a local system of sets due to the ramification at $0$. 
 Indeed the fibres at $0$ have cardinality $1$ where the fibres at a nonzero point have cardinality $2$. 
 However, we can stratify the space $\mathbb C$ into 
 $$\mathbb C=\mathbb C^\times \sqcup \{0\}$$
@@ -942,10 +942,10 @@ This way, we can allow for mild failures of local constancy such as ramification
   k & \mathsf{Field} & A field \\
   \ell & \mathbb N & A prime with $\ell\ne \mathrm{char}(k)$ \\
   \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of \(\mathbb Z_\ell\), \(\mathbb Q_\ell\), or \(\mathbb Z/\ell^n\mathbb Z\) for \(n:\mathbb N\) \\
-  X & \mathsf{Sch}_{\mathrm{Spec}(k)} & A Noetherian scheme over \(k\) \\
+  X,Y & \mathsf{Sch}_{\mathrm{Spec}(k)} & Separated schemes of finite type over \(k\) \\
   S & \mathsf{Set} & A finite set of closed points of \(X\) \\
   U & \mathsf{Sch}_{\mathrm{Spec}(k)} & The complement open subscheme \(X\setminus S\)\\
-  j & U\rightarrow X & The inclusion map \\
+  j & U\hookrightarrow X & The inclusion map \\
   m & \mathbb{N} & The cardinality of \(S\)\\
 \end{notationtable}
 \end{notation}
@@ -958,9 +958,11 @@ This way, we can allow for mild failures of local constancy such as ramification
 \end{definition}
 \begin{definition}[Algebraically Constructible Sheaves]
   A \textit{(algebraically) constructible} sheaf on $X$ is a sheaf $\mathcal F:\mathsf{Sh}(X,\Lambda)$ such that there exists a stratification $i_{\alpha}:X_{\alpha}\rightarrow X$ indexed by $\alpha:I$ with the restriction $\mathcal F|_{X_{\alpha}}$ lisse for all $\alpha:I$. 
+  Denote by $\mathsf{Sh}_{\mathrm{c}}(X,\Lambda)$ the full subcategory of constructible sheaves. 
 \end{definition}
 
-In the situation in \cref{par:revisit}, suppose we have $\mathcal F:\mathsf{LocSys}_{\mathbb C}(\mathbb C^\times)$ that we wish to extend to a constructible sheaf on the whole space $\mathbb C$ in the simplest way. One way to do so is set
+Let $U=\mathbb C^\times$ and $X=\mathbb C$. 
+In the situation in \cref{par:revisit}, suppose we have $\mathcal F:\mathsf{LocSys}_{\Lambda}(U)$ that we wish to extend to a constructible sheaf on the whole space $X$ in the simplest way. One way to do so is set the stalks at the singularities to be zero 
 $$
 (j_{!}\mathcal F)_u\cong
 \begin{cases}
@@ -969,13 +971,33 @@ $$
 \end{cases}
 \qquad u:\mathbb C,
 $$
-where $j:\mathbb C^\times\hookrightarrow\mathbb C$ denotes the inclusion. 
+where $j_!$ is called the compactly-supported pushforward of the inclusion $j: U\hookrightarrow X$.  
 
-\begin{definition}[Extension by Zero]
+\begin{definition}[Compactly-Supported Pushforward]
+Let $f:X\to Y$ be a morphism. 
+For a constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm{c}}(X,\Lambda)$, we define the \textit{compactly-supported pushforward} $f_!\mathcal F:\mathsf{Sh}_{\mathrm{c}}(Y,\Lambda)$ along $f$, for each coefficient $\Lambda$ as follows.
+\begin{enumerate}
+  \item For $\Lambda=\mathbb Z/\ell^n\mathbb Z$, for each étale $V\to Y$, set
+$$
+(f_!\mathcal F)(V):=
+\left\{s:\mathcal F(X_V)\;\middle|\;
+\operatorname{supp}(s)\hookrightarrow X_V\xrightarrow{\,f_V\,}V
+\text{ is proper}\right\},
+$$
+  \item For $\Lambda=\mathbb Z_\ell$, write $\mathcal F=(\mathcal F_n)_n$ and define $f_!\mathcal F$ by applying \cref{para:clunkiness} to $(f_!\mathcal F_n)_n$,
+  \item For $\Lambda=\mathbb Q_\ell$, let $\mathcal L:\mathsf{Sh}(X,\mathbb Z_\ell)$ with $\mathcal F\cong\mathcal L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$, and set $f_!\mathcal F:=(f_!\mathcal L)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$. 
+\end{enumerate}
 \end{definition}
 
-\begin{definition}[Compact Support]
-\end{definition}
+In the case of the inclusion $j:U\hookrightarrow X$, for $\mathcal F:\mathsf{Sh}_{\mathrm{c}}(U,\Lambda)$ we have
+$$
+(j_!\mathcal F)_x\cong
+\begin{cases}
+  \mathcal F_x, & \text{if }x\text{ factors through }U,\\
+  0, & \text{otherwise},
+\end{cases}
+$$
+for $x:\mathrm{Spec}(\Omega)\rightarrow X$ a geometric point. We call $j_!\mathcal F$ the \textit{extension by zero} of $\mathcal F$.
 
 \begin{lemma}Canonical exact sequence
 \end{lemma}
