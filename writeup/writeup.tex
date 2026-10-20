@@ -761,6 +761,10 @@ at a base point $u_0:U$ or geometric point $u_0:\mathrm{Spec}(\Omega)\rightarrow
   where the right hand side is the category of algebraic representations of an affine group scheme. 
 \end{theorem}
 
+\begin{proof}
+See \cite[Theorem~2.11]{DeligneMilne1982}.
+\end{proof}
+
 We remark that this formalism is useful in helping to define monodromy groups in the context of the $p$-adic analogue of lisse $\ell$-adic sheaves, where monodromy representations might be unavailable; see \cite[\S2]{Crew1992Isocrystals}. 
 
 \section{Perverse Sheaves}\label{sec:perverse-sheaves}
@@ -814,23 +818,21 @@ $$
 
 \begin{definition}[Compactly-supported Pushforward]
 Let $f:X\to Y$ be a morphism. 
-For a constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm{c}}(X,\Lambda)$, we define the \textit{compactly-supported pushforward} $f_!\mathcal F:\mathsf{Sh}_{\mathrm{c}}(Y,\Lambda)$ along $f$, for each coefficient $\Lambda$ as follows.
-\begin{enumerate}
-  \item For $\Lambda=\mathbb Z/\ell^n\mathbb Z$, for each étale $V\to Y$, set
+For a constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm{c}}(X,\Lambda)$, we define the \textit{compactly-supported pushforward} $f_!\mathcal F:\mathsf{Sh}_{\mathrm{c}}(Y,\Lambda)$ along $f$, for each coefficient $\Lambda$.
+For $\Lambda=\mathbb Z/\ell^n\mathbb Z$, for each étale $V\to Y$, set
 $$
 (f_!\mathcal F)(V):=
 \left\{s:\mathcal F(X_V)\;\middle|\;
 \operatorname{supp}(s)\hookrightarrow X_V\xrightarrow{\,f_V\,}V
 \text{ is proper}\right\},
 $$
-  \item For $\Lambda=\mathbb Z_\ell$, write $\mathcal F=(\mathcal F_n)_n$ and define $f_!\mathcal F$ by applying \cref{para:clunkiness} to $(f_!\mathcal F_n)_n$,
-  \item For $\Lambda=\mathbb Q_\ell$, let $\mathcal L:\mathsf{Sh}(X,\mathbb Z_\ell)$ with $\mathcal F\cong\mathcal L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$, and set $f_!\mathcal F:=(f_!\mathcal L)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$. 
-\end{enumerate}
-Define the \textit{compactly-supported sections} of $\mathcal F$
+For $\Lambda=\mathbb Z_\ell$, write $\mathcal F=(\mathcal F_n)_{n\,:\,\mathbb N}$ and define $f_!\mathcal F$ by applying \cref{para:clunkiness} to $(f_!\mathcal F_n)_{n\,:\,\mathbb N}$. 
+For $\Lambda=\mathbb Q_\ell$, let $\mathcal L:\mathsf{Sh}(X,\mathbb Z_\ell)$ with $\mathcal F\cong\mathcal L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$, and set $f_!\mathcal F:=(f_!\mathcal L)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$. 
+For an étale morphism $a:V\to X$ of finite type, define the \textit{compactly-supported sections} of $\mathcal F$ over $V$ as
 $$
-\Gamma_c(X,\mathcal F):=\Gamma(\mathrm{Spec}(k),\pi_!\mathcal F):\mathsf{Mod}_{\Lambda}
+\Gamma_c(V,\mathcal F):=\Gamma(\mathrm{Spec}(k),(\pi\circ a)_!a^*\mathcal F):\mathsf{Mod}_{\Lambda}
 $$
-If $f$ is proper then $f_!=f_*$ and $\Gamma_c(X,-)=\Gamma(X,-)$. 
+If $f$ is proper then $f_!=f_*$. If $V$ is proper over $k$, then $\Gamma_c(V,\mathcal F)=\Gamma(V,a^*\mathcal F)$.
 \end{definition}
 
 In the case of the inclusion $j:U\hookrightarrow X$, for $\mathcal F:\mathsf{Sh}_{\mathrm{c}}(U,\Lambda)$ we have

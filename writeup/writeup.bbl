@@ -10,6 +10,12 @@ Richard Crew.
 \newblock {$F$}-isocrystals and their monodromy groups.
 \newblock {\em Annales scientifiques de l'\'Ecole Normale Sup\'erieure}, 25(4):429--464, 1992.
 
+\bibitem[DM82]{DeligneMilne1982}
+Pierre Deligne and James~S. Milne.
+\newblock Tannakian categories.
+\newblock In {\em Hodge Cycles, Motives, and Shimura Varieties}, volume 900 of {\em Lecture Notes in Mathematics}, pages 101--228. Springer-Verlag, 1982.
+\newblock \url{https://www.jmilne.org/math/xnotes/tc.pdf}.
+
 \bibitem[Fal83]{Faltings1983}
 Gerd Faltings.
 \newblock Endlichkeitss{\"a}tze f{\"u}r abelsche variet{\"a}ten {\"u}ber zahlk{\"o}rpern.
