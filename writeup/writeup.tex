@@ -20,19 +20,31 @@
 \usepackage[nameinlink,noabbrev,capitalise]{cleveref}
 \usepackage{mathpazo}
 
-% Use volume names as citation labels for keys such as EGA2 and SGA5.
+% Use named citation labels for EGA/SGA volumes and the Stacks Project.
 % Preserve alpha-style labels for all other references.
 \ExplSyntaxOn
 \AddToHook{begindocument/end}{
   \cs_new_eq:NN \candidacy_original_bibitem \bibitem
   \RenewDocumentCommand{\bibitem}{o m}{
-    \regex_match:nnTF { \A (EGA|SGA) [0-9IVX]+ ([.\-][0-9IVX]+)* \Z } {#2}
-      { \candidacy_original_bibitem[#2]{#2} }
+    \str_if_eq:nnTF {#2} {StacksProject}
+      { \candidacy_original_bibitem[Stacks]{#2} }
       {
-        \IfNoValueTF{#1}
-          { \candidacy_original_bibitem{#2} }
-          { \candidacy_original_bibitem[#1]{#2} }
+        \regex_match:nnTF { \A (EGA|SGA) [0-9IVX]+ ([.\-][0-9IVX]+)* \Z } {#2}
+          { \candidacy_original_bibitem[#2]{#2} }
+          {
+            \IfNoValueTF{#1}
+              { \candidacy_original_bibitem{#2} }
+              { \candidacy_original_bibitem[#1]{#2} }
+          }
       }
+  }
+  \cs_new_eq:NN \candidacy_original_thebibliography \thebibliography
+  \RenewDocumentCommand{\thebibliography}{m}{
+    \hbox_set:Nn \l_tmpa_box {#1}
+    \hbox_set:Nn \l_tmpb_box {Stacks}
+    \dim_compare:nNnTF {\box_wd:N \l_tmpa_box} < {\box_wd:N \l_tmpb_box}
+      { \candidacy_original_thebibliography{Stacks} }
+      { \candidacy_original_thebibliography{#1} }
   }
 }
 \ExplSyntaxOff
@@ -680,7 +692,7 @@ The case for $\Lambda=\mathbb Z_\ell$ is achieved by applying the construction f
   $$E_\rho:=Y\times^G M=\left.\left(Y\times_U M_U\right)\middle/G\right.\xlongrightarrow{p}U,$$
   where $M_U:=(\coprod_{m\,:\,M}U\rightarrow U):\mathsf{Sch}_U$ and $G$ acts by $(y,m)\cdot g=(yg,\rho(g)^{-1}m)$, then take the sheaf of sections to obtain the lisse sheaf
   $$\mathcal L_\rho:=\mathrm{Hom}_U(-,E_\rho):\mathsf{LocSys}_\Lambda(U).$$
-  Assembling and rationalizing gives the cases $\Lambda=\mathbb Z_\ell$ (see \cref{para:Zelltorsor}) and $\Lambda=\mathbb Q_\ell$ (see \cref{para:Qelltorsor}). 
+  Assembling and rationalizing give the cases $\Lambda=\mathbb Z_\ell$ (see \cref{para:Zelltorsor}) and $\Lambda=\mathbb Q_\ell$ (see \cref{para:Qelltorsor}). 
 \end{example}
 
 \begin{example}We give some concrete examples of \cref{ex:torsor}. 
@@ -757,7 +769,7 @@ This way, we can allow for mild failures of local constancy such as ramification
   \pi & X\to\mathrm{Spec}(k) & The structure morphism of $X$\\
   S & \mathsf{Sch}_{\mathrm{Spec}(k)} & A finite reduced closed subscheme of \(X\) \\
   i & S\hookrightarrow X & The closed inclusion map \\
-  m & \mathbb{N} & The cardinality of the underlying set \(|S|\)\\
+  m & \mathbb{N} & The number of \(k^{\mathrm{sep}}\)-valued points of \(S\), \(m:=\#S(k^{\mathrm{sep}})\)\\
   U & \mathsf{Sch}_{\mathrm{Spec}(k)} & The complementary open subscheme \(X\setminus S\)\\
   j & U\hookrightarrow X & The open inclusion map \\
 \end{notationtable}
@@ -784,6 +796,7 @@ $$
 \end{cases}
 \qquad u:\mathbb C,
 $$ 
+This is \textit{extension by zero}, the compactly-supported pushforward of inclusion $j:U\hookrightarrow X$. 
 
 \begin{definition}[Compactly-supported Pushforward]
 Let $f:X\to Y$ be a morphism. 
@@ -800,26 +813,33 @@ For an étale morphism $a:V\to X$ of finite type, define the \textit{compactly-s
 $$
 \Gamma_c(V,\mathcal F):=\Gamma(\mathrm{Spec}(k),(\pi\circ a)_!a^*\mathcal F):\mathsf{Mod}_{\Lambda}
 $$
-If $f$ is proper then $f_!=f_*$. If $V$ is proper over $k$, then $\Gamma_c(V,\mathcal F)=\Gamma(V,a^*\mathcal F)$.
+If $f$ is proper then $f_!=f_*$. 
+If $V$ is proper over $k$, then $\Gamma_c(V,\mathcal F)=\Gamma(V,a^*\mathcal F)$.
 \end{definition}
 
-In the case of the inclusion $j:U\hookrightarrow X$, for $\mathcal F:\mathsf{Sh}_{\mathrm{c}}(U,\Lambda)$ we have
-$$
-(j_!\mathcal F)_x\cong
-\begin{cases}
-  \mathcal F_x, & \text{if }x\text{ factors through }U,\\
-  0, & \text{otherwise},
-\end{cases}
-$$
-for $x:\mathrm{Spec}(\Omega)\rightarrow X$ a geometric point. We call $j_!\mathcal F$ the \textit{extension by zero} of $\mathcal F$.
 
-\begin{lemma}Canonical exact sequence for constructible sheaves. 
-\end{lemma}
+There is a canonical short exact sequence for each constructible sheaf $\mathcal F:\mathsf{Sh}_c(X,\Lambda)$ 
+\[
+0\longrightarrow j_!j^*\mathcal F
+\xrightarrow{\varepsilon}\mathcal F
+\xrightarrow{\eta} i_*i^*\mathcal F
+\longrightarrow0,
+\]
+where $\varepsilon$ is the counit of $j_!\dashv j^*$ and $\eta$ is the unit of $i^*\dashv i_*$  \cite[Tag~095L]{StacksProject}.
+An important consequences of this exact sequence is the Euler-Poincaré formula.
 
-Euler–Poincaré
 
-\begin{theorem}[Grothendieck–Ogg–Shafarevich]
-\end{theorem}
+\begin{custom}{Euler–Poincaré Formula}
+Let $k=\mathbb C$ and $X$ a smooth projective connected curve of genus $g:\mathbb N$. 
+For each $\mathcal F:\mathsf{Sh}_{\mathrm c}(X^{\mathrm{an}},\mathbb C)$ with pullback $\mathcal L:=(j^{\mathrm{an}})^*\mathcal F$ a local system of rank $r:\mathbb N$, the then
+\[\chi(X^{\mathrm{an}},\mathcal F)=r(2-2g-m)
+  +\sum_{s\in S(\mathbb C)}\dim_{\mathbb C}\mathcal F_s.\]
+where $\mathcal F_s$ denotes the stalk at $s$. If $\mathcal F=(j^{\mathrm{an}})_*\mathcal L$, then
+$$\mathcal F_s\cong\mathrm{Ker}(T_s-\mathrm{id}_{\mathcal L_{u_s}})=\{v:\mathcal L_{u_s}\mid T_s(v)=v\}$$
+is the space of local monodromy invariants, where $u_s$ lies in a sufficiently small punctured disc around $s$ and $T_s$ is the monodromy around $s$ based at $u_s$; see \cite[\S1.0.2 and proof of Theorem~1.1.2]{Katz1996}.
+The arithmetic analogue is the Grothendieck–Ogg–Shafarevich formula. 
+\end{custom}
+
 
 
 
