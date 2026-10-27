@@ -1,5 +1,10 @@
 \begin{thebibliography}{{Sta}26}
 
+\bibitem[AGV73]{SGA4III}
+Michael Artin, Alexander Grothendieck, and Jean-Louis Verdier, editors.
+\newblock {\em Th\'eorie des topos et cohomologie \'etale des sch\'emas. Tome 3 ({SGA} 4)}, volume 305 of {\em Lecture Notes in Mathematics}.
+\newblock Springer-Verlag, 1973.
+
 \bibitem[BS15]{BhattScholze2015}
 Bhargav Bhatt and Peter Scholze.
 \newblock The pro-\'{e}tale topology for schemes.

@@ -895,22 +895,95 @@ We use the following notation
   k & \mathsf{Field} & A field \\
   X,Y & \mathsf{Sch}_{\mathrm{Spec}(k)} & Separated schemes of finite type over $k$ \\
   f & X\to Y & A morphism over $k$ \\
+  \pi & X\to\mathrm{Spec}(k) & The structure morphism of $X$ \\
   \ell & \mathbb N & A prime with $\ell\ne\mathrm{char}(k)$ \\
-  \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of $\mathbb Z_\ell$, $\mathbb Q_\ell$, or $\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$ \\
+  \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of $\mathbb F_\ell$ or $\mathbb Q_\ell$ \\
 \end{notationtable}
 \end{notation}
 
-\parlabel{par:constructible-finite-tor}Denote by $\mathsf D_{\mathrm{ctf}}(X,\Lambda)$ the category of bounded constructible derived $\Lambda$-sheaves on $X$ of \textit{finite Tor dimension} over $\Lambda$.
-A bounded constructible derived object $K$ has finite Tor dimension if there exist $a,b:\mathbb Z$ with $a\le b$ such that
+\parlabel{par:constructible-derived-category}Denote by $\mathsf D_{\mathrm{c}}^\mathrm{b}(X,\Lambda)$ the category of bounded constructible derived $\Lambda$-sheaves on $X$. 
+We describe in this section Grothendieck's profound yoga of six functors, which are these functors on $\mathsf D_{\mathrm{c}}^\mathrm{b}(X,\Lambda)$. 
+These are the pullback $f^*$, derived pushforward $\mathbf Rf_*$, derived tensor product $-\otimes_\Lambda^{\mathbf L}-$, derived sheaf Hom $\mathbf R\mathcal Hom_\Lambda(-,-)$, derived pushforward with proper support $\mathbf Rf_!$, and the exceptional pullback $f^!$, which will be defined below.
+
+\begin{custom}{Verdier Duality}\label{thm:verdier-duality}
+The \textit{relative Verdier duality theorem} (see \cite[Exp.~XVIII, Theorem~3.1.4]{SGA4III}  and \cite[\S2.2.1]{Katz1996}) asserts that $\mathbf Rf_!$ admits a right adjoint, 
 \[
-\mathrm H^q\bigl(K_u\otimes_\Lambda^{\mathbf L}M\bigr)=0
-\qquad\text{for every }q:\mathbb Z\text{ with }q\notin[a,b],
+f^!:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)
+\longrightarrow\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda),
 \]
-for every geometric point $u$ of $X$ and every $M:\mathsf{Mod}_\Lambda$.
-See \cite[Tags~08FZ and~0F4M]{StacksProject}.
+called the \textit{exceptional pullback}, characterized by natural isomorphisms
+\[
+\operatorname{Hom}_{\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)}(\mathbf Rf_!K,L)
+\cong
+\operatorname{Hom}_{\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)}(K,f^!L)
+\]
+for each $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $L:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$.
+\end{custom}
 
+Therefore, there are three pairs of adjoints in the six functors. 
+\[
+\begin{tikzpicture}[
+  baseline=(current bounding box.center),
+  >={Latex[length=2.1mm,width=1.4mm]},
+  every node/.style={inner sep=4pt},
+  functor/.style={font=\small,inner sep=2pt}
+]
+  \node (Y) at (0,4) {$\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$};
+  \node (XL) at (-3,0) {$\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$};
+  \node (XR) at (3,0) {$\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$};
+  \draw[->] (Y) to[bend right=13]
+    node[functor,midway,sloped,above=2pt] {$f^*$} (XL);
+  \draw[->] (XL) to[bend right=13]
+    node[functor,midway,sloped,below=2pt] {$\mathbf Rf_*$} (Y);
+  \draw[->] (Y) to[bend right=13]
+    node[functor,midway,sloped,below=2pt] {$f^!$} (XR);
+  \draw[->] (XR) to[bend right=13]
+    node[functor,midway,sloped,above=2pt] {$\mathbf Rf_!$} (Y);
+  \draw[->] (XL) to[bend left=10]
+    node[functor,midway,above=2pt] {$-\otimes_\Lambda^{\mathbf L}K$} (XR);
+  \draw[->] (XR) to[bend left=10]
+    node[functor,midway,below=2pt] {$\mathbf R\mathcal Hom_\Lambda(K,-)$} (XL);
+  \node[rotate=-36.87] at (-1.5,2) {$\dashv$};
+  \node[rotate=-143.13] at (1.5,2) {$\dashv$};
+  \node[rotate=-90] at (0,0) {$\dashv$};
+\end{tikzpicture}
+\]
+for each $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$. 
 
-verdier duality
+\begin{definition}[Verdier Dual]\label{def:verdier-dual}
+The \textit{dualizing complex} of $X$ is $$\omega_X:=\pi^!\Lambda.$$
+For $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$, its \textit{Verdier dual} is
+\[
+\mathbb D_XK:=\mathbf R\mathcal Hom_\Lambda(K,\omega_X).
+\]
+This defines a contravariant functor on $\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; see \cite[\S2.2.1]{Katz1996}.
+\end{definition}
+
+The Verdier duality functor is \textit{involutive}: there is a natural isomorphism
+\[
+K\xrightarrow{\sim}\mathbb D_X\mathbb D_XK
+\]
+for every $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; see \cite[\S2.2.1]{Katz1996}.
+
+Verdier duality exchanges the six functors in the following ways:
+\[
+\begin{aligned}
+\mathbb D_Y(\mathbf Rf_*K)
+&\cong\mathbf Rf_!(\mathbb D_XK),\\
+\mathbb D_Y(\mathbf Rf_!K)
+&\cong\mathbf Rf_*(\mathbb D_XK),\\
+\mathbb D_X(f^*M)
+&\cong f^!(\mathbb D_YM),\\
+\mathbb D_X(f^!M)
+&\cong f^*(\mathbb D_YM),\\
+\mathbb D_X(K\otimes_\Lambda^{\mathbf L}L)
+&\cong\mathbf R\mathcal Hom_\Lambda(K,\mathbb D_XL),\\
+\mathbb D_X\bigl(\mathbf R\mathcal Hom_\Lambda(K,L)\bigr)
+&\cong K\otimes_\Lambda^{\mathbf L}\mathbb D_XL,
+\end{aligned}
+\]
+for $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$.
+See \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}. 
 
 \subsection{Middle Extension Sheaves}
 
