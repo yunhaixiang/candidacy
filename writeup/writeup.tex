@@ -653,7 +653,7 @@ Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geo
 \]
 If $\Lambda$ is $\mathbb Q_\ell$ or $\mathbb F_\ell$, the \textit{algebraic monodromy group} of a lisse sheaf $\mathcal F$ at $u_0$ is the Zariski closure of the image of its associated representation $G_{\mathcal F}:=\rho_{\mathcal F,u_0}(\pi_1^{\mathrm{\acute{e}t}}(U,u_0))^{\mathrm{Zar}}$.
 
-We remark that in the context of the $p$-adic analogue of lisse $\ell$-adic sheaves, where monodromy representations are unavailable, Tannakian formalism (see \cref{app:tannaka}) is required to define algebraic monodromy groups; see \cite[\S2]{Crew1992Isocrystals}. 
+We remark that in the context of the $p$-adic analogue of lisse $\ell$-adic sheaves, where monodromy representations are unavailable, Tannakian formalism (see \cref{app:tannaka}) is required to define algebraic monodromy groups; c.f. \cite[\S2]{Crew1992Isocrystals}. 
 
 Let $\Lambda=\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$, and $\mathcal F:\mathsf{LocSys}_{\Lambda}(U)$. Let $E\rightarrow U$ be the finite étale cover representing the underlying sheaf of sets of $\mathcal F$, we have a (continuous) representation
 $$\rho_{\mathcal F}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow \mathrm{Aut}_{\mathsf{Mod}_{\Lambda}}(\mathcal F_{u_0})$$
@@ -824,6 +824,11 @@ For an étale morphism $a:V\to X$ of finite type, the \textit{compactly-supporte
 \operatorname{supp}(s)\text{ is proper over }k\right\}:\mathsf{Mod}_{\Lambda}.
 \end{aligned}
 \]
+The \textit{compactly-supported cohomology} are defined by
+\[
+\mathbf R\Gamma_c(V,\mathcal F):=\mathrm H^q\bigl(\mathbf R\Gamma_c(V,\mathcal F)\bigr).
+\]
+for $q:\mathbb Z$; c.f. \cite[Definition~63.12.1, Tag~0GJZ]{StacksProject}.
 
 \end{definition}
 
@@ -852,7 +857,7 @@ For each $\mathcal F:\mathsf{Sh}_{\mathrm c}(X^{\mathrm{an}},\mathbb C)$ with pu
   +\sum_{s\in S(\mathbb C)}\dim_{\mathbb C}\mathcal F_s.\]
 where $\mathcal F_s$ denotes the stalk at $s$. If $\mathcal F=(j^{\mathrm{an}})_*\mathcal L$, then
 $$\mathcal F_s\cong\mathrm{Ker}(T_s-\mathrm{id}_{\mathcal L_{u_s}})=\{v:\mathcal L_{u_s}\mid T_s(v)=v\}$$
-is the space of local monodromy invariants, where $u_s$ lies in a sufficiently small punctured disc around $s$ and $T_s$ is the monodromy around $s$ based at $u_s$; see \cite[\S1.0.2 and proof of Theorem~1.1.2]{Katz1996}.
+is the space of local monodromy invariants, where $u_s$ lies in a sufficiently small punctured disc around $s$ and $T_s$ is the monodromy around $s$ based at $u_s$; c.f. \cite[\S1.0.2 and proof of Theorem~1.1.2]{Katz1996}.
 The arithmetic analogue is the Grothendieck–Ogg–Shafarevich formula. 
 \end{custom}
 
@@ -891,7 +896,7 @@ Writing $I_s^t$ for its upper-numbering ramification groups, set
 \bigl(d_\Lambda(V_s)-d_\Lambda(V_s^{I_s^t})\bigr)\,\mathrm d t.
 \]
 It vanishes when the local inertia action is tame. 
-See \cite[Exp.~X, \S7]{SGA5}.
+c.f. \cite[Exp.~X, \S7]{SGA5}.
 \end{custom}
 
 
@@ -916,7 +921,7 @@ We describe in this section Grothendieck's profound yoga of six functors, which 
 These are the pullback $f^*$, derived pushforward $\mathbf Rf_*$, derived tensor product $-\otimes_\Lambda^{\mathbf L}-$, derived sheaf Hom $\mathbf R\mathcal Hom_\Lambda(-,-)$, derived pushforward with proper support $\mathbf Rf_!$, and the exceptional pullback $f^!$, which will be defined below.
 
 \begin{custom}{Verdier Duality}\label{thm:verdier-duality}
-The \textit{relative Verdier duality theorem} (see \cite[Exp.~XVIII, Theorem~3.1.4]{SGA4III}  and \cite[\S2.2.1]{Katz1996}) asserts that $\mathbf Rf_!$ admits a right adjoint, 
+The \textit{relative Verdier duality theorem}, c.f. \cite[Exp.~XVIII, Theorem~3.1.4]{SGA4III} and \cite[\S2.2.1]{Katz1996}, asserts that $\mathbf Rf_!$ admits a right adjoint, 
 \[
 f^!:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)
 \longrightarrow\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda),
@@ -934,7 +939,7 @@ We can upgrade the adjunction to
 \cong
 \mathbf Rf_*\mathbf R\mathcal Hom_\Lambda(K,f^!L),
 \]
-replacing Hom-sets with internal Homs; see \cite[Lemma~63.11.5]{StacksProject}.
+replacing Hom-sets with internal Homs; c.f. \cite[Lemma~63.11.5]{StacksProject}.
 \end{custom}
 
 Therefore, there are three pairs of adjoints in the six functors. 
@@ -973,14 +978,14 @@ For $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$, its \textit{Verdier dual} 
 \[
 \mathbb D_XK:=\mathbf R\mathcal Hom_\Lambda(K,\omega_X).
 \]
-This defines a contravariant functor on $\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; see \cite[\S2.2.1]{Katz1996}.
+This defines a contravariant functor on $\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; c.f. \cite[\S2.2.1]{Katz1996}.
 \end{definition}
 
 The Verdier duality functor is \textit{involutive}: there is a natural isomorphism 
 \[
 K\xrightarrow{\sim}\mathbb D_X\mathbb D_XK
 \]
-for every $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; see \cite[\S2.2.1]{Katz1996}.
+for every $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; c.f. \cite[\S2.2.1]{Katz1996}.
 
 Verdier duality exchanges the six functors in the following ways:
 \[
@@ -1000,7 +1005,7 @@ Verdier duality exchanges the six functors in the following ways:
 \end{aligned}
 \]
 for $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$.
-See \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}. 
+c.f. \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}. 
 
 \begin{custom}{Smooth Purity}\label{thm:smooth-purity}
 If $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$, there is a natural isomorphism \cite[Exp.~XVIII, Theorem~3.2.5]{SGA4III}
@@ -1012,7 +1017,7 @@ If $X$ is smooth of pure dimension $d$ over $k$,
 \[
 \omega_X=\pi^!\Lambda\cong\Lambda(d)[2d].
 \]
-See \cite[\S2.1.2(6) and \S2.2.1]{Katz1996}.
+c.f. \cite[\S2.1.2(6) and \S2.2.1]{Katz1996}.
 \end{custom}
 
 \begin{custom}{Poincar\'e Duality}\label{thm:poincare-duality}
@@ -1024,13 +1029,71 @@ there is an isomorphism natural in $\mathcal F$,
 \cong
 \mathbf R\mathcal Hom_\Lambda(\mathbf Rf_!\mathcal F,\underline{\Lambda}_Y).
 \]
-This follows from \cref{thm:smooth-purity} and relative Verdier duality; see \cite[Lemma~63.11.5]{StacksProject}.
+This follows from \cref{thm:smooth-purity} and relative Verdier duality; c.f. \cite[Lemma~63.11.5]{StacksProject}.
 \end{custom}
+
+\begin{custom}{Projection Formula}\label{thm:projection-formula}
+There is a natural isomorphism
+\[
+\mathbf Rf_!(K\otimes_\Lambda^{\mathbf L}f^*L)
+\cong
+\mathbf Rf_!K\otimes_\Lambda^{\mathbf L}L.
+\]
+for $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $L:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$; c.f. \cite[Lemma~63.10.7, Tag~0GL5]{StacksProject}.
+If $L$ is lisse of finite rank, there is also a natural isomorphism
+\[
+\mathbf Rf_*(K\otimes_\Lambda^{\mathbf L}f^*L)
+\cong
+\mathbf Rf_*K\otimes_\Lambda^{\mathbf L}L;
+\]
+c.f. \cite[Lemma~21.50.1, Tag~0944]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Base Change}\label{thm:base-change}
+Consider a Cartesian square:
+\[
+\begin{tikzcd}[row sep=2.5em, column sep=3em]
+X' \arrow[r,"g'"] \arrow[d,"f'"'] & X \arrow[d,"f"] \\
+Y' \arrow[r,"g"'] & Y
+\end{tikzcd}
+\]
+For $K:\mathsf D_c^b(X,\Lambda)$, there are natural comparison morphisms
+\[
+g^*\mathbf Rf_\varepsilon K
+\longrightarrow
+\mathbf Rf'_\varepsilon(g'^*K),
+\qquad \varepsilon:\{!,*\}.
+\]
+which are isomorphisms if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is proper or $g$ is smooth; c.f. \cite[Theorems~59.91.11 and~59.89.2, and Lemma~63.9.4]{StacksProject}.
+Additionally, if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is smooth and proper, then $\mathbf R^qf_{\varepsilon}\mathcal F$ is lisse for $q:\mathbb N$ and $\mathcal F:\mathsf{LocSys}_{\Lambda}(X)$. 
+\end{custom}
+
+
 
 
 \subsection{Middle Extension Sheaves}
 
 \subsection{Middle Convolution}
+
+\begin{custom}{External Tensor Products}\label{def:external-tensor-product}
+Let $\operatorname{pr}_1:X\times_kY\to X$ and $\operatorname{pr}_2:X\times_kY\to Y$ be the projections.
+The \textit{external tensor product} is the bifunctor
+\[
+\begin{aligned}
+\boxtimes_\Lambda:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)\times\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)
+&\longrightarrow\mathsf D_{\mathrm c}^{\mathrm b}(X\times_kY,\Lambda),\\
+(K,L)&\longmapsto K\boxtimes_\Lambda L
+:=\operatorname{pr}_1^*K\otimes_\Lambda^{\mathbf L}\operatorname{pr}_2^*L.
+\end{aligned}
+\]
+It is exact in each variable, and there is a natural isomorphism
+\[
+\mathbb D_{X\times_kY}(K\boxtimes_\Lambda L)
+\cong
+(\mathbb D_XK)\boxtimes_\Lambda(\mathbb D_YL).
+\]
+c.f. \cite[\S2.2.2]{Katz1996}.
+\end{custom}
 
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
 \subsection{Hyperelliptic Curves and their Jacobian}
@@ -1174,7 +1237,7 @@ where $[a,b]:=aba^{-1}b^{-1}$, and the generators are:
 \end{proposition}
 
 \begin{proof}
-See \cite[Theorem~3.6.3 and Remark~3.6.4]{Szamuely2009}.
+c.f. \cite[Theorem~3.6.3 and Remark~3.6.4]{Szamuely2009}.
 \end{proof}
 \fi
 
@@ -1405,7 +1468,7 @@ at a base point $u_0:U$ or geometric point $u_0:\mathrm{Spec}(\Omega)\rightarrow
 \end{theorem}
 
 \begin{proof}
-See \cite[Theorem~2.11]{DeligneMilne1982}.
+c.f. \cite[Theorem~2.11]{DeligneMilne1982}.
 \end{proof}
 
 
