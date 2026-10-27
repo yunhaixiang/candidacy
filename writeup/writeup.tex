@@ -815,13 +815,23 @@ $$
 \text{ is proper}\right\},
 $$
 For integral and rational $\ell$-adic sheaves, apply the usual corrections, see \cref{para:ZellQellcpt}. 
-For an étale morphism $a:V\to X$ of finite type, define the \textit{compactly-supported sections} of $\mathcal F$ over $V$ as
-$$
-\Gamma_c(V,\mathcal F):=\Gamma(\mathrm{Spec}(k),(\pi\circ a)_!a^*\mathcal F):\mathsf{Mod}_{\Lambda}
-$$
-If $f$ is proper then $f_!=f_*$. 
-If $V$ is proper over $k$, then $\Gamma_c(V,\mathcal F)=\Gamma(V,a^*\mathcal F)$.
+For an étale morphism $a:V\to X$ of finite type, the \textit{compactly-supported sections} of $\mathcal F$ over $V$ are
+\[
+\begin{aligned}
+\Gamma_c(V,\mathcal F)
+&:=\Gamma(\mathrm{Spec}(k),(\pi\circ a)_!a^*\mathcal F)\\
+&=\left\{s:\Gamma(V,a^*\mathcal F)\;\middle|\;
+\operatorname{supp}(s)\text{ is proper over }k\right\}:\mathsf{Mod}_{\Lambda}.
+\end{aligned}
+\]
+
 \end{definition}
+
+Forgetting supports induces a natural morphism (\cite[Remark~63.9.5]{StacksProject})
+\[
+\mathbf Rf_!K\longrightarrow\mathbf Rf_*K
+\]
+for every $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$, which is an isomorphism when $f$ is proper.
 
 
 There is a canonical short exact sequence for each constructible sheaf $\mathcal F:\mathsf{Sh}_c(X,\Lambda)$ 
@@ -931,10 +941,10 @@ Therefore, there are three pairs of adjoints in the six functors.
   \node (Y) at (0,4) {$\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$};
   \node (XL) at (-3,0) {$\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$};
   \node (XR) at (3,0) {$\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$};
-  \draw[->] (Y) to[bend right=13]
-    node[functor,midway,sloped,above=2pt] {$f^*$} (XL);
-  \draw[->] (XL) to[bend right=13]
-    node[functor,midway,sloped,below=2pt] {$\mathbf Rf_*$} (Y);
+  \draw[->] (Y) to[bend left=13]
+    node[functor,midway,sloped,below=2pt] {$f^*$} (XL);
+  \draw[->] (XL) to[bend left=13]
+    node[functor,midway,sloped,above=2pt] {$\mathbf Rf_*$} (Y);
   \draw[->] (Y) to[bend right=13]
     node[functor,midway,sloped,below=2pt] {$f^!$} (XR);
   \draw[->] (XR) to[bend right=13]
@@ -943,7 +953,7 @@ Therefore, there are three pairs of adjoints in the six functors.
     node[functor,midway,above=2pt] {$-\otimes_\Lambda^{\mathbf L}K$} (XR);
   \draw[->] (XR) to[bend left=10]
     node[functor,midway,below=2pt] {$\mathbf R\mathcal Hom_\Lambda(K,-)$} (XL);
-  \node[rotate=-36.87] at (-1.5,2) {$\dashv$};
+  \node[rotate=143.13] at (-1.5,2) {$\dashv$};
   \node[rotate=-143.13] at (1.5,2) {$\dashv$};
   \node[rotate=-90] at (0,0) {$\dashv$};
 \end{tikzpicture}
@@ -959,7 +969,7 @@ For $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$, its \textit{Verdier dual} 
 This defines a contravariant functor on $\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; see \cite[\S2.2.1]{Katz1996}.
 \end{definition}
 
-The Verdier duality functor is \textit{involutive}: there is a natural isomorphism
+The Verdier duality functor is \textit{involutive}: there is a natural isomorphism 
 \[
 K\xrightarrow{\sim}\mathbb D_X\mathbb D_XK
 \]
@@ -985,12 +995,40 @@ Verdier duality exchanges the six functors in the following ways:
 for $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$.
 See \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}. 
 
+\begin{custom}{Smooth Purity}\label{thm:smooth-purity}
+If $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$, there is a natural isomorphism \cite[Exp.~XVIII, Theorem~3.2.5]{SGA4III}
+\[
+f^!M\cong f^*M(d)[2d]
+\]
+in $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$, where $(d)$ is the Tate twist.
+If $X$ is smooth of pure dimension $d$ over $k$, 
+\[
+\omega_X=\pi^!\Lambda\cong\Lambda(d)[2d].
+\]
+See \cite[\S2.1.2(6) and \S2.2.1]{Katz1996}.
+\end{custom}
+
+\begin{custom}{Poincar\'e Duality}\label{thm:poincare-duality}
+Suppose $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$.
+For a lisse sheaf $\mathcal F:\mathsf{LocSys}_\Lambda(X)$,
+there is an isomorphism natural in $\mathcal F$,
+\[
+\mathbf Rf_*(\mathcal F^\vee(d))[2d]
+\cong
+\mathbf R\mathcal Hom_\Lambda(\mathbf Rf_!\mathcal F,\underline{\Lambda}_Y).
+\]
+This follows from \cref{thm:smooth-purity} and relative Verdier duality; see \cite[Lemma~63.11.5]{StacksProject}.
+\end{custom}
+
+
 \subsection{Middle Extension Sheaves}
 
 \subsection{Middle Convolution}
 
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
-
+\subsection{Hyperelliptic Curves and their Jacobian}
+\subsection{Middle Convolution with Kummer Sheaves}
+\subsection{}
 
 \appendix
 \refstepcounter{section}
