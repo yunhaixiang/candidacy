@@ -938,10 +938,10 @@ for $n:\mathbb Z$, the following hold:
 \end{enumerate}
 c.f. \cite[Definition~1.3.1]{BeilinsonBernsteinDeligne1982}.
 Its \textit{heart} is
-\[
+$
 \mathsf D^{\heartsuit}:=\mathsf D^{\le0}\cap\mathsf D^{\ge0},
-\]
-which is an abelian category; c.f. \cite[Theorem~1.3.6]{BeilinsonBernsteinDeligne1982}.
+$ 
+which is an abelian category. 
 \end{custom}
 
 \begin{notation}\label{not:middle-extension-sheaves}
@@ -976,14 +976,14 @@ The subcategories
 \end{aligned}
 \]
 form the \textit{middle perverse $t$-structure}. Its heart
-\[
+$
 \mathsf{Perv}(X,\Lambda):={}^p\mathsf D^{\le0}\cap{}^p\mathsf D^{\ge0}
-\]
+$
 is the abelian category of \textit{perverse sheaves}; c.f. \cite[\S2.3.1 and \S2.3.1.1]{Katz1996}.
 \end{definition}
 
 \begin{example}[Punctual Sheaf]\label{def:punctual-sheaf}
-A constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm c}(X,\Lambda)$ is \textit{punctual} if, for some finite reduced closed subscheme $i:S\hookrightarrow X$, the unit of the adjunction $i^*\dashv i_*$,
+A constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm c}(X,\Lambda)$ is \textit{punctual} if we can choose $S$ and $U$ such that the unit of the adjunction $i^*\dashv i_*$,
 \[
 \eta^i_{\mathcal F}:\mathcal F\longrightarrow i_*i^*\mathcal F,
 \]
@@ -993,7 +993,7 @@ Viewed as a complex concentrated in degree $0$, it is perverse, i.e. $\mathcal F
 
 \begin{example}[Middle Extension Sheaf]\label{def:middle-extension-sheaf}
 Suppose $X$ is a smooth geometrically connected curve.
-A constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm c}(X,\Lambda)$ is a \textit{middle extension sheaf} if, for some finite reduced closed subscheme $S\hookrightarrow X$ with complementary open inclusion $j:U\hookrightarrow X$, the restriction $j^*\mathcal F$ is lisse and the unit of the adjunction $j^*\dashv j_*$,
+A constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm c}(X,\Lambda)$ is a \textit{middle extension sheaf} if, we can choose $S$ and $U$ such that the restriction $j^*\mathcal F$ is lisse and the unit of the adjunction $j^*\dashv j_*$,
 \[
 \eta^j_{\mathcal F}:\mathcal F\longrightarrow j_*j^*\mathcal F,
 \]
@@ -1012,11 +1012,11 @@ f_{!*}K:=\operatorname{Im}_{\mathsf{Perv}(Y,\Lambda)}
 \left(\mathbf Rf_!K\longrightarrow\mathbf Rf_*K\right),
 \]
 called the \textit{middle direct image}, where the arrow is the forgetting supports from \cref{par:forget-supports}. 
-This is functorial for morphisms between objects satisfying the stated perversity assumptions and commutes with Verdier duality:
+This upgrades to a functor $f_{!*}:\mathsf{Perv}(X,\Lambda)\rightarrow \mathsf{Perv}(Y,\Lambda)$ and commutes with Verdier duality:
 $
 \mathbb D_Y(f_{!*}K)\cong f_{!*}(\mathbb D_XK).
 $
-For an affine open immersion $j:U\hookrightarrow X$, the functor $j_{!*}:\mathsf{Perv}(U,\Lambda)\to\mathsf{Perv}(X,\Lambda)$ is fully faithful; c.f. \cite[\S2.3.3.1]{Katz1996}.
+If $j$ is an affine open immersion,  $j_{!*}$ is fully faithful; c.f. \cite[\S2.3.3.1]{Katz1996}.
 \end{custom}
 \begin{custom}{Perverse Sheaves on a Smooth Curve}\label{fact:perverse-sheaves-on-smooth-curve}
 Suppose $X$ is a smooth geometrically connected curve. An object $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ is perverse if and only if
@@ -1082,6 +1082,9 @@ we assume $K*_!L$ and $K*_*L$ are perverse; c.f. \cite[\S2.6.2]{Katz1996}.
 
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
 \subsection{Hyperelliptic Curves and their Jacobian}
+
+\begin{custom}{Monodromy in Arithmetic}
+\end{custom}
 \subsection{Middle Convolution with Kummer Sheaves}
 \subsection{}
 
