@@ -392,7 +392,7 @@ searching for and citing references;
 suggesting writing advices;
 answering mathematical questions from the author;
 translating reading materials in French into English; 
-retypesetting old references with archaic typesettings for ease of reading.
+and retypesetting old references with archaic typesettings for ease of reading.
 \end{custom}
  
 \subsection{Motivations}\label{subsec:motivations}
@@ -573,7 +573,7 @@ $$\rho_{E,\ell}:\Gamma_k\rightarrow\mathrm{Aut}_{\mathbb Z_\ell}(\mathrm{T}_\ell
 Theorems of Faltings and Zarhin–Mori show that the rationalized Tate module
 $$\mathrm{V}_\ell(E):=\mathrm{T}_\ell(E)\otimes_{\mathbb Z_\ell} \mathbb Q_\ell$$
 as a $\mathbb Q_\ell [\Gamma_k]$-module determines the elliptic curve up to $k$-isogeny, assuming $k$ is finitely generated over its prime field \cite{Faltings1983,Zarhin1976,Mori1978}. 
-In addition, the Tate module also contains information about reduction types (c.f. Néron–Ogg–Shafarevich criterion \cite[Theorem~VII.7.1]{Silverman2009} and Serre–Tate theorem \cite[Theorem~1]{SerreTate1968}), endomorphisms (c.f. Tate's theorem \cite[Main Theorem]{Tate1966}), point counts over finite fields (c.f. Grothendieck–Lefschetz trace formula \cite[Theorem~29.4]{Milne2013EtaleCohomology}), and many more. 
+In addition, the Tate module also contains information about reduction types (c.f. Néron–Ogg–Shafarevich criterion \cite[Theorem~VII.7.1]{Silverman2009} and Serre–Tate theorem \cite[Theorem~1]{SerreTate1968}), endomorphisms (c.f. Tate's theorem \cite[Main Theorem]{Tate1966}), point counts over finite fields (c.f. Grothendieck–Lefschetz trace formula \cite[Theorem~29.4]{Milne2013EtaleCohomology}), etc. 
 
 
 \begin{notation}\label{not:ell-adic-local-systems}We use the following notation:
@@ -599,7 +599,7 @@ In addition, the Tate module also contains information about reduction types (c.
   An \textit{(integral) $\ell$-adic sheaf} on $U$ is a family $\mathcal F$ of sheaves $$\mathcal F_n:\mathsf{Sh}(U,\mathbb Z/\ell^n\mathbb Z)$$ equipped with maps $r_n:\mathcal F_{n+1}\rightarrow \mathcal F_n$ in $\mathsf{Sh}(U,\mathbb Z/\ell^{n+1}\mathbb Z)$, such that 
   $$\overline{r_n}:\mathcal F_{n+1}/\ell^n\mathcal F_{n+1}\xrightarrow{\sim}\mathcal F_n$$
   factoring through $r_n$ is an isomorphism in $\mathsf{Sh}(U,\mathbb Z/\ell^{n+1}\mathbb Z)$, for each $n:\mathbb N$. 
-  Moreover, we say that $\mathcal F$ is \textit{lisse} if each $\mathcal F_n$ is lisse. 
+  We say that $\mathcal F$ is \textit{lisse} if each $\mathcal F_n$ is lisse. 
   Denote by $\mathsf{Sh}(U,\mathbb Z_\ell)$ the (symmetric monoidal $\mathbb Z_\ell$-linear) category of $\ell$-adic sheaves on $U$, and $\mathsf{LocSys}_{\mathbb Z_\ell}(U)$ the (symmetric monoidal $\mathbb Z_\ell$-linear) full subcategory of lisse sheaves. 
 \end{definition}
 \begin{definition}[Rational $\ell$-adic Sheaf]
@@ -678,14 +678,14 @@ $$\mathcal F_\rho|_Y\cong f^*\mathcal F_\rho\cong\mathrm{Hom}_Y(-,Y\times_U E_\r
 
 The case for $\Lambda=\mathbb Z_\ell$ is achieved by applying the construction for $\Lambda=\mathbb Z/\ell^n\mathbb Z$ and assembling each $n:\mathbb N$, and the case for $\Lambda=\mathbb Q_\ell$ is by rationalizing, see \cref{para:Zell} and \cref{para:Qell}.
 
-\begin{example}[Lisse Sheaves from Torsors]\label{ex:torsor}
+\begin{custom}{Lisse Sheaves from Torsors}\label{ex:torsor}
   Given a finite group $G:\mathsf{Grp}^{\mathrm{fin}}$, a finitely generated $\Lambda$-module $M:\mathsf{Mod}^{\mathrm{top}}_{\Lambda}$, a continuous representation $\rho:G\rightarrow\mathrm{Aut}_\Lambda(M)$ with $G$ given the discrete topology, and a finite étale right $G$-torsor $f:Y\rightarrow U$, we construct a local system $\mathcal L_\rho:\mathsf{LocSys}_\Lambda(U)$ by following the same procedure in \cref{par:etale-representation-local-system}, \cref{para:Zell}, and \cref{para:Qell}. 
   For $\Lambda=\mathbb Z/\ell^n\mathbb Z$, as in \cref{par:etale-representation-local-system}, form the cover 
   $$E_\rho:=Y\times^G M=\left.\left(Y\times_U M_U\right)\middle/G\right.\xlongrightarrow{p}U,$$
   where $M_U:=(\coprod_{m\,:\,M}U\rightarrow U):\mathsf{Sch}_U$ and $G$ acts by $(y,m)\cdot g=(yg,\rho(g)^{-1}m)$, then take the sheaf of sections to obtain the lisse sheaf
   $$\mathcal L_\rho:=\mathrm{Hom}_U(-,E_\rho):\mathsf{LocSys}_\Lambda(U).$$
   Assembling and rationalizing give the cases $\Lambda=\mathbb Z_\ell$ (see \cref{para:Zelltorsor}) and $\Lambda=\mathbb Q_\ell$ (see \cref{para:Qelltorsor}). 
-\end{example}
+\end{custom}
 
 \begin{example}We give some concrete examples of \cref{ex:torsor}. 
   \begin{enumerate}
@@ -916,7 +916,7 @@ Perverse sheaves \cite{BeilinsonBernsteinDeligne1982} arose as a generalization 
 \mathsf{Perv}(X,\mathbb C),
 \]
 where $\mathsf{Mod}^{\mathrm{rh}}_{\mathcal D_X}$ denotes the category of regular holonomic left $\mathcal D_X$-modules and $\mathsf{Perv}(X,\mathbb C)$ the category of complex perverse sheaves.
-This generalization allows for singularities, as we have discussed in \cref{par:revisit}.
+This generalization allows for singularities, as in \cref{par:revisit}.
 
 \iffalse
 \begin{custom}{t-Structures}\label{def:t-structure}
