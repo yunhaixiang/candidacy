@@ -5,6 +5,11 @@ Michael Artin, Alexander Grothendieck, and Jean-Louis Verdier, editors.
 \newblock {\em Th\'eorie des topos et cohomologie \'etale des sch\'emas. Tome 3 ({SGA} 4)}, volume 305 of {\em Lecture Notes in Mathematics}.
 \newblock Springer-Verlag, 1973.
 
+\bibitem[BBD82]{BeilinsonBernsteinDeligne1982}
+Alexander~A. Beilinson, Joseph Bernstein, and Pierre Deligne.
+\newblock Faisceaux pervers.
+\newblock In {\em Analyse et topologie sur les espaces singuliers (I)}, volume 100 of {\em Ast\'erisque}, pages 5--171. Soci\'et\'e math\'ematique de France, Paris, 1982.
+
 \bibitem[BS15]{BhattScholze2015}
 Bhargav Bhatt and Peter Scholze.
 \newblock The pro-\'{e}tale topology for schemes.

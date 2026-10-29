@@ -792,7 +792,7 @@ c.f. \cite[Theorem~2.11]{DeligneMilne1982}.
 \section{Perverse Sheaves}\label{sec:perverse-sheaves}
 \subsection{Constructible Sheaves}
 
-\label{par:revisit}We return to our example in \cref{par:square-root-sheaf} of the double cover, but with the origin included
+\parlabel{par:revisit}We return to our example in \cref{par:square-root-sheaf} of the double cover, but with the origin included
 $$f:\mathbb C\rightarrow \mathbb C,\qquad z\mapsto z^2$$
 Its sheaf of sections $\mathcal F:\mathsf{Sh}(\mathbb C,\mathsf{Set})$  is no longer a local system of sets due to the ramification at $0$. 
 Indeed the fibres at $0$ have cardinality $1$ where the fibres at a nonzero point have cardinality $2$. 
@@ -1108,7 +1108,7 @@ Additionally, if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is smooth and pro
 
 \subsection{Middle Extension Sheaves}
 
-Perverse sheaves arose in trying to generalize the Riemann–Hilbert correspondence
+The Riemann–Hilbert correspondence is a symmetric monoidal equivalence 
 \[
 \begin{aligned}
 \mathsf{Bun}^{\nabla}(X)
@@ -1118,7 +1118,100 @@ Perverse sheaves arose in trying to generalize the Riemann–Hilbert corresponde
 \end{aligned}
 \]
 where $X:\mathsf{Man}_{\mathbb C}$ and $\mathsf{Bun}^{\nabla}(X)$ is the category of finite-rank holomorphic vector bundles $\mathcal E$ equipped with an integrable connection $\nabla:\mathcal E\rightarrow\mathcal E\otimes \Omega^1_X$. 
+Perverse sheaves \cite{BeilinsonBernsteinDeligne1982} arose as a generalization of the right hand side, from generalizing the left hand side to regular holonomic $\mathcal D$-modules.
+\[
+\mathsf{Mod}^{\mathrm{rh}}_{\mathcal D_X}
+\simeq
+\mathsf{Perv}(X,\mathbb C),
+\]
+where $\mathsf{Mod}^{\mathrm{rh}}_{\mathcal D_X}$ denotes the category of regular holonomic left $\mathcal D_X$-modules and $\mathsf{Perv}(X,\mathbb C)$ the category of complex perverse sheaves.
+This generalization allows for singularities, as we have discussed in \cref{par:revisit}.
 
+\begin{custom}{t-Structures}\label{def:t-structure}
+Let $\mathsf D$ be a triangulated category with shift functor $[1]$.
+A \textit{$t$-structure} on $\mathsf D$ is a pair of strictly full subcategories $(\mathsf D^{\le0},\mathsf D^{\ge0})$ such that, writing
+\[
+\mathsf D^{\le n}:=\mathsf D^{\le0}[-n],
+\qquad
+\mathsf D^{\ge n}:=\mathsf D^{\ge0}[-n]
+\]
+for $n:\mathbb Z$, the following hold:
+\begin{enumerate}
+  \item $\mathsf D^{\le0}\subseteq\mathsf D^{\le1}$ and $\mathsf D^{\ge1}\subseteq\mathsf D^{\ge0}$.
+  \item $\mathrm{Hom}_{\mathsf D}(A,B)=0$ for $A:\mathsf D^{\le0}$ and $B:\mathsf D^{\ge1}$.
+  \item Every $K:\mathsf D$ fits into a distinguished triangle
+  \[
+  A\longrightarrow K\longrightarrow B\longrightarrow A[1],
+  \qquad A:\mathsf D^{\le0},\quad B:\mathsf D^{\ge1}.
+  \]
+\end{enumerate}
+c.f. \cite[Definition~1.3.1]{BeilinsonBernsteinDeligne1982}.
+Its \textit{heart} is
+\[
+\mathsf D^{\heartsuit}:=\mathsf D^{\le0}\cap\mathsf D^{\ge0},
+\]
+which is an abelian category; c.f. \cite[Theorem~1.3.6]{BeilinsonBernsteinDeligne1982}.
+\end{custom}
+
+\begin{notation}\label{not:middle-extension-sheaves}
+We use the following notation
+\begin{notationtable}
+  k & \mathsf{Field} & A field \\
+  \ell & \mathbb N & A prime with $\ell\ne\mathrm{char}(k)$ \\
+  \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of $\mathbb F_\ell$ or $\mathbb Q_\ell$ \\
+  X & \mathsf{Sch}_{\mathrm{Spec}(k)} & A separated scheme of finite type over $k$ \\
+  S & \mathsf{Sch}_{\mathrm{Spec}(k)} & A finite reduced closed subscheme of $X$ \\
+  i & S\hookrightarrow X & The closed inclusion \\
+  U & \mathsf{Sch}_{\mathrm{Spec}(k)} & The complementary open subscheme $X\setminus S$ \\
+  j & U\hookrightarrow X & The open inclusion \\
+\end{notationtable}
+\end{notation}
+
+\begin{definition}[Perverse Sheaves]\label{def:perverse-sheaf}
+An object $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ is \textit{semiperverse} if
+\[
+\dim\operatorname{Supp}\mathcal H^n(K)\le -n
+\qquad\text{for every }n:\mathbb Z,
+\]
+It is \textit{perverse} if both $K$ and its Verdier dual $\mathbb D_XK$ are semiperverse.
+The subcategories
+\[
+\begin{aligned}
+{}^p\mathsf D^{\le0}
+&:=\left\{K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)\;\middle|\;K\text{ is semiperverse}\right\},\\
+{}^p\mathsf D^{\ge0}
+&:=\left\{K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)\;\middle|\;\mathbb D_XK\text{ is semiperverse}\right\}
+\end{aligned}
+\]
+form the \textit{middle perverse $t$-structure}. Its heart
+\[
+\mathsf{Perv}(X,\Lambda):={}^p\mathsf D^{\le0}\cap{}^p\mathsf D^{\ge0}
+\]
+is the abelian category of \textit{perverse sheaves}; c.f. \cite[\S2.3.1 and \S2.3.1.1]{Katz1996}.
+\end{definition}
+
+\begin{example}[Punctual Sheaf]\label{def:punctual-sheaf}
+A constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm c}(X,\Lambda)$ is \textit{punctual} if, for some finite reduced closed subscheme $i:S\hookrightarrow X$, the unit of the adjunction $i^*\dashv i_*$,
+\[
+\eta^i_{\mathcal F}:\mathcal F\longrightarrow i_*i^*\mathcal F,
+\]
+is an isomorphism. Equivalently, its support is a finite set of closed points.
+Viewed as a complex concentrated in degree $0$, it is perverse, i.e. $\mathcal F:\mathsf{Perv}(X,\Lambda)$; c.f. \cite[\S2.3.6]{Katz1996}.
+\end{example}
+
+\begin{example}[Middle Extension Sheaf]\label{def:middle-extension-sheaf}
+Suppose $X$ is a smooth geometrically connected curve.
+A constructible sheaf $\mathcal F:\mathsf{Sh}_{\mathrm c}(X,\Lambda)$ is a \textit{middle extension sheaf} if, for some finite reduced closed subscheme $S\hookrightarrow X$ with complementary open inclusion $j:U\hookrightarrow X$, the restriction $j^*\mathcal F$ is lisse and the unit of the adjunction $j^*\dashv j_*$,
+\[
+\eta^j_{\mathcal F}:\mathcal F\longrightarrow j_*j^*\mathcal F,
+\]
+is an isomorphism. Here $j_*$ is ordinary direct image.
+Viewed as a complex concentrated in degree $-1$, it is perverse i.e. 
+$
+\mathcal F[1]:\mathsf{Perv}(X,\Lambda).
+$ 
+c.f. \cite[\S2.0.3 and \S2.3.6]{Katz1996}.
+\end{example}
 
 \subsection{Middle Convolution}
 
@@ -1141,6 +1234,7 @@ It is exact in each variable, and there is a natural isomorphism
 \]
 c.f. \cite[\S2.2.2]{Katz1996}.
 \end{custom}
+
 
 \section{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Curves}\label{sec:hyperelliptic-monodromy}
 \subsection{Hyperelliptic Curves and their Jacobian}
