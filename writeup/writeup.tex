@@ -1,4 +1,4 @@
-\documentclass[12pt,letterpaper]{article}
+\documentclass[11pt,letterpaper]{article}
 
 % Compile from this directory: latexmk -pdf -outdir=build writeup.tex
 \usepackage[T1]{fontenc}
@@ -392,9 +392,7 @@ searching for and citing references;
 suggesting writing advices;
 answering mathematical questions from the author;
 translating reading materials in French into English; 
-retypesetting old references with archaic typesettings for ease of reading;
-providing emotional support for the author;
-providing fitness advice to help the author stay healthy and energetic while working on his candidacy exam.
+retypesetting old references with archaic typesettings for ease of reading.
 \end{custom}
  
 \subsection{Motivations}\label{subsec:motivations}
@@ -563,18 +561,6 @@ where the last identification is given by $s(q(\widetilde{u}))=[\widetilde{u},a(
 The category of linear étale covers from \cref{app:linear-etale-cover} is also equivalent to both. 
 
 
-\begin{example}\label{ex:complex-smooth-proper-families}A rich source of local systems is smooth and proper families. Let
-$$f:E\rightarrow U$$
-be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. 
-The higher direct image sheaves
-$$\mathbf R^q f_{*}\underline{\mathbb C}$$
-are complex local systems for each $q:\mathbb N$ by Ehresmann's fibration theorem \cite[Theorem~9.3]{Voisin2002HodgeI}.
-Explicitly, at $u_0:U$, there exists open neighborhood $V:\mathsf{Open}(U)$ of $u_0$ with 
-$$\mathbf R^qf_*\underline{\mathbb C}|_V\cong \underline{\mathrm H^q(E_{u_0},\underline{\mathbb C})}_V$$
-In particular on the level of stalks 
-$\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\underline{\mathbb C})$. 
-\end{example}
-
 \subsection{\texorpdfstring{$\ell$}{l}-adic Local Systems: Lisse Sheaves}\label{subsec:ell-adic-local-systems}
 
 We now develop the $\ell$-adic analogues of the constructions in \cref{subsec:complex-local-systems}.
@@ -590,7 +576,7 @@ as a $\mathbb Q_\ell [\Gamma_k]$-module determines the elliptic curve up to $k$-
 In addition, the Tate module also contains information about reduction types (c.f. Néron–Ogg–Shafarevich criterion \cite[Theorem~VII.7.1]{Silverman2009} and Serre–Tate theorem \cite[Theorem~1]{SerreTate1968}), endomorphisms (c.f. Tate's theorem \cite[Main Theorem]{Tate1966}), point counts over finite fields (c.f. Grothendieck–Lefschetz trace formula \cite[Theorem~29.4]{Milne2013EtaleCohomology}), and many more. 
 
 
-\begin{notation}We use the following notation:
+\begin{notation}\label{not:ell-adic-local-systems}We use the following notation:
 \begin{notationtable}
   k & \mathsf{Field} & A field \\
   U & \mathsf{Sch}_{\operatorname{Spec}(k)} & A Noetherian scheme over \(k\) \\
@@ -629,10 +615,10 @@ In addition, the Tate module also contains information about reduction types (c.
 
 Unfortunately a lot of usual sheaf theoretic constructions do not work for integral and rational $\ell$-adic sheaves and require corrections, see \cref{app:corrections}. 
 However, we note that Bhatt and Scholze \cite{BhattScholze2015} have developed the framework of \textit{pro-étale sites}, allowing $\ell$-adic sheaves to be considered as bona fide sheaves on the pro-étale site $U_{\mathrm{pro\text{-}\acute{e}t}}$, which removes most of the clunkiness we had to deal with in the classical setting. 
-For this report, though, we will stick with the classical setting. 
+For this report, we stick with the classical setting. 
 
 
-Recall the étale fundamental group of a connected $U$ at a geometric base point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$ is the profinite group defined by the inverse limit
+Recall the étale fundamental group of a connected $U$ at geometric base point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$ is the profinite group defined by the inverse limit
 $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0):=\lim_{\substack{\longleftarrow\\(X,x_0)\to(U,u_0)}}\mathrm{Aut}_U(X):\mathsf{Grp}^{\mathrm{pro}}$$
 where the limit is taken over connected finite étale Galois covers $X\rightarrow U$ with $x_0$ a lift of $u_0$, and the transition map $\varphi:\mathrm{Aut}_U(Y)\rightarrow\mathrm{Aut}_U(X) $ for a pointed map $h:(Y,y_0)\rightarrow (X,x_0)$ between conneced finite étale Galois covers is given by $h\circ \sigma=\varphi(\sigma)\circ h$, for $\sigma:\mathrm{Aut}_U(Y)$. 
 
@@ -718,26 +704,6 @@ The case for $\Lambda=\mathbb Z_\ell$ is achieved by applying the construction f
   Lang sheaves generalize both Kummer and Artin--Schreier sheaves; see \cref{app:lang-sheaves}.
 \end{example}
 
-\begin{example}[Tate Twists]
-  Define the lisse sheaf $\Lambda(1):\mathsf{LocSys}_{\Lambda}(U)$ as
-$$\Lambda(1):=
-\begin{cases}
-  \mu_{\ell^n}, & \Lambda=\mathbb Z/\ell^n\mathbb Z,\\[4pt]
-  ((\mathbb Z/\ell^n\mathbb Z)(1))_{j\,:\,\mathbb N}, & \Lambda=\mathbb Z_\ell,\\[4pt]
-  \mathbb Z_\ell(1)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell, & \Lambda=\mathbb Q_\ell,
-\end{cases}$$
-For $m:\mathbb Z$, define the lisse sheaf $\Lambda(m):\mathsf{LocSys}_{\Lambda}(U)$ as
-$$\Lambda(m):=
-\begin{cases}
-  \Lambda(1)^{\otimes m}, & m>0,\\[4pt]
-  \underline{\Lambda}, & m=0,\\[4pt]
-  \bigl(\Lambda(1)^{\otimes(-m)}\bigr)^\vee, & m<0,
-\end{cases}$$
-where $(-)^\vee$ denotes the $\Lambda$-linear dual. The \textit{Tate twist} of an $\ell$-adic sheaf $\mathcal F:\mathsf{Sh}(U,\Lambda)$ is 
-$$\mathcal F(m):=\mathcal F\otimes_{\Lambda} \Lambda(m)$$
-where $m:\mathbb N$, which is lisse iff $\mathcal F$ is lisse. 
-\end{example}
-
 \begin{example}\label{ex:etale-smooth-proper-families}A rich source of lisse sheaves is smooth proper families, as in \cref{ex:complex-smooth-proper-families}. Let
 $$f:E\rightarrow U$$
 be a smooth proper morphism of $k$-schemes. The geometric fibres $E_{u_0}:=E\times_U\operatorname{Spec}\Omega$ at geometric points $u_0:\operatorname{Spec}\Omega\rightarrow U$ are smooth proper $\Omega$-schemes.
@@ -754,41 +720,6 @@ $$\bigl(\mathbf R^q f_*\underline{\Lambda}_E\bigr)_{u_0}\cong\mathrm H^q_{\mathr
 
 
 
-\subsection{Tannakian Formalism}\label{subsec:tannakian-formalism}
-
-In 1939, Tannaka showed that compact groups can be recovered from their finite-dimensional unitary representations \cite{Tannaka1939}. Grothendieck later introduced the Tannakian formalism \cite[\S1]{Milne2025TannakianOrigins}, which provides a general framework for what was discussed in \cref{subsec:complex-local-systems} and \cref{subsec:ell-adic-local-systems}.
-
-\begin{definition}[Neutral Tannakian Category]A \textit{neutral tannakian category} $\mathsf{C}$ over $\Lambda:\mathsf{Field}$ is a rigid symmetric monoidal abelian $\Lambda$-linear category, equipped with an exact faithful $\Lambda$-linear symmetric monoidal functor called the \textit{fibre functor}
-  $$\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$$
-  and is such that the scalar map $\Lambda\xrightarrow{\sim}\mathrm{End}(\mathbf 1)$ is an isomorphism. 
-\end{definition}
-
-Let $\Lambda:\mathsf{Field}$ be one of $\mathbb C$, $\mathbb Q_\ell$, or $\mathbb F_\ell$  with $\ell\ne \mathrm{char}(k)$ for $k:\mathsf{Field}$, then
-the category $\mathsf{LocSys}_{\Lambda}(U)$ of local systems or lisse sheaves on $U:\mathsf{Man}_{\mathbb C}$ or $U:\mathsf{Var}_{k}$ is a neutral tannakian category. 
-Its fibre functor is 
-$$\omega_{u_0}:\mathsf{LocSys}_{\Lambda}(U)\rightarrow \mathsf{Vect}_{\Lambda}^{\mathrm{fin}},\qquad \mathcal F\mapsto \mathcal F_{u_0}$$
-at a base point $u_0:U$ or geometric point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$. 
-
-
-\begin{definition}[Tannakian Group]Let $\mathsf C$ be a neutral Tannakian category over $\Lambda:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$, then its \textit{Tannakian group} is the functor $G:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
-  $$G(R)=\mathrm{Aut}^{\otimes}(\omega_R),\qquad \omega_R(\mathcal F):=\omega(\mathcal F)\otimes_\Lambda R,\qquad {\mathcal F:\mathsf C}$$
-  where $\mathrm{Aut}^\otimes$ denotes the natural automorphisms compatible with tensor products and the tensor unit. 
-  Moreover, the \textit{monodromy group} of $\mathcal F:\mathsf C$ is the functor $G_\mathcal{F}:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
-  $$G_{\mathcal F}(R)=\mathrm{Aut}^\otimes(\omega_R\mid_{\langle\mathcal F\rangle_\otimes})$$
-  where $\langle\mathcal F\rangle_\otimes$ is the strictly full subcategory of $\mathsf C$ consisting of subquotients of finite direct sums of tensor products of $\mathcal F$ and $\mathcal F^\vee$, including the empty tensor product $\mathbf1$. 
-  We remark that this subcategory is also neutral Tannakian over the same field. 
-\end{definition}
-
-\begin{theorem}[Tannakian Reconstruction Theorem]
-  Let $\mathsf C$ be a neutral Tannakian category over $\Lambda:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$, then its Tannakian group $G:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$ is representable as an affine group scheme. Moreover $\omega$ induces a $\Lambda$-linear symmetric monoidal equivalence of categories
-  $$\mathsf{C}\simeq^{\otimes}\mathsf{Rep}^{\mathrm{alg},\mathrm{fin}}_\Lambda(G)$$
-  where the right hand side is the category of algebraic representations of an affine group scheme. 
-\end{theorem}
-
-\begin{proof}
-c.f. \cite[Theorem~2.11]{DeligneMilne1982}.
-\end{proof}
-
 \section{Perverse Sheaves}\label{sec:perverse-sheaves}
 \subsection{Constructible Sheaves}
 
@@ -801,7 +732,7 @@ $$\mathbb C=\mathbb C^\times \sqcup \{0\}$$
 Then $\mathcal F$ is a local system of sets when restricted to each stratum. This is essentially the idea behind constructible sheaves, we want to allow sheaves that are not necessarily locally constant, but are locally constant when restricted to each stratum of a stratification. 
 This way, we can allow for mild failures of local constancy such as ramification. 
 
-\begin{notation}We use the following notation
+\begin{notation}\label{not:constructible-sheaves}We use the following notation
 \begin{notationtable}
   k & \mathsf{Field} & A field \\
   \ell & \mathbb N & A prime with $\ell\ne \mathrm{char}(k)$ \\
@@ -867,14 +798,14 @@ for $q:\mathbb Z$; c.f. \cite[Definition~63.12.1, Tag~0GJZ]{StacksProject}.
 
 \end{definition}
 
-Forgetting supports induces a natural morphism (\cite[Remark~63.9.5]{StacksProject})
+\parlabel{par:forget-supports}Forgetting supports induces a natural morphism (\cite[Remark~63.9.5]{StacksProject})
 \[
 \mathbf Rf_!K\longrightarrow\mathbf Rf_*K
 \]
 for every $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$, which is an isomorphism when $f$ is proper.
 
 
-There is a canonical short exact sequence for each constructible sheaf $\mathcal F:\mathsf{Sh}_c(X,\Lambda)$ 
+\parlabel{par:canonical-exact-sequence}There is a canonical short exact sequence for each constructible sheaf $\mathcal F:\mathsf{Sh}_c(X,\Lambda)$ 
 \[
 0\longrightarrow j_!j^*\mathcal F
 \xrightarrow{\varepsilon}\mathcal F
@@ -882,59 +813,7 @@ There is a canonical short exact sequence for each constructible sheaf $\mathcal
 \longrightarrow0,
 \]
 where $\varepsilon$ is the counit of $j_!\dashv j^*$ and $\eta$ is the unit of $i^*\dashv i_*$  \cite[Tag~095L]{StacksProject}.
-An important consequences of this exact sequence is the Euler-Poincaré formula.
-
-
-\begin{custom}{Euler–Poincaré Formula}
-Let $k=\mathbb C$ and $X$ a smooth projective connected curve of genus $g:\mathbb N$. 
-For each $\mathcal F:\mathsf{Sh}_{\mathrm c}(X^{\mathrm{an}},\mathbb C)$ with pullback $\mathcal L:=(j^{\mathrm{an}})^*\mathcal F$ a local system of rank $r:\mathbb N$, the then
-\[\chi(X^{\mathrm{an}},\mathcal F)=r(2-2g-m)
-  +\sum_{s\in S(\mathbb C)}\dim_{\mathbb C}\mathcal F_s.\]
-where $\mathcal F_s$ denotes the stalk at $s$. If $\mathcal F=(j^{\mathrm{an}})_*\mathcal L$, then
-$$\mathcal F_s\cong\mathrm{Ker}(T_s-\mathrm{id}_{\mathcal L_{u_s}})=\{v:\mathcal L_{u_s}\mid T_s(v)=v\}$$
-is the space of local monodromy invariants, where $u_s$ lies in a sufficiently small punctured disc around $s$ and $T_s$ is the monodromy around $s$ based at $u_s$; c.f. \cite[\S1.0.2 and proof of Theorem~1.1.2]{Katz1996}.
-The arithmetic analogue is the Grothendieck–Ogg–Shafarevich formula. 
-\end{custom}
-
-\begin{custom}{Grothendieck–Ogg–Shafarevich Formula}\label{thm:grothendieck-ogg-shafarevich}
-Assume $k$ is perfect and $X$ is a smooth projective geometrically connected curve of genus $g:\mathbb N$.
-For finitely generated $M:\mathsf{Mod}_{\Lambda}$, 
-\[
-d_\Lambda(M):=
-\begin{cases}
-\operatorname{rank}_\Lambda M,
-&\Lambda=\mathbb Z_\ell\text{ or }\mathbb Q_\ell,\\[2pt]
-\operatorname{length}_\Lambda M,
-&\Lambda=\mathbb Z/\ell^n\mathbb Z.
-\end{cases}
-\]
-Let $\mathcal F:\mathsf{Sh}_{\mathrm c}(X,\Lambda)$ have lisse pullback $\mathcal L:=j^*\mathcal F$, and put $r:=d_\Lambda(\mathcal L_{u_0})$ for a geometric point $u_0$ of $U$.
-Define the \textit{Euler characteristic} by
-\[
-\chi(X_{k^{\mathrm{sep}}},\mathcal F_{k^{\mathrm{sep}}})
-:=\sum_{q=0}^{2}(-1)^q\,
-d_\Lambda\bigl(\mathrm H^q(X_{k^{\mathrm{sep}}},\mathcal F_{k^{\mathrm{sep}}})\bigr).
-\]
-Then
-\[
-\chi(X_{k^{\mathrm{sep}}},\mathcal F_{k^{\mathrm{sep}}})
-=r(2-2g-m)
-+\sum_{s\in S(k^{\mathrm{sep}})}
-\bigl(d_\Lambda(\mathcal F_s)-\mathrm{Sw}_s(\mathcal L)\bigr),
-\]
-where $\mathcal F_s$ is the geometric stalk at $s$ and $\mathrm{Sw}_s(\mathcal L)$ is the \textit{Swan conductor} of $\mathcal L$ at $s$, defined as follows. 
-Let $V_s$ be the geometric generic stalk of $\mathcal L$ on the punctured strict henselian neighbourhood of $s$ in $X_{k^{\mathrm{sep}}}$, with local inertia group $I_s$.
-Writing $I_s^t$ for its upper-numbering ramification groups, set
-\[
-\mathrm{Sw}_s(\mathcal L):=
-\int_0^\infty
-\bigl(d_\Lambda(V_s)-d_\Lambda(V_s^{I_s^t})\bigr)\,\mathrm d t.
-\]
-It vanishes when the local inertia action is tame. 
-c.f. \cite[Exp.~X, \S7]{SGA5}.
-\end{custom}
-
-
+This exact sequence yields the Euler–Poincaré and Grothendieck–Ogg–Shafarevich formulas stated in \cref{thm:euler-poincare,thm:grothendieck-ogg-shafarevich}.
 
 
 \subsection{\texorpdfstring{$\ell$}{l}-adic Six-Functor Formalism}\label{subsec:six-functor-formalism}
@@ -1016,95 +895,7 @@ For $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$, its \textit{Verdier dual} 
 This defines a contravariant functor on $\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; c.f. \cite[\S2.2.1]{Katz1996}.
 \end{definition}
 
-The Verdier duality functor is \textit{involutive}: there is a natural isomorphism 
-\[
-K\xrightarrow{\sim}\mathbb D_X\mathbb D_XK
-\]
-for every $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; c.f. \cite[\S2.2.1]{Katz1996}.
-
-Verdier duality exchanges the six functors in the following ways:
-\[
-\begin{aligned}
-\mathbb D_Y(\mathbf Rf_*K)
-&\cong\mathbf Rf_!(\mathbb D_XK),\\
-\mathbb D_Y(\mathbf Rf_!K)
-&\cong\mathbf Rf_*(\mathbb D_XK),\\
-\mathbb D_X(f^*M)
-&\cong f^!(\mathbb D_YM),\\
-\mathbb D_X(f^!M)
-&\cong f^*(\mathbb D_YM),\\
-\mathbb D_X(K\otimes_\Lambda^{\mathbf L}L)
-&\cong\mathbf R\mathcal Hom_\Lambda(K,\mathbb D_XL),\\
-\mathbb D_X\bigl(\mathbf R\mathcal Hom_\Lambda(K,L)\bigr)
-&\cong K\otimes_\Lambda^{\mathbf L}\mathbb D_XL,
-\end{aligned}
-\]
-for $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$.
-c.f. \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}. 
-
-\begin{custom}{Smooth Purity}\label{thm:smooth-purity}
-If $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$, there is a natural isomorphism \cite[Exp.~XVIII, Theorem~3.2.5]{SGA4III}
-\[
-f^!M\cong f^*M(d)[2d]
-\]
-in $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$, where $(d)$ is the Tate twist.
-If $X$ is smooth of pure dimension $d$ over $k$, 
-\[
-\omega_X=\pi^!\Lambda\cong\Lambda(d)[2d].
-\]
-c.f. \cite[\S2.1.2(6) and \S2.2.1]{Katz1996}.
-\end{custom}
-
-\begin{custom}{Poincar\'e Duality}\label{thm:poincare-duality}
-Suppose $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$.
-For a lisse sheaf $\mathcal F:\mathsf{LocSys}_\Lambda(X)$,
-there is an isomorphism natural in $\mathcal F$,
-\[
-\mathbf Rf_*(\mathcal F^\vee(d))[2d]
-\cong
-\mathbf R\mathcal Hom_\Lambda(\mathbf Rf_!\mathcal F,\underline{\Lambda}_Y).
-\]
-This follows from \cref{thm:smooth-purity} and relative Verdier duality; c.f. \cite[Lemma~63.11.5]{StacksProject}.
-\end{custom}
-
-\begin{custom}{Projection Formula}\label{thm:projection-formula}
-There is a natural isomorphism
-\[
-\mathbf Rf_!(K\otimes_\Lambda^{\mathbf L}f^*L)
-\cong
-\mathbf Rf_!K\otimes_\Lambda^{\mathbf L}L.
-\]
-for $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $L:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$; c.f. \cite[Lemma~63.10.7, Tag~0GL5]{StacksProject}.
-If $L$ is lisse of finite rank, there is also a natural isomorphism
-\[
-\mathbf Rf_*(K\otimes_\Lambda^{\mathbf L}f^*L)
-\cong
-\mathbf Rf_*K\otimes_\Lambda^{\mathbf L}L;
-\]
-c.f. \cite[Lemma~21.50.1, Tag~0944]{StacksProject}.
-\end{custom}
-
-\begin{custom}{Base Change}\label{thm:base-change}
-Consider a Cartesian square:
-\[
-\begin{tikzcd}[row sep=2.5em, column sep=3em]
-X' \arrow[r,"g'"] \arrow[d,"f'"'] & X \arrow[d,"f"] \\
-Y' \arrow[r,"g"'] & Y
-\end{tikzcd}
-\]
-For $K:\mathsf D_c^b(X,\Lambda)$, there are natural comparison morphisms
-\[
-g^*\mathbf Rf_\varepsilon K
-\longrightarrow
-\mathbf Rf'_\varepsilon(g'^*K),
-\qquad \varepsilon:\{!,*\}.
-\]
-which are isomorphisms if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is proper or $g$ is smooth; c.f. \cite[Theorems~59.91.11 and~59.89.2, and Lemma~63.9.4]{StacksProject}.
-Additionally, if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is smooth and proper, then $\mathbf R^qf_{\varepsilon}\mathcal F$ is lisse for $q:\mathbb N$ and $\mathcal F:\mathsf{LocSys}_{\Lambda}(X)$. 
-\end{custom}
-
-
-
+\parlabel{par:six-functor-properties}Further properties of Verdier duality, together with smooth purity, Poincaré duality, the projection formula, and base change, are recalled in \cref{app:six-functor-properties}.
 
 \subsection{Middle Extension Sheaves}
 
@@ -1159,7 +950,8 @@ We use the following notation
   k & \mathsf{Field} & A field \\
   \ell & \mathbb N & A prime with $\ell\ne\mathrm{char}(k)$ \\
   \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of $\mathbb F_\ell$ or $\mathbb Q_\ell$ \\
-  X & \mathsf{Sch}_{\mathrm{Spec}(k)} & A separated scheme of finite type over $k$ \\
+  X,Y & \mathsf{Sch}_{\mathrm{Spec}(k)} & Separated schemes of finite type over $k$ \\
+  f & X\to Y & A morphism over $k$ \\
   S & \mathsf{Sch}_{\mathrm{Spec}(k)} & A finite reduced closed subscheme of $X$ \\
   i & S\hookrightarrow X & The closed inclusion \\
   U & \mathsf{Sch}_{\mathrm{Spec}(k)} & The complementary open subscheme $X\setminus S$ \\
@@ -1213,6 +1005,35 @@ $
 c.f. \cite[\S2.0.3 and \S2.3.6]{Katz1996}.
 \end{example}
 
+\begin{custom}{Middle Direct Image}\label{def:middle-direct-image}
+For $K:\mathsf{Perv}(X,\Lambda)$ such that $\mathbf Rf_!K,\mathbf Rf_*K:\mathsf{Perv}(Y,\Lambda)$, define 
+\[
+f_{!*}K:=\operatorname{Im}_{\mathsf{Perv}(Y,\Lambda)}
+\left(\mathbf Rf_!K\longrightarrow\mathbf Rf_*K\right),
+\]
+called the \textit{middle direct image}, where the arrow is the forgetting supports from \cref{par:forget-supports}. 
+This is functorial for morphisms between objects satisfying the stated perversity assumptions and commutes with Verdier duality:
+$
+\mathbb D_Y(f_{!*}K)\cong f_{!*}(\mathbb D_XK).
+$
+For an affine open immersion $j:U\hookrightarrow X$, the functor $j_{!*}:\mathsf{Perv}(U,\Lambda)\to\mathsf{Perv}(X,\Lambda)$ is fully faithful; c.f. \cite[\S2.3.3.1]{Katz1996}.
+\end{custom}
+\begin{custom}{Perverse Sheaves on a Smooth Curve}\label{fact:perverse-sheaves-on-smooth-curve}
+Suppose $X$ is a smooth geometrically connected curve. An object $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ is perverse if and only if
+\begin{enumerate}
+  \item $\mathcal H^n(K)=0$ for $n\ne-1,0$;
+  \item $\mathcal H^{-1}(K)$ has no nonzero punctual subsheaf;
+  \item $\mathcal H^0(K)$ is punctual.
+\end{enumerate}
+For a perverse $K$, choose $U$ such that $j^*\mathcal H^{-1}(K)$ is lisse. Then $K$ admits a filtration 
+\[
+0\subseteq
+\operatorname{Coker}\!\left(\mathcal H^{-1}(K)\longrightarrow j_*j^*\mathcal H^{-1}(K)\right)
+\subseteq\mathcal H^{-1}(K)[1]\subseteq K,
+\]
+in $\mathsf{Perv}(X,\Lambda)$. Its quotients are punctual, a (shifted) middle extension sheaf, and punctual. 
+\end{custom}
+
 \subsection{Middle Convolution}
 
 \begin{custom}{External Tensor Products}\label{def:external-tensor-product}
@@ -1233,6 +1054,29 @@ It is exact in each variable, and there is a natural isomorphism
 (\mathbb D_XK)\boxtimes_\Lambda(\mathbb D_YL).
 \]
 c.f. \cite[\S2.2.2]{Katz1996}.
+\end{custom}
+
+Let
+$
+a:\mathbb A^1_k\times_k\mathbb A^1_k\longrightarrow\mathbb A^1_k
+$
+be the addition morphism. For $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(\mathbb A^1_k,\Lambda)$, recall 
+\[
+\begin{aligned}
+K*_!L&:=\mathbf Ra_!(K\boxtimes_\Lambda L),\\
+K*_*L&:=\mathbf Ra_*(K\boxtimes_\Lambda L).
+\end{aligned}
+\]
+is their \textit{$!$-convolution} and \textit{$*$-convolution}. 
+
+\begin{custom}{Middle Convolution}\label{def:middle-convolution}
+For $K,L:\mathsf{Perv}(\mathbb A^1_k,\Lambda)$ their \textit{middle convolution} is
+\[
+K*_{!*}L:=\operatorname{Im}_{\mathsf{Perv}(\mathbb A^1_k,\Lambda)}
+\left(K*_!L\longrightarrow K*_*L\right)
+=a_{!*}(K\boxtimes_\Lambda L),
+\]
+we assume $K*_!L$ and $K*_*L$ are perverse; c.f. \cite[\S2.6.2]{Katz1996}.
 \end{custom}
 
 
@@ -1582,6 +1426,228 @@ The lisse sheaf we obtain from these data, denoted $\mathcal L_\chi$, is the \te
 % To be completed: the correspondence between finite étale covers and finite continuous fundamental-group sets.
 
 
+
+
+\subsection{Euler Characteristics of Curves}\label{app:euler-characteristics-of-curves}
+
+We use the notation of \cref{not:constructible-sheaves}.
+
+\begin{custom}{Euler–Poincaré Formula}\label{thm:euler-poincare}
+Let $k=\mathbb C$ and $X$ a smooth projective connected curve of genus $g:\mathbb N$. 
+For each $\mathcal F:\mathsf{Sh}_{\mathrm c}(X^{\mathrm{an}},\mathbb C)$ with pullback $\mathcal L:=(j^{\mathrm{an}})^*\mathcal F$ a local system of rank $r:\mathbb N$, the then
+\[\chi(X^{\mathrm{an}},\mathcal F)=r(2-2g-m)
+  +\sum_{s\in S(\mathbb C)}\dim_{\mathbb C}\mathcal F_s.\]
+where $\mathcal F_s$ denotes the stalk at $s$. If $\mathcal F=(j^{\mathrm{an}})_*\mathcal L$, then
+$$\mathcal F_s\cong\mathrm{Ker}(T_s-\mathrm{id}_{\mathcal L_{u_s}})=\{v:\mathcal L_{u_s}\mid T_s(v)=v\}$$
+is the space of local monodromy invariants, where $u_s$ lies in a sufficiently small punctured disc around $s$ and $T_s$ is the monodromy around $s$ based at $u_s$; c.f. \cite[\S1.0.2 and proof of Theorem~1.1.2]{Katz1996}.
+The arithmetic analogue is the Grothendieck–Ogg–Shafarevich formula. 
+\end{custom}
+
+\begin{custom}{Grothendieck–Ogg–Shafarevich Formula}\label{thm:grothendieck-ogg-shafarevich}
+Assume $k$ is perfect and $X$ is a smooth projective geometrically connected curve of genus $g:\mathbb N$.
+For finitely generated $M:\mathsf{Mod}_{\Lambda}$, 
+\[
+d_\Lambda(M):=
+\begin{cases}
+\operatorname{rank}_\Lambda M,
+&\Lambda=\mathbb Z_\ell\text{ or }\mathbb Q_\ell,\\[2pt]
+\operatorname{length}_\Lambda M,
+&\Lambda=\mathbb Z/\ell^n\mathbb Z.
+\end{cases}
+\]
+Let $\mathcal F:\mathsf{Sh}_{\mathrm c}(X,\Lambda)$ have lisse pullback $\mathcal L:=j^*\mathcal F$, and put $r:=d_\Lambda(\mathcal L_{u_0})$ for a geometric point $u_0$ of $U$.
+Define the \textit{Euler characteristic} by
+\[
+\chi(X_{k^{\mathrm{sep}}},\mathcal F_{k^{\mathrm{sep}}})
+:=\sum_{q=0}^{2}(-1)^q\,
+d_\Lambda\bigl(\mathrm H^q(X_{k^{\mathrm{sep}}},\mathcal F_{k^{\mathrm{sep}}})\bigr).
+\]
+Then
+\[
+\chi(X_{k^{\mathrm{sep}}},\mathcal F_{k^{\mathrm{sep}}})
+=r(2-2g-m)
++\sum_{s\in S(k^{\mathrm{sep}})}
+\bigl(d_\Lambda(\mathcal F_s)-\mathrm{Sw}_s(\mathcal L)\bigr),
+\]
+where $\mathcal F_s$ is the geometric stalk at $s$ and $\mathrm{Sw}_s(\mathcal L)$ is the \textit{Swan conductor} of $\mathcal L$ at $s$, defined as follows. 
+Let $V_s$ be the geometric generic stalk of $\mathcal L$ on the punctured strict henselian neighbourhood of $s$ in $X_{k^{\mathrm{sep}}}$, with local inertia group $I_s$.
+Writing $I_s^t$ for its upper-numbering ramification groups, set
+\[
+\mathrm{Sw}_s(\mathcal L):=
+\int_0^\infty
+\bigl(d_\Lambda(V_s)-d_\Lambda(V_s^{I_s^t})\bigr)\,\mathrm d t.
+\]
+It vanishes when the local inertia action is tame. 
+c.f. \cite[Exp.~X, \S7]{SGA5}.
+\end{custom}
+
+
+\subsection{Properties of the Six Functors}\label{app:six-functor-properties}
+
+We use the notation of \cref{not:constructible-derived-categories}.
+
+The Verdier duality functor is \textit{involutive}: there is a natural isomorphism 
+\[
+K\xrightarrow{\sim}\mathbb D_X\mathbb D_XK
+\]
+for every $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; c.f. \cite[\S2.2.1]{Katz1996}.
+
+Verdier duality exchanges the six functors in the following ways:
+\[
+\begin{aligned}
+\mathbb D_Y(\mathbf Rf_*K)
+&\cong\mathbf Rf_!(\mathbb D_XK),\\
+\mathbb D_Y(\mathbf Rf_!K)
+&\cong\mathbf Rf_*(\mathbb D_XK),\\
+\mathbb D_X(f^*M)
+&\cong f^!(\mathbb D_YM),\\
+\mathbb D_X(f^!M)
+&\cong f^*(\mathbb D_YM),\\
+\mathbb D_X(K\otimes_\Lambda^{\mathbf L}L)
+&\cong\mathbf R\mathcal Hom_\Lambda(K,\mathbb D_XL),\\
+\mathbb D_X\bigl(\mathbf R\mathcal Hom_\Lambda(K,L)\bigr)
+&\cong K\otimes_\Lambda^{\mathbf L}\mathbb D_XL,
+\end{aligned}
+\]
+for $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$.
+c.f. \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}. 
+
+\begin{custom}{Smooth Purity}\label{thm:smooth-purity}
+If $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$, there is a natural isomorphism \cite[Exp.~XVIII, Theorem~3.2.5]{SGA4III}
+\[
+f^!M\cong f^*M(d)[2d]
+\]
+in $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$, where $(d)$ is the Tate twist defined in \cref{app:tate-twists}.
+If $X$ is smooth of pure dimension $d$ over $k$, 
+\[
+\omega_X=\pi^!\Lambda\cong\Lambda(d)[2d].
+\]
+c.f. \cite[\S2.1.2(6) and \S2.2.1]{Katz1996}.
+\end{custom}
+
+\begin{custom}{Poincar\'e Duality}\label{thm:poincare-duality}
+Suppose $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$.
+For a lisse sheaf $\mathcal F:\mathsf{LocSys}_\Lambda(X)$,
+there is an isomorphism natural in $\mathcal F$,
+\[
+\mathbf Rf_*(\mathcal F^\vee(d))[2d]
+\cong
+\mathbf R\mathcal Hom_\Lambda(\mathbf Rf_!\mathcal F,\underline{\Lambda}_Y).
+\]
+This follows from \cref{thm:smooth-purity} and relative Verdier duality; c.f. \cite[Lemma~63.11.5]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Projection Formula}\label{thm:projection-formula}
+There is a natural isomorphism
+\[
+\mathbf Rf_!(K\otimes_\Lambda^{\mathbf L}f^*L)
+\cong
+\mathbf Rf_!K\otimes_\Lambda^{\mathbf L}L.
+\]
+for $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $L:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$; c.f. \cite[Lemma~63.10.7, Tag~0GL5]{StacksProject}.
+If $L$ is lisse of finite rank, there is also a natural isomorphism
+\[
+\mathbf Rf_*(K\otimes_\Lambda^{\mathbf L}f^*L)
+\cong
+\mathbf Rf_*K\otimes_\Lambda^{\mathbf L}L;
+\]
+c.f. \cite[Lemma~21.50.1, Tag~0944]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Base Change}\label{thm:base-change}
+Consider a Cartesian square:
+\[
+\begin{tikzcd}[row sep=2.5em, column sep=3em]
+X' \arrow[r,"g'"] \arrow[d,"f'"'] & X \arrow[d,"f"] \\
+Y' \arrow[r,"g"'] & Y
+\end{tikzcd}
+\]
+For $K:\mathsf D_c^b(X,\Lambda)$, there are natural comparison morphisms
+\[
+g^*\mathbf Rf_\varepsilon K
+\longrightarrow
+\mathbf Rf'_\varepsilon(g'^*K),
+\qquad \varepsilon:\{!,*\}.
+\]
+which are isomorphisms if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is proper or $g$ is smooth; c.f. \cite[Theorems~59.91.11 and~59.89.2, and Lemma~63.9.4]{StacksProject}.
+Additionally, if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is smooth and proper, then $\mathbf R^qf_{\varepsilon}\mathcal F$ is lisse for $q:\mathbb N$ and $\mathcal F:\mathsf{LocSys}_{\Lambda}(X)$. 
+\end{custom}
+
+
+\subsection{Tannakian Formalism}\label{subsec:tannakian-formalism}
+
+In 1939, Tannaka showed that compact groups can be recovered from their finite-dimensional unitary representations \cite{Tannaka1939}. Grothendieck later introduced the Tannakian formalism \cite[\S1]{Milne2025TannakianOrigins}, which provides a general framework for what was discussed in \cref{subsec:complex-local-systems} and \cref{subsec:ell-adic-local-systems}.
+
+\begin{definition}[Neutral Tannakian Category]A \textit{neutral tannakian category} $\mathsf{C}$ over $\Lambda:\mathsf{Field}$ is a rigid symmetric monoidal abelian $\Lambda$-linear category, equipped with an exact faithful $\Lambda$-linear symmetric monoidal functor called the \textit{fibre functor}
+  $$\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$$
+  and is such that the scalar map $\Lambda\xrightarrow{\sim}\mathrm{End}(\mathbf 1)$ is an isomorphism. 
+\end{definition}
+
+Let $\Lambda:\mathsf{Field}$ be one of $\mathbb C$, $\mathbb Q_\ell$, or $\mathbb F_\ell$  with $\ell\ne \mathrm{char}(k)$ for $k:\mathsf{Field}$, then
+the category $\mathsf{LocSys}_{\Lambda}(U)$ of local systems or lisse sheaves on $U:\mathsf{Man}_{\mathbb C}$ or $U:\mathsf{Var}_{k}$ is a neutral tannakian category. 
+Its fibre functor is 
+$$\omega_{u_0}:\mathsf{LocSys}_{\Lambda}(U)\rightarrow \mathsf{Vect}_{\Lambda}^{\mathrm{fin}},\qquad \mathcal F\mapsto \mathcal F_{u_0}$$
+at a base point $u_0:U$ or geometric point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$. 
+
+
+\begin{definition}[Tannakian Group]Let $\mathsf C$ be a neutral Tannakian category over $\Lambda:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$, then its \textit{Tannakian group} is the functor $G:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
+  $$G(R)=\mathrm{Aut}^{\otimes}(\omega_R),\qquad \omega_R(\mathcal F):=\omega(\mathcal F)\otimes_\Lambda R,\qquad {\mathcal F:\mathsf C}$$
+  where $\mathrm{Aut}^\otimes$ denotes the natural automorphisms compatible with tensor products and the tensor unit. 
+  Moreover, the \textit{monodromy group} of $\mathcal F:\mathsf C$ is the functor $G_\mathcal{F}:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
+  $$G_{\mathcal F}(R)=\mathrm{Aut}^\otimes(\omega_R\mid_{\langle\mathcal F\rangle_\otimes})$$
+  where $\langle\mathcal F\rangle_\otimes$ is the strictly full subcategory of $\mathsf C$ consisting of subquotients of finite direct sums of tensor products of $\mathcal F$ and $\mathcal F^\vee$, including the empty tensor product $\mathbf1$. 
+  We remark that this subcategory is also neutral Tannakian over the same field. 
+\end{definition}
+
+\begin{theorem}[Tannakian Reconstruction Theorem]
+  Let $\mathsf C$ be a neutral Tannakian category over $\Lambda:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$, then its Tannakian group $G:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$ is representable as an affine group scheme. Moreover $\omega$ induces a $\Lambda$-linear symmetric monoidal equivalence of categories
+  $$\mathsf{C}\simeq^{\otimes}\mathsf{Rep}^{\mathrm{alg},\mathrm{fin}}_\Lambda(G)$$
+  where the right hand side is the category of algebraic representations of an affine group scheme. 
+\end{theorem}
+
+\begin{proof}
+c.f. \cite[Theorem~2.11]{DeligneMilne1982}.
+\end{proof}
+
+
+\subsection{Tate Twists}\label{app:tate-twists}
+
+We use the notation of \cref{not:ell-adic-local-systems}.
+
+\begin{example}[Tate Twists]
+  Define the lisse sheaf $\Lambda(1):\mathsf{LocSys}_{\Lambda}(U)$ as
+$$\Lambda(1):=
+\begin{cases}
+  \mu_{\ell^n}, & \Lambda=\mathbb Z/\ell^n\mathbb Z,\\[4pt]
+  ((\mathbb Z/\ell^n\mathbb Z)(1))_{j\,:\,\mathbb N}, & \Lambda=\mathbb Z_\ell,\\[4pt]
+  \mathbb Z_\ell(1)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell, & \Lambda=\mathbb Q_\ell,
+\end{cases}$$
+For $m:\mathbb Z$, define the lisse sheaf $\Lambda(m):\mathsf{LocSys}_{\Lambda}(U)$ as
+$$\Lambda(m):=
+\begin{cases}
+  \Lambda(1)^{\otimes m}, & m>0,\\[4pt]
+  \underline{\Lambda}, & m=0,\\[4pt]
+  \bigl(\Lambda(1)^{\otimes(-m)}\bigr)^\vee, & m<0,
+\end{cases}$$
+where $(-)^\vee$ denotes the $\Lambda$-linear dual. The \textit{Tate twist} of an $\ell$-adic sheaf $\mathcal F:\mathsf{Sh}(U,\Lambda)$ is 
+$$\mathcal F(m):=\mathcal F\otimes_{\Lambda} \Lambda(m)$$
+where $m:\mathbb N$, which is lisse iff $\mathcal F$ is lisse. 
+\end{example}
+
+
+\subsection{Local Systems from Complex Families}\label{app:complex-smooth-proper-families}
+
+\begin{example}\label{ex:complex-smooth-proper-families}A rich source of local systems is smooth and proper families. Let
+$$f:E\rightarrow U$$
+be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. 
+The higher direct image sheaves
+$$\mathbf R^q f_{*}\underline{\mathbb C}$$
+are complex local systems for each $q:\mathbb N$ by Ehresmann's fibration theorem \cite[Theorem~9.3]{Voisin2002HodgeI}.
+Explicitly, at $u_0:U$, there exists open neighborhood $V:\mathsf{Open}(U)$ of $u_0$ with 
+$$\mathbf R^qf_*\underline{\mathbb C}|_V\cong \underline{\mathrm H^q(E_{u_0},\underline{\mathbb C})}_V$$
+In particular on the level of stalks 
+$\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\underline{\mathbb C})$. 
+\end{example}
 
 
 \newpage
