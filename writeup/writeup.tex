@@ -558,7 +558,19 @@ where the last identification is given by $s(q(\widetilde{u}))=[\widetilde{u},a(
 \simeq^{\otimes}\mathsf{Rep}_{\mathbb C}^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{top}}(U,u_0)\bigr).
 \end{aligned}
 \]
-The category of linear étale covers from \cref{app:linear-etale-cover} is also equivalent to both. 
+% The category of linear étale covers from \cref{app:linear-etale-cover} is also equivalent to both. 
+
+\begin{example}[Local Systems from Complex Families]\label{ex:complex-smooth-proper-families}A rich source of local systems is smooth and proper families. Let
+$$f:E\rightarrow U$$
+be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. 
+The higher direct image sheaves
+$$\mathbf R^q f_{*}\underline{\mathbb C}$$
+are complex local systems for each $q:\mathbb N$ by Ehresmann's fibration theorem \cite[Theorem~9.3]{Voisin2002HodgeI}.
+Explicitly, at $u_0:U$, there exists open neighborhood $V:\mathsf{Open}(U)$ of $u_0$ with 
+$$\mathbf R^qf_*\underline{\mathbb C}|_V\cong \underline{\mathrm H^q(E_{u_0},\underline{\mathbb C})}_V$$
+In particular on the level of stalks 
+$\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\underline{\mathbb C})$. 
+\end{example}
 
 
 \subsection{\texorpdfstring{$\ell$}{l}-adic Local Systems: Lisse Sheaves}\label{subsec:ell-adic-local-systems}
@@ -701,7 +713,7 @@ The case for $\Lambda=\mathbb Z_\ell$ is achieved by applying the construction f
     $$\rho_\psi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\psi(a)(m):=\psi(a)m.$$
     The lisse sheaf we obtain from these data, denoted $\mathcal L_\psi$, is the \textit{Artin--Schreier sheaf} of $\psi$. 
   \end{enumerate}
-  Lang sheaves generalize both Kummer and Artin--Schreier sheaves; see \cref{app:lang-sheaves}.
+%   Lang sheaves generalize both Kummer and Artin--Schreier sheaves; see \cref{app:lang-sheaves}.
 \end{example}
 
 \begin{example}\label{ex:etale-smooth-proper-families}A rich source of lisse sheaves is smooth proper families, as in \cref{ex:complex-smooth-proper-families}. Let
@@ -856,6 +868,17 @@ We can upgrade the adjunction to
 replacing Hom-sets with internal Homs; c.f. \cite[Lemma~63.11.5]{StacksProject}.
 \end{custom}
 
+
+\begin{definition}[Verdier Dual]\label{def:verdier-dual}
+The \textit{dualizing complex} of $X$ is $$\omega_X:=\pi^!\Lambda.$$
+For $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$, its \textit{Verdier dual} is
+\[
+\mathbb D_XK:=\mathbf R\mathcal Hom_\Lambda(K,\omega_X).
+\]
+This defines a contravariant functor on $\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; c.f. \cite[\S2.2.1]{Katz1996}.
+\end{definition}
+
+
 Therefore, there are three pairs of adjoints in the six functors. 
 \[
 \begin{tikzpicture}[
@@ -886,16 +909,94 @@ Therefore, there are three pairs of adjoints in the six functors.
 \]
 for each $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$. 
 
-\begin{definition}[Verdier Dual]\label{def:verdier-dual}
-The \textit{dualizing complex} of $X$ is $$\omega_X:=\pi^!\Lambda.$$
-For $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$, its \textit{Verdier dual} is
-\[
-\mathbb D_XK:=\mathbf R\mathcal Hom_\Lambda(K,\omega_X).
-\]
-This defines a contravariant functor on $\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; c.f. \cite[\S2.2.1]{Katz1996}.
-\end{definition}
 
-\parlabel{par:six-functor-properties}Further properties of Verdier duality, together with smooth purity, Poincaré duality, the projection formula, and base change, are recalled in \cref{app:six-functor-properties}.
+
+\parlabel{par:six-functor-properties}The Verdier duality functor is \textit{involutive}: there is a natural isomorphism 
+\[
+K\xrightarrow{\sim}\mathbb D_X\mathbb D_XK
+\]
+for every $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; c.f. \cite[\S2.2.1]{Katz1996}.
+
+Verdier duality exchanges the six functors in the following ways:
+\[
+\begin{aligned}
+\mathbb D_Y(\mathbf Rf_*K)
+&\cong\mathbf Rf_!(\mathbb D_XK),\\
+\mathbb D_Y(\mathbf Rf_!K)
+&\cong\mathbf Rf_*(\mathbb D_XK),\\
+\mathbb D_X(f^*M)
+&\cong f^!(\mathbb D_YM),\\
+\mathbb D_X(f^!M)
+&\cong f^*(\mathbb D_YM),\\
+\mathbb D_X(K\otimes_\Lambda^{\mathbf L}L)
+&\cong\mathbf R\mathcal Hom_\Lambda(K,\mathbb D_XL),\\
+\mathbb D_X\bigl(\mathbf R\mathcal Hom_\Lambda(K,L)\bigr)
+&\cong K\otimes_\Lambda^{\mathbf L}\mathbb D_XL,
+\end{aligned}
+\]
+for $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$.
+c.f. \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}. 
+
+\begin{custom}{Smooth Purity}\label{thm:smooth-purity}
+If $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$, there is a natural isomorphism \cite[Exp.~XVIII, Theorem~3.2.5]{SGA4III}
+\[
+f^!M\cong f^*M(d)[2d]
+\]
+in $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$, where $(d)$ is the Tate twist. % Defined in \cref{app:tate-twists}.
+If $X$ is smooth of pure dimension $d$ over $k$, 
+\[
+\omega_X=\pi^!\Lambda\cong\Lambda(d)[2d].
+\]
+c.f. \cite[\S2.1.2(6) and \S2.2.1]{Katz1996}.
+\end{custom}
+
+\begin{custom}{Poincar\'e Duality}\label{thm:poincare-duality}
+Suppose $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$.
+For a lisse sheaf $\mathcal F:\mathsf{LocSys}_\Lambda(X)$,
+there is an isomorphism natural in $\mathcal F$,
+\[
+\mathbf Rf_*(\mathcal F^\vee(d))[2d]
+\cong
+\mathbf R\mathcal Hom_\Lambda(\mathbf Rf_!\mathcal F,\underline{\Lambda}_Y).
+\]
+This follows from \cref{thm:smooth-purity} and relative Verdier duality; c.f. \cite[Lemma~63.11.5]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Projection Formula}\label{thm:projection-formula}
+There is a natural isomorphism
+\[
+\mathbf Rf_!(K\otimes_\Lambda^{\mathbf L}f^*L)
+\cong
+\mathbf Rf_!K\otimes_\Lambda^{\mathbf L}L.
+\]
+for $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $L:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$; c.f. \cite[Lemma~63.10.7, Tag~0GL5]{StacksProject}.
+If $L$ is lisse of finite rank, there is also a natural isomorphism
+\[
+\mathbf Rf_*(K\otimes_\Lambda^{\mathbf L}f^*L)
+\cong
+\mathbf Rf_*K\otimes_\Lambda^{\mathbf L}L;
+\]
+c.f. \cite[Lemma~21.50.1, Tag~0944]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Base Change}\label{thm:base-change}
+Consider a Cartesian square:
+\[
+\begin{tikzcd}[row sep=2.5em, column sep=3em]
+X' \arrow[r,"g'"] \arrow[d,"f'"'] & X \arrow[d,"f"] \\
+Y' \arrow[r,"g"'] & Y
+\end{tikzcd}
+\]
+For $K:\mathsf D_c^b(X,\Lambda)$, there are natural comparison morphisms
+\[
+g^*\mathbf Rf_\varepsilon K
+\longrightarrow
+\mathbf Rf'_\varepsilon(g'^*K),
+\qquad \varepsilon:\{!,*\}.
+\]
+which are isomorphisms if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is proper or $g$ is smooth; c.f. \cite[Theorems~59.91.11 and~59.89.2, and Lemma~63.9.4]{StacksProject}.
+Additionally, if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is smooth and proper, then $\mathbf R^qf_{\varepsilon}\mathcal F$ is lisse for $q:\mathbb N$ and $\mathcal F:\mathsf{LocSys}_{\Lambda}(X)$. 
+\end{custom}
 
 \subsection{Middle Extension and Middle Convolution}
 
@@ -1090,10 +1191,21 @@ where we assume $K*_!L$ and $K*_*L$ are perverse; c.f. \cite[\S2.6.2]{Katz1996}.
   A & \mathsf{Var}_k & An abelian variety  \\
   g & \mathbb{N} & The dimension of $A$\\
   \Gamma_k & \mathsf{Grp}^{\mathrm{pro}} & The absolute Galois group of $k$ \\
-  (\rho_{A,\ell}, T_\ell A) & \mathsf{Rep}^{\mathrm{fin}}_{\mathbb Z_\ell}(\Gamma_k) & The Tate module of $A$ \\
 \end{notationtable}
 \end{notation}
 \begin{custom}{Galois Representations arising from Abelian Varieties}
+Applying \cref{ex:etale-smooth-proper-families} to the structure morphism $f:A\to\operatorname{Spec}(k)$ with $q=1$ and $\Lambda=\mathbb Q_\ell$ gives the lisse sheaf $\mathbf R^1f_*\underline{\mathbb Q_\ell}_A$, whose geometric stalk carries the continuous Galois representation
+\[
+\rho^1_{A,\ell}:\Gamma_k\longrightarrow\mathrm{Aut}_{\mathbb Q_\ell}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(A_{k^{\mathrm{sep}}},\underline{\mathbb Q_\ell})\bigr).
+\]
+There is a canonical $\Gamma_k$-equivariant identification
+\[
+\mathrm H^1_{\mathrm{\acute{e}t}}(A_{k^{\mathrm{sep}}},\underline{\mathbb Q_\ell})
+\cong\mathrm V_\ell(A)^\vee,
+\qquad
+\mathrm V_\ell(A):=\mathrm T_\ell(A)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,
+\]
+where $\mathrm T_\ell(A):=\varprojlim_{n:\mathbb N}A[\ell^n](k^{\mathrm{sep}})$ is the Tate module, with transition maps given by multiplication by $\ell$. Thus $\rho^1_{A,\ell}$ is dual to the natural Galois representation on the rational Tate module $\mathrm V_\ell(A)$, which has dimension $2g$.
 \end{custom}
 
 \subsection{Middle Convolution with Kummer Sheaves}
@@ -1241,28 +1353,28 @@ c.f. \cite[Theorem~3.6.3 and Remark~3.6.4]{Szamuely2009}.
 \end{proof}
 \fi
 
-\subsection{Linear Étale Cover}\label{app:linear-etale-cover}
-
-\begin{definition}[Linear Étale Cover]\label{def:linear-etale-cover}
-Let $U:\mathsf{Man}_{\mathbb C}$ be connected.
-A \textit{linear étale cover} of $U$ is a complex manifold $E:\mathsf{Man}_{\mathbb C}$ equipped with a holomorphic covering map $f:E\to U$ and a finite-dimensional complex vector-space structure on each fibre, such that every $u:U$ has an open neighbourhood $V:\mathsf{Open}(U)$ and a biholomorphism over $V$
-\[
-\varphi_V:f^{-1}(V)\xrightarrow{\sim}V\times W_{\mathrm{disc}}
-\]
-which is linear on each fibre, for some $W:\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}}$ with $W_{\mathrm{disc}}$ given the discrete topology.
-Denote by $\mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)$ the category of these covers, with fibrewise linear holomorphic maps over $U$ as morphisms.
-\end{definition}
-
-Taking the sheaf of sections gives an equivalence
-\[
-\mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)
-\simeq
-\mathsf{LocSys}_{\mathbb C}(U),
-\qquad
-(E\xrightarrow{f}U)\longmapsto
-\bigl(V\longmapsto\operatorname{Hom}_U(V,E)\bigr).
-\]
-The inverse sends a local system to its espace étalé, as in \cref{par:local-system-etale-space}.
+% \subsection{Linear Étale Cover}\label{app:linear-etale-cover}
+%
+% \begin{definition}[Linear Étale Cover]\label{def:linear-etale-cover}
+% Let $U:\mathsf{Man}_{\mathbb C}$ be connected.
+% A \textit{linear étale cover} of $U$ is a complex manifold $E:\mathsf{Man}_{\mathbb C}$ equipped with a holomorphic covering map $f:E\to U$ and a finite-dimensional complex vector-space structure on each fibre, such that every $u:U$ has an open neighbourhood $V:\mathsf{Open}(U)$ and a biholomorphism over $V$
+% \[
+% \varphi_V:f^{-1}(V)\xrightarrow{\sim}V\times W_{\mathrm{disc}}
+% \]
+% which is linear on each fibre, for some $W:\mathsf{Vect}_{\mathbb C}^{\mathrm{fin}}$ with $W_{\mathrm{disc}}$ given the discrete topology.
+% Denote by $\mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)$ the category of these covers, with fibrewise linear holomorphic maps over $U$ as morphisms.
+% \end{definition}
+%
+% Taking the sheaf of sections gives an equivalence
+% \[
+% \mathsf{\acute{E}t}^{\mathrm{lin}}_{\mathbb C}(U)
+% \simeq
+% \mathsf{LocSys}_{\mathbb C}(U),
+% \qquad
+% (E\xrightarrow{f}U)\longmapsto
+% \bigl(V\longmapsto\operatorname{Hom}_U(V,E)\bigr).
+% \]
+% The inverse sends a local system to its espace étalé, as in \cref{par:local-system-etale-space}.
 
 \subsection{\texorpdfstring{$\ell$}{l}-adic Corrections}\label{app:corrections}
 
@@ -1424,16 +1536,16 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
 \parlabel{para:ZellQellcpt}For $\Lambda=\mathbb Z_\ell$, write $\mathcal F=(\mathcal F_n)_{n\,:\,\mathbb N}$ and define $f_!\mathcal F$ by applying \cref{para:clunkiness} to $(f_!\mathcal F_n)_{n\,:\,\mathbb N}$. 
 For $\Lambda=\mathbb Q_\ell$, let $\mathcal L:\mathsf{Sh}(X,\mathbb Z_\ell)$ with $\mathcal F\cong\mathcal L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$, and set $f_!\mathcal F:=(f_!\mathcal L)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$. 
 
-\subsection{Lang Sheaves}\label{app:lang-sheaves}
-
-Let $k=\mathbb F_q$ and $H/k$ a smooth connected commutative algebraic group with $q$-power Frobenius $F:H\rightarrow H$.
-Let $Y=U=H$ and $G=H(\mathbb F_q)$. By Lang's theorem, there is a $G$-torsor
-$$f:H\rightarrow H,\qquad h\mapsto F(h)h^{-1}$$
-with action given by right multiplication $h\cdot g=hg$ for $g:G$.
-Let $K/\mathbb Q_\ell$ be a finite field extension, and let $M=K$ if $\Lambda=\mathbb Q_\ell$, $M=\mathcal O_K$ if $\Lambda=\mathbb Z_\ell$, and $M=\mathcal O_K/\ell^n\mathcal O_K$ if $\Lambda=\mathbb Z/\ell^n\mathbb Z$.
-Choose a character $\chi:G\rightarrow M^\times$; then we get the representation
-$$\rho_\chi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\chi(g)(m):=\chi(g)m.$$
-The lisse sheaf we obtain from these data, denoted $\mathcal L_\chi$, is the \textit{Lang sheaf} of $\chi$.
+% \subsection{Lang Sheaves}\label{app:lang-sheaves}
+%
+% Let $k=\mathbb F_q$ and $H/k$ a smooth connected commutative algebraic group with $q$-power Frobenius $F:H\rightarrow H$.
+% Let $Y=U=H$ and $G=H(\mathbb F_q)$. By Lang's theorem, there is a $G$-torsor
+% $$f:H\rightarrow H,\qquad h\mapsto F(h)h^{-1}$$
+% with action given by right multiplication $h\cdot g=hg$ for $g:G$.
+% Let $K/\mathbb Q_\ell$ be a finite field extension, and let $M=K$ if $\Lambda=\mathbb Q_\ell$, $M=\mathcal O_K$ if $\Lambda=\mathbb Z_\ell$, and $M=\mathcal O_K/\ell^n\mathcal O_K$ if $\Lambda=\mathbb Z/\ell^n\mathbb Z$.
+% Choose a character $\chi:G\rightarrow M^\times$; then we get the representation
+% $$\rho_\chi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\chi(g)(m):=\chi(g)m.$$
+% The lisse sheaf we obtain from these data, denoted $\mathcal L_\chi$, is the \textit{Lang sheaf} of $\chi$.
 
 
 \subsection{Grothendieck's Galois Theory}\label{app:grothendieck-galois-theory}
@@ -1496,98 +1608,6 @@ c.f. \cite[Exp.~X, \S7]{SGA5}.
 \end{custom}
 
 
-\subsection{Properties of the Six Functors}\label{app:six-functor-properties}
-
-We use the notation of \cref{not:constructible-derived-categories}.
-
-The Verdier duality functor is \textit{involutive}: there is a natural isomorphism 
-\[
-K\xrightarrow{\sim}\mathbb D_X\mathbb D_XK
-\]
-for every $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$; c.f. \cite[\S2.2.1]{Katz1996}.
-
-Verdier duality exchanges the six functors in the following ways:
-\[
-\begin{aligned}
-\mathbb D_Y(\mathbf Rf_*K)
-&\cong\mathbf Rf_!(\mathbb D_XK),\\
-\mathbb D_Y(\mathbf Rf_!K)
-&\cong\mathbf Rf_*(\mathbb D_XK),\\
-\mathbb D_X(f^*M)
-&\cong f^!(\mathbb D_YM),\\
-\mathbb D_X(f^!M)
-&\cong f^*(\mathbb D_YM),\\
-\mathbb D_X(K\otimes_\Lambda^{\mathbf L}L)
-&\cong\mathbf R\mathcal Hom_\Lambda(K,\mathbb D_XL),\\
-\mathbb D_X\bigl(\mathbf R\mathcal Hom_\Lambda(K,L)\bigr)
-&\cong K\otimes_\Lambda^{\mathbf L}\mathbb D_XL,
-\end{aligned}
-\]
-for $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$.
-c.f. \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}. 
-
-\begin{custom}{Smooth Purity}\label{thm:smooth-purity}
-If $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$, there is a natural isomorphism \cite[Exp.~XVIII, Theorem~3.2.5]{SGA4III}
-\[
-f^!M\cong f^*M(d)[2d]
-\]
-in $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$, where $(d)$ is the Tate twist defined in \cref{app:tate-twists}.
-If $X$ is smooth of pure dimension $d$ over $k$, 
-\[
-\omega_X=\pi^!\Lambda\cong\Lambda(d)[2d].
-\]
-c.f. \cite[\S2.1.2(6) and \S2.2.1]{Katz1996}.
-\end{custom}
-
-\begin{custom}{Poincar\'e Duality}\label{thm:poincare-duality}
-Suppose $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$.
-For a lisse sheaf $\mathcal F:\mathsf{LocSys}_\Lambda(X)$,
-there is an isomorphism natural in $\mathcal F$,
-\[
-\mathbf Rf_*(\mathcal F^\vee(d))[2d]
-\cong
-\mathbf R\mathcal Hom_\Lambda(\mathbf Rf_!\mathcal F,\underline{\Lambda}_Y).
-\]
-This follows from \cref{thm:smooth-purity} and relative Verdier duality; c.f. \cite[Lemma~63.11.5]{StacksProject}.
-\end{custom}
-
-\begin{custom}{Projection Formula}\label{thm:projection-formula}
-There is a natural isomorphism
-\[
-\mathbf Rf_!(K\otimes_\Lambda^{\mathbf L}f^*L)
-\cong
-\mathbf Rf_!K\otimes_\Lambda^{\mathbf L}L.
-\]
-for $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $L:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$; c.f. \cite[Lemma~63.10.7, Tag~0GL5]{StacksProject}.
-If $L$ is lisse of finite rank, there is also a natural isomorphism
-\[
-\mathbf Rf_*(K\otimes_\Lambda^{\mathbf L}f^*L)
-\cong
-\mathbf Rf_*K\otimes_\Lambda^{\mathbf L}L;
-\]
-c.f. \cite[Lemma~21.50.1, Tag~0944]{StacksProject}.
-\end{custom}
-
-\begin{custom}{Base Change}\label{thm:base-change}
-Consider a Cartesian square:
-\[
-\begin{tikzcd}[row sep=2.5em, column sep=3em]
-X' \arrow[r,"g'"] \arrow[d,"f'"'] & X \arrow[d,"f"] \\
-Y' \arrow[r,"g"'] & Y
-\end{tikzcd}
-\]
-For $K:\mathsf D_c^b(X,\Lambda)$, there are natural comparison morphisms
-\[
-g^*\mathbf Rf_\varepsilon K
-\longrightarrow
-\mathbf Rf'_\varepsilon(g'^*K),
-\qquad \varepsilon:\{!,*\}.
-\]
-which are isomorphisms if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is proper or $g$ is smooth; c.f. \cite[Theorems~59.91.11 and~59.89.2, and Lemma~63.9.4]{StacksProject}.
-Additionally, if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is smooth and proper, then $\mathbf R^qf_{\varepsilon}\mathcal F$ is lisse for $q:\mathbb N$ and $\mathcal F:\mathsf{LocSys}_{\Lambda}(X)$. 
-\end{custom}
-
-
 \subsection{Tannakian Formalism}\label{subsec:tannakian-formalism}
 
 In 1939, Tannaka showed that compact groups can be recovered from their finite-dimensional unitary representations \cite{Tannaka1939}. Grothendieck later introduced the Tannakian formalism \cite[\S1]{Milne2025TannakianOrigins}, which provides a general framework for what was discussed in \cref{subsec:complex-local-systems} and \cref{subsec:ell-adic-local-systems}.
@@ -1624,44 +1644,29 @@ c.f. \cite[Theorem~2.11]{DeligneMilne1982}.
 \end{proof}
 
 
-\subsection{Tate Twists}\label{app:tate-twists}
-
-We use the notation of \cref{not:ell-adic-local-systems}.
-
-\begin{example}[Tate Twists]
-  Define the lisse sheaf $\Lambda(1):\mathsf{LocSys}_{\Lambda}(U)$ as
-$$\Lambda(1):=
-\begin{cases}
-  \mu_{\ell^n}, & \Lambda=\mathbb Z/\ell^n\mathbb Z,\\[4pt]
-  ((\mathbb Z/\ell^n\mathbb Z)(1))_{j\,:\,\mathbb N}, & \Lambda=\mathbb Z_\ell,\\[4pt]
-  \mathbb Z_\ell(1)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell, & \Lambda=\mathbb Q_\ell,
-\end{cases}$$
-For $m:\mathbb Z$, define the lisse sheaf $\Lambda(m):\mathsf{LocSys}_{\Lambda}(U)$ as
-$$\Lambda(m):=
-\begin{cases}
-  \Lambda(1)^{\otimes m}, & m>0,\\[4pt]
-  \underline{\Lambda}, & m=0,\\[4pt]
-  \bigl(\Lambda(1)^{\otimes(-m)}\bigr)^\vee, & m<0,
-\end{cases}$$
-where $(-)^\vee$ denotes the $\Lambda$-linear dual. The \textit{Tate twist} of an $\ell$-adic sheaf $\mathcal F:\mathsf{Sh}(U,\Lambda)$ is 
-$$\mathcal F(m):=\mathcal F\otimes_{\Lambda} \Lambda(m)$$
-where $m:\mathbb N$, which is lisse iff $\mathcal F$ is lisse. 
-\end{example}
-
-
-\subsection{Local Systems from Complex Families}\label{app:complex-smooth-proper-families}
-
-\begin{example}\label{ex:complex-smooth-proper-families}A rich source of local systems is smooth and proper families. Let
-$$f:E\rightarrow U$$
-be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. 
-The higher direct image sheaves
-$$\mathbf R^q f_{*}\underline{\mathbb C}$$
-are complex local systems for each $q:\mathbb N$ by Ehresmann's fibration theorem \cite[Theorem~9.3]{Voisin2002HodgeI}.
-Explicitly, at $u_0:U$, there exists open neighborhood $V:\mathsf{Open}(U)$ of $u_0$ with 
-$$\mathbf R^qf_*\underline{\mathbb C}|_V\cong \underline{\mathrm H^q(E_{u_0},\underline{\mathbb C})}_V$$
-In particular on the level of stalks 
-$\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\underline{\mathbb C})$. 
-\end{example}
+% \subsection{Tate Twists}\label{app:tate-twists}
+%
+% We use the notation of \cref{not:ell-adic-local-systems}.
+%
+% \begin{example}[Tate Twists]
+%   Define the lisse sheaf $\Lambda(1):\mathsf{LocSys}_{\Lambda}(U)$ as
+% $$\Lambda(1):=
+% \begin{cases}
+%   \mu_{\ell^n}, & \Lambda=\mathbb Z/\ell^n\mathbb Z,\\[4pt]
+%   ((\mathbb Z/\ell^n\mathbb Z)(1))_{j\,:\,\mathbb N}, & \Lambda=\mathbb Z_\ell,\\[4pt]
+%   \mathbb Z_\ell(1)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell, & \Lambda=\mathbb Q_\ell,
+% \end{cases}$$
+% For $m:\mathbb Z$, define the lisse sheaf $\Lambda(m):\mathsf{LocSys}_{\Lambda}(U)$ as
+% $$\Lambda(m):=
+% \begin{cases}
+%   \Lambda(1)^{\otimes m}, & m>0,\\[4pt]
+%   \underline{\Lambda}, & m=0,\\[4pt]
+%   \bigl(\Lambda(1)^{\otimes(-m)}\bigr)^\vee, & m<0,
+% \end{cases}$$
+% where $(-)^\vee$ denotes the $\Lambda$-linear dual. The \textit{Tate twist} of an $\ell$-adic sheaf $\mathcal F:\mathsf{Sh}(U,\Lambda)$ is 
+% $$\mathcal F(m):=\mathcal F\otimes_{\Lambda} \Lambda(m)$$
+% where $m:\mathbb N$, which is lisse iff $\mathcal F$ is lisse. 
+% \end{example}
 
 
 \newpage
