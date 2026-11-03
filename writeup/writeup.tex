@@ -16,6 +16,8 @@
 \usepackage[nottoc,notlof,notlot]{tocbibind}
 \usepackage{xcolor}
 \definecolor{accent}{HTML}{176B70}
+\definecolor{sixpushforward}{HTML}{B15325}
+\definecolor{sixtensorhom}{HTML}{7652A0}
 \usepackage[colorlinks=true,linkcolor=accent,citecolor=accent,urlcolor=accent]{hyperref}
 \usepackage[nameinlink,noabbrev,capitalise]{cleveref}
 \usepackage{mathpazo}
@@ -879,38 +881,6 @@ This defines a contravariant functor on $\mathsf D_{\mathrm c}^{\mathrm b}(X,\La
 \end{definition}
 
 
-Therefore, there are three pairs of adjoints in the six functors. 
-\[
-\begin{tikzpicture}[
-  baseline=(current bounding box.center),
-  >={Latex[length=2.1mm,width=1.4mm]},
-  every node/.style={inner sep=4pt},
-  functor/.style={font=\small,inner sep=2pt}
-]
-  \node (Y) at (0,4) {$\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$};
-  \node (XL) at (-3,0) {$\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$};
-  \node (XR) at (3,0) {$\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$};
-  \draw[->] (Y) to[bend left=13]
-    node[functor,midway,sloped,below=2pt] {$f^*$} (XL);
-  \draw[->] (XL) to[bend left=13]
-    node[functor,midway,sloped,above=2pt] {$\mathbf Rf_*$} (Y);
-  \draw[->] (Y) to[bend right=13]
-    node[functor,midway,sloped,below=2pt] {$f^!$} (XR);
-  \draw[->] (XR) to[bend right=13]
-    node[functor,midway,sloped,above=2pt] {$\mathbf Rf_!$} (Y);
-  \draw[->] (XL) to[bend left=10]
-    node[functor,midway,above=2pt] {$-\otimes_\Lambda^{\mathbf L}K$} (XR);
-  \draw[->] (XR) to[bend left=10]
-    node[functor,midway,below=2pt] {$\mathbf R\mathcal Hom_\Lambda(K,-)$} (XL);
-  \node[rotate=143.13] at (-1.5,2) {$\dashv$};
-  \node[rotate=-143.13] at (1.5,2) {$\dashv$};
-  \node[rotate=-90] at (0,0) {$\dashv$};
-\end{tikzpicture}
-\]
-for each $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$. 
-
-
-
 \parlabel{par:six-functor-properties}The Verdier duality functor is \textit{involutive}: there is a natural isomorphism 
 \[
 K\xrightarrow{\sim}\mathbb D_X\mathbb D_XK
@@ -935,68 +905,41 @@ Verdier duality exchanges the six functors in the following ways:
 \end{aligned}
 \]
 for $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$.
-c.f. \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}. 
+c.f. \cite[\S2.1.2(4)--(5) and \S2.2.1]{Katz1996}.
 
-\begin{custom}{Smooth Purity}\label{thm:smooth-purity}
-If $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$, there is a natural isomorphism \cite[Exp.~XVIII, Theorem~3.2.5]{SGA4III}
+Therefore, there are three pairs of adjoints in the six functors. 
 \[
-f^!M\cong f^*M(d)[2d]
+\begin{tikzpicture}[
+  baseline=(current bounding box.center),
+  >={Latex[length=2.1mm,width=1.4mm]},
+  every node/.style={inner sep=4pt},
+  functor/.style={font=\small,inner sep=2pt}
+]
+  \node (Y) at (0,4) {$\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$};
+  \node (XL) at (-3,0) {$\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$};
+  \node (XR) at (3,0) {$\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$};
+  \draw[->,color=accent] (Y) to[bend left=13]
+    node[functor,midway,sloped,below=2pt] {$f^*$} (XL);
+  \draw[->,color=sixpushforward] (XL) to[bend left=13]
+    node[functor,midway,sloped,above=2pt] {$\mathbf Rf_*$} (Y);
+  \draw[->,color=accent] (Y) to[bend right=13]
+    node[functor,midway,sloped,below=2pt] {$f^!$} (XR);
+  \draw[->,color=sixpushforward] (XR) to[bend right=13]
+    node[functor,midway,sloped,above=2pt] {$\mathbf Rf_!$} (Y);
+  \draw[->,color=sixtensorhom] (XL) to[bend left=10]
+    node[functor,midway,above=2pt] {$-\otimes_\Lambda^{\mathbf L}K$} (XR);
+  \draw[->,color=sixtensorhom] (XR) to[bend left=10]
+    node[functor,midway,below=2pt] {$\mathbf R\mathcal Hom_\Lambda(K,-)$} (XL);
+  \node[rotate=143.13] at (-1.5,2) {$\dashv$};
+  \node[rotate=-143.13] at (1.5,2) {$\dashv$};
+  \node[rotate=-90] at (0,0) {$\dashv$};
+\end{tikzpicture}
 \]
-in $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$, where $(d)$ is the Tate twist. % Defined in \cref{app:tate-twists}.
-If $X$ is smooth of pure dimension $d$ over $k$, 
-\[
-\omega_X=\pi^!\Lambda\cong\Lambda(d)[2d].
-\]
-c.f. \cite[\S2.1.2(6) and \S2.2.1]{Katz1996}.
-\end{custom}
+for each $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$, where matching color arrows are Verdier duals. 
 
-\begin{custom}{Poincar\'e Duality}\label{thm:poincare-duality}
-Suppose $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$.
-For a lisse sheaf $\mathcal F:\mathsf{LocSys}_\Lambda(X)$,
-there is an isomorphism natural in $\mathcal F$,
-\[
-\mathbf Rf_*(\mathcal F^\vee(d))[2d]
-\cong
-\mathbf R\mathcal Hom_\Lambda(\mathbf Rf_!\mathcal F,\underline{\Lambda}_Y).
-\]
-This follows from \cref{thm:smooth-purity} and relative Verdier duality; c.f. \cite[Lemma~63.11.5]{StacksProject}.
-\end{custom}
 
-\begin{custom}{Projection Formula}\label{thm:projection-formula}
-There is a natural isomorphism
-\[
-\mathbf Rf_!(K\otimes_\Lambda^{\mathbf L}f^*L)
-\cong
-\mathbf Rf_!K\otimes_\Lambda^{\mathbf L}L.
-\]
-for $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $L:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$; c.f. \cite[Lemma~63.10.7, Tag~0GL5]{StacksProject}.
-If $L$ is lisse of finite rank, there is also a natural isomorphism
-\[
-\mathbf Rf_*(K\otimes_\Lambda^{\mathbf L}f^*L)
-\cong
-\mathbf Rf_*K\otimes_\Lambda^{\mathbf L}L;
-\]
-c.f. \cite[Lemma~21.50.1, Tag~0944]{StacksProject}.
-\end{custom}
 
-\begin{custom}{Base Change}\label{thm:base-change}
-Consider a Cartesian square:
-\[
-\begin{tikzcd}[row sep=2.5em, column sep=3em]
-X' \arrow[r,"g'"] \arrow[d,"f'"'] & X \arrow[d,"f"] \\
-Y' \arrow[r,"g"'] & Y
-\end{tikzcd}
-\]
-For $K:\mathsf D_c^b(X,\Lambda)$, there are natural comparison morphisms
-\[
-g^*\mathbf Rf_\varepsilon K
-\longrightarrow
-\mathbf Rf'_\varepsilon(g'^*K),
-\qquad \varepsilon:\{!,*\}.
-\]
-which are isomorphisms if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is proper or $g$ is smooth; c.f. \cite[Theorems~59.91.11 and~59.89.2, and Lemma~63.9.4]{StacksProject}.
-Additionally, if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is smooth and proper, then $\mathbf R^qf_{\varepsilon}\mathcal F$ is lisse for $q:\mathbb N$ and $\mathcal F:\mathsf{LocSys}_{\Lambda}(X)$. 
-\end{custom}
+Other properties in six functor formalism are recalled in \cref{app:six-functor-properties}.
 
 \subsection{Middle Extension and Middle Convolution}
 
@@ -1127,7 +1070,7 @@ Suppose $X$ is a smooth geometrically connected curve. An object $K:\mathsf D_{\
   \item $\mathcal H^{-1}(K)$ has no nonzero punctual subsheaf;
   \item $\mathcal H^0(K)$ is punctual.
 \end{enumerate}
-For a perverse $K$, choose $U$ such that $j^*\mathcal H^{-1}(K)$ is lisse. Then $K$ admits a filtration 
+As a consequence, choose $U$ such that $j^*\mathcal H^{-1}(K)$ is lisse, then $K$ admits a filtration 
 \[
 0\subseteq
 \operatorname{Coker}\!\left(\mathcal H^{-1}(K)\longrightarrow j_*j^*\mathcal H^{-1}(K)\right)
@@ -1194,18 +1137,15 @@ where we assume $K*_!L$ and $K*_*L$ are perverse; c.f. \cite[\S2.6.2]{Katz1996}.
 \end{notationtable}
 \end{notation}
 \begin{custom}{Galois Representations arising from Abelian Varieties}
-Applying \cref{ex:etale-smooth-proper-families} to the structure morphism $f:A\to\operatorname{Spec}(k)$ with $q=1$ and $\Lambda=\mathbb Q_\ell$ gives the lisse sheaf $\mathbf R^1f_*\underline{\mathbb Q_\ell}_A$, whose geometric stalk carries the continuous Galois representation
+Applying \cref{ex:etale-smooth-proper-families} to the structure morphism $f:A\to\operatorname{Spec}(k)$ with $q=1$ and $\Lambda=\mathbb Q_\ell$ gives the lisse sheaf $\mathbf R^1f_*\underline{\mathbb Q_\ell}_A$, whose geometric stalk carries the $2g$-dimensional Galois representation
 \[
 \rho^1_{A,\ell}:\Gamma_k\longrightarrow\mathrm{Aut}_{\mathbb Q_\ell}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(A_{k^{\mathrm{sep}}},\underline{\mathbb Q_\ell})\bigr).
 \]
-There is a canonical $\Gamma_k$-equivariant identification
-\[
+By a canonical $\Gamma_k$-equivariant identification
+$
 \mathrm H^1_{\mathrm{\acute{e}t}}(A_{k^{\mathrm{sep}}},\underline{\mathbb Q_\ell})
 \cong\mathrm V_\ell(A)^\vee,
-\qquad
-\mathrm V_\ell(A):=\mathrm T_\ell(A)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,
-\]
-where $\mathrm T_\ell(A):=\varprojlim_{n:\mathbb N}A[\ell^n](k^{\mathrm{sep}})$ is the Tate module, with transition maps given by multiplication by $\ell$. Thus $\rho^1_{A,\ell}$ is dual to the natural Galois representation on the rational Tate module $\mathrm V_\ell(A)$, which has dimension $2g$.
+$ this is precisely the dual of the Tate module.
 \end{custom}
 
 \subsection{Middle Convolution with Kummer Sheaves}
@@ -1607,6 +1547,71 @@ It vanishes when the local inertia action is tame.
 c.f. \cite[Exp.~X, \S7]{SGA5}.
 \end{custom}
 
+
+\subsection{Properties of the Six Functors}\label{app:six-functor-properties}
+
+We use the notation of \cref{not:constructible-derived-categories}.
+
+\begin{custom}{Smooth Purity}\label{thm:smooth-purity}
+If $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$, there is a natural isomorphism \cite[Exp.~XVIII, Theorem~3.2.5]{SGA4III}
+\[
+f^!M\cong f^*M(d)[2d]
+\]
+in $M:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$, where $(d)$ is the Tate twist. % Defined in \cref{app:tate-twists}.
+If $X$ is smooth of pure dimension $d$ over $k$, 
+\[
+\omega_X=\pi^!\Lambda\cong\Lambda(d)[2d].
+\]
+c.f. \cite[\S2.1.2(6) and \S2.2.1]{Katz1996}.
+\end{custom}
+
+\begin{custom}{Poincar\'e Duality}\label{thm:poincare-duality}
+Suppose $f:X\to Y$ is smooth of pure relative dimension $d:\mathbb N$.
+For a lisse sheaf $\mathcal F:\mathsf{LocSys}_\Lambda(X)$,
+there is an isomorphism natural in $\mathcal F$,
+\[
+\mathbf Rf_*(\mathcal F^\vee(d))[2d]
+\cong
+\mathbf R\mathcal Hom_\Lambda(\mathbf Rf_!\mathcal F,\underline{\Lambda}_Y).
+\]
+This follows from \cref{thm:smooth-purity} and relative Verdier duality; c.f. \cite[Lemma~63.11.5]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Projection Formula}\label{thm:projection-formula}
+There is a natural isomorphism
+\[
+\mathbf Rf_!(K\otimes_\Lambda^{\mathbf L}f^*L)
+\cong
+\mathbf Rf_!K\otimes_\Lambda^{\mathbf L}L.
+\]
+for $K:\mathsf D_{\mathrm c}^{\mathrm b}(X,\Lambda)$ and $L:\mathsf D_{\mathrm c}^{\mathrm b}(Y,\Lambda)$; c.f. \cite[Lemma~63.10.7, Tag~0GL5]{StacksProject}.
+If $L$ is lisse of finite rank, there is also a natural isomorphism
+\[
+\mathbf Rf_*(K\otimes_\Lambda^{\mathbf L}f^*L)
+\cong
+\mathbf Rf_*K\otimes_\Lambda^{\mathbf L}L;
+\]
+c.f. \cite[Lemma~21.50.1, Tag~0944]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Base Change}\label{thm:base-change}
+Consider a Cartesian square:
+\[
+\begin{tikzcd}[row sep=2.5em, column sep=3em]
+X' \arrow[r,"g'"] \arrow[d,"f'"'] & X \arrow[d,"f"] \\
+Y' \arrow[r,"g"'] & Y
+\end{tikzcd}
+\]
+For $K:\mathsf D_c^b(X,\Lambda)$, there are natural comparison morphisms
+\[
+g^*\mathbf Rf_\varepsilon K
+\longrightarrow
+\mathbf Rf'_\varepsilon(g'^*K),
+\qquad \varepsilon:\{!,*\}.
+\]
+which are isomorphisms if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is proper or $g$ is smooth; c.f. \cite[Theorems~59.91.11 and~59.89.2, and Lemma~63.9.4]{StacksProject}.
+Additionally, if $\varepsilon=!$ OR if $\varepsilon=*$ and $f$ is smooth and proper, then $\mathbf R^qf_{\varepsilon}\mathcal F$ is lisse for $q:\mathbb N$ and $\mathcal F:\mathsf{LocSys}_{\Lambda}(X)$. 
+\end{custom}
 
 \subsection{Tannakian Formalism}\label{subsec:tannakian-formalism}
 
