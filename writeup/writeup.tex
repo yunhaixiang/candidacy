@@ -1121,35 +1121,50 @@ K*_{!*}L:=\operatorname{Im}_{\mathsf{Perv}(\mathbb A^1_k,\Lambda)}
 =a_{!*}(K\boxtimes_\Lambda L),
 \]
 where we assume $K*_!L$ and $K*_*L$ are perverse; c.f. \cite[\S2.6.2]{Katz1996}.
+A perverse $K:\mathsf{Perv}(\mathbb A^1_k,\Lambda)$ has \textit{Katz's property $\mathcal P$} if, for every $L:\mathsf{Perv}(\mathbb A^1_k,\Lambda)$, both $K*_!L$ and $K*_*L$ are perverse.
+For such $K$, $L\mapsto K*_{!*}L$ is defined for every perverse $L$ and preserves injections and surjections; c.f. \cite[\S2.6.1--2]{Katz1996}.
+For perverse sheaves with property $\mathcal P$, middle convolution is associative, commutative, commutes with Verdier duality, and its unit object is the skyscraper sheaf $\delta_0:=(i_0)_*\underline{\Lambda}_{\operatorname{Spec}(k)}$ at the origin, where $i_0:\operatorname{Spec}(k)\hookrightarrow\mathbb A^1_k$ is the inclusion; c.f. \cite[\S2.5.1, \S2.5.3(1), and Lemma~2.6.5]{Katz1996}.
 \end{custom}
 
 
+
+
 \section{Monodromy in Arithmetic}\label{sec:hyperelliptic-monodromy}
-\subsection{Open Image Theorems in Arithmetic}
+\subsection{Big Monodromy and Arithmetic Statistics}
 
 \begin{notation}\label{not:abelian-variety-galois-representations}We use the following notation:
 \begin{notationtable}
   k & \mathsf{Field} & A field \\
   \ell & \mathbb N & A prime with \(\ell\ne\operatorname{char}(k)\) \\
-  A & \mathsf{Var}_k & An abelian variety  \\
-  g & \mathbb{N} & The dimension of $A$\\
   \Gamma_k & \mathsf{Grp}^{\mathrm{pro}} & The absolute Galois group of $k$ \\
 \end{notationtable}
 \end{notation}
-\begin{custom}{Galois Representations arising from Abelian Varieties}
-Applying \cref{ex:etale-smooth-proper-families} to the structure morphism $f:A\to\operatorname{Spec}(k)$ with $q=1$ and $\Lambda=\mathbb Q_\ell$ gives the lisse sheaf $\mathbf R^1f_*\underline{\mathbb Q_\ell}_A$, whose geometric stalk carries the $2g$-dimensional Galois representation
+\begin{custom}{Galois Representations arising from Smooth Proper Families of Curves}\label{ex:curve-family-galois-representations}
+Let $f:\mathcal C\to U$ be a smooth proper family of geometrically connected curves of genus $g:\mathbb N$ over a normal variety $U:\mathsf{Var}_k$. Applying \cref{ex:etale-smooth-proper-families} with $q=1$ and $\Lambda=\mathbb Q_\ell$ gives the lisse sheaf $\mathbf R^1f_*\underline{\mathbb Q_\ell}_{\mathcal C}$, whose geometric stalk at $u_0:\operatorname{Spec}(\Omega)\to U$ carries the $2g$-dimensional monodromy representation
 \[
-\rho^1_{A,\ell}:\Gamma_k\longrightarrow\mathrm{Aut}_{\mathbb Q_\ell}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(A_{k^{\mathrm{sep}}},\underline{\mathbb Q_\ell})\bigr).
+\rho^1_{f,\ell,u_0}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)
+\longrightarrow\mathrm{Aut}_{\mathbb Q_\ell}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\mathbb Q_\ell})\bigr).
 \]
-By a canonical $\Gamma_k$-equivariant identification
-$
-\mathrm H^1_{\mathrm{\acute{e}t}}(A_{k^{\mathrm{sep}}},\underline{\mathbb Q_\ell})
-\cong\mathrm V_\ell(A)^\vee,
-$ this is precisely the dual of the Tate module.
+The \textit{relative Jacobian} $\mathcal J:=\operatorname{Pic}^0_{\mathcal C/U}\to U$ is an abelian scheme with geometric fibres $\mathcal J_{u_0}\cong\operatorname{Jac}(\mathcal C_{u_0})$; c.f. \cite[Chapter~III, \S8]{Milne2008AbelianVarieties}. There are canonical identifications
+\[
+\begin{aligned}
+\mathbf R^1f_*\underline{\mathbb Q_\ell}_{\mathcal C}
+&\cong\bigl(\mathrm V_\ell(\mathcal J)\bigr)^\vee,\\
+\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\mathbb Q_\ell})
+&\cong\mathrm V_\ell(\mathcal J_{u_0})^\vee,
+\end{aligned}
+\]
+where $\mathrm V_\ell(\mathcal J)$ is the Tate-module local system, and the second identification respects monodromy; c.f. \cite[Chapter~I, Theorem~12.1(a) and Remark~12.5; Chapter~III, Corollary~9.6]{Milne2008AbelianVarieties}.
+Taking $K:=k(U)$, $J:=\mathcal J\times_U\operatorname{Spec}(K)$, and $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\to U$ to be a geometric generic point, pulling this representation back along the canonical surjection $\Gamma_K:=\mathrm{Gal}(K^{\mathrm{sep}}/K)\twoheadrightarrow\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$ gives the dual of the Tate-module Galois representation of $J/K$; c.f. \cite[Proposition~58.11.3, Tag~0BQM]{StacksProject}.
 \end{custom}
 
+\begin{custom}{Serre's Open Image Theorem and Cebotarev Density Theorem}
+\end{custom}
+
+
+
 \subsection{Middle Convolution with Kummer Sheaves}
-\subsection{Big Monodromy of Hyperelliptic Curves}
+\subsection{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Family}
 
 \newpage 
 \appendix
