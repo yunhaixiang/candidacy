@@ -7,6 +7,7 @@
 \usepackage{microtype}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{enumitem}
+\usepackage{needspace}
 \usepackage{xltabular}
 \usepackage{booktabs}
 \usepackage{graphicx}
@@ -450,7 +451,7 @@ $$\rho_{\mathcal F,u_0}:\pi_1^{\mathrm{top}}(\mathbb C^\times,u_0)\rightarrow\ma
 
 In \cref{sec:local-systems}, we will see how to upgrade permutation monodromy representations into linear monodromy representations, which we will just call monodromy representations.
 Moreover, one can use this machinery to talk about monodromy in the $\ell$-adic arithmetic context, by replacing $\pi_1^{\mathrm{top}}$ with the étale fundamental group $\pi_1^{\text{ét}}$. 
-When $U=\mathrm{Spec}(k)$ for some $k:\mathrm{Field}$, with a choice of separable closure $k^{\mathrm{sep}}$, then $\pi_1(U,u_0)=\mathrm{Gal}(k^{\mathrm{sep}}/k)$, where $u_0=\mathrm{Spec}(k^{\mathrm{sep}})$, is the absolute Galois group of $k$. Hence, a monodromy representation at $u_0$ in this case degenerates into a Galois representation, a ubiquitous arithmetic object. 
+When $U=\mathrm{Spec}(k)$ for some $k:\mathsf{Field}$, with a choice of separable closure $\Omega$ of $k$, then $\pi_1(U,u_0)=\mathrm{Gal}(\Omega/k)$, where $u_0:\operatorname{Spec}(\Omega)\to U$, is the absolute Galois group of $k$. Hence, a monodromy representation at $u_0$ in this case degenerates into a Galois representation, a ubiquitous arithmetic object.
 
 
 
@@ -580,7 +581,7 @@ $\bigl(\mathbf R^qf_*\underline{\mathbb C}\bigr)_{u_0}\cong\mathrm H^q(E_{u_0},\
 We now develop the $\ell$-adic analogues of the constructions in \cref{subsec:complex-local-systems}.
 
 In number theory, $\ell$-adic Galois representations are ubiquitous and encode a lot of intricate arithmetic information. 
-Let $E:\mathsf{Curv}_k^{\mathrm{sm}}$ be an elliptic curve over a field $k:\mathsf{Field}$, recall that its Tate module at a prime $\ell:\mathbb N$ is the $\mathbb Z_\ell[\Gamma_k]$-module 
+Let $E:\mathsf{Curv}_k^{\mathrm{sm}}$ be an elliptic curve over a field $k:\mathsf{Field}$, recall that its Tate module at a prime $\ell:\mathbb N$ is the $\mathbb Z_\ell[\Gamma_k]$-module, 
 $$\mathrm{T}_\ell(E)=\lim_{\longleftarrow}E[\ell^n]$$
 where $\Gamma_k=\mathrm{Gal}(k^{\mathrm{sep}}/k)$. In other words, it is an (continuous) $\ell$-adic Galois representation
 $$\rho_{E,\ell}:\Gamma_k\rightarrow\mathrm{Aut}_{\mathbb Z_\ell}(\mathrm{T}_\ell (E))$$
@@ -598,6 +599,7 @@ In addition, the Tate module also contains information about reduction types (c.
   \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of \(\mathbb Z_\ell\), \(\mathbb Q_\ell\), or \(\mathbb Z/\ell^n\mathbb Z\) for \(n:\mathbb N\) \\
   U_{\mathrm{\acute{e}t}} & \mathsf{Site} & The small étale site of \(U\)
 \end{notationtable}
+Throughout this report, for a geometric point $u_0:\operatorname{Spec}(\Omega)\to U$ with image $u$, we take $\Omega$ to be a chosen separable closure of the residue field $\kappa(u)$.
 \end{notation}
 
 \begin{definition}[Mod-$\ell^n$ Sheaf]
@@ -721,12 +723,12 @@ The case for $\Lambda=\mathbb Z_\ell$ is achieved by applying the construction f
 \begin{example}\label{ex:etale-smooth-proper-families}A rich source of lisse sheaves is smooth proper families, as in \cref{ex:complex-smooth-proper-families}. Let
 $$f:E\rightarrow U$$
 be a smooth proper morphism of $k$-schemes. The geometric fibres $E_{u_0}:=E\times_U\operatorname{Spec}\Omega$ at geometric points $u_0:\operatorname{Spec}\Omega\rightarrow U$ are smooth proper $\Omega$-schemes.
-The higher direct image 
-$$\mathbf R^q f_*\underline{\Lambda}_E$$
-are lisse on $U$ for each $q:\mathbb N$ by smooth proper base change \cite[Theorem~20.2 and \S19]{Milne2013EtaleCohomology}, i.e. for $\Lambda=\mathbb Z/\ell^n\mathbb Z$, every geometric point $u_0$ has an \'{e}tale neighbourhood $(V,v_0)$ with
-$$\left.(\mathbf R^q f_*\underline{\Lambda}_E)\right|_V\cong\underline{\mathrm H^q_{\mathrm{\acute{e}t}}(E_{u_0},\underline{\Lambda})}_V.$$
+The higher direct images
+$$\mathbf R^q f_*\underline{\Lambda}_E(m)\cong\bigl(\mathbf R^q f_*\underline{\Lambda}_E\bigr)(m)$$
+are lisse on $U$ for each $q:\mathbb N$ and $m:\mathbb Z$, where $(m)$ is the Tate twist defined in \cref{def:tate-twists-cyclotomic-character}, by smooth proper base change \cite[Theorem~20.2 and \S19]{Milne2013EtaleCohomology}, i.e. for $\Lambda=\mathbb Z/\ell^n\mathbb Z$, every geometric point $u_0$ has an \'{e}tale neighbourhood $(V,v_0)$ with
+$$\left.(\mathbf R^q f_*\underline{\Lambda}_E(m))\right|_V\cong\underline{\mathrm H^q_{\mathrm{\acute{e}t}}(E_{u_0},\underline{\Lambda}(m))}_V.$$
 Proper base change identifies the geometric stalks as
-$$\bigl(\mathbf R^q f_*\underline{\Lambda}_E\bigr)_{u_0}\cong\mathrm H^q_{\mathrm{\acute{e}t}}(E_{u_0},\underline{\Lambda}).$$
+$$\bigl(\mathbf R^q f_*\underline{\Lambda}_E(m)\bigr)_{u_0}\cong\mathrm H^q_{\mathrm{\acute{e}t}}(E_{u_0},\underline{\Lambda}(m)).$$
 
 \end{example}
 
@@ -748,7 +750,7 @@ This way, we can allow for mild failures of local constancy such as ramification
 
 \begin{notation}\label{not:constructible-sheaves}We use the following notation
 \begin{notationtable}
-  k & \mathsf{Field} & A field \\
+  k & \mathsf{Field} & A field with a chosen separable closure \(k^{\mathrm{sep}}\) \\
   \ell & \mathbb N & A prime with $\ell\ne \mathrm{char}(k)$ \\
   \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of \(\mathbb Z_\ell\), \(\mathbb Q_\ell\), or \(\mathbb Z/\ell^n\mathbb Z\) for \(n:\mathbb N\) \\
   X,Y & \mathsf{Sch}_{\mathrm{Spec}(k)} & Separated schemes of finite type over \(k\) \\
@@ -1137,84 +1139,120 @@ For perverse sheaves with property $\mathcal P$, middle convolution is associati
   k & \mathsf{Field} & A field \\
   \ell & \mathbb N & A prime with \(\ell\ne\operatorname{char}(k)\) \\
   \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of $\mathbb Q_\ell$ or $\mathbb F_\ell$ \\
-  \Gamma_k & \mathsf{Grp}^{\mathrm{pro}} & The absolute Galois group of $k$ \\
+  \Gamma_K & \mathsf{Grp}^{\mathrm{pro}} & The absolute Galois group of a field $K:\mathsf{Field}$ \\
+  u_0 & \operatorname{Spec}(\Omega)\to U & A geometric base point of \(U:\mathsf{Sch}_k\)\\
 \end{notationtable}
 \end{notation}
 
-The monodromy group encodes the symmetries of a sheaf. 
-A slogan is monodromy should be as big as possible. 
+Monodromy groups are constrained by the symmetries of the sheaf. 
+A slogan is \textit{monodromy should be as big as the contraints allow}. 
 Big monodromy usually means that the sheaf has as few hidden algebraic symmetries. 
 It is also used to establish independence of $\ell$ in a Serre compatible system of sheaves as well as statistical results about arithmetic objects, as we will explain below. 
 
 \begin{custom}{Serre's Open Image Theorem and Cebotarev Density}
-
-  Cohen–Lenstra Hueristics
+  A quintessential big monodromy result is Serre's open image theorem.
+  Cohen–Lenstra 
 \end{custom}
 
 
-
-Let $f:\mathcal C\to U$ be a smooth proper family of geometrically connected curves of genus $g:\mathbb N$ over a normal variety $U:\mathsf{Var}_k$. Applying \cref{ex:etale-smooth-proper-families} with $q=1$ gives the lisse sheaf $\mathbf R^1f_*\underline{\Lambda}_{\mathcal C}$, whose geometric stalk at $u_0:\operatorname{Spec}(\Omega)\to U$ carries the $2g$-dimensional monodromy representation
+\parlabel{par:smoothproper}
+Let $f:\mathcal C\to U$ be a smooth proper family of geometrically connected curves of genus $g:\mathbb N$ over a normal variety $U:\mathsf{Var}_k$. Applying \cref{ex:etale-smooth-proper-families} to $q=1$ and $m=1$ gives the lisse sheaf $\mathbf R^1f_*\underline{\Lambda}_{\mathcal C}(1)$, whose geometric stalk at $u_0:\operatorname{Spec}(\Omega)\to U$ carries the $2g$-dimensional representation
 \[
 \rho^1_{f,\ell,u_0}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)
-\longrightarrow\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\Lambda})\bigr).
+\longrightarrow\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\Lambda}(1))\bigr).
 \]
 The \textit{relative Jacobian} $\mathcal J:=\operatorname{Pic}^0_{\mathcal C/U}\to U$ is an abelian scheme with geometric fibres $\mathcal J_{u_0}\cong\operatorname{Jac}(\mathcal C_{u_0})$; c.f. \cite[Chapter~III, \S8]{Milne2008AbelianVarieties}. 
-There are canonical identifications
+Deriving the Kummer exact sequence on $\mathcal C_{u_0}$ gives
 \[
-\mathbf R^1f_*\underline{\Lambda}_{\mathcal C}
+\begin{aligned}
+1\longrightarrow\mu_{\ell^n}(\Omega)
+&\longrightarrow\Omega^\times
+\xrightarrow{(\cdot)^{\ell^n}}\Omega^\times
+\longrightarrow\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\mu_{\ell^n})\\
+&\xrightarrow{\kappa_n}\operatorname{Pic}(\mathcal C_{u_0})
+\xrightarrow{[\ell^n]}\operatorname{Pic}(\mathcal C_{u_0})
+\longrightarrow\mathrm H^2_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\mu_{\ell^n})
+\longrightarrow\cdots.
+\end{aligned}
+\]
+Exactness and surjectivity of $(\cdot)^{\ell^n}$ gives
+\[
+\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\mu_{\ell^n})
+\xrightarrow[\sim]{\kappa_n}\operatorname{Pic}(\mathcal C_{u_0})[\ell^n]
+=\operatorname{Pic}^0(\mathcal C_{u_0})[\ell^n]
+=\mathcal J_{u_0}[\ell^n](\Omega)
+\]
+for $n:\mathbb N$, since torsion line bundles have degree $0$.
+By the usual passing to limit and rationalizing,
+\[
+\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\Lambda}(1))
 \cong\begin{cases}
-\bigl(\mathrm V_\ell(\mathcal J)\bigr)^\vee, & \Lambda=\mathbb Q_\ell,\\[3pt]
-\bigl(\mathcal J[\ell]\bigr)^\vee, & \Lambda=\mathbb F_\ell,
-\end{cases}
-\qquad
-\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\Lambda})
-\cong\begin{cases}
-\mathrm V_\ell(\mathcal J_{u_0})^\vee, & \Lambda=\mathbb Q_\ell,\\[3pt]
-\bigl(\mathcal J_{u_0}[\ell](\Omega)\bigr)^\vee, & \Lambda=\mathbb F_\ell,
+\mathrm V_\ell(\mathcal J_{u_0}), & \Lambda=\mathbb Q_\ell,\\[3pt]
+\mathcal J_{u_0}[\ell](\Omega), & \Lambda=\mathbb F_\ell.
 \end{cases}
 \]
-where $\mathcal J$ is viewed as its sheaf of abelian groups of sections on $U_{\mathrm{\acute{e}t}}$.
 
 
 
-Denote $K:=k(U)$, $C:=\mathcal C\times_U\operatorname{Spec}(K)$, and $J:=\mathcal J\times_U\operatorname{Spec}(K)\cong\operatorname{Jac}(C)$. For a geometric generic point $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\to U$, we have $\mathcal C_{u_0}\cong C_{K^{\mathrm{sep}}}$. 
-Under the preceding identifications, the composite
+Denote $K:=k(U)$ and let $\eta:\operatorname{Spec}(K)\to U$ be the generic point.
+Set $C:=\mathcal C\times_U\operatorname{Spec}(K)$ and $J:=\mathcal J\times_U\operatorname{Spec}(K)\cong\operatorname{Jac}(C)$.
+Take $
+u_0:\operatorname{Spec}(\Omega)\rightarrow\operatorname{Spec}(K)\xrightarrow{\eta}U
+$ a geometric generic point, 
+then $\mathcal C_{u_0}\cong C_\Omega$.
+By the identifications in \cref{par:smoothproper},
 \[
-\rho:\Gamma_K
+\left(\rho:\Gamma_K
 \overset{\eta_*}{\twoheadrightarrow}\pi_1^{\mathrm{\acute{e}t}}(U,u_0)
-\xrightarrow{\rho^1_{f,\ell,u_0}}\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda})\bigr)
+\xrightarrow{\rho^1_{f,\ell,u_0}}\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(1))\bigr)\right)=
+\begin{cases}
+\mathrm V_\ell(J), & \Lambda=\mathbb Q_\ell,\\[3pt]
+J[\ell](\Omega), & \Lambda=\mathbb F_\ell,
+\end{cases}
 \]
-is the dual of the rational Tate-module Galois representation of $J/K$ when $\Lambda=\mathbb Q_\ell$, and of the Galois action on $J[\ell](K^{\mathrm{sep}})$ when $\Lambda=\mathbb F_\ell$, where $\Gamma_K:=\mathrm{Gal}(K^{\mathrm{sep}}/K)$ and $\eta_*$ is the canonical surjection induced by the generic-point inclusion $\eta:\operatorname{Spec}(K)\to U$ from \cref{prop:etale-function-fields}.
-One would like to compute the monodromy group
+by pulling back to $\mathrm{Spec}(\Omega)$. 
+The monodromy group is therefore
 \[
 G_\Lambda
 :=\operatorname{Im}\bigl(\rho^1_{f,\ell,u_0}\bigr)
 =\operatorname{Im}\bigl(\rho\bigr)
+=\Gamma_K/\mathrm{Ker}(\rho)
 \cong\begin{cases}
 \operatorname{Gal}\bigl(K(J[\ell^\infty])/K\bigr), & \Lambda=\mathbb Q_\ell,\\[3pt]
 \operatorname{Gal}\bigl(K(J[\ell])/K\bigr), & \Lambda=\mathbb F_\ell,
 \end{cases}
 \]
-
+where the last isomorphism is by infinite Galois theory. 
 
 Recall there is a perfect Galois-equivariant symplectic pairing supplied by Poincare duality
-\[
-\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda})
-\times\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda})
-\xrightarrow{\smile}\mathrm H^2_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda})
-\xrightarrow[\sim]{\operatorname{tr}}\Lambda(-1).
+\[\omega:
+\mathrm H^1_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(1))
+\times\mathrm H^1_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(1))
+\xrightarrow{\smile}\mathrm H^2_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(2))
+\xrightarrow[\sim]{\operatorname{tr}(1)}\Lambda(1).
 \]
-where the last map is the trace map obtained as follows. Let $\pi:C_{K^{\mathrm{sep}}}\to\operatorname{Spec}(K^{\mathrm{sep}})$ be the structure morphism. 
+where the last map is the trace map obtained as follows. Let $\pi:C_\Omega\to\operatorname{Spec}(\Omega)$ be the structure morphism.
 By properness and smooth purity \cref{thm:smooth-purity}, the counit of $\mathbf R \pi_!\dashv \pi^!$ gives a map
 \[
-\mathbf R\Gamma(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))[2]
+\mathbf R\Gamma(C_\Omega,\underline{\Lambda}(1))[2]
 \cong\mathbf R\pi_!\pi^!\Lambda
 \xrightarrow{\varepsilon_\Lambda}\Lambda.
 \]
-Taking $\mathrm H^0$ and tensoring with $\Lambda(-1)$ gives the trace. 
-Under the identifications of $\mathrm{H}^1$ in ref, 
-Therefore the monodromy group restricts to GSp. 
+Taking $\mathrm H^0$ gives the trace $\operatorname{tr}:\mathrm H^2(C_\Omega,\underline{\Lambda}(1))\to\Lambda$; tensoring with $\Lambda(1)$ gives $\operatorname{tr}(1)$.
+With the identifications in \cref{par:smoothproper}, this pairing is precisely the Weil pairing.
+By Galois-equivariance of the pairing, 
+\[
+\omega\bigl(\rho(\sigma)v,\rho(\sigma)w\bigr)
+=\sigma\bigl(\omega(v,w)\bigr)
+=\chi_\Lambda(\sigma)\omega(v,w),
+\]
+for $\sigma:\Gamma_K$ and $v,w:\mathrm H^1_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(1))$, with $\chi_\Lambda:\Gamma_K\to\Lambda^\times$ the cyclotomic character c.f. \cref{def:tate-twists-cyclotomic-character}.
+Hence
+$$
+G_\Lambda\subseteq\mathrm{GSp}_{2g}(\Lambda).
+$$
 
+We have further
 
 
 
@@ -1388,7 +1426,7 @@ c.f. \cite[Theorem~3.6.3 and Remark~3.6.4]{Szamuely2009}.
 % \]
 % The inverse sends a local system to its espace étalé, as in \cref{par:local-system-etale-space}.
 
-\subsection{\texorpdfstring{$\ell$}{l}-adic Corrections}\label{app:corrections}
+\subsection{\texorpdfstring{$\ell$}{l}-adic Formalism}\label{app:corrections}
 
 \subsubsection{Artin–Rees Strictification}\label{app:artin-rees-rationalization}
 
@@ -1424,7 +1462,10 @@ Geometric stalks
   & $\displaystyle\mathcal F_{u_0}:=\varprojlim_n(\mathcal F_n)_{u_0}$
   & $\begin{aligned}[t]
        u_0&:\operatorname{Spec}(\Omega)\to U\\
-       \Omega&:\mathsf{Field},\ \text{separably closed}
+       \Omega&:\mathsf{Field},\\
+       &\text{a separable closure}\\
+       &\text{of }\kappa(u),\text{ where }u\\
+       &\text{is the image of }u_0
      \end{aligned}$ \\
 \addlinespace
 Sections
@@ -1468,7 +1509,10 @@ Geometric stalks
   & $\displaystyle(\mathcal F_{\mathbb Q_\ell})_{u_0}:=\mathcal F_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
   & $\begin{aligned}[t]
        u_0&:\operatorname{Spec}(\Omega)\to U\\
-       \Omega&:\mathsf{Field},\ \text{separably closed}
+       \Omega&:\mathsf{Field},\\
+       &\text{a separable closure}\\
+       &\text{of }\kappa(u),\text{ where }u\\
+       &\text{is the image of }u_0
      \end{aligned}$ \\
 \addlinespace
 Sections
@@ -1535,6 +1579,30 @@ Conversely, for a lisse sheaf $\mathcal F$, the stalk $\mathcal F_{u_0}$ has a n
 Given a continuous representation $\rho:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow\mathrm{Aut}_{\mathbb Q_\ell}(M)$ on a finite-dimensional $\mathbb Q_\ell$-vector space $M$, choose a $\rho$-stable $\mathbb Z_\ell$-lattice $L\subset M$, which exists because the image of $\rho$ is compact \cite[Part~II, Ch.~IV, Appendix~1, Theorem~1]{Serre1992Lie}. Apply \cref{para:Zell} to the action on $L$, obtaining an integral lisse sheaf $\mathcal F_L$, and set $\mathcal F_\rho:=\mathcal F_L\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$.
 Conversely, choose an integral lisse model $\mathcal G$ of a rational lisse sheaf $\mathcal F\cong\mathcal G\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$. Extend the stalk action from \cref{para:Zell} by scalars:
 $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad \rho_{\mathcal F}(\gamma):=\rho_{\mathcal G}(\gamma)\otimes\mathrm{id}_{\mathbb Q_\ell}.$$
+
+\Needspace{18\baselineskip}
+\begin{samepage}
+\begin{definition}[Tate Twists and the Cyclotomic Character]\label{def:tate-twists-cyclotomic-character}
+Let $k:\mathsf{Field}$, let $\ell:\mathbb N$ be a prime different from $\operatorname{char}(k)$, choose a separable closure $\Omega$ of $k$, and put $\Gamma_k:=\operatorname{Gal}(\Omega/k)$. The \textit{cyclotomic character} $\chi_\ell:\Gamma_k\to\mathbb Z_\ell^\times$ is characterized by
+\[
+\sigma(\zeta)=\zeta^{\chi_\ell(\sigma)\bmod\ell^r}
+\]
+for $\sigma:\Gamma_k$, $r:\mathbb N$, and $\zeta:\mu_{\ell^r}(\Omega)$. For the coefficient rings used in this report, put
+\[
+\chi_\Lambda:\Gamma_k\to\Lambda^\times,
+\qquad
+\chi_\Lambda(\sigma):=\begin{cases}
+\chi_\ell(\sigma)\bmod\ell^n, & \Lambda=\mathbb Z/\ell^n\mathbb Z,\\[3pt]
+\chi_\ell(\sigma), & \Lambda=\mathbb Z_\ell\text{ or }\mathbb Q_\ell.
+\end{cases}
+\]
+For $m:\mathbb Z$, let $\Lambda(m)$ be the rank-one lisse sheaf on $\operatorname{Spec}(k)$ corresponding to the action $\sigma\cdot a=\chi_\Lambda(\sigma)^m a$ on $\Lambda$. On $U:\mathsf{Sch}_k$, use its pullback along the structure morphism. In particular, $(\mathbb Z/\ell^n\mathbb Z)(1)=\mu_{\ell^n,U}$, $\Lambda(0)=\underline{\Lambda}_U$, and $\Lambda(-m)\cong\Lambda(m)^\vee$. The \textit{Tate twist} of $\mathcal F:\mathsf{Sh}(U,\Lambda)$ is
+\[
+\mathcal F(m):=\mathcal F\otimes_\Lambda\Lambda(m).
+\]
+c.f. \cite[Chapter~I, \S13]{Milne2008AbelianVarieties}.
+\end{definition}
+\end{samepage}
 
 \subsubsection{Lisse Sheaves from Torsors}\label{app:torsor-sheaf-corrections}
 
@@ -1612,28 +1680,8 @@ For an open subgroup $H\subseteq\pi$, let $f_H:Y_H\to U$ denote the cover corres
 For an open normal subgroup $N\triangleleft\pi$, put $G:=\pi/N$. The cover corresponding to the left $\pi$-set $G$ is a connected finite \'{e}tale right $G$-torsor, with its right action induced by right translations on $G$; c.f. \cite[\S58.7, Tag~03SF]{StacksProject}.
 \end{custom}
 
-\begin{custom}{Function Fields}\label{prop:etale-function-fields}
-For $K:\mathsf{Field}$, with geometric point $\operatorname{Spec}(K^{\mathrm{sep}})\to\operatorname{Spec}(K)$,
-\[
-\pi_1^{\mathrm{\acute{e}t}}(\operatorname{Spec}(K))
-\cong\Gamma_K:=\operatorname{Gal}(K^{\mathrm{sep}}/K).
-\]
-If $U:\mathsf{Var}_k$ is normal, $K:=k(U)$, and $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\to U$ is geometric generic, there is a canonical surjection
-$
-\Gamma_K\twoheadrightarrow\pi.
-$
-For continuous $\rho:\pi\to G$, with $G:\mathsf{Grp}^{\mathrm{top}}$ Hausdorff, let $\widetilde\rho$ be the composite with this surjection. Then $L:=(K^{\mathrm{sep}})^{\operatorname{Ker}(\widetilde\rho)}$ is a possibly infinite Galois extension of $K$, and
-\[
-\operatorname{Gal}(L/K)
-\cong\Gamma_K/\operatorname{Ker}(\widetilde\rho)
-\cong\operatorname{Im}(\widetilde\rho)
-=\operatorname{Im}(\rho).
-\]
-These are isomorphisms of topological groups, with the image carrying the subspace topology. The extension $L/K$ is finite if and only if $\operatorname{Im}(\rho)$ is finite; c.f. \cite[Lemma~58.6.3, Proposition~58.11.3, and Theorem~9.22.4, Tags~0BQ8, 0BQM, and~0BML]{StacksProject}.
-\end{custom}
-
 \begin{custom}{Arithmetic and Geometric Fundamental Groups}\label{prop:arithmetic-geometric-fundamental-groups}
-If $U:\mathsf{Var}_k$ is geometrically connected, with $u_0$ chosen over $k^{\mathrm{sep}}$, there is a canonical exact sequence
+If $U:\mathsf{Var}_k$ is geometrically connected, choose a separable closure $k^{\mathrm{sep}}\subseteq\Omega$ of $k$, so that $u_0$ lifts to $U_{k^{\mathrm{sep}}}$. There is a canonical exact sequence
 \[
 1\longrightarrow\pi_1^{\mathrm{\acute{e}t}}(U_{k^{\mathrm{sep}}},u_0)
 \longrightarrow\pi\longrightarrow\Gamma_k\longrightarrow1,
