@@ -1210,19 +1210,20 @@ By the identifications in \cref{par:smoothproper},
 J[\ell](\Omega), & \Lambda=\mathbb F_\ell,
 \end{cases}
 \]
-by pulling back to $\mathrm{Spec}(\Omega)$. 
-The monodromy group is therefore
+by pulling back to $\mathrm{Spec}(K)$. 
+The monodromy group $G_\Lambda
+:=\operatorname{Im}\bigl(\rho^1_{f,\ell,u_0}\bigr)$ is therefore equal to
 \[
 G_\Lambda
-:=\operatorname{Im}\bigl(\rho^1_{f,\ell,u_0}\bigr)
 =\operatorname{Im}\bigl(\rho\bigr)
-=\Gamma_K/\mathrm{Ker}(\rho)
+\cong\frac{\Gamma_K}{\mathrm{Ker}(\rho)}
+=\frac{\operatorname{Gal}(\Omega/K)}{\operatorname{Gal}(\Omega/\Omega^{\mathrm{Ker}(\rho)})}
+\cong\operatorname{Gal}(\Omega^{\mathrm{Ker}(\rho)}/K)
 \cong\begin{cases}
 \operatorname{Gal}\bigl(K(J[\ell^\infty])/K\bigr), & \Lambda=\mathbb Q_\ell,\\[3pt]
 \operatorname{Gal}\bigl(K(J[\ell])/K\bigr), & \Lambda=\mathbb F_\ell,
 \end{cases}
 \]
-where the last isomorphism is by infinite Galois theory. 
 
 Recall there is a perfect Galois-equivariant symplectic pairing supplied by Poincare duality
 \[\omega:
@@ -1231,15 +1232,7 @@ Recall there is a perfect Galois-equivariant symplectic pairing supplied by Poin
 \xrightarrow{\smile}\mathrm H^2_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(2))
 \xrightarrow[\sim]{\operatorname{tr}(1)}\Lambda(1).
 \]
-where the last map is the trace map obtained as follows. Let $\pi:C_\Omega\to\operatorname{Spec}(\Omega)$ be the structure morphism.
-By properness and smooth purity \cref{thm:smooth-purity}, the counit of $\mathbf R \pi_!\dashv \pi^!$ gives a map
-\[
-\mathbf R\Gamma(C_\Omega,\underline{\Lambda}(1))[2]
-\cong\mathbf R\pi_!\pi^!\Lambda
-\xrightarrow{\varepsilon_\Lambda}\Lambda.
-\]
-Taking $\mathrm H^0$ gives the trace $\operatorname{tr}:\mathrm H^2(C_\Omega,\underline{\Lambda}(1))\to\Lambda$; tensoring with $\Lambda(1)$ gives $\operatorname{tr}(1)$.
-With the identifications in \cref{par:smoothproper}, this pairing is precisely the Weil pairing.
+With the identification from \cref{par:smoothproper}, this is the Weil pairing.
 By Galois-equivariance of the pairing, 
 \[
 \omega\bigl(\rho(\sigma)v,\rho(\sigma)w\bigr)
@@ -1583,24 +1576,36 @@ $$\mathcal F_{u_0}=\mathcal G_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell,\qquad
 \Needspace{18\baselineskip}
 \begin{samepage}
 \begin{definition}[Tate Twists and the Cyclotomic Character]\label{def:tate-twists-cyclotomic-character}
-Let $k:\mathsf{Field}$, let $\ell:\mathbb N$ be a prime different from $\operatorname{char}(k)$, choose a separable closure $\Omega$ of $k$, and put $\Gamma_k:=\operatorname{Gal}(\Omega/k)$. The \textit{cyclotomic character} $\chi_\ell:\Gamma_k\to\mathbb Z_\ell^\times$ is characterized by
+Let $k:\mathsf{Field}$ and let $\ell:\mathbb N$ be a prime different from $\operatorname{char}(k)$. For $U:\mathsf{Sch}_k$, define the lisse sheaf $\Lambda(1):\mathsf{LocSys}_\Lambda(U)$ by
 \[
-\sigma(\zeta)=\zeta^{\chi_\ell(\sigma)\bmod\ell^r}
+\Lambda(1):=\begin{cases}
+\mu_{\ell^n,U}, & \Lambda=\mathbb Z/\ell^n\mathbb Z,\\[3pt]
+(\mu_{\ell^r,U})_{r\,:\,\mathbb N}, & \Lambda=\mathbb Z_\ell,\\[3pt]
+\mathbb Z_\ell(1)\otimes_{\mathbb Z_\ell}\mathbb Q_\ell, & \Lambda=\mathbb Q_\ell,
+\end{cases}
 \]
-for $\sigma:\Gamma_k$, $r:\mathbb N$, and $\zeta:\mu_{\ell^r}(\Omega)$. For the coefficient rings used in this report, put
+with transition maps $\zeta\mapsto\zeta^\ell$ in the integral case. For $m:\mathbb Z$ and $\mathcal F:\mathsf{Sh}(U,\Lambda)$, put
+\[
+\Lambda(m):=\begin{cases}
+\Lambda(1)^{\otimes m}, & m>0,\\[3pt]
+\underline{\Lambda}_U, & m=0,\\[3pt]
+\bigl(\Lambda(1)^{\otimes(-m)}\bigr)^\vee, & m<0,
+\end{cases}
+\qquad
+\mathcal F(m):=\mathcal F\otimes_\Lambda\Lambda(m).
+\]
+Choose a separable closure $\Omega$ of $k$ and put $\Gamma_k:=\operatorname{Gal}(\Omega/k)$. For $n:\mathbb N$ and $\sigma:\Gamma_k$, let $a_n(\sigma):(\mathbb Z/\ell^n\mathbb Z)^\times$ be determined by $\sigma(\zeta)=\zeta^{a_n(\sigma)}$ for every $\zeta:\mu_{\ell^n}(\Omega)$.
+The action on the geometric stalk of $\Lambda(1)$ over $\operatorname{Spec}(k)$ is given by the \textit{cyclotomic character}
 \[
 \chi_\Lambda:\Gamma_k\to\Lambda^\times,
 \qquad
 \chi_\Lambda(\sigma):=\begin{cases}
-\chi_\ell(\sigma)\bmod\ell^n, & \Lambda=\mathbb Z/\ell^n\mathbb Z,\\[3pt]
-\chi_\ell(\sigma), & \Lambda=\mathbb Z_\ell\text{ or }\mathbb Q_\ell.
+a_n(\sigma), & \Lambda=\mathbb Z/\ell^n\mathbb Z,\\[3pt]
+\bigl(a_r(\sigma)\bigr)_{r\,:\,\mathbb N}, & \Lambda=\mathbb Z_\ell,\\[3pt]
+\chi_{\mathbb Z_\ell}(\sigma)\text{ viewed in }\mathbb Q_\ell^\times, & \Lambda=\mathbb Q_\ell.
 \end{cases}
 \]
-For $m:\mathbb Z$, let $\Lambda(m)$ be the rank-one lisse sheaf on $\operatorname{Spec}(k)$ corresponding to the action $\sigma\cdot a=\chi_\Lambda(\sigma)^m a$ on $\Lambda$. On $U:\mathsf{Sch}_k$, use its pullback along the structure morphism. In particular, $(\mathbb Z/\ell^n\mathbb Z)(1)=\mu_{\ell^n,U}$, $\Lambda(0)=\underline{\Lambda}_U$, and $\Lambda(-m)\cong\Lambda(m)^\vee$. The \textit{Tate twist} of $\mathcal F:\mathsf{Sh}(U,\Lambda)$ is
-\[
-\mathcal F(m):=\mathcal F\otimes_\Lambda\Lambda(m).
-\]
-c.f. \cite[Chapter~I, \S13]{Milne2008AbelianVarieties}.
+The case $n=1$ gives $\chi_{\mathbb F_\ell}$, and the action on $\Lambda(m)$ is through $\chi_\Lambda^m$. c.f. \cite[Chapter~I, \S13]{Milne2008AbelianVarieties}.
 \end{definition}
 \end{samepage}
 
