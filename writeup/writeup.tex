@@ -1136,30 +1136,87 @@ For perverse sheaves with property $\mathcal P$, middle convolution is associati
 \begin{notationtable}
   k & \mathsf{Field} & A field \\
   \ell & \mathbb N & A prime with \(\ell\ne\operatorname{char}(k)\) \\
+  \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of $\mathbb Q_\ell$ or $\mathbb F_\ell$ \\
   \Gamma_k & \mathsf{Grp}^{\mathrm{pro}} & The absolute Galois group of $k$ \\
 \end{notationtable}
 \end{notation}
-\begin{custom}{Galois Representations arising from Smooth Proper Families of Curves}\label{ex:curve-family-galois-representations}
-Let $f:\mathcal C\to U$ be a smooth proper family of geometrically connected curves of genus $g:\mathbb N$ over a normal variety $U:\mathsf{Var}_k$. Applying \cref{ex:etale-smooth-proper-families} with $q=1$ and $\Lambda=\mathbb Q_\ell$ gives the lisse sheaf $\mathbf R^1f_*\underline{\mathbb Q_\ell}_{\mathcal C}$, whose geometric stalk at $u_0:\operatorname{Spec}(\Omega)\to U$ carries the $2g$-dimensional monodromy representation
-\[
-\rho^1_{f,\ell,u_0}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)
-\longrightarrow\mathrm{Aut}_{\mathbb Q_\ell}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\mathbb Q_\ell})\bigr).
-\]
-The \textit{relative Jacobian} $\mathcal J:=\operatorname{Pic}^0_{\mathcal C/U}\to U$ is an abelian scheme with geometric fibres $\mathcal J_{u_0}\cong\operatorname{Jac}(\mathcal C_{u_0})$; c.f. \cite[Chapter~III, \S8]{Milne2008AbelianVarieties}. There are canonical identifications
-\[
-\begin{aligned}
-\mathbf R^1f_*\underline{\mathbb Q_\ell}_{\mathcal C}
-&\cong\bigl(\mathrm V_\ell(\mathcal J)\bigr)^\vee,\\
-\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\mathbb Q_\ell})
-&\cong\mathrm V_\ell(\mathcal J_{u_0})^\vee,
-\end{aligned}
-\]
-where $\mathrm V_\ell(\mathcal J)$ is the Tate-module local system, and the second identification respects monodromy; c.f. \cite[Chapter~I, Theorem~12.1(a) and Remark~12.5; Chapter~III, Corollary~9.6]{Milne2008AbelianVarieties}.
-Taking $K:=k(U)$, $J:=\mathcal J\times_U\operatorname{Spec}(K)$, and $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\to U$ to be a geometric generic point, pulling this representation back along the canonical surjection $\Gamma_K:=\mathrm{Gal}(K^{\mathrm{sep}}/K)\twoheadrightarrow\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$ gives the dual of the Tate-module Galois representation of $J/K$; c.f. \cite[Proposition~58.11.3, Tag~0BQM]{StacksProject}.
+
+The monodromy group encodes the symmetries of a sheaf. 
+A slogan is monodromy should be as big as possible. 
+Big monodromy usually means that the sheaf has as few hidden algebraic symmetries. 
+It is also used to establish independence of $\ell$ in a Serre compatible system of sheaves as well as statistical results about arithmetic objects, as we will explain below. 
+
+\begin{custom}{Serre's Open Image Theorem and Cebotarev Density}
+
+  Cohen–Lenstra Hueristics
 \end{custom}
 
-\begin{custom}{Serre's Open Image Theorem and Cebotarev Density Theorem}
-\end{custom}
+
+
+Let $f:\mathcal C\to U$ be a smooth proper family of geometrically connected curves of genus $g:\mathbb N$ over a normal variety $U:\mathsf{Var}_k$. Applying \cref{ex:etale-smooth-proper-families} with $q=1$ gives the lisse sheaf $\mathbf R^1f_*\underline{\Lambda}_{\mathcal C}$, whose geometric stalk at $u_0:\operatorname{Spec}(\Omega)\to U$ carries the $2g$-dimensional monodromy representation
+\[
+\rho^1_{f,\ell,u_0}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)
+\longrightarrow\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\Lambda})\bigr).
+\]
+The \textit{relative Jacobian} $\mathcal J:=\operatorname{Pic}^0_{\mathcal C/U}\to U$ is an abelian scheme with geometric fibres $\mathcal J_{u_0}\cong\operatorname{Jac}(\mathcal C_{u_0})$; c.f. \cite[Chapter~III, \S8]{Milne2008AbelianVarieties}. 
+There are canonical identifications
+\[
+\mathbf R^1f_*\underline{\Lambda}_{\mathcal C}
+\cong\begin{cases}
+\bigl(\mathrm V_\ell(\mathcal J)\bigr)^\vee, & \Lambda=\mathbb Q_\ell,\\[3pt]
+\bigl(\mathcal J[\ell]\bigr)^\vee, & \Lambda=\mathbb F_\ell,
+\end{cases}
+\qquad
+\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\Lambda})
+\cong\begin{cases}
+\mathrm V_\ell(\mathcal J_{u_0})^\vee, & \Lambda=\mathbb Q_\ell,\\[3pt]
+\bigl(\mathcal J_{u_0}[\ell](\Omega)\bigr)^\vee, & \Lambda=\mathbb F_\ell,
+\end{cases}
+\]
+where $\mathcal J$ is viewed as its sheaf of abelian groups of sections on $U_{\mathrm{\acute{e}t}}$.
+
+
+
+Denote $K:=k(U)$, $C:=\mathcal C\times_U\operatorname{Spec}(K)$, and $J:=\mathcal J\times_U\operatorname{Spec}(K)\cong\operatorname{Jac}(C)$. For a geometric generic point $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\to U$, we have $\mathcal C_{u_0}\cong C_{K^{\mathrm{sep}}}$. 
+Under the preceding identifications, the composite
+\[
+\rho:\Gamma_K
+\overset{\eta_*}{\twoheadrightarrow}\pi_1^{\mathrm{\acute{e}t}}(U,u_0)
+\xrightarrow{\rho^1_{f,\ell,u_0}}\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda})\bigr)
+\]
+is the dual of the rational Tate-module Galois representation of $J/K$ when $\Lambda=\mathbb Q_\ell$, and of the Galois action on $J[\ell](K^{\mathrm{sep}})$ when $\Lambda=\mathbb F_\ell$, where $\Gamma_K:=\mathrm{Gal}(K^{\mathrm{sep}}/K)$ and $\eta_*$ is the canonical surjection induced by the generic-point inclusion $\eta:\operatorname{Spec}(K)\to U$ from \cref{prop:etale-function-fields}.
+One would like to compute the monodromy group
+\[
+G_\Lambda
+:=\operatorname{Im}\bigl(\rho^1_{f,\ell,u_0}\bigr)
+=\operatorname{Im}\bigl(\rho\bigr)
+\cong\begin{cases}
+\operatorname{Gal}\bigl(K(J[\ell^\infty])/K\bigr), & \Lambda=\mathbb Q_\ell,\\[3pt]
+\operatorname{Gal}\bigl(K(J[\ell])/K\bigr), & \Lambda=\mathbb F_\ell,
+\end{cases}
+\]
+
+
+Recall there is a perfect Galois-equivariant symplectic pairing supplied by Poincare duality
+\[
+\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda})
+\times\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda})
+\xrightarrow{\smile}\mathrm H^2_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda})
+\xrightarrow[\sim]{\operatorname{tr}}\Lambda(-1).
+\]
+where the last map is the trace map obtained as follows. Let $\pi:C_{K^{\mathrm{sep}}}\to\operatorname{Spec}(K^{\mathrm{sep}})$ be the structure morphism. 
+By properness and smooth purity \cref{thm:smooth-purity}, the counit of $\mathbf R \pi_!\dashv \pi^!$ gives a map
+\[
+\mathbf R\Gamma(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))[2]
+\cong\mathbf R\pi_!\pi^!\Lambda
+\xrightarrow{\varepsilon_\Lambda}\Lambda.
+\]
+Taking $\mathrm H^0$ and tensoring with $\Lambda(-1)$ gives the trace. 
+Under the identifications of $\mathrm{H}^1$ in ref, 
+Therefore the monodromy group restricts to GSp. 
+
+
+
 
 
 
@@ -1504,10 +1561,86 @@ For $\Lambda=\mathbb Q_\ell$, let $\mathcal L:\mathsf{Sh}(X,\mathbb Z_\ell)$ wit
 
 
 \subsection{Grothendieck's Galois Theory}\label{app:grothendieck-galois-theory}
-% To be completed: the correspondence between finite étale covers and finite continuous fundamental-group sets.
 
+Let $k:\mathsf{Field}$, let $U:\mathsf{Sch}_k$ be connected, and fix a geometric point $u_0:\operatorname{Spec}(\Omega)\to U$. Put
+\[
+\pi:=\pi_1^{\mathrm{\acute{e}t}}(U,u_0).
+\]
 
+\begin{custom}{Finite \'{E}tale Correspondence}\label{thm:finite-etale-correspondence}
+The fibre functor induces an equivalence
+\[
+\omega_{u_0}:\mathsf{\acute{E}t}^{\mathrm{fin}}(U)
+\xrightarrow{\sim}\mathsf{Set}^{\mathrm{fin}}_\pi,
+\qquad Y\longmapsto\operatorname{Hom}_U(\operatorname{Spec}(\Omega),Y),
+\]
+where $\mathsf{Set}^{\mathrm{fin}}_\pi$ denotes finite sets with continuous left $\pi$-action. In particular,
+\[
+\operatorname{Hom}_U(Y,Z)
+\cong\operatorname{Hom}_\pi\bigl(\omega_{u_0}(Y),\omega_{u_0}(Z)\bigr).
+\]
+c.f. \cite[Theorem~58.6.2, Tag~0BND]{StacksProject}.
+\end{custom}
 
+\begin{custom}{Subgroup Correspondence}\label{prop:etale-subgroup-correspondence}
+There is a bijection
+\[
+\begin{array}{@{}c@{\quad}c@{\quad}c@{}}
+\left\{
+\begin{gathered}
+\text{pointed connected finite \'{e}tale covers}\\
+\text{of }(U,u_0)\text{ up to pointed isomorphism}
+\end{gathered}
+\right\}
+&\simeq&
+\left\{
+\begin{gathered}
+\text{open subgroups}\\
+H\subseteq\pi
+\end{gathered}
+\right\}
+\\[6pt]
+{[(Y,y_0)]}&\longmapsto&\operatorname{Stab}_\pi(y_0)
+\\[2pt]
+{[(Y_H,y_H)]}&\mathrel{\reflectbox{$\longmapsto$}}&H
+\end{array}
+\]
+For an open subgroup $H\subseteq\pi$, let $f_H:Y_H\to U$ denote the cover corresponding to the $\pi$-set $\pi/H$, and let $y_H:\operatorname{Spec}(\Omega)\to Y_H$ be the lift of $u_0$ corresponding to the coset $H$. Its degree is $\left[\pi:H\right]$. Unpointed connected covers correspond, up to $U$-isomorphism, to conjugacy classes of open subgroups; c.f. \cite[Theorem~58.6.2, Tag~0BND]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Normal Subgroups and Torsors}\label{prop:etale-normal-subgroups-torsors}
+For an open normal subgroup $N\triangleleft\pi$, put $G:=\pi/N$. The cover corresponding to the left $\pi$-set $G$ is a connected finite \'{e}tale right $G$-torsor, with its right action induced by right translations on $G$; c.f. \cite[\S58.7, Tag~03SF]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Function Fields}\label{prop:etale-function-fields}
+For $K:\mathsf{Field}$, with geometric point $\operatorname{Spec}(K^{\mathrm{sep}})\to\operatorname{Spec}(K)$,
+\[
+\pi_1^{\mathrm{\acute{e}t}}(\operatorname{Spec}(K))
+\cong\Gamma_K:=\operatorname{Gal}(K^{\mathrm{sep}}/K).
+\]
+If $U:\mathsf{Var}_k$ is normal, $K:=k(U)$, and $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\to U$ is geometric generic, there is a canonical surjection
+$
+\Gamma_K\twoheadrightarrow\pi.
+$
+For continuous $\rho:\pi\to G$, with $G:\mathsf{Grp}^{\mathrm{top}}$ Hausdorff, let $\widetilde\rho$ be the composite with this surjection. Then $L:=(K^{\mathrm{sep}})^{\operatorname{Ker}(\widetilde\rho)}$ is a possibly infinite Galois extension of $K$, and
+\[
+\operatorname{Gal}(L/K)
+\cong\Gamma_K/\operatorname{Ker}(\widetilde\rho)
+\cong\operatorname{Im}(\widetilde\rho)
+=\operatorname{Im}(\rho).
+\]
+These are isomorphisms of topological groups, with the image carrying the subspace topology. The extension $L/K$ is finite if and only if $\operatorname{Im}(\rho)$ is finite; c.f. \cite[Lemma~58.6.3, Proposition~58.11.3, and Theorem~9.22.4, Tags~0BQ8, 0BQM, and~0BML]{StacksProject}.
+\end{custom}
+
+\begin{custom}{Arithmetic and Geometric Fundamental Groups}\label{prop:arithmetic-geometric-fundamental-groups}
+If $U:\mathsf{Var}_k$ is geometrically connected, with $u_0$ chosen over $k^{\mathrm{sep}}$, there is a canonical exact sequence
+\[
+1\longrightarrow\pi_1^{\mathrm{\acute{e}t}}(U_{k^{\mathrm{sep}}},u_0)
+\longrightarrow\pi\longrightarrow\Gamma_k\longrightarrow1,
+\]
+where $\Gamma_k:=\operatorname{Gal}(k^{\mathrm{sep}}/k)$.
+c.f. \cite[Lemma~58.14.3, Tag~0BTX]{StacksProject}.
+\end{custom}
 
 \subsection{Euler Characteristics of Curves}\label{app:euler-characteristics-of-curves}
 
@@ -1637,7 +1770,7 @@ In 1939, Tannaka showed that compact groups can be recovered from their finite-d
   and is such that the scalar map $\Lambda\xrightarrow{\sim}\mathrm{End}(\mathbf 1)$ is an isomorphism. 
 \end{definition}
 
-Let $\Lambda:\mathsf{Field}$ be one of $\mathbb C$, $\mathbb Q_\ell$, or $\mathbb F_\ell$  with $\ell\ne \mathrm{char}(k)$ for $k:\mathsf{Field}$, then
+Suppose $\Lambda:\mathsf{Field}$ is one of $\mathbb C$, $\mathbb Q_\ell$, or $\mathbb F_\ell$  with $\ell\ne \mathrm{char}(k)$ for $k:\mathsf{Field}$, then
 the category $\mathsf{LocSys}_{\Lambda}(U)$ of local systems or lisse sheaves on $U:\mathsf{Man}_{\mathbb C}$ or $U:\mathsf{Var}_{k}$ is a neutral tannakian category. 
 Its fibre functor is 
 $$\omega_{u_0}:\mathsf{LocSys}_{\Lambda}(U)\rightarrow \mathsf{Vect}_{\Lambda}^{\mathrm{fin}},\qquad \mathcal F\mapsto \mathcal F_{u_0}$$
