@@ -451,7 +451,7 @@ $$\rho_{\mathcal F,u_0}:\pi_1^{\mathrm{top}}(\mathbb C^\times,u_0)\rightarrow\ma
 
 In \cref{sec:local-systems}, we will see how to upgrade permutation monodromy representations into linear monodromy representations, which we will just call monodromy representations.
 Moreover, one can use this machinery to talk about monodromy in the $\ell$-adic arithmetic context, by replacing $\pi_1^{\mathrm{top}}$ with the étale fundamental group $\pi_1^{\text{ét}}$. 
-When $U=\mathrm{Spec}(k)$ for some $k:\mathsf{Field}$, with a choice of separable closure $\Omega$ of $k$, then $\pi_1(U,u_0)=\mathrm{Gal}(\Omega/k)$, where $u_0:\operatorname{Spec}(\Omega)\to U$, is the absolute Galois group of $k$. Hence, a monodromy representation at $u_0$ in this case degenerates into a Galois representation, a ubiquitous arithmetic object.
+When $U=\mathrm{Spec}(k)$ for some $k:\mathsf{Field}$, choose a separable closure $k^{\mathrm{sep}}$ and set $u_0:\operatorname{Spec}(k^{\mathrm{sep}})\to U$. Then $\pi_1(U,u_0)=\mathrm{Gal}(k^{\mathrm{sep}}/k)$ is the absolute Galois group of $k$. Hence, a monodromy representation at $u_0$ in this case degenerates into a Galois representation, a ubiquitous arithmetic object.
 
 
 
@@ -599,7 +599,7 @@ In addition, the Tate module also contains information about reduction types (c.
   \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of \(\mathbb Z_\ell\), \(\mathbb Q_\ell\), or \(\mathbb Z/\ell^n\mathbb Z\) for \(n:\mathbb N\) \\
   U_{\mathrm{\acute{e}t}} & \mathsf{Site} & The small étale site of \(U\)
 \end{notationtable}
-Throughout this report, for a geometric point $u_0:\operatorname{Spec}(\Omega)\to U$ with image $u$, we take $\Omega$ to be a chosen separable closure of the residue field $\kappa(u)$.
+Throughout this report, a geometric point $u_0$ over a point $u$ of $U$ has the form $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\to U$, where $K=\kappa(u)$ and $K^{\mathrm{sep}}$ is a chosen separable closure of $K$.
 \end{notation}
 
 \begin{definition}[Mod-$\ell^n$ Sheaf]
@@ -634,12 +634,12 @@ However, we note that Bhatt and Scholze \cite{BhattScholze2015} have developed t
 For this report, we stick with the classical setting. 
 
 
-Recall the étale fundamental group of a connected $U$ at geometric base point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$ is the profinite group defined by the inverse limit
+For a connected $U$ with geometric base point $u_0:\mathrm{Spec}(K^{\mathrm{sep}})\rightarrow U$, the étale fundamental group is the profinite group defined by the inverse limit
 $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0):=\lim_{\substack{\longleftarrow\\(X,x_0)\to(U,u_0)}}\mathrm{Aut}_U(X):\mathsf{Grp}^{\mathrm{pro}}$$
 where the limit is taken over connected finite étale Galois covers $X\rightarrow U$ with $x_0$ a lift of $u_0$, and the transition map $\varphi:\mathrm{Aut}_U(Y)\rightarrow\mathrm{Aut}_U(X) $ for a pointed map $h:(Y,y_0)\rightarrow (X,x_0)$ between conneced finite étale Galois covers is given by $h\circ \sigma=\varphi(\sigma)\circ h$, for $\sigma:\mathrm{Aut}_U(Y)$. 
 
 Alternatively, one can construct the étale fundamental group via the \textit{fibre functor}
-$$\omega_{u_0}:\mathsf{\acute{E}t}^{\mathrm{fin}}(U)\rightarrow\mathsf{Set}^{\mathrm{fin}},\qquad E\mapsto \mathrm{Hom}_U(\mathrm{Spec}(\Omega),E)$$
+$$\omega_{u_0}:\mathsf{\acute{E}t}^{\mathrm{fin}}(U)\rightarrow\mathsf{Set}^{\mathrm{fin}},\qquad E\mapsto \mathrm{Hom}_U(\mathrm{Spec}(K^{\mathrm{sep}}),E)$$
 where $\mathsf{\acute{E}t}^{\mathrm{fin}}(U)$ is the category of finite étale covers $X\rightarrow U$ with morphisms over $U$. 
 We can then construct the étale fundamental group as 
 $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)=\mathrm{Aut}(\omega_{u_0}):\mathsf{Grp}^{\mathrm{pro}}$$
@@ -647,7 +647,7 @@ with topology given by the subspace topology induced by
 $$\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\hookrightarrow \prod_{E\,:\,\mathsf{\acute{E}t}^{\mathrm{fin}}(U)}\mathrm{Sym}(\omega_{u_0}(E))$$
 where each symmetric group is given the discrete topology. 
 
-Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geometric base point $u_0:\operatorname{Spec}(\Omega)\to U$, we have a symmetric monoidal $\Lambda$-linear equivalence of categories
+Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geometric base point $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\to U$, we have a symmetric monoidal $\Lambda$-linear equivalence of categories
 \[
 \mathsf{LocSys}_\Lambda(U)
 \simeq^{\otimes}
@@ -662,7 +662,7 @@ $$\rho_{\mathcal F}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow \mathrm{Aut}_{
 with the action by $\sigma:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)$ induced by 
 $$\sigma_E:\omega_{u_0}(E)\rightarrow \omega_{u_0}(E)$$
 under the canonical identification 
-$$\mathcal F_{u_0}=\varinjlim_{\substack{q\,:\,V\to U\ \text{étale}\\v\,:\,\operatorname{Spec}(\Omega)\to V\ \text{geo. pt.}\\q\,\circ \,v\,=\,u_0}}\mathcal F(V)\xlongrightarrow{\sim}\omega_{u_0}(E),\qquad [(V,v),s]\mapsto s\circ v$$
+$$\mathcal F_{u_0}=\varinjlim_{\substack{q\,:\,V\to U\ \text{étale}\\v\,:\,\operatorname{Spec}(K^{\mathrm{sep}})\to V\ \text{geo. pt.}\\q\,\circ \,v\,=\,u_0}}\mathcal F(V)\xlongrightarrow{\sim}\omega_{u_0}(E),\qquad [(V,v),s]\mapsto s\circ v$$
 where $(s:V\rightarrow E):\mathrm{Hom}_U(V,E)=\mathcal F(V)$ is representing a section. 
 
 \parlabel{par:etale-representation-local-system}Conversely, given a (continuous) representation in $\mathsf{Rep}^{\mathrm{fin}}_{\Lambda}(\pi_1^{\mathrm{\acute{e}t}}(U,u_0))$
@@ -722,7 +722,7 @@ The case for $\Lambda=\mathbb Z_\ell$ is achieved by applying the construction f
 
 \begin{example}\label{ex:etale-smooth-proper-families}A rich source of lisse sheaves is smooth proper families, as in \cref{ex:complex-smooth-proper-families}. Let
 $$f:E\rightarrow U$$
-be a smooth proper morphism of $k$-schemes. The geometric fibres $E_{u_0}:=E\times_U\operatorname{Spec}\Omega$ at geometric points $u_0:\operatorname{Spec}\Omega\rightarrow U$ are smooth proper $\Omega$-schemes.
+be a smooth proper morphism of $k$-schemes. The geometric fibres $E_{u_0}:=E\times_U\operatorname{Spec}(K^{\mathrm{sep}})$ at geometric points $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\rightarrow U$ are smooth proper $K^{\mathrm{sep}}$-schemes.
 The higher direct images
 $$\mathbf R^q f_*\underline{\Lambda}_E(m)\cong\bigl(\mathbf R^q f_*\underline{\Lambda}_E\bigr)(m)$$
 are lisse on $U$ for each $q:\mathbb N$ and $m:\mathbb Z$, where $(m)$ is the Tate twist defined in \cref{def:tate-twists-cyclotomic-character}, by smooth proper base change \cite[Theorem~20.2 and \S19]{Milne2013EtaleCohomology}, i.e. for $\Lambda=\mathbb Z/\ell^n\mathbb Z$, every geometric point $u_0$ has an \'{e}tale neighbourhood $(V,v_0)$ with
@@ -1139,8 +1139,12 @@ For perverse sheaves with property $\mathcal P$, middle convolution is associati
   k & \mathsf{Field} & A field \\
   \ell & \mathbb N & A prime with \(\ell\ne\operatorname{char}(k)\) \\
   \Lambda & \mathsf{Ring}^{\mathrm{top}} & One of $\mathbb Q_\ell$ or $\mathbb F_\ell$ \\
-  \Gamma_K & \mathsf{Grp}^{\mathrm{pro}} & The absolute Galois group of a field $K:\mathsf{Field}$ \\
-  u_0 & \operatorname{Spec}(\Omega)\to U & A geometric base point of \(U:\mathsf{Sch}_k\)\\
+  U & \mathsf{Var}_k & A normal variety over \(k\) \\
+  K & \mathsf{Field} & The function field \(k(U)\) \\
+  K^{\mathrm{sep}} & \mathsf{Field} & A chosen separable closure of \(K\) \\
+  \eta & \operatorname{Spec}(K)\to U & The generic point of \(U\) \\
+  u_0 & \operatorname{Spec}(K^{\mathrm{sep}})\to U & The geometric generic point factoring through \(\eta\) \\
+  \Gamma_K & \mathsf{Grp}^{\mathrm{pro}} & The absolute Galois group \(\operatorname{Gal}(K^{\mathrm{sep}}/K)\) of \(K\) \\
 \end{notationtable}
 \end{notation}
 
@@ -1150,86 +1154,84 @@ Big monodromy usually means that the sheaf has as few hidden algebraic symmetrie
 It is also used to establish independence of $\ell$ in a Serre compatible system of sheaves as well as statistical results about arithmetic objects, as we will explain below. 
 
 \begin{custom}{Serre's Open Image Theorem and Cebotarev Density}
-  A quintessential big monodromy result is Serre's open image theorem.
+  A quintessential big monodromy result is \textit{Serre's open image theorem}.
   Cohen–Lenstra 
 \end{custom}
 
 
 \parlabel{par:smoothproper}
-Let $f:\mathcal C\to U$ be a smooth proper family of geometrically connected curves of genus $g:\mathbb N$ over a normal variety $U:\mathsf{Var}_k$. Applying \cref{ex:etale-smooth-proper-families} to $q=1$ and $m=1$ gives the lisse sheaf $\mathbf R^1f_*\underline{\Lambda}_{\mathcal C}(1)$, whose geometric stalk at $u_0:\operatorname{Spec}(\Omega)\to U$ carries the $2g$-dimensional representation
+Let $f:\mathcal C\to U$ be a smooth proper family of geometrically connected curves of genus $g:\mathbb N$, and let $C:=\mathcal C\times_U\operatorname{Spec}(K)$ be its generic fibre.
+Applying \cref{ex:etale-smooth-proper-families} to $q=1$ and $m=1$ gives the lisse sheaf $\mathbf R^1f_*\underline{\Lambda}_{\mathcal C}(1)$, whose geometric stalk at $u_0$ carries the $2g$-dimensional monodromy representation on the cohomology of $\mathcal C_{u_0}\cong C_{K^{\mathrm{sep}}}$
 \[
 \rho^1_{f,\ell,u_0}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)
-\longrightarrow\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\Lambda}(1))\bigr).
+\longrightarrow\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))\bigr).
 \]
-The \textit{relative Jacobian} $\mathcal J:=\operatorname{Pic}^0_{\mathcal C/U}\to U$ is an abelian scheme with geometric fibres $\mathcal J_{u_0}\cong\operatorname{Jac}(\mathcal C_{u_0})$; c.f. \cite[Chapter~III, \S8]{Milne2008AbelianVarieties}. 
-Deriving the Kummer exact sequence on $\mathcal C_{u_0}$ gives
+The \textit{relative Jacobian} $\mathcal J:=\operatorname{Pic}^0_{\mathcal C/U}\to U$ is an abelian scheme with geometric fibre $\mathcal J_{u_0}\cong\operatorname{Jac}(C_{K^{\mathrm{sep}}})$; c.f. \cite[Chapter~III, \S8]{Milne2008AbelianVarieties}. 
+Deriving the Kummer exact sequence on $C_{K^{\mathrm{sep}}}$ gives
 \[
 \begin{aligned}
-1\longrightarrow\mu_{\ell^n}(\Omega)
-&\longrightarrow\Omega^\times
-\xrightarrow{(\cdot)^{\ell^n}}\Omega^\times
-\longrightarrow\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\mu_{\ell^n})\\
-&\xrightarrow{\kappa_n}\operatorname{Pic}(\mathcal C_{u_0})
-\xrightarrow{[\ell^n]}\operatorname{Pic}(\mathcal C_{u_0})
-\longrightarrow\mathrm H^2_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\mu_{\ell^n})
+1\longrightarrow\mu_{\ell^n}(K^{\mathrm{sep}})
+&\longrightarrow(K^{\mathrm{sep}})^\times
+\xrightarrow{(\cdot)^{\ell^n}}(K^{\mathrm{sep}})^\times
+\longrightarrow\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\mu_{\ell^n})\\
+&\xrightarrow{\kappa_n}\operatorname{Pic}(C_{K^{\mathrm{sep}}})
+\xrightarrow{[\ell^n]}\operatorname{Pic}(C_{K^{\mathrm{sep}}})
+\longrightarrow\mathrm H^2_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\mu_{\ell^n})
 \longrightarrow\cdots.
 \end{aligned}
 \]
 Exactness and surjectivity of $(\cdot)^{\ell^n}$ gives
 \[
-\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\mu_{\ell^n})
-\xrightarrow[\sim]{\kappa_n}\operatorname{Pic}(\mathcal C_{u_0})[\ell^n]
-=\operatorname{Pic}^0(\mathcal C_{u_0})[\ell^n]
-=\mathcal J_{u_0}[\ell^n](\Omega)
+\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\mu_{\ell^n})
+\xrightarrow[\sim]{\kappa_n}\operatorname{Pic}(C_{K^{\mathrm{sep}}})[\ell^n]
+=\operatorname{Pic}^0(C_{K^{\mathrm{sep}}})[\ell^n]
+=\mathcal J_{u_0}[\ell^n](K^{\mathrm{sep}})
 \]
 for $n:\mathbb N$, since torsion line bundles have degree $0$.
 By the usual passing to limit and rationalizing,
 \[
-\mathrm H^1_{\mathrm{\acute{e}t}}(\mathcal C_{u_0},\underline{\Lambda}(1))
+\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))
 \cong\begin{cases}
 \mathrm V_\ell(\mathcal J_{u_0}), & \Lambda=\mathbb Q_\ell,\\[3pt]
-\mathcal J_{u_0}[\ell](\Omega), & \Lambda=\mathbb F_\ell.
+\mathcal J_{u_0}[\ell](K^{\mathrm{sep}}), & \Lambda=\mathbb F_\ell.
 \end{cases}
 \]
 
 
 
-Denote $K:=k(U)$ and let $\eta:\operatorname{Spec}(K)\to U$ be the generic point.
-Set $C:=\mathcal C\times_U\operatorname{Spec}(K)$ and $J:=\mathcal J\times_U\operatorname{Spec}(K)\cong\operatorname{Jac}(C)$.
-Take $
-u_0:\operatorname{Spec}(\Omega)\rightarrow\operatorname{Spec}(K)\xrightarrow{\eta}U
-$ a geometric generic point, 
-then $\mathcal C_{u_0}\cong C_\Omega$.
+Set $J:=\mathcal J\times_U\operatorname{Spec}(K)\cong\operatorname{Jac}(C)$.
 By the identifications in \cref{par:smoothproper},
 \[
 \left(\rho:\Gamma_K
 \overset{\eta_*}{\twoheadrightarrow}\pi_1^{\mathrm{\acute{e}t}}(U,u_0)
-\xrightarrow{\rho^1_{f,\ell,u_0}}\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(1))\bigr)\right)=
+\xrightarrow{\rho^1_{f,\ell,u_0}}\mathrm{Aut}_{\Lambda}\bigl(\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))\bigr)\right)=
 \begin{cases}
 \mathrm V_\ell(J), & \Lambda=\mathbb Q_\ell,\\[3pt]
-J[\ell](\Omega), & \Lambda=\mathbb F_\ell,
+J[\ell](K^{\mathrm{sep}}), & \Lambda=\mathbb F_\ell,
 \end{cases}
 \]
 by pulling back to $\mathrm{Spec}(K)$. 
 The monodromy group $G_\Lambda
 :=\operatorname{Im}\bigl(\rho^1_{f,\ell,u_0}\bigr)$ is therefore equal to
+{\small
 \[
 G_\Lambda
 =\operatorname{Im}\bigl(\rho\bigr)
 \cong\frac{\Gamma_K}{\mathrm{Ker}(\rho)}
-=\frac{\operatorname{Gal}(\Omega/K)}{\operatorname{Gal}(\Omega/\Omega^{\mathrm{Ker}(\rho)})}
-\cong\operatorname{Gal}(\Omega^{\mathrm{Ker}(\rho)}/K)
+=\frac{\operatorname{Gal}(K^{\mathrm{sep}}/K)}{\operatorname{Gal}(K^{\mathrm{sep}}/(K^{\mathrm{sep}})^{\mathrm{Ker}(\rho)})}
+\cong\operatorname{Gal}((K^{\mathrm{sep}})^{\mathrm{Ker}(\rho)}/K)
 \cong\begin{cases}
 \operatorname{Gal}\bigl(K(J[\ell^\infty])/K\bigr), & \Lambda=\mathbb Q_\ell,\\[3pt]
 \operatorname{Gal}\bigl(K(J[\ell])/K\bigr), & \Lambda=\mathbb F_\ell,
 \end{cases}
 \]
+}
 
 Recall there is a perfect Galois-equivariant symplectic pairing supplied by Poincare duality
 \[\omega:
-\mathrm H^1_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(1))
-\times\mathrm H^1_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(1))
-\xrightarrow{\smile}\mathrm H^2_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(2))
+\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))
+\times\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))
+\xrightarrow{\smile}\mathrm H^2_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda}(2))
 \xrightarrow[\sim]{\operatorname{tr}(1)}\Lambda(1).
 \]
 With the identification from \cref{par:smoothproper}, this is exactly the same as the Weil pairing 
@@ -1242,13 +1244,12 @@ induced by the principal polarization of $J$, where $\mathrm{T}^\Lambda_\ell(J):
 =\sigma\bigl(\omega(v,w)\bigr)
 =\chi_\Lambda(\sigma)\omega(v,w),
 \]
-for $\sigma:\Gamma_K$ and $v,w:\mathrm H^1_{\mathrm{\acute{e}t}}(C_\Omega,\underline{\Lambda}(1))$, with $\chi_\Lambda:\Gamma_K\to\Lambda^\times$ the cyclotomic character c.f. \cref{def:tate-twists-cyclotomic-character}.
-Hence
+for $\sigma:\Gamma_K$ and $v,w:\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))$, where $\chi_\Lambda:\Gamma_K\to\Lambda^\times$ is the cyclotomic character c.f. \cref{def:tate-twists-cyclotomic-character}.
+Therefore, we have an upper bound on the monodromy group
 $$
-G_\Lambda\subseteq\mathrm{GSp}_{2g}(\Lambda).
+G_\Lambda\hookrightarrow\mathrm{GSp}_{2g}(\Lambda).
 $$
-
-We have further
+We have further that $\mathrm{GSp}_{2g}(\Lambda)=\mathrm{Sp}_{2g}(\Lambda)$ if the cyclotomic character is trivial. 
 
 
 
@@ -1457,10 +1458,9 @@ Constructions that require such corrections include kernels, images, sheaf Hom, 
 Geometric stalks
   & $\displaystyle\mathcal F_{u_0}:=\varprojlim_n(\mathcal F_n)_{u_0}$
   & $\begin{aligned}[t]
-       u_0&:\operatorname{Spec}(\Omega)\to U\\
-       \Omega&:\mathsf{Field},\\
-       &\text{a separable closure}\\
-       &\text{of }\kappa(u),\text{ where }u\\
+       u_0&:\operatorname{Spec}(K^{\mathrm{sep}})\to U\\
+       K&:\mathsf{Field},\\
+       &K=\kappa(u),\text{ where }u\\
        &\text{is the image of }u_0
      \end{aligned}$ \\
 \addlinespace
@@ -1504,10 +1504,9 @@ For a rational $\ell$-adic sheaf $\mathcal F_{\mathbb Q_\ell}=\mathcal F\otimes_
 Geometric stalks
   & $\displaystyle(\mathcal F_{\mathbb Q_\ell})_{u_0}:=\mathcal F_{u_0}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell$
   & $\begin{aligned}[t]
-       u_0&:\operatorname{Spec}(\Omega)\to U\\
-       \Omega&:\mathsf{Field},\\
-       &\text{a separable closure}\\
-       &\text{of }\kappa(u),\text{ where }u\\
+       u_0&:\operatorname{Spec}(K^{\mathrm{sep}})\to U\\
+       K&:\mathsf{Field},\\
+       &K=\kappa(u),\text{ where }u\\
        &\text{is the image of }u_0
      \end{aligned}$ \\
 \addlinespace
@@ -1597,7 +1596,7 @@ with transition maps $\zeta\mapsto\zeta^\ell$ in the integral case. For $m:\math
 \qquad
 \mathcal F(m):=\mathcal F\otimes_\Lambda\Lambda(m).
 \]
-Choose a separable closure $\Omega$ of $k$ and put $\Gamma_k:=\operatorname{Gal}(\Omega/k)$. For $n:\mathbb N$ and $\sigma:\Gamma_k$, let $a_n(\sigma):(\mathbb Z/\ell^n\mathbb Z)^\times$ be determined by $\sigma(\zeta)=\zeta^{a_n(\sigma)}$ for every $\zeta:\mu_{\ell^n}(\Omega)$.
+Choose a separable closure $k^{\mathrm{sep}}$ of $k$ and put $\Gamma_k:=\operatorname{Gal}(k^{\mathrm{sep}}/k)$. For $n:\mathbb N$ and $\sigma:\Gamma_k$, let $a_n(\sigma):(\mathbb Z/\ell^n\mathbb Z)^\times$ be determined by $\sigma(\zeta)=\zeta^{a_n(\sigma)}$ for every $\zeta:\mu_{\ell^n}(k^{\mathrm{sep}})$.
 The action on the geometric stalk of $\Lambda(1)$ over $\operatorname{Spec}(k)$ is given by the \textit{cyclotomic character}
 \[
 \chi_\Lambda:\Gamma_k\to\Lambda^\times,
@@ -1638,7 +1637,7 @@ For $\Lambda=\mathbb Q_\ell$, let $\mathcal L:\mathsf{Sh}(X,\mathbb Z_\ell)$ wit
 
 \subsection{Grothendieck's Galois Theory}\label{app:grothendieck-galois-theory}
 
-Let $k:\mathsf{Field}$, let $U:\mathsf{Sch}_k$ be connected, and fix a geometric point $u_0:\operatorname{Spec}(\Omega)\to U$. Put
+Let $k:\mathsf{Field}$, let $U:\mathsf{Sch}_k$ be connected, and fix a geometric point $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\to U$ over $u$, with $K=\kappa(u)$. Put
 \[
 \pi:=\pi_1^{\mathrm{\acute{e}t}}(U,u_0).
 \]
@@ -1648,7 +1647,7 @@ The fibre functor induces an equivalence
 \[
 \omega_{u_0}:\mathsf{\acute{E}t}^{\mathrm{fin}}(U)
 \xrightarrow{\sim}\mathsf{Set}^{\mathrm{fin}}_\pi,
-\qquad Y\longmapsto\operatorname{Hom}_U(\operatorname{Spec}(\Omega),Y),
+\qquad Y\longmapsto\operatorname{Hom}_U(\operatorname{Spec}(K^{\mathrm{sep}}),Y),
 \]
 where $\mathsf{Set}^{\mathrm{fin}}_\pi$ denotes finite sets with continuous left $\pi$-action. In particular,
 \[
@@ -1681,7 +1680,7 @@ H\subseteq\pi
 {[(Y_H,y_H)]}&\mathrel{\reflectbox{$\longmapsto$}}&H
 \end{array}
 \]
-For an open subgroup $H\subseteq\pi$, let $f_H:Y_H\to U$ denote the cover corresponding to the $\pi$-set $\pi/H$, and let $y_H:\operatorname{Spec}(\Omega)\to Y_H$ be the lift of $u_0$ corresponding to the coset $H$. Its degree is $\left[\pi:H\right]$. Unpointed connected covers correspond, up to $U$-isomorphism, to conjugacy classes of open subgroups; c.f. \cite[Theorem~58.6.2, Tag~0BND]{StacksProject}.
+For an open subgroup $H\subseteq\pi$, let $f_H:Y_H\to U$ denote the cover corresponding to the $\pi$-set $\pi/H$, and let $y_H:\operatorname{Spec}(K^{\mathrm{sep}})\to Y_H$ be the lift of $u_0$ corresponding to the coset $H$. Its degree is $\left[\pi:H\right]$. Unpointed connected covers correspond, up to $U$-isomorphism, to conjugacy classes of open subgroups; c.f. \cite[Theorem~58.6.2, Tag~0BND]{StacksProject}.
 \end{custom}
 
 \begin{custom}{Normal Subgroups and Torsors}\label{prop:etale-normal-subgroups-torsors}
@@ -1689,7 +1688,7 @@ For an open normal subgroup $N\triangleleft\pi$, put $G:=\pi/N$. The cover corre
 \end{custom}
 
 \begin{custom}{Arithmetic and Geometric Fundamental Groups}\label{prop:arithmetic-geometric-fundamental-groups}
-If $U:\mathsf{Var}_k$ is geometrically connected, choose a separable closure $k^{\mathrm{sep}}\subseteq\Omega$ of $k$, so that $u_0$ lifts to $U_{k^{\mathrm{sep}}}$. There is a canonical exact sequence
+If $U:\mathsf{Var}_k$ is geometrically connected, choose a $k$-embedding $k^{\mathrm{sep}}\hookrightarrow K^{\mathrm{sep}}$ to lift $u_0$ to $U_{k^{\mathrm{sep}}}$. There is a canonical exact sequence
 \[
 1\longrightarrow\pi_1^{\mathrm{\acute{e}t}}(U_{k^{\mathrm{sep}}},u_0)
 \longrightarrow\pi\longrightarrow\Gamma_k\longrightarrow1,
@@ -1830,7 +1829,7 @@ Suppose $\Lambda:\mathsf{Field}$ is one of $\mathbb C$, $\mathbb Q_\ell$, or $\m
 the category $\mathsf{LocSys}_{\Lambda}(U)$ of local systems or lisse sheaves on $U:\mathsf{Man}_{\mathbb C}$ or $U:\mathsf{Var}_{k}$ is a neutral tannakian category. 
 Its fibre functor is 
 $$\omega_{u_0}:\mathsf{LocSys}_{\Lambda}(U)\rightarrow \mathsf{Vect}_{\Lambda}^{\mathrm{fin}},\qquad \mathcal F\mapsto \mathcal F_{u_0}$$
-at a base point $u_0:U$ or geometric point $u_0:\mathrm{Spec}(\Omega)\rightarrow U$. 
+at a base point $u_0:U$ or geometric point $u_0:\mathrm{Spec}(K^{\mathrm{sep}})\rightarrow U$.
 
 
 \begin{definition}[Tannakian Group]Let $\mathsf C$ be a neutral Tannakian category over $\Lambda:\mathsf{Field}$ with fibre functor $\omega:\mathsf{C}\rightarrow \mathsf{Vect}_\Lambda^{\mathrm{fin}}$, then its \textit{Tannakian group} is the functor $G:\mathsf{Alg}_\Lambda\rightarrow\mathsf{Grp}$
