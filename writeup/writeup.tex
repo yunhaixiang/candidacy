@@ -565,7 +565,7 @@ where the last identification is given by $s(q(\widetilde{u}))=[\widetilde{u},a(
 
 \begin{example}[Local Systems from Complex Families]\label{ex:complex-smooth-proper-families}A rich source of local systems is smooth and proper families. Let
 $$f:E\rightarrow U$$
-be a smooth proper map between complex manifolds. The fibres $E_{u_0}:=f^{-1}(u_0)$ at $u_0:U$ are compact complex manifolds. 
+be a smooth proper map between complex manifolds. 
 The higher direct image sheaves
 $$\mathbf R^q f_{*}\underline{\mathbb C}$$
 are complex local systems for each $q:\mathbb N$ by Ehresmann's fibration theorem \cite[Theorem~9.3]{Voisin2002HodgeI}.
@@ -722,7 +722,7 @@ The case for $\Lambda=\mathbb Z_\ell$ is achieved by applying the construction f
 
 \begin{example}\label{ex:etale-smooth-proper-families}A rich source of lisse sheaves is smooth proper families, as in \cref{ex:complex-smooth-proper-families}. Let
 $$f:E\rightarrow U$$
-be a smooth proper morphism of $k$-schemes. The geometric fibres $E_{u_0}:=E\times_U\operatorname{Spec}(K^{\mathrm{sep}})$ at geometric points $u_0:\operatorname{Spec}(K^{\mathrm{sep}})\rightarrow U$ are smooth proper $K^{\mathrm{sep}}$-schemes.
+be a smooth proper morphism of $k$-schemes. 
 The higher direct images
 $$\mathbf R^q f_*\underline{\Lambda}_E(m)\cong\bigl(\mathbf R^q f_*\underline{\Lambda}_E\bigr)(m)$$
 are lisse on $U$ for each $q:\mathbb N$ and $m:\mathbb Z$, where $(m)$ is the Tate twist defined in \cref{def:tate-twists-cyclotomic-character}, by smooth proper base change \cite[Theorem~20.2 and \S19]{Milne2013EtaleCohomology}, i.e. for $\Lambda=\mathbb Z/\ell^n\mathbb Z$, every geometric point $u_0$ has an \'{e}tale neighbourhood $(V,v_0)$ with
@@ -1151,10 +1151,11 @@ For perverse sheaves with property $\mathcal P$, middle convolution is associati
 Monodromy groups are constrained by the symmetries of the sheaf. 
 A slogan is \textit{monodromy should be as big as the contraints allow}. 
 Big monodromy usually means that the sheaf has as few hidden algebraic symmetries. 
-It is also used to establish independence of $\ell$ in a Serre compatible system of sheaves as well as statistical results about arithmetic objects, as we will explain below. 
+It is also used to establish \textit{independence of $\ell$} in a Serre compatible system of sheaves as well as statistical results about arithmetic objects, as we will explain below. 
 
-\begin{custom}{Serre's Open Image Theorem and Cebotarev Density}
-  A quintessential big monodromy result is \textit{Serre's open image theorem}.
+\begin{custom}{Serre's Open Image Theorem and Chebotarev Density}
+  A quintessential big monodromy result is \textit{Serre's open image theorem}. 
+  Suppose $k$ is a number field, and $E/k$ is an elliptic curve without complex multiplication 
   Cohen–Lenstra 
 \end{custom}
 
@@ -1227,7 +1228,7 @@ G_\Lambda
 \]
 }
 
-Recall there is a perfect Galois-equivariant symplectic pairing supplied by Poincare duality
+Recall there is a Galois-equivariant symplectic pairing supplied by Poincare duality
 \[\omega:
 \mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))
 \times\mathrm H^1_{\mathrm{\acute{e}t}}(C_{K^{\mathrm{sep}}},\underline{\Lambda}(1))
@@ -1249,8 +1250,12 @@ Therefore, we have an upper bound on the monodromy group by the symplectic semil
 $$
 G_\Lambda\hookrightarrow\mathrm{GSp}_{2g}(\Lambda).
 $$
-We have further that if the cyclotomic character is trivial. 
+If the cyclotomic character $\chi_\Lambda$ is trivial, that is, when $K$ contains a primitive $\ell$-th root of unity for $\Lambda=\mathbb F_\ell$ and a primitive $\ell^n$-th root of unity for each $n:\mathbb N$ for $\Lambda=\mathbb Q_\ell$, then we can refine the upper bound to the symplectic group. 
+$$
+G_\Lambda\hookrightarrow\mathrm{Sp}_{2g}(\Lambda)\hookrightarrow\mathrm{GSp}_{2g}(\Lambda).
+$$
 
+To find a lower bound for $G_{\Lambda}$ is a much harder question. 
 
 
 
