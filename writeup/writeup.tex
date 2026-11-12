@@ -1153,11 +1153,7 @@ A slogan is \textit{monodromy should be as big as the contraints allow}.
 Big monodromy usually means that the sheaf has as few hidden algebraic symmetries. 
 It is also used to establish \textit{independence of $\ell$} in a Serre compatible system of sheaves as well as statistical results about arithmetic objects, as we will explain below. 
 
-\begin{custom}{Serre's Open Image Theorem and Chebotarev Density}
-  A quintessential big monodromy result is \textit{Serre's open image theorem}. 
-  Suppose $k$ is a number field, and $E/k$ is an elliptic curve without complex multiplication 
-  Cohen–Lenstra 
-\end{custom}
+
 
 
 \parlabel{par:smoothproper}
@@ -1254,10 +1250,49 @@ If the cyclotomic character $\chi_\Lambda$ is trivial, that is, when $K$ contain
 $$
 G_\Lambda\hookrightarrow\mathrm{Sp}_{2g}(\Lambda)\hookrightarrow\mathrm{GSp}_{2g}(\Lambda).
 $$
-
 To find a lower bound for $G_{\Lambda}$ is a much harder question. 
 
-
+\begin{custom}{Serre's Open Image Theorem and Chebotarev Density}
+  A quintessential big monodromy result is \textit{Serre's open image theorem}.
+  Let $k$ be a number field and $E/k$ an elliptic curve without complex multiplication over $\overline{k}$. 
+  Then the \textit{adelic Galois representation}
+  \[
+    \rho_E:\mathrm{Gal}(\overline{k}/k)
+    \longrightarrow \prod_{\ell}\mathrm{Aut}_{\mathbb Z_\ell}(\mathrm{T}_\ell(E))
+    \cong \mathrm{GL}_2(\widehat{\mathbb Z})
+  \]
+  has open image (equivalently, its image has finite index). In particular, the $\ell$-adic image is open for every prime $\ell$ and equals $\mathrm{GL}_2(\mathbb Z_\ell)$ for all sufficiently large $\ell$. 
+  For those $\ell$, the mod-$\ell$ image is all of $\mathrm{GL}_2(\mathbb F_\ell)$. 
+  On the other hand, a result of Chebotarev \cite[\S2.1, Theorem~1]{Serre1981Chebotarev} says that for a finite Galois extension $L/k$ of number fields and a union $C\subseteq \mathrm{Gal}(L/k)$ of conjugacy classes,
+  \[
+    \mathrm{dens}\{\mathfrak p:\mathfrak p\text{ is unramified in }L \text{\ and\ }
+      \mathrm{Frob}_{\mathfrak p}\subseteq C\}
+    =\frac{\#C}{\# \mathrm{Gal}(L/k)},
+  \]
+  where $\mathrm{Frob}_{\mathfrak p}$ is the Frobenius conjugacy class at $\mathfrak p$ and
+  \[
+    \mathrm{dens}(S):=\lim_{B\to\infty}
+    \frac{\#\{\mathfrak p\in S:\mathrm N\mathfrak p\le B\}}
+         {\#\{\mathfrak p:\mathrm N\mathfrak p\le B\}}
+  \]
+  defines the \textit{natural density} of $S$ whenever the limit exists, where $\mathfrak p$ ranges over all nonzero prime ideals of $\mathcal O_k$, $S$ is a set of such ideals, and $\mathrm N\mathfrak p:=\#(\mathcal O_k/\mathfrak p)$ is the absolute ideal norm.
+  Thus for $k=\mathbb Q$ and all sufficiently large $\ell$, the density
+  \[
+    \mathrm{dens}\{p:\#E(\mathbb F_p)\equiv p+1\pmod\ell\}
+    =\frac{\#\{A\in\mathrm{GL}_2(\mathbb F_\ell):\mathrm{tr}(A)=0\}}
+           {\#\mathrm{GL}_2(\mathbb F_\ell)}
+    =\frac{\ell}{\ell^2-1},
+  \]
+  where $p$ ranges over primes of good reduction with $p\ne\ell$. 
+  We note that, by the Grothendieck--Lefschetz trace formula \cite[Theorem~29.4]{Milne2013EtaleCohomology}, we have
+  \[
+    \#E_p(\mathbb F_p)=p+1-\mathrm{tr}\!\left(
+      \mathrm{Frob}^{-1}_p\mid
+      \mathrm H^1_{\mathrm{\acute{e}t}}((E_p)_{\overline{\mathbb F}_p},\mathbb Z_\ell)
+    \right)
+  \]
+  where $E_p$ is the reduction of $E$ mod $p$. 
+\end{custom}
 
 
 \subsection{Middle Convolution with Kummer Sheaves}
