@@ -1252,7 +1252,7 @@ G_\Lambda\hookrightarrow\mathrm{Sp}_{2g}(\Lambda)\hookrightarrow\mathrm{GSp}_{2g
 $$
 To find a lower bound for $G_{\Lambda}$ is a much harder question. 
 
-\begin{custom}{Serre's Open Image Theorem}
+\begin{custom}{Serre's Open Image Theorem}\label{thm:serre-open-image}
   A quintessential big monodromy result is \textit{Serre's open image theorem}.
   Let $k$ be a number field and $E/k$ an elliptic curve without complex multiplication over $\overline{k}$. 
   Then the \textit{adelic Galois representation}
@@ -1265,7 +1265,7 @@ To find a lower bound for $G_{\Lambda}$ is a much harder question.
   For those $\ell$, the mod-$\ell$ image is all of $\mathrm{GL}_2(\mathbb F_\ell)$. 
 \end{custom}
 
-\begin{custom}{Chebotarev Density Theorem}
+\begin{custom}{Chebotarev Density Theorem}\label{thm:chebotarev-density}
   A result of Chebotarev \cite[\S2.1, Theorem~1]{Serre1981Chebotarev} says that for a finite Galois extension $L/k$ of number fields and a union $C\subseteq \mathrm{Gal}(L/k)$ of conjugacy classes,
   \[
     \mathrm{dens}\{\mathfrak p:\mathfrak p\text{ is unramified in }L \text{\ and\ }
@@ -1280,7 +1280,7 @@ To find a lower bound for $G_{\Lambda}$ is a much harder question.
   \]
   defines the \textit{natural density} of $S$ whenever the limit exists, where $\mathfrak p$ ranges over all nonzero prime ideals of $\mathcal O_k$, $S$ is a set of such ideals, and $\mathrm N\mathfrak p:=\#(\mathcal O_k/\mathfrak p)$ is the absolute ideal norm.
 \end{custom}
-\begin{custom}{Grothendieck–Lefschetz Trace Formula}
+\begin{custom}{Grothendieck–Lefschetz Trace Formula}\label{thm:grothendieck-lefschetz-trace}
 Let $X$ be a smooth projective geometrically connected curve over $\mathbb F_q$, with $\ell\nmid q$. Write $\overline X=X_{\overline{\mathbb F}_q}$ and let $\mathrm{Frob}_q$ be arithmetic Frobenius $a\mapsto a^q$ on $\overline{\mathbb F}_q$. The Grothendieck--Lefschetz trace formula gives the equality in $\mathbb Z_\ell$
 \[
   \#X(\mathbb F_q)
@@ -1292,7 +1292,29 @@ Let $X$ be a smooth projective geometrically connected curve over $\mathbb F_q$,
 \]
 C.f. \cite[Theorem~64.14.4 and Lemma~64.14.6]{StacksProject}.
 \end{custom}
-\begin{custom}{Spreading Out}
+\begin{custom}{Statistics About Elliptic Curves}
+  Let $E/\mathbb Q$ be an elliptic curve without complex multiplication over $\overline{\mathbb Q}$. 
+  By spreading out, we can find a smooth proper model $\mathcal E\rightarrow\operatorname{Spec}\mathbb Z[1/N]$ where $N$ is the product of the primes of bad reduction of $E$. 
+  For $p\nmid N$, the base change $f:\mathcal E_{\mathbb Z_p}\rightarrow\mathrm{Spec}(\mathbb Z_p)$ has generic fibre $\mathcal E_{\mathbb Q_p}\cong (\mathcal E_{\mathbb Q})_{\mathbb Q_p}\cong E_{\mathbb Q_p}$, and its special fibre $E_p:=\mathcal E_{\mathbb F_p}$ is its reduction mod $p$. 
+  For $p\ne\ell$, the sheaf $\mathbf R^1f_*\underline{\mathbb Z_\ell}$ is lisse by smooth proper base change, as in \cref{ex:etale-smooth-proper-families}. Hence, one identifies
+  \[
+    \mathrm H^1_{\mathrm{\acute{e}t}}(E_{\overline{\mathbb Q}},\mathbb Z_\ell)
+    \cong 
+    \mathrm H^1_{\mathrm{\acute{e}t}}(E_{\overline{\mathbb Q}_p},\mathbb Z_\ell)
+    \cong
+    \mathrm H^1_{\mathrm{\acute{e}t}}((E_p)_{\overline{\mathbb F}_p},\mathbb Z_\ell)
+  \]
+  via a choice of embedding $\overline{\mathbb Q}\hookrightarrow\overline{\mathbb Q}_p$ and comparison of the geometric generic and special stalks of this sheaf, taking $\overline{\mathbb F}_p$ to be the residue field of $\overline{\mathbb Q}_p$.
+  This identifies $\mathrm{Frob}_{\mathfrak P}:\mathrm{Aut}_{\mathbb Z_\ell}(\mathrm H^1_{\mathrm{\acute{e}t}}(E_{\overline{\mathbb Q}},\mathbb Z_\ell))$ with $\mathrm{Frob}_p:\mathrm{Aut}_{\mathbb Z_\ell}(\mathrm H^1_{\mathrm{\acute{e}t}}((E_p)_{\overline{\mathbb F}_p},\mathbb Z_\ell))$, where $\mathfrak P$ is the prime above $p$ given by the kernel of the composite
+  \[\mathcal O_{\overline{\mathbb Q}}\hookrightarrow\mathcal O_{\overline{\mathbb Q}_p}\xrightarrow{\mathrm{red}}\overline{\mathbb F}_p.\]
+  Combining Serre's open image theorem (\cref{thm:serre-open-image}), the Chebotarev density theorem (\cref{thm:chebotarev-density}), and the Grothendieck--Lefschetz trace formula (\cref{thm:grothendieck-lefschetz-trace}), we obtain for all sufficiently large $\ell$
+  \[
+    \mathrm{dens}\{p:p\nmid N\ell,\ \#E_p(\mathbb F_p)\equiv p+1\pmod\ell\}
+    =\frac{\#\{A\in\mathrm{GL}_2(\mathbb F_\ell):\mathrm{tr}(A)=0\}}
+          {\#\mathrm{GL}_2(\mathbb F_\ell)}
+    =\frac{\ell}{\ell^2-1}.
+  \]
+  This is a mod-$\ell$ analogue of the trace-zero case of the Lang--Trotter conjecture \cite{LangTrotter1976}.
 \end{custom}
 \subsection{Middle Convolution with Kummer Sheaves}
 \subsection{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Family}
