@@ -711,7 +711,7 @@ The case for $\Lambda=\mathbb Z_\ell$ is achieved by applying the construction f
     Choose a character $\chi:\mu_N(k)\rightarrow M^\times$; then we get the representation
     $$\rho_\chi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\chi(\zeta)(m):=\chi(\zeta)m.$$
     The lisse sheaf we obtain from these data, denoted $\mathcal L_\chi$, is the \textit{Kummer sheaf} of $\chi$. 
-    \item Assume positive characteristic $\operatorname{char}(k)=p\ne \ell$. Let $Y=U=\mathbb G_a/k$, $G=\mathbb F_p$, and let $f:Y\rightarrow U$ be the $G$-torsor $z\mapsto z^p-z$ under the translation action $z\cdot a=z+a$.
+    \item Assume positive characteristic $\operatorname{char}(k)=p\ne \ell$. Let $Y=U=\mathbb G_{a,k}$, $G=\mathbb F_p$, and let $f:Y\rightarrow U$ be the $G$-torsor $z\mapsto z^p-z$ under the translation action $z\cdot a=z+a$.
     Let $K/\mathbb Q_\ell$ be a finite field extension containing a primitive $p$-th root of unity, and let $M=K$ if $\Lambda=\mathbb Q_\ell$, $M=\mathcal O_K$ if $\Lambda=\mathbb Z_\ell$, and $M=\mathcal O_K/\ell^n\mathcal O_K$ if $\Lambda=\mathbb Z/\ell^n\mathbb Z$.
     Choose a (additive) character $\psi:\mathbb F_p\rightarrow M^\times$; then we get the representation
     $$\rho_\psi:G\rightarrow\mathrm{Aut}_\Lambda(M),\qquad \rho_\psi(a)(m):=\psi(a)m.$$
@@ -1104,9 +1104,9 @@ c.f. \cite[\S2.2.2]{Katz1996}.
 
 Let
 $
-a:\mathbb A^1_k\times_k\mathbb A^1_k\longrightarrow\mathbb A^1_k
+a:\mathbb G_{a,k}\times_k\mathbb G_{a,k}\longrightarrow\mathbb G_{a,k}
 $
-be the addition morphism. For $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(\mathbb A^1_k,\Lambda)$, recall 
+be the addition morphism. For $K,L:\mathsf D_{\mathrm c}^{\mathrm b}(\mathbb G_{a,k},\Lambda)$, recall 
 \[
 \begin{aligned}
 K*_!L&:=\mathbf Ra_!(K\boxtimes_\Lambda L),\\
@@ -1116,16 +1116,16 @@ K*_*L&:=\mathbf Ra_*(K\boxtimes_\Lambda L).
 is their \textit{$!$-convolution} and \textit{$*$-convolution}. 
 
 \begin{custom}{Middle Convolution}\label{def:middle-convolution}
-For $K,L:\mathsf{Perv}(\mathbb A^1_k,\Lambda)$ their \textit{middle convolution} is
+For $K,L:\mathsf{Perv}(\mathbb G_{a,k},\Lambda)$ their \textit{middle convolution} is
 \[
-K*_{!*}L:=\operatorname{Im}_{\mathsf{Perv}(\mathbb A^1_k,\Lambda)}
+K*_{!*}L:=\operatorname{Im}_{\mathsf{Perv}(\mathbb G_{a,k},\Lambda)}
 \left(K*_!L\longrightarrow K*_*L\right)
 =a_{!*}(K\boxtimes_\Lambda L),
 \]
 where we assume $K*_!L$ and $K*_*L$ are perverse; c.f. \cite[\S2.6.2]{Katz1996}.
-A perverse $K:\mathsf{Perv}(\mathbb A^1_k,\Lambda)$ has \textit{Katz's property $\mathcal P$} if, for every $L:\mathsf{Perv}(\mathbb A^1_k,\Lambda)$, both $K*_!L$ and $K*_*L$ are perverse.
+A perverse $K:\mathsf{Perv}(\mathbb G_{a,k},\Lambda)$ has \textit{Katz's property $\mathcal P$} if, for every $L:\mathsf{Perv}(\mathbb G_{a,k},\Lambda)$, both $K*_!L$ and $K*_*L$ are perverse.
 For such $K$, $L\mapsto K*_{!*}L$ is defined for every perverse $L$ and preserves injections and surjections; c.f. \cite[\S2.6.1--2]{Katz1996}.
-For perverse sheaves with property $\mathcal P$, middle convolution is associative, commutative, commutes with Verdier duality, and its unit object is the skyscraper sheaf $\delta_0:=(i_0)_*\underline{\Lambda}_{\operatorname{Spec}(k)}$ at the origin, where $i_0:\operatorname{Spec}(k)\hookrightarrow\mathbb A^1_k$ is the inclusion; c.f. \cite[\S2.5.1, \S2.5.3(1), and Lemma~2.6.5]{Katz1996}.
+For perverse sheaves with property $\mathcal P$, middle convolution is associative, commutative, commutes with Verdier duality, and its unit object is the skyscraper sheaf $\delta_0:=(i_0)_*\underline{\Lambda}_{\operatorname{Spec}(k)}$ at the origin, where $i_0:\operatorname{Spec}(k)\hookrightarrow\mathbb G_{a,k}$ is the inclusion; c.f. \cite[\S2.5.1, \S2.5.3(1), and Lemma~2.6.5]{Katz1996}.
 \end{custom}
 
 
@@ -1317,8 +1317,8 @@ C.f. \cite[Theorem~64.14.4 and Lemma~64.14.6]{StacksProject}.
   This is a mod-$\ell$ analogue of the trace-zero case of the Lang--Trotter conjecture \cite{LangTrotter1976}.
 \end{custom}
 \subsection{Middle Convolution with Kummer Sheaves}
-\subsection{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Family}
-
+\subsection{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Jacobians}
+\subsection{Future Topics in Arithmetic Monodromy}
 \newpage 
 \appendix
 \refstepcounter{section}
