@@ -1128,6 +1128,13 @@ For such $K$, $L\mapsto K*_{!*}L$ is defined for every perverse $L$ and preserve
 For perverse sheaves with property $\mathcal P$, middle convolution is associative, commutative, commutes with Verdier duality, and its unit object is the skyscraper sheaf $\delta_0:=(i_0)_*\underline{\Lambda}_{\operatorname{Spec}(k)}$ at the origin, where $i_0:\operatorname{Spec}(k)\hookrightarrow\mathbb G_{a,k}$ is the inclusion; c.f. \cite[\S2.5.1, \S2.5.3(1), and Lemma~2.6.5]{Katz1996}.
 \end{custom}
 
+\begin{custom}{Middle Convolution with Kummer Sheaves}
+Let $j_0:\mathbb G_{m,k}\hookrightarrow\mathbb G_{a,k}$ be the open inclusion and $\mathcal L_\chi$ a nontrivial Kummer sheaf on $\mathbb G_{m,k}$. For a perverse sheaf $K$ on $\mathbb G_{a,k}$, define
+\[
+\operatorname{MC}_\chi(K):=K*_{!*}(j_0)_{!*}\bigl(\mathcal L_\chi[1]\bigr).
+\]
+c.f. \cite[\S2.9]{Katz1996}.
+\end{custom}
 
 
 
@@ -1292,8 +1299,8 @@ Let $X$ be a smooth projective geometrically connected curve over $\mathbb F_q$,
 \]
 C.f. \cite[Theorem~64.14.4 and Lemma~64.14.6]{StacksProject}.
 \end{custom}
-\begin{custom}{Statistics About Elliptic Curves}
-  Let $E/\mathbb Q$ be an elliptic curve without complex multiplication over $\overline{\mathbb Q}$. 
+
+Let $E/\mathbb Q$ be an elliptic curve without complex multiplication over $\overline{\mathbb Q}$. 
   By spreading out, we can find a smooth proper model $\mathcal E\rightarrow\operatorname{Spec}\mathbb Z[1/N]$ where $N$ is the product of the primes of bad reduction of $E$. 
   For $p\nmid N$, the base change $f:\mathcal E_{\mathbb Z_p}\rightarrow\mathrm{Spec}(\mathbb Z_p)$ has generic fibre $\mathcal E_{\mathbb Q_p}\cong (\mathcal E_{\mathbb Q})_{\mathbb Q_p}\cong E_{\mathbb Q_p}$, and its special fibre $E_p:=\mathcal E_{\mathbb F_p}$ is its reduction mod $p$. 
   For $p\ne\ell$, the sheaf $\mathbf R^1f_*\underline{\mathbb Z_\ell}$ is lisse by smooth proper base change, as in \cref{ex:etale-smooth-proper-families}. Hence, one identifies
@@ -1315,8 +1322,8 @@ C.f. \cite[Theorem~64.14.4 and Lemma~64.14.6]{StacksProject}.
     =\frac{\ell}{\ell^2-1}.
   \]
   This is a mod-$\ell$ analogue of a special case of the Lang--Trotter conjecture \cite{LangTrotter1976}.
-\end{custom}
-\subsection{Middle Convolution with Kummer Sheaves}
+
+
 \subsection{Mod-\texorpdfstring{$\ell$}{l} Monodromy of Hyperelliptic Jacobians}
 \subsection{Future Topics in Arithmetic Monodromy}
 \newpage 
