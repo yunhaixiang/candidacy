@@ -2,13 +2,16 @@
 
 \bibitem[AGV73]{SGA4III}
 Michael Artin, Alexander Grothendieck, and Jean-Louis Verdier, editors.
-\newblock {\em Th\'eorie des topos et cohomologie \'etale des sch\'emas. Tome 3 ({SGA} 4)}, volume 305 of {\em Lecture Notes in Mathematics}.
+\newblock {\em Th\'eorie des topos et cohomologie \'etale des sch\'emas. Tome 3
+  ({SGA} 4)}, volume 305 of {\em Lecture Notes in Mathematics}.
 \newblock Springer-Verlag, 1973.
 
 \bibitem[BBD82]{BeilinsonBernsteinDeligne1982}
 Alexander~A. Beilinson, Joseph Bernstein, and Pierre Deligne.
 \newblock Faisceaux pervers.
-\newblock In {\em Analyse et topologie sur les espaces singuliers (I)}, volume 100 of {\em Ast\'erisque}, pages 5--171. Soci\'et\'e math\'ematique de France, Paris, 1982.
+\newblock In {\em Analyse et topologie sur les espaces singuliers (I)}, volume
+  100 of {\em Ast\'erisque}, pages 5--171. Soci\'et\'e math\'ematique de
+  France, Paris, 1982.
 
 \bibitem[BS15]{BhattScholze2015}
 Bhargav Bhatt and Peter Scholze.
@@ -18,51 +21,61 @@ Bhargav Bhatt and Peter Scholze.
 \bibitem[Cre92]{Crew1992Isocrystals}
 Richard Crew.
 \newblock {$F$}-isocrystals and their monodromy groups.
-\newblock {\em Annales scientifiques de l'\'Ecole Normale Sup\'erieure}, 25(4):429--464, 1992.
+\newblock {\em Annales scientifiques de l'\'Ecole Normale Sup\'erieure},
+  25(4):429--464, 1992.
 
 \bibitem[DM82]{DeligneMilne1982}
 Pierre Deligne and James~S. Milne.
 \newblock Tannakian categories.
-\newblock In {\em Hodge Cycles, Motives, and Shimura Varieties}, volume 900 of {\em Lecture Notes in Mathematics}, pages 101--228. Springer-Verlag, 1982.
+\newblock In {\em Hodge Cycles, Motives, and Shimura Varieties}, volume 900 of
+  {\em Lecture Notes in Mathematics}, pages 101--228. Springer-Verlag, 1982.
 \newblock \url{https://www.jmilne.org/math/xnotes/tc.pdf}.
 
 \bibitem[Fal83]{Faltings1983}
 Gerd Faltings.
-\newblock Endlichkeitss{\"a}tze f{\"u}r abelsche variet{\"a}ten {\"u}ber zahlk{\"o}rpern.
+\newblock Endlichkeitss{\"a}tze f{\"u}r abelsche variet{\"a}ten {\"u}ber
+  zahlk{\"o}rpern.
 \newblock {\em Inventiones Mathematicae}, 73(3):349--366, 1983.
 \newblock Erratum: Inventiones Mathematicae 75 (1984), p.~381.
 
 \bibitem[Gro77]{SGA5}
 Alexander Grothendieck.
-\newblock {\em Cohomologie $\ell$-adique et fonctions {L}: S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois-Marie 1965--1966 ({SGA} 5)}, volume 589 of {\em Lecture Notes in Mathematics}.
+\newblock {\em Cohomologie $\ell$-adique et fonctions {L}: S\'eminaire de
+  G\'eom\'etrie Alg\'ebrique du Bois-Marie 1965--1966 ({SGA} 5)}, volume 589 of
+  {\em Lecture Notes in Mathematics}.
 \newblock Springer-Verlag, 1977.
 \newblock Edited by Luc Illusie.
 
 \bibitem[HTT08]{HottaTakeuchiTanisaki2008}
 Ryoshi Hotta, Kiyoshi Takeuchi, and Toshiyuki Tanisaki.
-\newblock {\em {$D$-Modules, Perverse Sheaves, and Representation Theory}}, volume 236 of {\em Progress in Mathematics}.
+\newblock {\em {$D$-Modules, Perverse Sheaves, and Representation Theory}},
+  volume 236 of {\em Progress in Mathematics}.
 \newblock Birkh\"auser, 2008.
 
 \bibitem[Kat88]{Katz1988GKM}
 Nicholas~M. Katz.
-\newblock {\em {Gauss Sums, Kloosterman Sums, and Monodromy Groups}}, volume 116 of {\em Annals of Mathematics Studies}.
+\newblock {\em {Gauss Sums, Kloosterman Sums, and Monodromy Groups}}, volume
+  116 of {\em Annals of Mathematics Studies}.
 \newblock Princeton University Press, 1988.
 
 \bibitem[Kat96]{Katz1996}
 Nicholas~M. Katz.
-\newblock {\em Rigid Local Systems}, volume 139 of {\em Annals of Mathematics Studies}.
+\newblock {\em Rigid Local Systems}, volume 139 of {\em Annals of Mathematics
+  Studies}.
 \newblock Princeton University Press, 1996.
 
 \bibitem[LT76]{LangTrotter1976}
 Serge Lang and Hale~Freeman Trotter.
-\newblock {\em Frobenius Distributions in {$\mathrm{GL}_2$}-Extensions}, volume 504 of {\em Lecture Notes in Mathematics}.
+\newblock {\em Frobenius Distributions in {$\mathrm{GL}_2$}-Extensions}, volume
+  504 of {\em Lecture Notes in Mathematics}.
 \newblock Springer-Verlag, 1976.
 
 \bibitem[Mac90]{MacPherson1990}
 Robert MacPherson.
 \newblock Intersection homology and perverse sheaves.
 \newblock Unpublished lecture notes, 1990.
-\newblock \url{https://www.math.ru.nl/~bmoonen/Seminars/IntersectionHomology.pdf}.
+\newblock
+  \url{https://www.math.ru.nl/~bmoonen/Seminars/IntersectionHomology.pdf}.
 
 \bibitem[Mil08]{Milne2008AbelianVarieties}
 James~S. Milne.
@@ -85,27 +98,34 @@ James~S. Milne.
 \bibitem[Mor78]{Mori1978}
 Shigefumi Mori.
 \newblock On {Tate} conjecture concerning endomorphisms of abelian varieties.
-\newblock In {\em Proceedings of the International Symposium on Algebraic Geometry (Kyoto, 1977)}, pages 219--230, Tokyo, 1978. Kinokuniya Book Store.
+\newblock In {\em Proceedings of the International Symposium on Algebraic
+  Geometry (Kyoto, 1977)}, pages 219--230, Tokyo, 1978. Kinokuniya Book Store.
 
 \bibitem[Sch11]{Schapira2011AlgebraTopology}
 Pierre Schapira.
 \newblock Algebra and topology.
-\newblock Lecture notes, course at Paris VI University, 2007--2008, version 2, 2011.
-\newblock \url{https://www.math.univ-paris13.fr/~ginot/AT/Schapira_Notes_AlTo.pdf}.
+\newblock Lecture notes, course at Paris VI University, 2007--2008, version 2,
+  2011.
+\newblock
+  \url{https://www.math.univ-paris13.fr/~ginot/AT/Schapira_Notes_AlTo.pdf}.
 
 \bibitem[Ser81]{Serre1981Chebotarev}
 Jean-Pierre Serre.
-\newblock Quelques applications du th{\'e}or{\`e}me de densit{\'e} de {Chebotarev}.
-\newblock {\em Publications Math{\'e}matiques de l'IH{\'E}S}, 54:123--201, 1981.
+\newblock Quelques applications du th{\'e}or{\`e}me de densit{\'e} de
+  {Chebotarev}.
+\newblock {\em Publications Math{\'e}matiques de l'IH{\'E}S}, 54:123--201,
+  1981.
 
 \bibitem[Ser92]{Serre1992Lie}
 Jean-Pierre Serre.
-\newblock {\em Lie Algebras and Lie Groups: 1964 Lectures Given at {Harvard University}}, volume 1500 of {\em Lecture Notes in Mathematics}.
+\newblock {\em Lie Algebras and Lie Groups: 1964 Lectures Given at {Harvard
+  University}}, volume 1500 of {\em Lecture Notes in Mathematics}.
 \newblock Springer-Verlag, second edition, 1992.
 
 \bibitem[Sil09]{Silverman2009}
 Joseph~H. Silverman.
-\newblock {\em The Arithmetic of Elliptic Curves}, volume 106 of {\em Graduate Texts in Mathematics}.
+\newblock {\em The Arithmetic of Elliptic Curves}, volume 106 of {\em Graduate
+  Texts in Mathematics}.
 \newblock Springer, New York, 2 edition, 2009.
 
 \bibitem[ST68]{SerreTate1968}
@@ -120,7 +140,8 @@ The {Stacks project authors}.
 
 \bibitem[Tan39]{Tannaka1939}
 Tadao Tannaka.
-\newblock {{\"U}ber den Dualit{\"a}tssatz der nichtkommutativen topologischen Gruppen}.
+\newblock {{\"U}ber den Dualit{\"a}tssatz der nichtkommutativen topologischen
+  Gruppen}.
 \newblock {\em T\^ohoku Mathematical Journal, First Series}, 45:1--12, 1939.
 
 \bibitem[Tat66]{Tate1966}
@@ -130,7 +151,8 @@ John Tate.
 
 \bibitem[Voi02]{Voisin2002HodgeI}
 Claire Voisin.
-\newblock {\em {Hodge Theory and Complex Algebraic Geometry I}}, volume~76 of {\em Cambridge Studies in Advanced Mathematics}.
+\newblock {\em {Hodge Theory and Complex Algebraic Geometry I}}, volume~76 of
+  {\em Cambridge Studies in Advanced Mathematics}.
 \newblock Cambridge University Press, 2002.
 \newblock Translated by Leila Schneps.
 

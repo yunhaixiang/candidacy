@@ -653,9 +653,10 @@ Just as in \cref{par:complex-monodromy-equivalence}, for connected $U$ and a geo
 \simeq^{\otimes}
 \mathsf{Rep}_\Lambda^{\mathrm{fin}}\bigl(\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\bigr)
 \]
-If $\Lambda$ is $\mathbb Q_\ell$ or $\mathbb F_\ell$, the \textit{algebraic monodromy group} of a lisse sheaf $\mathcal F$ at $u_0$ is the Zariski closure of the image of its associated representation $G_{\mathcal F}:=\rho_{\mathcal F,u_0}(\pi_1^{\mathrm{\acute{e}t}}(U,u_0))^{\mathrm{Zar}}$.
+If $\Lambda$ is $\mathbb Q_\ell$ or $\mathbb F_\ell$ and $U/k$ is geometrically connected, the \textit{arithmetic (resp. geometric) monodromy group} of a lisse sheaf $\mathcal F$ at $u_0$ is $G_{\mathcal F}^{\mathrm{arith}}:=\rho_{\mathcal F,u_0}(\pi_1^{\mathrm{\acute{e}t}}(U,u_0))$ (resp. $G_{\mathcal F}^{\mathrm{geom}}:=\rho_{\mathcal F,u_0}(\pi_1^{\mathrm{\acute{e}t}}(U_{k^{\mathrm{sep}}},u_0))$), with $u_0$ lifted as in \cref{prop:arithmetic-geometric-fundamental-groups}.
+The corresponding \textit{algebraic monodromy group} is its Zariski closure in $\mathrm{GL}_\Lambda(\mathcal F_{u_0})$.
 
-We remark that in the context of the $p$-adic analogue of lisse $\ell$-adic sheaves, where monodromy representations are unavailable, Tannakian formalism (see \cref{subsec:tannakian-formalism}) is required to define algebraic monodromy groups; c.f. \cite[\S2]{Crew1992Isocrystals}. 
+We remark that in contexts such as perverse sheaves or the $p$-adic analogue of lisse $\ell$-adic sheaves, where monodromy representations are unavailable, Tannakian formalism (see \cref{subsec:tannakian-formalism}) is required to define algebraic monodromy groups; c.f. \cite[\S2]{Crew1992Isocrystals}. 
 
 Let $\Lambda=\mathbb Z/\ell^n\mathbb Z$ for $n:\mathbb N$, and $\mathcal F:\mathsf{LocSys}_{\Lambda}(U)$. Let $E\rightarrow U$ be the finite étale cover representing the underlying sheaf of sets of $\mathcal F$, we have a (continuous) representation
 $$\rho_{\mathcal F}:\pi_1^{\mathrm{\acute{e}t}}(U,u_0)\rightarrow \mathrm{Aut}_{\mathsf{Mod}_{\Lambda}}(\mathcal F_{u_0})$$
