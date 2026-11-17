@@ -1333,6 +1333,7 @@ We demonstrate the use of big monodromy in arithmetic statistics with an example
   f & k[x] & A monic square-free polynomial of degree $2g$ \\
   S & \mathsf{Sch}_{\operatorname{Spec}(k)} & The finite reduced closed subscheme $\mathrm{V}(f)\subseteq\mathbb G_{a,k}$ \\
   U & \mathsf{Curv}^{\mathrm{sm}}_k & The complementary open $\mathbb G_{a,k}\setminus S$ \\
+  j & U\hookrightarrow\mathbb G_{a,k} & The open inclusion \\
   K & \mathsf{Field} & The function field $k(U)$ \\
   u_0 & \operatorname{Spec}(K^{\mathrm{sep}})\to U & A geometric generic point \\
 \end{notationtable}
@@ -1351,10 +1352,18 @@ E_\chi:=\mathbb G_{m,k}\times^{\mu_2(k)}\mathbb F_\ell
 \cong\left.\left(\coprod_{m\,:\,\mathbb F_\ell}\mathbb G_{m,k}\right)\middle/\mu_2(k)\right.\longrightarrow\mathbb G_{m,k},
 \qquad (z,m)\cdot\xi=\bigl(z\xi,\chi(\xi)^{-1}m\bigr),
 \]
-where $z:\mathbb G_{m,k}(R)$ for $R:\mathsf{Alg}_k$, $\xi:\mu_2(k)$, and $m:\mathbb F_\ell$. The polynomial $f:k[x]$ induces $f:U\rightarrow\mathbb G_{m,k}$. 
-Similarly, 
+where $z:\mathbb G_{m,k}(R)$ for $R:\mathsf{Alg}_k$, $\xi:\mu_2(k)$, and $m:\mathbb F_\ell$. 
+For each $k$-morphism
+$$h:W\rightarrow \mathbb G_{m,k},\qquad (x_1,\dots,x_n)\mapsto h(x_1,\dots,x_n)$$
+we write $\mathcal L(h(x_1,\dots,x_n)):=h^*\mathcal L:\mathsf{LocSys}_{\mathbb F_\ell}(W)$. 
+Let 
+$$W=U\times_k U\setminus \{\textrm{diagonal}\}=\{(x,t):(U\times_k U)\mid x\ne t\}$$
+then we have the sheaves $\mathcal L_\chi(f(x)), \mathcal L_\chi(t-x), \mathcal L_\chi(f(x)(t-x)):\mathsf{LocSys}_{\mathbb F_\ell}(W)$. We claim that 
+\[
+j^*\operatorname{MC}_\chi\bigl(j_{!*}(\mathcal L_\chi(f(x))[1])\bigr)
+\cong\bigl(\mathbf R^1\pi_*\underline{\mathbb F_\ell}_{\mathcal C}\bigr)[1].
+\]
 
-\subsection{Future Topics in Monodromy}
 \newpage 
 \appendix
 \refstepcounter{section}
